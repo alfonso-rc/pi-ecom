@@ -54,6 +54,12 @@ module.exports = (sequelize) => {
     },
     conectividad: {
         type: DataTypes.STRING,
+    },
+    stock: {
+        type: DataTypes.INTEGER,
+    },
+    disable: {
+        type: DataType.BOOLEAN,
     }
   },{timestamps:false}
   );
