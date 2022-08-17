@@ -1,10 +1,19 @@
 const initialState = {
   articles: [],
+  filteredArticle: [],
   categorys: [],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+   case "GET_ARTICLES":
+    return {
+      ...state,
+      articles: action.payload,
+      filteredArticle: action.payload,
+  }
+
+
     case "ORDER_BY_ARTICLES":
       let sortedArr =
         action.payload === "AZ"

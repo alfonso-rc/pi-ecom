@@ -1,5 +1,21 @@
 import axios from "axios";
 
+export function getArticles(){
+  try {
+  return function(dispatch) {
+      axios.get("http://localhost:3001/articles/")
+      .then ((articles) => {
+          dispatch({
+              type: "GET_ARTICLES",
+              payload: articles.data
+          })
+      })
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function orderByAZ(payload) {
   try {
     return {
