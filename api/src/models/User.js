@@ -38,9 +38,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull:false
     },
-    admin:{
-      type: DataTypes.STRING,
-      allowNull:false
+    coins:{
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+    UserType:{
+      type: DataTypes.ENUM('1','2','3'),
+      allowNull:false,
+      defaultValue: '1'
     },
   });
 };
