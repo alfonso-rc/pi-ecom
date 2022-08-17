@@ -5,16 +5,11 @@ module.exports = (sequelize) => {
     id: { // Solo tendremos 4 categorias de productos
       type: DataTypes.INTEGER,
       primaryKey: true,
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true
+      name: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      }
     },
-    name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    }
-  }, {
     timestamps: false
   });
 };
