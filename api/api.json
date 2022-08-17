@@ -1,0 +1,6 @@
+{
+    "article": [
+        {"id":1, "title":"", "rating":"","Detail":{ "detail":"", "marca":"", "modelo":"", "SO":"", "CPU":""}, "image":"","Stock":"", "Disable":"","Price":0 }
+    ]
+
+}
