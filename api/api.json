@@ -4,7 +4,7 @@
         {"id":61, "title":"Tablet Samsung Galaxy Tab A A8 2022"
         , "rating":"4.7","Detail":{ "detail":"Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones wi-fi, bluetooth, usb-c 2.0, wi-fi direct te permiten potenciar sus funciones al máximo. Gracias a su cámara principal de 8 Mpx y frontal de 5 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes harán que tus experiencias se reflejen de manera óptima.", 
         "marca":"Samsumg", "modelo":"A8", "SO":"Android 11.0", "CPU":"Octa-Core de 2GHz",  "Ram":"", "Color":"", "Pantalla":""}, "image":"https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp","Stock":3, "Disable":"True","Price":442, "Conectividad":"" },
-       
+        
         {"id":46, "title":"Lenovo 82H00013LM Tablet Ideapad D330-10IGM", "rating":"4.7","Detail":{ "detail":"",
          "marca":"Lenovo", "modelo":"D330-10IGM", "SO":"windows 10", "CPU":"Celeron N4020", "Ram":"8 gb", "Color":"Silver", "Pantalla":"10.1"}, "image":"https://m.media-amazon.com/images/I/41+I5GmZcBL._AC_SY300_SX300_.jpg","Stock":"10", "Disable":"True","Price":320,"Conectividad":"Wi-Fi" },
         {"id":47, "title":"Lenovo Laptop IdeaPad 3-14ITL ", "rating":"5","Detail":{ "detail":"Equipo ideal y basico para estudiantes, con gran capacidad de memoria, la combinación perfecta de rendimiento y versatilidad",
@@ -15,6 +15,5 @@
          "marca":"Lenovo", "modelo":"Legion 5", "SO":"windows 10", "CPU":"AMD Ryzen 5 ", "Ram":"32 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/41nznX70ODL._AC_.jpg","Stock":"9", "Disable":"True","Price":"498","Conectividad":"Wi-Fi 6" },
         {"id":50, "title":" ", "rating":"","Detail":{ "detail":"ESTÉTICA Y COMODIDAD. La ThinkPad E15 de 2da Gen llévatela a cualquier parte, es liviana y fácil de llevar. Tecnologia de vanguardia de ultima generación con lo que consigues un mayor rendimiento para las tareas en el trabajo.",
         "marca":"Lenovo", "modelo":"ThinkPad E15 2G", "SO":"windows 11 pro", "CPU":"Intel Iris Xe Graphics", "Ram":"16 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/51CFVDBG71L._AC_SX522_.jpg","Stock":"8", "Disable":"True","Price":"1299","Conectividad":"Wi-Fi 6" },
-
     ]
 }
