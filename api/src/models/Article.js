@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('articulos', {
+  sequelize.define('article', {
     id:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
     },
     image: {
-        type: DataTypes.ARRAY(STRING),
+        type: DataTypes.ARRAY(DataTypes.STRING),
     },
     video: {
         type: DataTypes.STRING,
@@ -59,7 +59,7 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
     },
     disable: {
-        type: DataType.BOOLEAN,
+        type: DataTypes.BOOLEAN,
     }
   },{timestamps:false}
   );

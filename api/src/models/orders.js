@@ -4,7 +4,8 @@ module.exports = (sequelize) => {
   sequelize.define('orders', {
     id_orders: {
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     date: {
       type: DataTypes.DATE,
@@ -27,6 +28,6 @@ module.exports = (sequelize) => {
         allowNull:false
     }
   }, {
-    timestamps: false
+    timestamps: true
   });
 };
