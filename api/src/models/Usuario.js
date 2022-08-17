@@ -6,6 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('usuario', {
     id:{
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull:false
     },
     name: {
