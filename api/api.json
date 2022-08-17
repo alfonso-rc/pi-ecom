@@ -1,6 +1,5 @@
 {
-    "article": [
-        
+    "article": [       
         {"id":1, "title":"Samsumg Galaxy S22"
         , "rating":"4.4","Detail":{ "detail":"Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.", 
         "marca":"Samsumg", "modelo":"S22", "SO":"Android", "CPU":"Octa-Core de 2.99GHz",  "Ram":"8GB", "Color":"Green, Black, White, Pink", "Pantalla":"6.1"}, "image":"https://http2.mlstatic.com/D_NQ_NP_686082-MLA49387650727_032022-O.webp","Stock":3, "Disable":"True","Price": 1.593, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
@@ -46,8 +45,16 @@
         {"id":15, "title":"Samsumg M23 5G"
         , "rating":"5.0","Detail":{ "detail":"Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.", 
         "marca":"Samsumg", "modelo":"M23", "SO":"Android", "CPU":"Octa-Core de 2.2GHz, 1.8GHz",  "Ram":"4GB", "Color":"Green, Blue", "Pantalla":"6.6"}, "image":"https://http2.mlstatic.com/D_NQ_NP_833241-MLA50136358907_052022-O.webp","Stock":15, "Disable":"True","Price": 634, "Conectividad":"USB Type-C, USB 2.0", "category": 1 }
+        
+        {"id":46, "title":"Lenovo 82H00013LM Tablet Ideapad D330-10IGM", "rating":"4.7","Detail":{ "detail":"",
+         "marca":"Lenovo", "modelo":"D330-10IGM", "SO":"windows 10", "CPU":"Celeron N4020", "Ram":"8 gb", "Color":"Silver", "Pantalla":"10.1"}, "image":"https://m.media-amazon.com/images/I/41+I5GmZcBL._AC_SY300_SX300_.jpg","Stock":"10", "Disable":"True","Price":320,"Conectividad":"Wi-Fi" },
+        {"id":47, "title":"Lenovo Laptop IdeaPad 3-14ITL ", "rating":"5","Detail":{ "detail":"Equipo ideal y basico para estudiantes, con gran capacidad de memoria, la combinación perfecta de rendimiento y versatilidad",
+        "marca":"Lenovo", "modelo":"IdeaPad 3-15ITL", "SO":"windows 10", "CPU":"Intel Core i3", "Ram":"8 gb", "Color":"plateado", "Pantalla":"14"}, "image":"https://m.media-amazon.com/images/I/61ST0gpYFPL._AC_SX522_.jpg","Stock":"15", "Disable":"True","Price":"479.50","Conectividad":"Wi-Fi" },
+        {"id":48, "title":"Laptop Lenovo Pantalla 15.6 táctil HD", "rating":"5.2","Detail":{ "detail":"Ejecuta al mismo tiempo varios programas exigentes o juega hasta los últimos títulos AAA. Disfruta de una velocidad e inteligencia sin igual que harán que tu experiencia sea rápida, fluida y sencilla, con la gran nitidez de imágenes que brinda la tarjeta gráfica integrada opcional Inte",
+        "marca":"Lenovo", "modelo":"IdeaPad 3-15ITL05", "SO":"windows 10", "CPU":"Intel UHD Graphics", "Ram":"8gb", "Color":"plata", "Pantalla":"15.1"}, "image":"https://m.media-amazon.com/images/I/81iKKYRE89L._AC_SX522_.jpg","Stock":"8", "Disable":"True","Price":"432","Conectividad":"Wi-Fi" },
+        {"id":49, "title":"Lenovo Legion 5 Computadora portátil para juegos,", "rating":"5","Detail":{ "detail":"Equipo de alto rendimiento con graficos NVIDIA GetForce, pantalla antireflejos. ideal para Juegos y con teclado Legion de alta precision. Todo lo que necesitas para divertirte y ser productivo",
+         "marca":"Lenovo", "modelo":"Legion 5", "SO":"windows 10", "CPU":"AMD Ryzen 5 ", "Ram":"32 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/41nznX70ODL._AC_.jpg","Stock":"9", "Disable":"True","Price":"498","Conectividad":"Wi-Fi 6" },
+        {"id":50, "title":" ", "rating":"","Detail":{ "detail":"ESTÉTICA Y COMODIDAD. La ThinkPad E15 de 2da Gen llévatela a cualquier parte, es liviana y fácil de llevar. Tecnologia de vanguardia de ultima generación con lo que consigues un mayor rendimiento para las tareas en el trabajo.",
+        "marca":"Lenovo", "modelo":"ThinkPad E15 2G", "SO":"windows 11 pro", "CPU":"Intel Iris Xe Graphics", "Ram":"16 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/51CFVDBG71L._AC_SX522_.jpg","Stock":"8", "Disable":"True","Price":"1299","Conectividad":"Wi-Fi 6" },
     ]
-
-
-
 }
