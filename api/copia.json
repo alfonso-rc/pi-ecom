@@ -1,0 +1,257 @@
+[
+  {
+    "id": 16,
+    "title": "Apple iPhone 11 (128 GB) - Negro",
+    "rating": 5,
+    "Detail": {
+      "detail": "Graba videos 4K y captura retratos espectaculares y paisajes increíbles con el sistema de dos cámaras. Toma grandes fotos con poca luz gracias al modo Noche. Disfruta colores reales en las fotos, videos y juegos con la pantalla Liquid Retina de 6.1 pulgadas (3). Aprovecha un rendimiento sin precedentes en los juegos, la realidad aumentada y la fotografía con el chip A13 Bionic. Haz mucho más sin necesidad de volver a cargar el teléfono gracias a su batería de larga duración (2). Y no te preocupes si se moja, el iPhone 11 tiene una resistencia al agua de hasta 30 minutos a una profundidad máxima de 2 metros (1).",
+      "marca": "Apple",
+      "modelo": "iPhone 11",
+      "SO": "iOS 14",
+      "CPU": "Apple A13 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_990246-MLA46153276373_052021-O.webp",
+    "Stock": 10,
+    "Disable": false,
+    "Price": 696.99,
+    "Category": 1
+  },
+  {
+    "id": 17,
+    "title": "iPhone 11 Pro 64 GB gris espacial",
+    "rating": 5,
+    "Detail": {
+      "detail": "Una pantalla que brilla sobre todo lo conocido. La pantalla OLED Super Retina XDR de 5,8\", sin marcos y con una resolución FullHD+, es la pantalla más nítida diseñada por Apple. Cuenta con dos niveles máximos de brillo que se ajustan automáticamente a la luz del ambiente. Gracias a la alta intensidad de contrastes y a un mayor nivel de detalle, es perfecta para ver películas HDR, incluso bajo el sol.",
+      "marca": "Apple",
+      "modelo": "iPhone 11 pro",
+      "SO": "iOS 13",
+      "CPU": "Apple A13 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_786531-MLA44294196323_122020-O.webp",
+    "Stock": "10",
+    "Disable": false,
+    "Price": 774.96,
+    "Category": 1
+  },
+  {
+    "id": 18,
+    "title": "Apple iPhone 12 (64 GB) - Azul",
+    "rating": 5,
+    "Detail": {
+      "detail": "El iPhone 12 tiene una espectacular pantalla Super Retina XDR de 6.1 pulgadas (1). Un frente de Ceramic Shield, cuatro veces más resistente a las caídas (2). Modo Noche en todas las cámaras, para que puedas tomar fotos increíbles con poca luz. Grabación, edición y reproducción de video en Dolby Vision con calidad cinematográfica. Y el potente chip A14 Bionic. Además, es compatible con los nuevos accesorios MagSafe, que se acoplan fácilmente a tu iPhone y permiten una carga inalámbrica más rápida (3). Que comience la diversión.",
+      "marca": "Apple",
+      "modelo": "iPhone 12",
+      "SO": "iOS 14",
+      "CPU": "Apple A14 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_644895-MLA46153583487_052021-O.webp",
+    "Stock": 10,
+    "Disable": false,
+    "Price": 871.51,
+    "Category": 1
+  },
+  {
+    "id": 19,
+    "title": "Apple iPhone SE (3ª generación, 128 GB) - Azul medianoche",
+    "rating": 4,
+    "Detail": {
+      "detail": "Chip A15 Bionic superrápido. Una increíble duración de batería y una cámara que es una superestrella. Y además, el vidrio más resistente en un smartphone y botón de inicio con la seguridad de Touch ID.",
+      "marca": "Apple",
+      "modelo": "iPhone SE (3rd Generation)",
+      "SO": "iOS 15.4",
+      "CPU": "Apple A15 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_990892-MLA49590214677_042022-O.webp",
+    "Stock": 7,
+    "Disable": false,
+    "Price": 546.45,
+    "Category": 1
+  },
+  {
+    "id": 20,
+    "title": "Apple iPhone 13 Pro Max 128gb",
+    "rating": 5,
+    "Detail": {
+      "detail": "Conoce la mejor experiencia de tecnología y eficiencia. Con nuestro IPHONE 13 PRO MAX de 128GB. Trae un sistema de cámaras mucho más poderoso. Una pantalla con respuesta inmediata en cada interacción. Procesador Apple A15 Bionic que lo hace mucho mas rápido. Un diseño increíblemente resistente. Y un gran salto en duración de batería.",
+      "marca": "Apple",
+      "modelo": "iPhone 13 Pro Max",
+      "SO": "iOS 15",
+      "CPU": "Apple A15 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_976471-MCO50076875473_052022-O.webp",
+    "Stock": 12,
+    "Disable": false,
+    "Price": 1354.17,
+    "Category": 1
+  },
+  {
+    "id": 21,
+    "title": "Apple iPhone SE (2da generación) 64 GB - Negro",
+    "rating": 5,
+    "Detail": {
+      "detail": "El iPhone SE es el iPhone de 4,7 pulgadas más potente hasta ahora (1). Tiene el chip A13 Bionic, que ofrece un rendimiento increíble en apps, juegos y fotos. Viene con modo Retrato y seis efectos de iluminación para tomar retratos con calidad de estudio, HDR Inteligente de última generación que ofrece un nivel de detalle sorprendente en las luces y las sombras de las fotos, video 4K de calidad cinematográfica y todas las funcionalidades avanzadas de iOS. Además de una batería de larga duración (2) y resistencia al agua (3). Tiene todo lo que te gusta del iPhone en un diseño compacto que te encantará.",
+      "marca": "Apple",
+      "modelo": "iPhone SE (2nd Generation)",
+      "SO": "iOS 13",
+      "CPU": "Apple A13 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_624279-MLA47681022745_092021-O.webp",
+    "Stock": 9,
+    "Disable": false,
+    "Price": 248.98,
+    "Category": 1
+  },
+  {
+    "id": 22,
+    "title": "Apple iPhone 7 Plus 32 GB negro mate",
+    "rating": 4,
+    "Detail": {
+      "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Sus 2 cámaras traseras de 12 Mpx/12 Mpx te permitirán tomar imágenes con más detalles y lograr efectos únicos como el famoso modo retrato de poca profundidad de campo. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con su memoria interna de 32 GB descarga tus aplicaciones favoritas y guarda todas las fotos y videos que quieras.",
+      "marca": "Apple",
+      "modelo": "iPhone 7 Plus",
+      "SO": "iOS 10.01",
+      "CPU": "Apple A10 Fusion"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_604878-MLA43704039116_102020-O.webp",
+    "Stock": 6,
+    "Disable": false,
+    "Price": 482.88,
+    "Category": 1
+  },
+  {
+    "id": 23,
+    "title": "Apple iPhone X A1901 A1865 3gb 64gb",
+    "rating": 4.5,
+    "Detail": {
+      "detail": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece. Con una atípica resolución de 2436 x 1125 pixels, acomoda 458ppi. Por dentro, el iPhone X tiene el nuevo procesador A11 Bionic. La cámara es dual de 12 MP similar a la del iPhone 8, es resistente al agua y corre iOS 11. A1865: El iPhone 10 X A1865 es considerado el teléfono global, ya que es compatible con redes GSM y CDMA. Todos los modelos cuentan con WI-FI 802.11ac con MIMO, tecnología inalánbrica Bluetooth 5.0. NFC con modo de lectura.",
+      "marca": "Apple",
+      "modelo": "iPhone X",
+      "SO": "iOS 11",
+      "CPU": "Apple A11 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_950598-MCO32413287415_102019-O.webp",
+    "Stock": 7,
+    "Disable": false,
+    "Price": 579.22,
+    "Category": 1
+  },
+  {
+    "id": 24,
+    "title": "Apple iPhone XR A1984 3gb 128gb",
+    "rating": 4,
+    "Detail": {
+      "detail": "El Apple iPhone Xr llega en el 2018 para reemplazar definitivamente el botón Touch ID en el iPhone. reemplazando a los modelos clásicos del iPhone, el iPhone Xr tiene una pantalla LCD de 6.1 pulgadas de borde a borde con notch incluido y resolución Retina. El iPhone Xr está potenciado por el procesador A12 Bionic con 64GB, 128GB o 256GB de almacenamiento interno, y cuenta con una cámara de 12 megapixels, cámara frontal de 7 megapixels, carga inalámbrica y certificación IP67 a prueba de agua, disponible en una variedad enorme de colores. OS 12 es el sistema operativo del Apple iPhone Xr, que en cuanto a dimensiones tiene un perfil de 8.3 mm y un peso de 194 g. Entre las características del Apple iPhone Xr se destaca una pantalla de 6.1\" con una resolución de 828 x 1792 pixels. Completando las especificaciones técnicas del Apple iPhone Xr, podemos encontrar parlantes stereo para un sonido superior.",
+      "marca": "Apple",
+      "modelo": "iPhone XR",
+      "SO": "iOS 12",
+      "CPU": "Apple A12 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_625521-MCO32404760254_102019-O.webp",
+    "Stock": 10,
+    "Disable": false,
+    "Price": 558.02,
+    "Category": 1
+  },
+  {
+    "id": 25,
+    "title": "Apple iPhone 12 Pro Max (256 Gb) - Azul Pacífico Model A2342",
+    "rating": 4.5,
+    "Detail": {
+      "detail": "El iPhone 12 Pro Max tiene una pantalla Super Retina XDR más grande, de 6.7 pulgadas (1). Con el nuevo Ceramic Shield, es cuatro veces más resistente a las caídas (2). Y te permite tomar fotos increíbles con poca luz gracias al mejor sistema de cámaras Pro de un iPhone y al rango de zoom óptico de 5x. También puedes grabar, editar y reproducir video en Dolby Vision con calidad cinematográfica, tomar retratos con modo Noche y disfrutar experiencias de realidad aumentada de última generación con el escáner LiDAR. El iPhone 12 Pro Max viene con el potente chip A14 Bionic y es compatible con los nuevos accesorios MagSafe, que se adhieren magnéticamente a tu iPhone y brindan una carga inalámbrica más rápida (3). Una infinidad de posibilidades que no dejarán de sorprenderte.",
+      "marca": "Apple",
+      "modelo": "iPhone 12 Pro Max",
+      "SO": "iOS 14",
+      "CPU": "Apple A14 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_751680-MLA46183698427_052021-O.webp",
+    "Stock": 6,
+    "Disable": false,
+    "Price": 1107.08,
+    "Category": 1
+  },
+  {
+    "id": 26,
+    "title": "Apple iPhone XS Max 64 Gb Oro",
+    "rating": 4.8,
+    "Detail": {
+      "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Sus 2 cámaras traseras de 12 Mpx/12 Mpx te permitirán tomar imágenes con más detalles y lograr efectos únicos como el famoso modo retrato de poca profundidad de campo. Con su pantalla OLED de 6.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Acerca el dispositivo a tu rostro para desbloquearlo instantáneamente. Su precisa tecnología de reconocimiento facial te garantiza un acceso al equipo rápido y seguro. Con su memoria interna de 64 GB siempre tendrás espacio para almacenar archivos y documentos importantes. Además, podrás guardar películas, series y videos para reproducirlos cuando quieras sin conexión",
+      "marca": "Apple",
+      "modelo": "iPhone XS Max",
+      "SO": "iOS 12",
+      "CPU": "Apple A12 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_837813-MLA44156024093_112020-O.webp",
+    "Stock": 6,
+    "Disable": false,
+    "Price": 977.53,
+    "Category": 1
+  },
+  {
+    "id": 27,
+    "title": "Apple iPhone XR 64 Gb Coral",
+    "rating": 3.8,
+    "Detail": {
+      "detail": "El iPhone XR viene con una pantalla Liquid Retina de 6.1 pulgadas (2) y está disponible en seis colores increíbles. El avanzado sistema Face ID te permite desbloquearlo de forma segura e iniciar sesión en tus apps con sólo una mirada. El chip A12 Bionic usa el aprendizaje automático en tiempo real para llevar aún más allá todo lo que puedes hacer con tus fotos, juegos, realidad aumentada y más. El sistema de cámara única de 12 MP con modo Retrato, Iluminación de Retrato, bokeh mejorado y Control de Profundidad te permite tomar retratos con calidad de estudio. Además, es resistente al agua.",
+      "marca": "Apple",
+      "modelo": "iPhone XR",
+      "SO": "iOS 12",
+      "CPU": "Apple A12 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_839636-MLA46597380704_072021-O.webp",
+    "Stock": 10,
+    "Disable": false,
+    "Price": 506.41,
+    "Category": 1
+  },
+  {
+    "id": 28,
+    "title": "Apple iPhone 8 Plus Plata De 128gb",
+    "rating": 4.5,
+    "Detail": {
+      "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con el sensor de huella digital, el acceso es seguro y podrás desbloquearlo automáticamente con un toque. Con su memoria interna de 128 GB podrás almacenar archivos y aplicaciones de gran tamaño sin necesidad de subirlos a la nube y aprovechar tus momentos sin conexión para darles el máximo uso.",
+      "marca": "Apple",
+      "modelo": "iPhone 8 Plus",
+      "SO": "iOS 11",
+      "CPU": "Apple A11 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_933513-MLA44156542321_112020-O.webp",
+    "Stock": 11,
+    "Disable": false,
+    "Price": 529.99,
+    "Category": 1
+  },
+  {
+    "id": 29,
+    "title": "Apple iPhone 8 Plus 64 Gb Oro",
+    "rating": 4,
+    "Detail": {
+      "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con el sensor de huella digital, el acceso es seguro y podrás desbloquearlo automáticamente con un toque. Con su memoria interna de 64 GB siempre tendrás espacio para almacenar archivos y documentos importantes. Además, podrás guardar películas, series y videos para reproducirlos cuando quieras sin conexión.",
+      "marca": "Apple",
+      "modelo": "iPhone 8 Plus",
+      "SO": "iOS 11",
+      "CPU": "Apple A11 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_890424-MLA44156537587_112020-O.webp",
+    "Stock": 7,
+    "Disable": false,
+    "Price": 411.98,
+    "Category": 1
+  },
+  {
+    "id": 30,
+    "title": "Apple iPhone 13 - Red",
+    "rating": 5,
+    "Detail": {
+      "detail": "Pantalla y diseño Superbrillante. Supercolorida. Supernítida.Una pantalla OLED más brillante que ahorra energía y se ve increíble incluso a pleno sol. Y un diseño duradero resistente al agua y al polvo Crea automáticamente bellos efectos de profundidad y cambios de enfoque para darles más fuerza narrativa a tus videos.  tus fotos y videos se veran aún más increíbles. La cámara gran angular capta más luz y la cámara ultra gran angular captura más detalle en las zonas oscuras. Además, se incluyo una nueva estabilización óptica de imagen por desplazamiento de sensor. El iPhone 13 da un gran salto en duración de batería. Ahora podrás maratonear tus series favoritas, jugar videojuegos o hacer lo que quieras por más tiempo con una sola carga. Incluso en el iPhone 13 mini Más velocidad. Mejores cámaras. Tú sales ganando.",
+      "marca": "Apple",
+      "modelo": "iPhone 13",
+      "SO": "iOS 15",
+      "CPU": "Apple A15 Bionic"
+    },
+    "image": "https://http2.mlstatic.com/D_NQ_NP_733492-MCO48109679666_112021-O.webp",
+    "Stock": 6,
+    "Disable": false,
+    "Price": 989.28,
+    "Category": 1
+  }
+]
