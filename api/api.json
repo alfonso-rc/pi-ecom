@@ -1,0 +1,11 @@
+{
+    "article": [
+        {"id":1, "title":"", "rating":"","Detail":{ "detail":"", "marca":"", "modelo":"", "SO":"", "CPU":""}, "image":"","Stock":"", "Disable":"","Price":0 },
+        {"id":61, "title":"Tablet Samsung Galaxy Tab A A8 2022"
+        , "rating":"4.7","Detail":{ "detail":"Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones wi-fi, bluetooth, usb-c 2.0, wi-fi direct te permiten potenciar sus funciones al máximo. Gracias a su cámara principal de 8 Mpx y frontal de 5 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes harán que tus experiencias se reflejen de manera óptima.", 
+        "marca":"Samsumg", "modelo":"A8", "SO":"Android 11.0", "CPU":"Octa-Core de 2GHz",  "Ram":"", "Color":"", "Pantalla":""}, "image":"https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp","Stock":3, "Disable":"True","Price":442, "Conectividad":"" }
+    ]
+
+
+
+}
