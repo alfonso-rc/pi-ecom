@@ -13,6 +13,19 @@ const testFunction = (req,res,next)=>{
         next(error);
     };
   };
+
+//GET
+const getArticle = async(req,res,next)=>{
+    try {
+      const apiDato = await axios.get('http://localhost:3001/article');
+
+      return res.send(apiDato.data);
+    } catch (error) {
+        next(error);
+    };
+  };
+
+//POST  
 const createArticle = async(req,res,next)=>{
     try {
       const artcleToCreate = req.body;
@@ -23,4 +36,4 @@ const createArticle = async(req,res,next)=>{
     };
   };
 
-  module.exports = {testFunction,createArticle};
+  module.exports = {testFunction,createArticle,getArticle};
