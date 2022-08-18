@@ -620,7 +620,7 @@
         "SO": "iOS 15",
         "CPU": "Apple A15 Bionic",
         "Ram": "4 GB",
-        "Color": "Negro",
+        "Color": "Black",
         "Pantalla": "6.1\""
       },
       "image": "https://http2.mlstatic.com/D_NQ_NP_733492-MCO48109679666_112021-O.webp",
@@ -629,6 +629,306 @@
       "Price": 989.28,
       "Conectividad": "4G/LTE",
       "Category": 1
+    },{
+        "id":31, 
+        "title":"Xiaomi Redmi Note 10 5g Dual Sim 128 Gb Azul Nocturno 4 Gb Ram", 
+        "rating":4.4,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo, descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Además, el dispositivo cuenta con cámara frontal de 8 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Mayor rendimiento, su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar.", 
+            "marca":"Xiaomi", 
+            "modelo":"Note 10 5G", 
+            "SO":"Android 11.0", 
+            "CPU":"2x2.2 GHz Cortex-A76",  
+            "Ram":"4 GB", 
+            "Color":"Azul", 
+            "Pantalla":"6.5"
+        }, 
+        "image":"https://http2.mlstatic.com/D_627579-MLA48579055364_122021-I.jpg",
+        "Stock":30, 
+        "Disable":false,
+        "Price":442, 
+        "Conectividad":"5G",
+        "Category": 1
+    },{
+        "id":32, 
+        "title":"Xiaomi Redmi Note 10 Pro (global) Dual Sim 128 Gb Gris Ónix 6 Gb Ram", 
+        "rating":4.6,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Experiencia visual increíble. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.67 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos. Capacidad y eficiencia, con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.", 
+            "marca":"Xiaomi", 
+            "modelo":"Note 10 Pro (Global)", 
+            "SO":"Android 11.0", 
+            "CPU":"2x2.3 GHz Kryo 470 Gold",  
+            "Ram":"6 GB", 
+            "Color":"Gray", 
+            "Pantalla":"6.6"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_689330-MLA50263507908_062022-O.webp",
+        "Stock":10, 
+        "Disable":false,
+        "Price":460, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":33, 
+        "title":"Xiaomi Redmi Note 10s Dual Sim 128 Gb Blanco Piedra 6 Gb Ram", 
+        "rating":4,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Experiencia visual increíble. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.43 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos. Capacidad y eficiencia, con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.", 
+            "marca":"Xiaomi", 
+            "modelo":"Note 10S",
+            "SO":"Android 11.0", 
+            "CPU":"2x2.05 GHz Cortex-A76",  
+            "Ram":"6 GB", 
+            "Color":"White", 
+            "Pantalla":"6.43"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_698445-MLA49172994594_022022-F.webp",
+        "Stock":3, 
+        "Disable":false,
+        "Price":450, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":34, 
+        "title":"Xiaomi Redmi 10 Dual Sim 64 Gb Carbon Gray 4 Gb ", 
+        "rating":3.6,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Mayor rendimiento con su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Desbloqueo facial y dactilar con máxima seguridad para que solo vos puedas acceder al equipo. Podrás elegir entre el sensor de huella dactilar para habilitar el teléfono en un toque, o el reconocimiento facial que permite un desbloqueo hasta un 30% más rápido. ", 
+            "marca":"Xiaomi", 
+            "modelo":"10",
+            "SO":"Android 11.0", 
+            "CPU":"2x2 GHz Cortex-A75",  
+            "Ram":"4 GB", 
+            "Color":"Gray", 
+            "Pantalla":"6.43"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_729373-MLA48591993422_122021-F.webp",
+        "Stock":2, 
+        "Disable":false,
+        "Price":300, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":35, 
+        "title":"Xiaomi Mi 11 Lite 5g Ne Dual Sim 128 Gb Azul Chicle 8 Gb Ram", 
+        "rating":3.9,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Además, el dispositivo cuenta con cámara frontal de 20 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Experiencia visual increíble. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.55 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos.", 
+            "marca":"Xiaomi", 
+            "modelo":"11 Lite 5G NE",
+            "SO":"Android 11.0", 
+            "CPU":"4x2.4 GHz Kryo 670",  
+            "Ram":"8 GB", 
+            "Color":"Blue", 
+            "Pantalla":"6.55"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_799365-MLA50143685842_052022-O.webp",
+        "Stock":5, 
+        "Disable":false,
+        "Price":439, 
+        "Conectividad":"5G",
+        "Category": 1
+    },{
+        "id":36, 
+        "title":"Xiaomi Redmi Note 11s Dual Sim 128 Gb Gris Grafito 6 Gb Ram", 
+        "rating":3.9,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Experiencia visual increíble. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.43 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos. Con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.", 
+            "marca":"Xiaomi", 
+            "modelo":"Note 11S",
+            "SO":"Android 11.0", 
+            "CPU":"2x2.05 GHz Cortex-A76",  
+            "Ram":"6 GB", 
+            "Color":"Gray", 
+            "Pantalla":"6.43"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_734580-MLA49397636457_032022-F.webp",
+        "Stock":3, 
+        "Disable":false,
+        "Price":320, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":37, 
+        "title":" Xiaomi Redmi 5 Plus Dual SIM 32 GB  dorado 3 GB RAM", 
+        "rating":3.2,
+        "Detail":{ 
+            "detail":"Momentos únicos, capturas reales. Capturá tus mejores momentos y revivilos cuando quieras con la cámara trasera de 12 Mpx. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.99 pulgadas, disfrutá de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar", 
+            "marca":"Xiaomi", 
+            "modelo":"5 Plus",
+            "SO":"Android Oreo 8.1.0", 
+            "CPU":"8x1.8 GHz Cortex-A",  
+            "Ram":"3 GB", 
+            "Color":"Gold", 
+            "Pantalla":"5.99"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_729097-MLA31545355570_072019-O.webp",
+        "Stock":13, 
+        "Disable":false,
+        "Price":190, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":38, 
+        "title":"Xiaomi Redmi 9C NFC Dual SIM 32 GB amanecer naranja 2 GB RAM", 
+        "rating":3,
+        "Detail":{ 
+            "detail":"Doble cámara y más detalles. Sus 2 cámaras traseras de 13 Mpx/2 Mpx te permitirán tomar imágenes con más detalles y lograr efectos únicos como el famoso modo retrato de poca profundidad de campo. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 6.53 pulgadas disfrutá de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 2 GB es justo lo que necesitás para utilizar las funciones más importantes como llamar, enviar mensajes, navegar y ejecutar aplicaciones de uso frecuente como redes sociales o multimedia.", 
+            "marca":"Xiaomi", 
+            "modelo":"9C NFC",
+            "SO":"Android 10", 
+            "CPU":"4x2.3 GHz Cortex-A53",  
+            "Ram":"2 GB", 
+            "Color":"Orange", 
+            "Pantalla":"6.53"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_936910-MLA50965794872_082022-F.webp",
+        "Stock":13, 
+        "Disable":false,
+        "Price":160, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":39, 
+        "title":"Xiaomi Redmi 9A Dual SIM 32 GB azul celeste 2 GB RAM", 
+        "rating":2.6,
+        "Detail":{ 
+            "detail":"Momentos únicos, capturas reales. Capturá tus mejores momentos y revivilos cuando quieras con la cámara trasera de 13 Mpx. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 6.53 pulgadas, disfrutá de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 2 GB es justo lo que necesitás para utilizar las funciones más importantes como llamar, enviar mensajes, navegar y ejecutar aplicaciones de uso frecuente como redes sociales o multimedia.", 
+            "marca":"Xiaomi", 
+            "modelo":"9A",
+            "SO":"Android 10", 
+            "CPU":"8x2 GHz Cortex-A53",  
+            "Ram":"2 GB", 
+            "Color":"Blue", 
+            "Pantalla":"6.53"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_746902-MLA48765111950_012022-F.webp",
+        "Stock":6, 
+        "Disable":false,
+        "Price":170, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":40, 
+        "title":"Xiaomi Redmi 9AT Dual SIM 32 GB carbon gray 2 GB RAM", 
+        "rating":2.7,
+        "Detail":{ 
+            "detail":"Momentos únicos, capturas reales. Capturá tus mejores momentos y revivilos cuando quieras con la cámara trasera de 13 Mpx. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas.  Con su pantalla IPS de 6.53 pulgadas, disfrutá de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 2 GB es justo lo que necesitás para utilizar las funciones más importantes como llamar, enviar mensajes, navegar y ejecutar aplicaciones de uso frecuente como redes sociales o multimedia.", 
+            "marca":"Xiaomi", 
+            "modelo":"9AT",
+            "SO":"Android 10", 
+            "CPU":"4x2 GHz Cortex-A53",  
+            "Ram":"2 GB", 
+            "Color":"Black", 
+            "Pantalla":"6.53"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_760932-MLA48183269393_112021-O.webp",
+        "Stock":2, 
+        "Disable":false,
+        "Price":130, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":41, 
+        "title":"Xiaomi Redmi 9C Dual SIM 64 GB naranja amanecer 3 GB RAM", 
+        "rating":3.3,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar.", 
+            "marca":"Xiaomi", 
+            "modelo":"9C",
+            "SO":"Android 10", 
+            "CPU":"4x2.3 GHz Cortex-A53",  
+            "Ram":"3 GB", 
+            "Color":"Orange", 
+            "Pantalla":"6.53"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_758484-MLA43682967980_102020-O.webp",
+        "Stock":2, 
+        "Disable":false,
+        "Price":180, 
+        "Conectividad":"4G/LITE",
+        "Category": 1
+    },{
+        "id":42, 
+        "title":"Xiaomi Poco F3 5G Dual SIM 128 GB azul océano profundo 6 GB RAM", 
+        "rating":3.7,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Además, el dispositivo cuenta con cámara frontal de 20 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.67 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos.", 
+            "marca":"Xiaomi", 
+            "modelo":"Poco F3 5G",
+            "SO":"Android 11", 
+            "CPU":"3x2.42 GHz Kryo-585",  
+            "Ram":"6 GB", 
+            "Color":"Blue", 
+            "Pantalla":"6.67"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_627008-MLA46481261873_062021-F.webp",
+        "Stock":1, 
+        "Disable":false,
+        "Price":460, 
+        "Conectividad":"5G",
+        "Category": 1
+    },{
+        "id":43, 
+        "title":"Xiaomi Pocophone Poco X4 Pro 5G Dual SIM 128 GB laser black 6 GB RAM", 
+        "rating":4,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Además, el dispositivo cuenta con cámara frontal de 20 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Mirá tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.67 pulgadas. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos.", 
+            "marca":"Xiaomi", 
+            "modelo":"Poco X4 Pro 5G",
+            "SO":"Android 11", 
+            "CPU":"2x2.2 GHz Kryo 660 Gold",  
+            "Ram":"6 GB", 
+            "Color":"Black", 
+            "Pantalla":"6.67"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_782725-MLA49423195235_032022-F.webp",
+        "Stock":7, 
+        "Disable":false,
+        "Price":469, 
+        "Conectividad":"5G",
+        "Category": 1
+    },{
+        "id":44, 
+        "title":"Xiaomi Redmi K40 Gaming Edition Dual SIM 256 GB gray 12 GB RAM", 
+        "rating":4.8,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados.. Además, el dispositivo cuenta con cámara frontal de 16 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su potente procesador y memoria RAM de 12 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.", 
+            "marca":"Xiaomi", 
+            "modelo":"K40 Gaming Edition",
+            "SO":"Android 11", 
+            "CPU":"4x2 GHz Cortex-A55",  
+            "Ram":"12 GB", 
+            "Color":"Gray", 
+            "Pantalla":"6.67"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_932890-MLA48554022561_122021-F.webp",
+        "Stock":7, 
+        "Disable":false,
+        "Price":519, 
+        "Conectividad":"5G",
+        "Category": 1
+    },{
+        "id":45, 
+        "title":"Xiaomi Redmi Note 8 2021 Dual SIM 64 GB neptuno azul 4 GB RAM", 
+        "rating":4.8,
+        "Detail":{ 
+            "detail":"Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. Su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Máxima seguridad para que solo vos puedas acceder al equipo. Podrás elegir entre el sensor de huella dactilar para habilitar el teléfono en un toque, o el reconocimiento facial que permite un desbloqueo hasta un 30% más rápido.", 
+            "marca":"Xiaomi", 
+            "modelo":"Note 8 2021",
+            "SO":"Android 11", 
+            "CPU":"6x1.8 GHz Cortex-A55",  
+            "Ram":"4 GB", 
+            "Color":"Gray", 
+            "Pantalla":"6.3"
+        }, 
+        "image":"https://http2.mlstatic.com/D_NQ_NP_2X_616304-MLA47208005375_082021-F.webp",
+        "Stock":10, 
+        "Disable":false,
+        "Price":320, 
+        "Conectividad":"5G",
+        "Category": 1
     },
     {
       "id":46,
