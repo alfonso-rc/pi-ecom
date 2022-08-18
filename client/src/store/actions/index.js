@@ -3,12 +3,13 @@ import axios from "axios";
 export function getArticles(){
   try {
   return function(dispatch) {
-      axios.get("http://localhost:3001/articles/")
+      axios.get("http://localhost:3001/article")
       .then ((articles) => {
           dispatch({
               type: "GET_ARTICLES",
               payload: articles.data
           })
+          console.log("hola2",articles)
       })
     }
   } catch (error) {
