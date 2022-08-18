@@ -1,26 +1,27 @@
 const {Category} = require ('../db');
 
-module.export= async function loadCategoriesBD(){
+module.exports= async function loadCategoriesBD(){
+    console.log('LoadCategory Funcionando');
     const categories = [
         {
             id:1,
-            name: smartphones,
+            name: "smartphones",
         },
         {
             id:2,
-            name: notebooks,
+            name: "notebooks",
         },
         {
             id:3,
-            name: tablets,
+            name: "tablets",
         },
         {
             id:4,
-            name: accesories,
+            name: "accesories",
         }
     ]
     
-    categories.forEach(async cat => {
+    categories.forEach(async (cat) => {
         await Category.create(cat)
       });
 }
