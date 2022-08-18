@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -L",
     "test": "mocha -w ./tests/**/*.spec.js",
-    "servicio": "json-server --port 3001 --watch api.json"
+    "servicio": "json-server --port 3002 --watch api.json"
   },
   "author": "Henry",
   "license": "ISC",
