@@ -62,6 +62,7 @@ export default function Home() {
                 return(
                   <div key={art.id}>
                     <Card
+                    id={art.id}
                     image={art.image}
                     title={art.title}
                     price={art.price}/>
