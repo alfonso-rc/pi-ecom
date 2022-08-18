@@ -18,11 +18,15 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
+const loadArticle = require('./src/helpers/LoadArticleDB.js');
+const loadCategoriesBD = require('./src/helpers/LoadCategory.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(3001, async() => {
+    await loadCategoriesBD();
+    await loadArticle();
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
