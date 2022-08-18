@@ -17,9 +17,21 @@ const testFunction = (req,res,next)=>{
 //GET
 const getArticle = async(req,res,next)=>{
     try {
-      const apiDato = await axios.get('http://localhost:3001/article');
-
+      const apiDato = await axios.get('http://localhost:3002/article');
       return res.send(apiDato.data);
+    } catch (error) {
+        next(error);
+    };
+  };
+
+  //GETDETAIL
+  const detailArticle = async(req,res,next)=>{
+    const {id}=req.params;
+    try {
+      const articleFound = await Article.findByPk(id);
+      articleFound ? 
+        res.status(200).send(articleFound.dataValues):
+        res.status(400).send('No existe Articulo con ese Id!');
     } catch (error) {
         next(error);
     };
@@ -36,4 +48,4 @@ const createArticle = async(req,res,next)=>{
     };
   };
 
-  module.exports = {testFunction,createArticle,getArticle};
+  module.exports = {testFunction,createArticle,getArticle,detailArticle};
