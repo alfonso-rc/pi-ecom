@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { Op } = require("sequelize");
+const {Article}= require ('../db');
 const {
     API_URL,API_URL_ID,API_URL_NAME,API_URL_TIPO,IMG_DEFAULT
   } = process.env;
@@ -12,5 +13,14 @@ const testFunction = (req,res,next)=>{
         next(error);
     };
   };
+const createArticle = async(req,res,next)=>{
+    try {
+      const artcleToCreate = req.body;
+      const newArticle = await Article.create(artcleToCreate);
+      res.send(newArticle);
+    } catch (error) {
+        next(error);
+    };
+  };
 
-  module.exports = {testFunction};
+  module.exports = {testFunction,createArticle};
