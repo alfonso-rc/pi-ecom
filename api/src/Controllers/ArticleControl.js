@@ -88,10 +88,8 @@ const createArticle = async(req,res,next)=>{
 //FILTERS
 const getAticleByName = async(req,res,next)=>{
   const {title} =req.query;
-  console.log(title);
   try {
     let getNameTotal = await getArticle();
-    console.log(getNameTotal);
     if(title){
       let articleName =await getNameTotal.filter(n=>n.title.toLowerCase().includes(title.toLowerCase()));
       articleName.length
