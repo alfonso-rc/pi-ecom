@@ -27,6 +27,7 @@ export default function Home() {
       return (
         <div>
             hola
+            <div>como estas </div>
         </div>
       )
 }
