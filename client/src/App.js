@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './componentes/Home';
-
+import ArticleDetail from './componentes/Detail';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}>
       </Route>
-      {/* <Route path="/:id" element={</>}> */}
+      <Route path="/:id" component={ArticleDetail}/>
       {/* </Route> */}
       {/* <Route path="/add" element={</>}>
       </Route> */}
