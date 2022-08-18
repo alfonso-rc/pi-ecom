@@ -3,13 +3,21 @@ import { useSelector, useDispatch } from "react-redux"
  import { Link } from "react-router-dom"
 import {orderByAZ, orderByPrice, getArticles} from '../store/actions'
 import Card from "./Card"
+import Paginado from "./Paginado"
 
 export default function Home() {
     const allArticle = useSelector((state) => state.articles)
     let dispatch = useDispatch()
     const [loading,setLoading]=useState(false)
     const [order,setOrder]=useState('')
-    console.log(allArticle)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [articlePerPage, setArticlePerPage] = useState(15);
+    const indexOfLastArticle = currentPage * articlePerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlePerPage;
+    const currentArticle = allArticle.slice(indexOfFirstArticle, indexOfLastArticle);
+    const paginado = (pageNumber) => {
+      setCurrentPage(pageNumber);
+    };
 
     useEffect(() => {
         dispatch(getArticles())
@@ -33,6 +41,13 @@ export default function Home() {
             hola
             <div>
               <div>
+              <Paginado
+            articlePerPage={articlePerPage}
+            allArticle={allArticle.length}
+            paginado={paginado}
+          />
+              </div>
+              <div>
                 <select onChange={(e)=>handleSortAZ(e)}>
                   <option value="AZ">AZ</option>
                   <option value="ZA">ZA</option>
@@ -43,13 +58,13 @@ export default function Home() {
                 <option value="men">Menor precio</option>
                 </select>
               </div>
-              {allArticle.map((art)=>{
+              {currentArticle.map((art)=>{
                 return(
                   <div key={art.id}>
                     <Card
                     image={art.image}
                     title={art.title}
-                    price={art.Price}/>
+                    price={art.price}/>
                   </div>
                 )
               })}
