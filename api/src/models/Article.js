@@ -17,37 +17,10 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
     },
     image: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-    },
-    video: {
-        type: DataTypes.STRING,
-    },
-    feature_bullets: {
         type: DataTypes.TEXT,
     },
-    marca: {
-        type: DataTypes.STRING,
-    },
-    modelo: {
-        type: DataTypes.STRING,
-    },
-    SO: {
-        type: DataTypes.STRING,
-    },
-    CPU: {
-        type: DataTypes.STRING,
-    },
-    Ram: {
-        type: DataTypes.STRING,
-    },
-    pantalla: {
-        type: DataTypes.STRING,
-    },
-    huella: {
-        type: DataTypes.STRING,
-    },
-    dimensiones: {
-        type: DataTypes.STRING,
+    Detail: {
+        type: DataTypes.JSON,
     },
     price: {
         type: DataTypes.FLOAT,

@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const {testFunction} = require('../Controllers/CategoryControl.js');
+const {testFunction,createArticle} = require('../Controllers/ArticleControl.js');
 
-const articleRouter = Router();
+const RouteArticle = Router();
 
-articleRouter.get('/',testFunction);
+RouteArticle.get('/',testFunction);
+RouteArticle.post('/',createArticle);
 
-module.exports = articleRouter;
+module.exports = RouteArticle;
