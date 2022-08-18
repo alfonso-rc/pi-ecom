@@ -26,8 +26,8 @@ const testFunction = (req,res,next)=>{
 
 
 //GET
-const getArticle = async(req,res,next)=>{
-    try {
+const getArticle = async()=>{
+
       // const apiDato = await axios.get('http://localhost:3002/article');
       let apiDB = await Article.findAll({
         include:{
@@ -36,9 +36,10 @@ const getArticle = async(req,res,next)=>{
           through:{attributes:[]}
         }
       });
-      
+
       apiDB=apiDB.map(el=>{
         return {
+          id: el.id,
           title: el.title,
           rating: el.rating,
           detail: el.detail.detail,
@@ -57,10 +58,7 @@ const getArticle = async(req,res,next)=>{
           category: el.categories[0].name,
         }
       })
-      return res.send(apiDB);
-    } catch (error) {
-        next(error);
-    };
+      return (apiDB);
   };
 
 //GETDETAIL
@@ -87,4 +85,25 @@ const createArticle = async(req,res,next)=>{
     };
   };
 
-  module.exports = {testFunction,createArticle,getArticle,detailArticle};
+//FILTERS
+const getAticleByName = async(req,res,next)=>{
+  const {title} =req.query;
+  console.log(title);
+  try {
+    let getNameTotal = await getArticle();
+    console.log(getNameTotal);
+    if(title){
+      let articleName =await getNameTotal.filter(n=>n.title.toLowerCase().includes(title.toLowerCase()));
+      articleName.length
+      ? res.status(200).send(articleName):
+      res.status(400).send('No Existe el Articulo');
+    }
+    else{
+      res.status(200).send(getNameTotal);
+    }
+  } catch (error) {
+      next(error);
+  };
+};
+
+  module.exports = {testFunction,createArticle,getArticle,detailArticle,getAticleByName};
