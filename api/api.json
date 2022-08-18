@@ -1,60 +1,1474 @@
 {
-    "article": [       
-        {"id":1, "title":"Samsumg Galaxy S22"
-        , "rating":"4.4","Detail":{ "detail":"Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.", 
-        "marca":"Samsumg", "modelo":"S22", "SO":"Android", "CPU":"Octa-Core de 2.99GHz",  "Ram":"8GB", "Color":"Green, Black, White, Pink", "Pantalla":"6.1"}, "image":"https://http2.mlstatic.com/D_NQ_NP_686082-MLA49387650727_032022-O.webp","Stock":3, "Disable":"True","Price": 1.593, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":2, "title":"Samsumg Galaxy S22 Ultra"
-        , "rating":"4.6","Detail":{ "detail":"Conocé el Galaxy S22 Ultra, con el poder del Note. El marco pulido, delgado y audaz, rodea la forma extruida para lograr una simetria elegamte. Y la cámara lineal, acentuada por anillos de lentes espejados, parece flotar en su lugar.", 
-        "marca":"Samsumg", "modelo":"S22 Ultra", "SO":"Android", "CPU":"2.99GHz, 2.4GHz, 1.7GHz",  "Ram":"12GB", "Color":"Green, Black, White, Burgundy", "Pantalla":"8.9"}, "image":"https://http2.mlstatic.com/D_NQ_NP_668050-MLA49303776893_032022-O.webp","Stock":4, "Disable":"True","Price": 2.449, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":3, "title":"Samsumg Galaxy S21 FE 5G"
-        , "rating":"4.6","Detail":{ "detail":"Ya no volverás a perderte esa toma perfecta. Conocé los Galaxy S21 5G y S21+ 5G. Están diseñados para revolucionar el video y la fotografía, con una resolución cinematográfica de 8K para que puedas tomar fotos épicas mientras hacés un video. Ambos modelos tienen todas las características que necesitás: 64 MP, el conjunto de chips más rápido y una batería increíble que dura todo el día.1 Tu mundo va a ser realmente épico.", 
-        "marca":"Samsumg", "modelo":"S21", "SO":"Android", "CPU":"2.9GHz, 2.8GHz, 2.2GHz",  "Ram":"8GB", "Color":"Violet, Gray, White, Pink", "Pantalla":"6.2"}, "image":"https://http2.mlstatic.com/D_NQ_NP_730981-MLA48800008115_012022-O.webp","Stock":1, "Disable":"True","Price": 1.291, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":4, "title":"Samsumg Galaxy S21+ 5G"
-        , "rating":"4.6","Detail":{ "detail":"Video de 8K es la resolución más alta en un teléfono inteligente, lo que hace que tu contenido luzca aún mejor que el cine. Y con 8K 24 fps, cada vlog y memoria es tu próxima toma al estrellato. Grabá, cargá y mirá directamente en YouTube.", 
-        "marca":"Samsumg", "modelo":"S21+ 5G", "SO":"Android", "CPU":"2.9GHz, 2.8GHz, 2.2GHz",  "Ram":"8GB", "Color":"Violet, Gray, White, Pink", "Pantalla":"6.2"}, "image":"https://http2.mlstatic.com/D_NQ_NP_908285-MLA50209440689_062022-O.webp","Stock":2, "Disable":"True","Price": 1.622, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":5, "title":"Samsumg Galaxy Z Flip3 5G"
-        , "rating":"4.6","Detail":{ "detail":"Se pliega en el bolsillo. Entra en tu cartera. Se desliza en tus jeans más apretados. Cuando lo sacás, se abre un smartphone 5G con pantalla completa que se adapta a tus ángulos favoritos.", 
-        "marca":"Samsumg", "modelo":"Flip3", "SO":"Android", "CPU":"2.84GHz, 2.4GHz, 1.8GHz",  "Ram":"8GB", "Color":"Green, Lavander, Cream, Black", "Pantalla":"6.7"}, "image":"https://http2.mlstatic.com/D_NQ_NP_618327-MLA48897052450_012022-O.webp","Stock":3, "Disable":"True","Price": 1.955, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":6, "title":"Samsumg Galaxy Z Fold3 5G"
-        , "rating":"4.6","Detail":{ "detail":"Esto es todo lo que querías en un smartphone 5G duradero y de primera calidad. Lo creamos plegable para revelar una enorme pantalla en la que puedas ver, trabajar y divertirte como nunca antes.", 
-        "marca":"Samsumg", "modelo":"Fold3", "SO":"Android", "CPU":"2.84GHz, 2.4GHz, 1.8GHz",  "Ram":"12GB", "Color":"Green, Black, Silver", "Pantalla":"7.6"}, "image":"https://http2.mlstatic.com/D_NQ_NP_680610-MLA47574356658_092021-O.webp","Stock":7, "Disable":"True","Price": 1.955, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":7, "title":"Samsumg Z Flip4"
-        , "rating":"4.2","Detail":{ "detail":"Elegí un color que combine con todo, pero que no se parezca a nada. Un acabado opaco en el vidrio crea un contraste suave con el marco de metal brillante. Seleccioná entre cuatro tonos: Bora Purple, Graphite, Pink Gold y Blue.", 
-        "marca":"Samsumg", "modelo":"Flip4", "SO":"Android", "CPU":"2.99GHz, 2.4GHz, 1.7GHz",  "Ram":"12GB", "Color":"Bora Purple, Graphite, Pink y Blue", "Pantalla":"7.3"}, "image":"https://http2.mlstatic.com/D_NQ_NP_624071-MLA47717269574_092021-O.webp","Stock":3, "Disable":"True","Price": 1.593, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":8, "title":"Samsumg Galaxy Z Fold2"
-        , "rating":"4.7","Detail":{ "detail":"Conocé el smartphone que está cambiando la forma del futuro. El número uno del mundo en plegables, este smartphone de última generación pone en la palma de tu mano un potente rendimiento, cristal plegable y una batería para todo el día", 
-        "marca":"Samsumg", "modelo":"Fold2", "SO":"Android", "CPU":"Octa-Core de 3.09GHz, 2.4GHz, 1.8GHz",  "Ram":"12GB", "Color":"Green, Bronce", "Pantalla":"7.6"}, "image":"https://images.samsung.com/is/image/samsung/p6pim/ar/sm-f916bznqaro/gallery/ar-galaxy-z-fold2-f916-341065-sm-f916bznqaro-thumb-344960155?$160_160_PNG$","Stock":10, "Disable":"True","Price": 2.449, "Conectividad":"USB Type-C, USB 3.2 Gen 1", "category": 1 },
-        {"id":9, "title":"Samsumg Galaxy A23"
-        , "rating":"4.5","Detail":{ "detail":"La pantalla TFT V-Cut de 6,6 pulgadas del Galaxy A23 te da espacio para ver y hacer más. Con la tecnología FHD+ y una frecuencia de actualización de 90 Hz, el contenido que de todos los días se verá más fluido y nítido.", 
-        "marca":"Samsumg", "modelo":"A23", "SO":"Android", "CPU":"Octa-Core de 2.4GHz, 1.9GHz",  "Ram":"4GB", "Color":"Black, White, Blue", "Pantalla":"6.6"}, "image":"https://http2.mlstatic.com/D_NQ_NP_848144-MLA49898514252_052022-O.webp","Stock":1, "Disable":"True","Price": 538, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":10, "title":"Samsumg Galaxy A33 5G"
-        , "rating":"4.0","Detail":{ "detail":"Alimentado con un procesador Octa-core de 5 nm, tu Galaxy está diseñado para manejar múltiples tareas. RAM Plus lee tus patrones de uso y proporciona RAM virtual adicional en los momentos que necesitás un impulso adicional.", 
-        "marca":"Samsumg", "modelo":"A33", "SO":"Android", "CPU":"Octa-Core de 5 nm",  "Ram":"6GB", "Color":"Awesome Peach, Black, White, Blue", "Pantalla":"6.4"}, "image":"https://http2.mlstatic.com/D_NQ_NP_737517-MLA50739491200_072022-O.webp","Stock":8, "Disable":"True","Price": 590, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":11, "title":"Samsumg Galaxy A51"
-        , "rating":"4.3","Detail":{ "detail":"Obtené la experiencia más reciente de Galaxy en tu teléfono. Actualizá el software para explorar la nuevas funciones disponibles.", 
-        "marca":"Samsumg", "modelo":"A51", "SO":"Android", "CPU":"Octa-Core de 2.3GHz, 1.7GHz",  "Ram":"4GB", "Color":"Black, White", "Pantalla":"6.5"}, "image":"https://http2.mlstatic.com/D_NQ_NP_622636-MLA50113502606_052022-O.webp","Stock":7, "Disable":"True","Price": 761, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":12, "title":"Samsumg Galaxy A52"
-        , "rating":"4.6","Detail":{ "detail":"Disfrutá de los detalles realmente vibrantes con la pantalla Super AMOLED Display FHD+, que alcanza los 800 nits para mayor claridad, incluso con la luz de día brillante. Eye Comfort Shield² reduce la luz azul y la pantalla extrafluida mantiene la vista relajada, ya sea que estés jugando o navegando. Todo en la amplia pantalla Infinity-O Display de 6,5 pulgadas.", 
-        "marca":"Samsumg", "modelo":"A52", "SO":"Android", "CPU":"Octa-Core de 2.3GHz, 1.8GHz",  "Ram":"6GB", "Color":"Blue, Black, White, Violet", "Pantalla":"6.5"}, "image":"https://http2.mlstatic.com/D_NQ_NP_861218-MLA50576439367_072022-O.webp","Stock":10, "Disable":"True","Price": 848, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":13, "title":"Samsumg Galaxy A71"
-        , "rating":"4.4","Detail":{ "detail":"Con un diseño de pantalla suave y elegante de borde curvo, Galaxy A71 es hermoso a la vista y se adapta cómodamente a la mano. Su acabado brillante premium lo hace fácil de sostener, y el patrón dinámico agrega un toque único de personalidad a cada una de sus ediciones Black y Silver.", 
-        "marca":"Samsumg", "modelo":"A71", "SO":"Android", "CPU":"Octa-Core de 2.2GHz, 1.8GHz",  "Ram":"6GB", "Color":"Black, Silver", "Pantalla":"6.7"}, "image":"https://http2.mlstatic.com/D_NQ_NP_815858-MLA41632030909_052020-O.webp","Stock":12, "Disable":"True","Price": 961, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":14, "title":"Samsumg Galaxy M12"
-        , "rating":"4.4","Detail":{ "detail":"Poné en tus manos el elegante estilo del Galaxy M12. Un acabado metálico y un micro patrón ofrecen un diseño contemporáneo, mientras que las curvas suaves ofrecen un agarre cómodo, haciendo que se sienta tan bien como se ve. Elegí entre los colores clásicos Black o Green.", 
-        "marca":"Samsumg", "modelo":"M12", "SO":"Android", "CPU":"Octa-Core de 2GHz",  "Ram":"4GB", "Color":"Blue, Black", "Pantalla":"6.5"}, "image":"https://http2.mlstatic.com/D_NQ_NP_782705-MLA46928759833_072021-O.webp","Stock":4, "Disable":"True","Price": 346, "Conectividad":"USB Type-C, USB 2.0", "category": 1 },
-        {"id":15, "title":"Samsumg M23 5G"
-        , "rating":"5.0","Detail":{ "detail":"Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.", 
-        "marca":"Samsumg", "modelo":"M23", "SO":"Android", "CPU":"Octa-Core de 2.2GHz, 1.8GHz",  "Ram":"4GB", "Color":"Green, Blue", "Pantalla":"6.6"}, "image":"https://http2.mlstatic.com/D_NQ_NP_833241-MLA50136358907_052022-O.webp","Stock":15, "Disable":"True","Price": 634, "Conectividad":"USB Type-C, USB 2.0", "category": 1 }
-        
-        {"id":46, "title":"Lenovo 82H00013LM Tablet Ideapad D330-10IGM", "rating":"4.7","Detail":{ "detail":"",
-         "marca":"Lenovo", "modelo":"D330-10IGM", "SO":"windows 10", "CPU":"Celeron N4020", "Ram":"8 gb", "Color":"Silver", "Pantalla":"10.1"}, "image":"https://m.media-amazon.com/images/I/41+I5GmZcBL._AC_SY300_SX300_.jpg","Stock":"10", "Disable":"True","Price":320,"Conectividad":"Wi-Fi" },
-        {"id":47, "title":"Lenovo Laptop IdeaPad 3-14ITL ", "rating":"5","Detail":{ "detail":"Equipo ideal y basico para estudiantes, con gran capacidad de memoria, la combinación perfecta de rendimiento y versatilidad",
-        "marca":"Lenovo", "modelo":"IdeaPad 3-15ITL", "SO":"windows 10", "CPU":"Intel Core i3", "Ram":"8 gb", "Color":"plateado", "Pantalla":"14"}, "image":"https://m.media-amazon.com/images/I/61ST0gpYFPL._AC_SX522_.jpg","Stock":"15", "Disable":"True","Price":"479.50","Conectividad":"Wi-Fi" },
-        {"id":48, "title":"Laptop Lenovo Pantalla 15.6 táctil HD", "rating":"5.2","Detail":{ "detail":"Ejecuta al mismo tiempo varios programas exigentes o juega hasta los últimos títulos AAA. Disfruta de una velocidad e inteligencia sin igual que harán que tu experiencia sea rápida, fluida y sencilla, con la gran nitidez de imágenes que brinda la tarjeta gráfica integrada opcional Inte",
-        "marca":"Lenovo", "modelo":"IdeaPad 3-15ITL05", "SO":"windows 10", "CPU":"Intel UHD Graphics", "Ram":"8gb", "Color":"plata", "Pantalla":"15.1"}, "image":"https://m.media-amazon.com/images/I/81iKKYRE89L._AC_SX522_.jpg","Stock":"8", "Disable":"True","Price":"432","Conectividad":"Wi-Fi" },
-        {"id":49, "title":"Lenovo Legion 5 Computadora portátil para juegos,", "rating":"5","Detail":{ "detail":"Equipo de alto rendimiento con graficos NVIDIA GetForce, pantalla antireflejos. ideal para Juegos y con teclado Legion de alta precision. Todo lo que necesitas para divertirte y ser productivo",
-         "marca":"Lenovo", "modelo":"Legion 5", "SO":"windows 10", "CPU":"AMD Ryzen 5 ", "Ram":"32 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/41nznX70ODL._AC_.jpg","Stock":"9", "Disable":"True","Price":"498","Conectividad":"Wi-Fi 6" },
-        {"id":50, "title":" ", "rating":"","Detail":{ "detail":"ESTÉTICA Y COMODIDAD. La ThinkPad E15 de 2da Gen llévatela a cualquier parte, es liviana y fácil de llevar. Tecnologia de vanguardia de ultima generación con lo que consigues un mayor rendimiento para las tareas en el trabajo.",
-        "marca":"Lenovo", "modelo":"ThinkPad E15 2G", "SO":"windows 11 pro", "CPU":"Intel Iris Xe Graphics", "Ram":"16 gb", "Color":"negra", "Pantalla":"15.6"}, "image":"https://m.media-amazon.com/images/I/51CFVDBG71L._AC_SX522_.jpg","Stock":"8", "Disable":"True","Price":"1299","Conectividad":"Wi-Fi 6" },
-    ]
+  "article": [
+    {
+      "id": 1,
+      "title": "Samsumg Galaxy S22",
+      "rating": "4.4",
+      "Detail": {
+        "detail": "Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.",
+        "marca": "Samsumg",
+        "modelo": "S22",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.99GHz",
+        "Ram": "8GB",
+        "Color": "Green, Black, White, Pink",
+        "Pantalla": "6.1"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_686082-MLA49387650727_032022-O.webp",
+      "Stock": 3,
+      "Disable": "True",
+      "Price": 1.593,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 2,
+      "title": "Samsumg Galaxy S22 Ultra",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Conocé el Galaxy S22 Ultra, con el poder del Note. El marco pulido, delgado y audaz, rodea la forma extruida para lograr una simetria elegamte. Y la cámara lineal, acentuada por anillos de lentes espejados, parece flotar en su lugar.",
+        "marca": "Samsumg",
+        "modelo": "S22 Ultra",
+        "SO": "Android",
+        "CPU": "2.99GHz, 2.4GHz, 1.7GHz",
+        "Ram": "12GB",
+        "Color": "Green, Black, White, Burgundy",
+        "Pantalla": "8.9"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_668050-MLA49303776893_032022-O.webp",
+      "Stock": 4,
+      "Disable": "True",
+      "Price": 2.449,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 3,
+      "title": "Samsumg Galaxy S21 FE 5G",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Ya no volverás a perderte esa toma perfecta. Conocé los Galaxy S21 5G y S21+ 5G. Están diseñados para revolucionar el video y la fotografía, con una resolución cinematográfica de 8K para que puedas tomar fotos épicas mientras hacés un video. Ambos modelos tienen todas las características que necesitás: 64 MP, el conjunto de chips más rápido y una batería increíble que dura todo el día.1 Tu mundo va a ser realmente épico.",
+        "marca": "Samsumg",
+        "modelo": "S21",
+        "SO": "Android",
+        "CPU": "2.9GHz, 2.8GHz, 2.2GHz",
+        "Ram": "8GB",
+        "Color": "Violet, Gray, White, Pink",
+        "Pantalla": "6.2"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_730981-MLA48800008115_012022-O.webp",
+      "Stock": 1,
+      "Disable": "True",
+      "Price": 1.291,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 4,
+      "title": "Samsumg Galaxy S21+ 5G",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Video de 8K es la resolución más alta en un teléfono inteligente, lo que hace que tu contenido luzca aún mejor que el cine. Y con 8K 24 fps, cada vlog y memoria es tu próxima toma al estrellato. Grabá, cargá y mirá directamente en YouTube.",
+        "marca": "Samsumg",
+        "modelo": "S21+ 5G",
+        "SO": "Android",
+        "CPU": "2.9GHz, 2.8GHz, 2.2GHz",
+        "Ram": "8GB",
+        "Color": "Violet, Gray, White, Pink",
+        "Pantalla": "6.2"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_908285-MLA50209440689_062022-O.webp",
+      "Stock": 2,
+      "Disable": "True",
+      "Price": 1.622,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 5,
+      "title": "Samsumg Galaxy Z Flip3 5G",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Se pliega en el bolsillo. Entra en tu cartera. Se desliza en tus jeans más apretados. Cuando lo sacás, se abre un smartphone 5G con pantalla completa que se adapta a tus ángulos favoritos.",
+        "marca": "Samsumg",
+        "modelo": "Flip3",
+        "SO": "Android",
+        "CPU": "2.84GHz, 2.4GHz, 1.8GHz",
+        "Ram": "8GB",
+        "Color": "Green, Lavander, Cream, Black",
+        "Pantalla": "6.7"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_618327-MLA48897052450_012022-O.webp",
+      "Stock": 3,
+      "Disable": "True",
+      "Price": 1.955,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 6,
+      "title": "Samsumg Galaxy Z Fold3 5G",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Esto es todo lo que querías en un smartphone 5G duradero y de primera calidad. Lo creamos plegable para revelar una enorme pantalla en la que puedas ver, trabajar y divertirte como nunca antes.",
+        "marca": "Samsumg",
+        "modelo": "Fold3",
+        "SO": "Android",
+        "CPU": "2.84GHz, 2.4GHz, 1.8GHz",
+        "Ram": "12GB",
+        "Color": "Green, Black, Silver",
+        "Pantalla": "7.6"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_680610-MLA47574356658_092021-O.webp",
+      "Stock": 7,
+      "Disable": "True",
+      "Price": 1.955,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 7,
+      "title": "Samsumg Z Flip4",
+      "rating": "4.2",
+      "Detail": {
+        "detail": "Elegí un color que combine con todo, pero que no se parezca a nada. Un acabado opaco en el vidrio crea un contraste suave con el marco de metal brillante. Seleccioná entre cuatro tonos: Bora Purple, Graphite, Pink Gold y Blue.",
+        "marca": "Samsumg",
+        "modelo": "Flip4",
+        "SO": "Android",
+        "CPU": "2.99GHz, 2.4GHz, 1.7GHz",
+        "Ram": "12GB",
+        "Color": "Bora Purple, Graphite, Pink y Blue",
+        "Pantalla": "7.3"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_624071-MLA47717269574_092021-O.webp",
+      "Stock": 3,
+      "Disable": "True",
+      "Price": 1.593,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 8,
+      "title": "Samsumg Galaxy Z Fold2",
+      "rating": "4.7",
+      "Detail": {
+        "detail": "Conocé el smartphone que está cambiando la forma del futuro. El número uno del mundo en plegables, este smartphone de última generación pone en la palma de tu mano un potente rendimiento, cristal plegable y una batería para todo el día",
+        "marca": "Samsumg",
+        "modelo": "Fold2",
+        "SO": "Android",
+        "CPU": "Octa-Core de 3.09GHz, 2.4GHz, 1.8GHz",
+        "Ram": "12GB",
+        "Color": "Green, Bronce",
+        "Pantalla": "7.6"
+      },
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/ar/sm-f916bznqaro/gallery/ar-galaxy-z-fold2-f916-341065-sm-f916bznqaro-thumb-344960155?$160_160_PNG$",
+      "Stock": 10,
+      "Disable": "True",
+      "Price": 2.449,
+      "Conectividad": "USB Type-C, USB 3.2 Gen 1",
+      "category": 1
+    },
+    {
+      "id": 9,
+      "title": "Samsumg Galaxy A23",
+      "rating": "4.5",
+      "Detail": {
+        "detail": "La pantalla TFT V-Cut de 6,6 pulgadas del Galaxy A23 te da espacio para ver y hacer más. Con la tecnología FHD+ y una frecuencia de actualización de 90 Hz, el contenido que de todos los días se verá más fluido y nítido.",
+        "marca": "Samsumg",
+        "modelo": "A23",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.4GHz, 1.9GHz",
+        "Ram": "4GB",
+        "Color": "Black, White, Blue",
+        "Pantalla": "6.6"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_848144-MLA49898514252_052022-O.webp",
+      "Stock": 1,
+      "Disable": "True",
+      "Price": 538,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 10,
+      "title": "Samsumg Galaxy A33 5G",
+      "rating": "4.0",
+      "Detail": {
+        "detail": "Alimentado con un procesador Octa-core de 5 nm, tu Galaxy está diseñado para manejar múltiples tareas. RAM Plus lee tus patrones de uso y proporciona RAM virtual adicional en los momentos que necesitás un impulso adicional.",
+        "marca": "Samsumg",
+        "modelo": "A33",
+        "SO": "Android",
+        "CPU": "Octa-Core de 5 nm",
+        "Ram": "6GB",
+        "Color": "Awesome Peach, Black, White, Blue",
+        "Pantalla": "6.4"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_737517-MLA50739491200_072022-O.webp",
+      "Stock": 8,
+      "Disable": "True",
+      "Price": 590,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 11,
+      "title": "Samsumg Galaxy A51",
+      "rating": "4.3",
+      "Detail": {
+        "detail": "Obtené la experiencia más reciente de Galaxy en tu teléfono. Actualizá el software para explorar la nuevas funciones disponibles.",
+        "marca": "Samsumg",
+        "modelo": "A51",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.3GHz, 1.7GHz",
+        "Ram": "4GB",
+        "Color": "Black, White",
+        "Pantalla": "6.5"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_622636-MLA50113502606_052022-O.webp",
+      "Stock": 7,
+      "Disable": "True",
+      "Price": 761,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 12,
+      "title": "Samsumg Galaxy A52",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Disfrutá de los detalles realmente vibrantes con la pantalla Super AMOLED Display FHD+, que alcanza los 800 nits para mayor claridad, incluso con la luz de día brillante. Eye Comfort Shield² reduce la luz azul y la pantalla extrafluida mantiene la vista relajada, ya sea que estés jugando o navegando. Todo en la amplia pantalla Infinity-O Display de 6,5 pulgadas.",
+        "marca": "Samsumg",
+        "modelo": "A52",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.3GHz, 1.8GHz",
+        "Ram": "6GB",
+        "Color": "Blue, Black, White, Violet",
+        "Pantalla": "6.5"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_861218-MLA50576439367_072022-O.webp",
+      "Stock": 10,
+      "Disable": "True",
+      "Price": 848,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 13,
+      "title": "Samsumg Galaxy A71",
+      "rating": "4.4",
+      "Detail": {
+        "detail": "Con un diseño de pantalla suave y elegante de borde curvo, Galaxy A71 es hermoso a la vista y se adapta cómodamente a la mano. Su acabado brillante premium lo hace fácil de sostener, y el patrón dinámico agrega un toque único de personalidad a cada una de sus ediciones Black y Silver.",
+        "marca": "Samsumg",
+        "modelo": "A71",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.2GHz, 1.8GHz",
+        "Ram": "6GB",
+        "Color": "Black, Silver",
+        "Pantalla": "6.7"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_815858-MLA41632030909_052020-O.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 961,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 14,
+      "title": "Samsumg Galaxy M12",
+      "rating": "4.4",
+      "Detail": {
+        "detail": "Poné en tus manos el elegante estilo del Galaxy M12. Un acabado metálico y un micro patrón ofrecen un diseño contemporáneo, mientras que las curvas suaves ofrecen un agarre cómodo, haciendo que se sienta tan bien como se ve. Elegí entre los colores clásicos Black o Green.",
+        "marca": "Samsumg",
+        "modelo": "M12",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2GHz",
+        "Ram": "4GB",
+        "Color": "Blue, Black",
+        "Pantalla": "6.5"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_782705-MLA46928759833_072021-O.webp",
+      "Stock": 4,
+      "Disable": "True",
+      "Price": 346,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 15,
+      "title": "Samsumg M23 5G",
+      "rating": "5.0",
+      "Detail": {
+        "detail": "Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.",
+        "marca": "Samsumg",
+        "modelo": "M23",
+        "SO": "Android",
+        "CPU": "Octa-Core de 2.2GHz, 1.8GHz",
+        "Ram": "4GB",
+        "Color": "Green, Blue",
+        "Pantalla": "6.6"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_833241-MLA50136358907_052022-O.webp",
+      "Stock": 15,
+      "Disable": "True",
+      "Price": 634,
+      "Conectividad": "USB Type-C, USB 2.0",
+      "category": 1
+    },
+    {
+      "id": 16,
+      "title": "Apple iPhone 11 (128 GB) - Negro",
+      "rating": 5,
+      "Detail": {
+        "detail": "Graba videos 4K y captura retratos espectaculares y paisajes increíbles con el sistema de dos cámaras. Toma grandes fotos con poca luz gracias al modo Noche. Disfruta colores reales en las fotos, videos y juegos con la pantalla Liquid Retina de 6.1 pulgadas (3). Aprovecha un rendimiento sin precedentes en los juegos, la realidad aumentada y la fotografía con el chip A13 Bionic. Haz mucho más sin necesidad de volver a cargar el teléfono gracias a su batería de larga duración (2). Y no te preocupes si se moja, el iPhone 11 tiene una resistencia al agua de hasta 30 minutos a una profundidad máxima de 2 metros (1).",
+        "marca": "Apple",
+        "modelo": "iPhone 11",
+        "SO": "iOS 14",
+        "CPU": "Apple A13 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_990246-MLA46153276373_052021-O.webp",
+      "Stock": 10,
+      "Disable": false,
+      "Price": 696.99,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 17,
+      "title": "iPhone 11 Pro 64 GB gris espacial",
+      "rating": 5,
+      "Detail": {
+        "detail": "Una pantalla que brilla sobre todo lo conocido. La pantalla OLED Super Retina XDR de 5,8\", sin marcos y con una resolución FullHD+, es la pantalla más nítida diseñada por Apple. Cuenta con dos niveles máximos de brillo que se ajustan automáticamente a la luz del ambiente. Gracias a la alta intensidad de contrastes y a un mayor nivel de detalle, es perfecta para ver películas HDR, incluso bajo el sol.",
+        "marca": "Apple",
+        "modelo": "iPhone 11 pro",
+        "SO": "iOS 13",
+        "CPU": "Apple A13 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_786531-MLA44294196323_122020-O.webp",
+      "Stock": "10",
+      "Disable": false,
+      "Price": 774.96,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 18,
+      "title": "Apple iPhone 12 (64 GB) - Azul",
+      "rating": 5,
+      "Detail": {
+        "detail": "El iPhone 12 tiene una espectacular pantalla Super Retina XDR de 6.1 pulgadas (1). Un frente de Ceramic Shield, cuatro veces más resistente a las caídas (2). Modo Noche en todas las cámaras, para que puedas tomar fotos increíbles con poca luz. Grabación, edición y reproducción de video en Dolby Vision con calidad cinematográfica. Y el potente chip A14 Bionic. Además, es compatible con los nuevos accesorios MagSafe, que se acoplan fácilmente a tu iPhone y permiten una carga inalámbrica más rápida (3). Que comience la diversión.",
+        "marca": "Apple",
+        "modelo": "iPhone 12",
+        "SO": "iOS 14",
+        "CPU": "Apple A14 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_644895-MLA46153583487_052021-O.webp",
+      "Stock": 10,
+      "Disable": false,
+      "Price": 871.51,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 19,
+      "title": "Apple iPhone SE (3ª generación, 128 GB) - Azul medianoche",
+      "rating": 4,
+      "Detail": {
+        "detail": "Chip A15 Bionic superrápido. Una increíble duración de batería y una cámara que es una superestrella. Y además, el vidrio más resistente en un smartphone y botón de inicio con la seguridad de Touch ID.",
+        "marca": "Apple",
+        "modelo": "iPhone SE (3rd Generation)",
+        "SO": "iOS 15.4",
+        "CPU": "Apple A15 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_990892-MLA49590214677_042022-O.webp",
+      "Stock": 7,
+      "Disable": false,
+      "Price": 546.45,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 20,
+      "title": "Apple iPhone 13 Pro Max 128gb",
+      "rating": 5,
+      "Detail": {
+        "detail": "Conoce la mejor experiencia de tecnología y eficiencia. Con nuestro IPHONE 13 PRO MAX de 128GB. Trae un sistema de cámaras mucho más poderoso. Una pantalla con respuesta inmediata en cada interacción. Procesador Apple A15 Bionic que lo hace mucho mas rápido. Un diseño increíblemente resistente. Y un gran salto en duración de batería.",
+        "marca": "Apple",
+        "modelo": "iPhone 13 Pro Max",
+        "SO": "iOS 15",
+        "CPU": "Apple A15 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_976471-MCO50076875473_052022-O.webp",
+      "Stock": 12,
+      "Disable": false,
+      "Price": 1354.17,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 21,
+      "title": "Apple iPhone SE (2da generación) 64 GB - Negro",
+      "rating": 5,
+      "Detail": {
+        "detail": "El iPhone SE es el iPhone de 4,7 pulgadas más potente hasta ahora (1). Tiene el chip A13 Bionic, que ofrece un rendimiento increíble en apps, juegos y fotos. Viene con modo Retrato y seis efectos de iluminación para tomar retratos con calidad de estudio, HDR Inteligente de última generación que ofrece un nivel de detalle sorprendente en las luces y las sombras de las fotos, video 4K de calidad cinematográfica y todas las funcionalidades avanzadas de iOS. Además de una batería de larga duración (2) y resistencia al agua (3). Tiene todo lo que te gusta del iPhone en un diseño compacto que te encantará.",
+        "marca": "Apple",
+        "modelo": "iPhone SE (2nd Generation)",
+        "SO": "iOS 13",
+        "CPU": "Apple A13 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_624279-MLA47681022745_092021-O.webp",
+      "Stock": 9,
+      "Disable": false,
+      "Price": 248.98,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 22,
+      "title": "Apple iPhone 7 Plus 32 GB negro mate",
+      "rating": 4,
+      "Detail": {
+        "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Sus 2 cámaras traseras de 12 Mpx/12 Mpx te permitirán tomar imágenes con más detalles y lograr efectos únicos como el famoso modo retrato de poca profundidad de campo. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con su memoria interna de 32 GB descarga tus aplicaciones favoritas y guarda todas las fotos y videos que quieras.",
+        "marca": "Apple",
+        "modelo": "iPhone 7 Plus",
+        "SO": "iOS 10.01",
+        "CPU": "Apple A10 Fusion",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_604878-MLA43704039116_102020-O.webp",
+      "Stock": 6,
+      "Disable": false,
+      "Price": 482.88,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 23,
+      "title": "Apple iPhone X A1901 A1865 3gb 64gb",
+      "rating": 4.5,
+      "Detail": {
+        "detail": "El Apple iPhone X es una demostración de fuerza de Apple, mostrando lo que es capaz de hacer y para celebrar los 10 años del iPhone. El iPhone X cuenta con una pantalla de 5.8 pulgadas que abarca todo el frente del teléfono, dejando un espacio arriba para acomodar todos los sensores que contribuyen a Face ID, el nuevo método de desbloqueo por rostro, ya que el botón Touch ID desaparece. Con una atípica resolución de 2436 x 1125 pixels, acomoda 458ppi. Por dentro, el iPhone X tiene el nuevo procesador A11 Bionic. La cámara es dual de 12 MP similar a la del iPhone 8, es resistente al agua y corre iOS 11. A1865: El iPhone 10 X A1865 es considerado el teléfono global, ya que es compatible con redes GSM y CDMA. Todos los modelos cuentan con WI-FI 802.11ac con MIMO, tecnología inalánbrica Bluetooth 5.0. NFC con modo de lectura.",
+        "marca": "Apple",
+        "modelo": "iPhone X",
+        "SO": "iOS 11",
+        "CPU": "Apple A11 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_950598-MCO32413287415_102019-O.webp",
+      "Stock": 7,
+      "Disable": false,
+      "Price": 579.22,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 24,
+      "title": "Apple iPhone XR A1984 3gb 128gb",
+      "rating": 4,
+      "Detail": {
+        "detail": "El Apple iPhone Xr llega en el 2018 para reemplazar definitivamente el botón Touch ID en el iPhone. reemplazando a los modelos clásicos del iPhone, el iPhone Xr tiene una pantalla LCD de 6.1 pulgadas de borde a borde con notch incluido y resolución Retina. El iPhone Xr está potenciado por el procesador A12 Bionic con 64GB, 128GB o 256GB de almacenamiento interno, y cuenta con una cámara de 12 megapixels, cámara frontal de 7 megapixels, carga inalámbrica y certificación IP67 a prueba de agua, disponible en una variedad enorme de colores. OS 12 es el sistema operativo del Apple iPhone Xr, que en cuanto a dimensiones tiene un perfil de 8.3 mm y un peso de 194 g. Entre las características del Apple iPhone Xr se destaca una pantalla de 6.1\" con una resolución de 828 x 1792 pixels. Completando las especificaciones técnicas del Apple iPhone Xr, podemos encontrar parlantes stereo para un sonido superior.",
+        "marca": "Apple",
+        "modelo": "iPhone XR",
+        "SO": "iOS 12",
+        "CPU": "Apple A12 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_625521-MCO32404760254_102019-O.webp",
+      "Stock": 10,
+      "Disable": false,
+      "Price": 558.02,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 25,
+      "title": "Apple iPhone 12 Pro Max (256 Gb) - Azul Pacífico Model A2342",
+      "rating": 4.5,
+      "Detail": {
+        "detail": "El iPhone 12 Pro Max tiene una pantalla Super Retina XDR más grande, de 6.7 pulgadas (1). Con el nuevo Ceramic Shield, es cuatro veces más resistente a las caídas (2). Y te permite tomar fotos increíbles con poca luz gracias al mejor sistema de cámaras Pro de un iPhone y al rango de zoom óptico de 5x. También puedes grabar, editar y reproducir video en Dolby Vision con calidad cinematográfica, tomar retratos con modo Noche y disfrutar experiencias de realidad aumentada de última generación con el escáner LiDAR. El iPhone 12 Pro Max viene con el potente chip A14 Bionic y es compatible con los nuevos accesorios MagSafe, que se adhieren magnéticamente a tu iPhone y brindan una carga inalámbrica más rápida (3). Una infinidad de posibilidades que no dejarán de sorprenderte.",
+        "marca": "Apple",
+        "modelo": "iPhone 12 Pro Max",
+        "SO": "iOS 14",
+        "CPU": "Apple A14 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_751680-MLA46183698427_052021-O.webp",
+      "Stock": 6,
+      "Disable": false,
+      "Price": 1107.08,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 26,
+      "title": "Apple iPhone XS Max 64 Gb Oro",
+      "rating": 4.8,
+      "Detail": {
+        "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Sus 2 cámaras traseras de 12 Mpx/12 Mpx te permitirán tomar imágenes con más detalles y lograr efectos únicos como el famoso modo retrato de poca profundidad de campo. Con su pantalla OLED de 6.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Acerca el dispositivo a tu rostro para desbloquearlo instantáneamente. Su precisa tecnología de reconocimiento facial te garantiza un acceso al equipo rápido y seguro. Con su memoria interna de 64 GB siempre tendrás espacio para almacenar archivos y documentos importantes. Además, podrás guardar películas, series y videos para reproducirlos cuando quieras sin conexión",
+        "marca": "Apple",
+        "modelo": "iPhone XS Max",
+        "SO": "iOS 12",
+        "CPU": "Apple A12 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_837813-MLA44156024093_112020-O.webp",
+      "Stock": 6,
+      "Disable": false,
+      "Price": 977.53,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 27,
+      "title": "Apple iPhone XR 64 Gb Coral",
+      "rating": 3.8,
+      "Detail": {
+        "detail": "El iPhone XR viene con una pantalla Liquid Retina de 6.1 pulgadas (2) y está disponible en seis colores increíbles. El avanzado sistema Face ID te permite desbloquearlo de forma segura e iniciar sesión en tus apps con sólo una mirada. El chip A12 Bionic usa el aprendizaje automático en tiempo real para llevar aún más allá todo lo que puedes hacer con tus fotos, juegos, realidad aumentada y más. El sistema de cámara única de 12 MP con modo Retrato, Iluminación de Retrato, bokeh mejorado y Control de Profundidad te permite tomar retratos con calidad de estudio. Además, es resistente al agua.",
+        "marca": "Apple",
+        "modelo": "iPhone XR",
+        "SO": "iOS 12",
+        "CPU": "Apple A12 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_839636-MLA46597380704_072021-O.webp",
+      "Stock": 10,
+      "Disable": false,
+      "Price": 506.41,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 28,
+      "title": "Apple iPhone 8 Plus Plata De 128gb",
+      "rating": 4.5,
+      "Detail": {
+        "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con el sensor de huella digital, el acceso es seguro y podrás desbloquearlo automáticamente con un toque. Con su memoria interna de 128 GB podrás almacenar archivos y aplicaciones de gran tamaño sin necesidad de subirlos a la nube y aprovechar tus momentos sin conexión para darles el máximo uso.",
+        "marca": "Apple",
+        "modelo": "iPhone 8 Plus",
+        "SO": "iOS 11",
+        "CPU": "Apple A11 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_933513-MLA44156542321_112020-O.webp",
+      "Stock": 11,
+      "Disable": false,
+      "Price": 529.99,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 29,
+      "title": "Apple iPhone 8 Plus 64 Gb Oro",
+      "rating": 4,
+      "Detail": {
+        "detail": "El dispositivo cuenta con cámara frontal de 7 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.5\", disfruta de colores intensos y mayor nitidez en todos tus contenidos. Su memoria RAM de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar. Con el sensor de huella digital, el acceso es seguro y podrás desbloquearlo automáticamente con un toque. Con su memoria interna de 64 GB siempre tendrás espacio para almacenar archivos y documentos importantes. Además, podrás guardar películas, series y videos para reproducirlos cuando quieras sin conexión.",
+        "marca": "Apple",
+        "modelo": "iPhone 8 Plus",
+        "SO": "iOS 11",
+        "CPU": "Apple A11 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_890424-MLA44156537587_112020-O.webp",
+      "Stock": 7,
+      "Disable": false,
+      "Price": 411.98,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 30,
+      "title": "Apple iPhone 13 - Red",
+      "rating": 5,
+      "Detail": {
+        "detail": "Pantalla y diseño Superbrillante. Supercolorida. Supernítida.Una pantalla OLED más brillante que ahorra energía y se ve increíble incluso a pleno sol. Y un diseño duradero resistente al agua y al polvo Crea automáticamente bellos efectos de profundidad y cambios de enfoque para darles más fuerza narrativa a tus videos.  tus fotos y videos se veran aún más increíbles. La cámara gran angular capta más luz y la cámara ultra gran angular captura más detalle en las zonas oscuras. Además, se incluyo una nueva estabilización óptica de imagen por desplazamiento de sensor. El iPhone 13 da un gran salto en duración de batería. Ahora podrás maratonear tus series favoritas, jugar videojuegos o hacer lo que quieras por más tiempo con una sola carga. Incluso en el iPhone 13 mini Más velocidad. Mejores cámaras. Tú sales ganando.",
+        "marca": "Apple",
+        "modelo": "iPhone 13",
+        "SO": "iOS 15",
+        "CPU": "Apple A15 Bionic",
+        "Ram": "4 GB",
+        "Color": "Negro",
+        "Pantalla": "6.1\""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_733492-MCO48109679666_112021-O.webp",
+      "Stock": 6,
+      "Disable": false,
+      "Price": 989.28,
+      "Conectividad": "4G/LTE",
+      "Category": 1
+    },
+    {
+      "id": 61,
+      "title": "Tablet Samsung Galaxy Tab A A8 2022",
+      "rating": "4.7",
+      "Detail": {
+        "detail": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones wi-fi, bluetooth, usb-c 2.0, wi-fi direct te permiten potenciar sus funciones al máximo. Gracias a su cámara principal de 8 Mpx y frontal de 5 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes harán que tus experiencias se reflejen de manera óptima.",
+        "marca": "Samsumg",
+        "modelo": "A8",
+        "SO": "Android 11.0",
+        "CPU": "Octa-Core de 2GHz",
+        "Ram": "",
+        "Color": "",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp",
+      "Stock": 3,
+      "Disable": "True",
+      "Price": 442,
+      "Conectividad": ""
+    },
+    {
+        "id": 62,
+        "title": "Tablet Samsung Galaxy Tab S6 Lite SM-P610",
+        "rating": "4.8",
+        "Detail": {
+          "detail": "La Galaxy Tab S6 Lite va a ser tu gran compañía portátil para tomar notas. Con una gran pantalla de 10.4'' dentro de tamaño delgado y ligero, One UI 2 en Android y S Pen, está lista para acompañarte. Estés jugando, aprendiendo o dibujando, esta tablet está hecha para unirse a tu momento.",
+          "marca": "Samsumg",
+          "modelo": "S6",
+          "SO": "Android 10.0",
+          "CPU": "Quad-Core Cortex-A73, Quad-Core Cortex-A53 de 2.3GHz",
+          "Ram": "4",
+          "Color": "Grey",
+          "Pantalla": "10.4"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_795499-MLA42520536795_072020-O.webp",
+        "Stock": 1,
+        "Disable": "True",
+        "Price": 671,
+        "Conectividad": "Wi-Fi, Wi-Fi Direct, Bluetooth, USB-C, ANT+",
+        "Category": "Tablet"
+      },
+      {
+        "id": 63,
+        "title": "Tablet Samsung Galaxy Tab A7 Lite SM-T220",
+        "rating": "4.8",
+        "Detail": {
+          "detail": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones wi-fi, wi-fi direct, bluetooth, usb-c te permiten potenciar sus funciones al máximo. Gracias a su cámara principal de 8 Mpx y frontal de 2 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes harán que tus experiencias se reflejen de manera óptima.",
+          "marca": "Samsumg",
+          "modelo": "A7",
+          "SO": "Android 11.0",
+          "CPU": "Octa-Core Cortex-A53 de 2.3GHz",
+          "Ram": "3",
+          "Color": "Grey",
+          "Pantalla": "8.7"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_765874-MLA47146197629_082021-O.webp",
+        "Stock": 8,
+        "Disable": "True",
+        "Price": 228,
+        "Conectividad": "usb, cable USB-c",
+        "Category": "Tablet"
+      },
+      {
+        "id": 64,
+        "title": "Tablet Samsung Galaxy Tab A 2019 SM-T290",
+        "rating": "4.8",
+        "Detail": {
+          "detail": "Descubrí un compañero práctico con la Galaxy Tab A (8.0 ”, 2019), una tablet que sobresale de lo básico y agrega mucho más. Con un diseño fácil de llevar con una sola mano, es delgada, compacta y portátil, la combinación ideal de rendimiento, diseño y accesibilidad.",
+          "marca": "Samsumg",
+          "modelo": "A",
+          "SO": "Android Pie",
+          "CPU": "Quad-Core de 2GHz.",
+          "Ram": "2",
+          "Color": "Grey",
+          "Pantalla": "8"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_882575-MLA42902471570_072020-O.webp",
+        "Stock": 7,
+        "Disable": "True",
+        "Price": 324,
+        "Conectividad": "Bluetooth, USB, Wi-Fi, Wi-Fi Direct",
+        "Category": "Tablet"
+      },
+      {
+        "id": 65,
+        "title": "Tablet Samsung Galaxy Tab S7+ SM-T970",
+        "rating": "4.9",
+        "Detail": {
+          "detail": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones bluetooth, wi-fi, wi-fi direct, usb-c te permiten potenciar sus funciones al máximo. Capturá todos tus momentos al instante Gracias a sus cámaras principales de 13 Mpx, 5 Mpx y su cámara frontal de 8 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes, harán que tus experiencias se reflejen de manera óptima.",
+          "marca": "Samsumg",
+          "modelo": "S7+",
+          "SO": "Android 10.0",
+          "CPU": "Octa-Core Qualcomm Kryo 585 de 3.09GHz",
+          "Ram": "8",
+          "Color": "Black",
+          "Pantalla": "12.4"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_710925-MLA45377263029_032021-O.webp",
+        "Stock": 4,
+        "Disable": "True",
+        "Price": 1.475,
+        "Conectividad": "Bluetooth, Wi-Fi, Wi-Fi Direct, USB-C",
+        "Category": "Tablet"
+      },
+      {
+        "id": 66,
+        "title": "Tablet Samsung Tab S8 S8 Ultra SM-X900",
+        "rating": "4.7",
+        "Detail": {
+          "detail": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones bluetooth, wi-fi, wi-fi direct, usb-c te permiten potenciar sus funciones al máximo. Capturá todos tus momentos al instante Gracias a sus cámaras principales de 13 Mpx, 5 Mpx y su cámara frontal de 8 Mpx, podrás hacer videollamadas o sacarte fotos en cualquier momento y lugar, con una excelente calidad de imagen. Nitidez, brillo y colores vibrantes, harán que tus experiencias se reflejen de manera óptima.",
+          "marca": "Samsumg",
+          "modelo": "S8",
+          "SO": "Android",
+          "CPU": "Cortex-X2, Tri-Core Cortex-A710, Quad-Core Cortex-A510 de 2.99GHz",
+          "Ram": "8",
+          "Color": "Black",
+          "Pantalla": "14.6"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_888357-MLA50219535100_062022-O.webp",
+        "Stock": 1,
+        "Disable": "True",
+        "Price": 2.036,
+        "Conectividad": "USB 3.2 Gen 1, Wi-Fi Direct, Smart Switch, Wi-Fi, Bluetooth, MIMO",
+        "Category": "Tablet"
+      },
+      {
+        "id": 67,
+        "title": "Tablet Samsung Galaxy Tab A7 Lite",
+        "rating": "4.8",
+        "Detail": {
+          "detail": "Jugá donde quieras Disfrutá de tus películas y juegos favoritos en una amplia pantalla de 8,7 pulgadas. Los biseles reducidos ofrecen una mayor relación pantalla-cuerpo sin aumentar el tamaño de la tablet. Además, su forma compacta te brinda comodidad al usarla y ayuda a que no se te cansen las manos, incluso si jugás durante horas. Diseñada para acompañarte a todos lados Combinar estilo y comodidad ahora es posible. La Galaxy Tab A7 Lite te ofrece ambas características en un formato delgado. Además, la tablet superportátil tiene un grosor de 8,0 mm y pesa 366 g para que puedas llevarla con facilidad, sin agregar peso extra.",
+          "marca": "Samsumg",
+          "modelo": "A7",
+          "SO": "Android",
+          "CPU": "Cortex-X2, Tri-Core Cortex-A710, Quad-Core Cortex-A510 de 2.99GHz",
+          "Ram": "3",
+          "Color": "White",
+          "Pantalla": "8.7"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_939243-MLA48658808917_122021-O.webp",
+        "Stock": 9,
+        "Disable": "True",
+        "Price": 228,
+        "Conectividad": "Wi-Fi,Wi-Fi Direct,Bluetooth,USB-C",
+        "Category": "Tablet"
+      },
+      {
+        "id": 68,
+        "title": "Tablet Samsung Galaxy Tab A8",
+        "rating": "4.5",
+        "Detail": {
+          "detail": "Una visión del mundo a lo grande Su pantalla de 10,5 de ancho cuenta con un marco simétrico de solo 10,2 mm para que te sumerjas de lleno en tus contenidos favoritos. Clásica y moderna, ¡lo tiene todo! Con una estética jovial y un toque de frescura, nuestra Galaxy Tab A8 desprende un aura vibrante y una apariencia juvenil. Su elegante cuerpo metálico, que presenta un perfil ultrafino de tan solo 6,9 mm, da lugar al diseño característico de las tablets Samsung",
+          "marca": "Samsumg",
+          "modelo": "A8",
+          "SO": "Android 11.0",
+          "CPU": "Quad-Core Cortex-A73, Quad-Core Cortex-A53 de 2.3GHz",
+          "Ram": "4",
+          "Color": "Black",
+          "Pantalla": "10.5"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_757891-MLA48886951265_012022-O.webp",
+        "Stock": 14,
+        "Disable": "True",
+        "Price": 442,
+        "Conectividad": "Wi-Fi,Bluetooth,USB-C 2.0,Wi-Fi Direct",
+        "Category": "Tablet"
+      },
+      {
+        "id": 69,
+        "title": "Tablet Samsung Galaxy Tab A Sm-t290",
+        "rating": "4.9",
+        "Detail": {
+          "detail": "La Tab A es tu compañera ideal, con capacidad de sobra para cada una de tus actividades. Su diseño, fácil de sostener con una sola mano, es delgado, compacto y portátil; una combinación perfecta de rendimiento y versatilidad.",
+          "marca": "Samsumg",
+          "modelo": "A",
+          "SO": "Android 11.0",
+          "CPU": "Quad-Core de 2GHz.",
+          "Ram": "2",
+          "Color": "Black",
+          "Pantalla": "8"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_910953-MLA45078386265_032021-O.webp",
+        "Stock": 20,
+        "Disable": "True",
+        "Price": 324,
+        "Conectividad": "Bluetooth,USB,Wi-Fi,Wi-Fi Direct",
+        "Category": "Tablet"
+      },
+      {
+        "id": 70,
+        "title": "Tablet Samsung Galaxy Tab A7 Lite Sm-t220",
+        "rating": "4",
+        "Detail": {
+          "detail": "Jugá donde quieras Disfrutá de tus películas y juegos favoritos en una amplia pantalla de 8,7 pulgadas. Los biseles reducidos ofrecen una mayor relación pantalla-cuerpo sin aumentar el tamaño de la tablet. Además, su forma compacta te brinda comodidad al usarla y ayuda a que no se te cansen las manos, incluso si jugás durante horas. Diseñada para acompañarte a todos lados Combinar estilo y comodidad ahora es posible. La Galaxy Tab A7 Lite te ofrece ambas características en un formato delgado. Además, la tablet superportátil tiene un grosor de 8,0 mm y pesa 366 g para que puedas llevarla con facilidad, sin agregar peso extra.",
+          "marca": "Samsumg",
+          "modelo": "A7",
+          "SO": "Android 11.0",
+          "CPU": "Quad-Core de 2GHz.",
+          "Ram": "3",
+          "Color": "Platead",
+          "Pantalla": "8.7"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_715404-MLA49333054220_032022-O.webp",
+        "Stock": 5,
+        "Disable": "True",
+        "Price": 228,
+        "Conectividad": "Wi-Fi,Wi-Fi Direct,Bluetooth,USB-C",
+        "Category": "Tablet"
+      },
+      {
+        "id": 71,
+        "title": "Tablet Samsung Galaxy Tab S6 Lite",
+        "rating": "4.7",
+        "Detail": {
+          "detail": "La Galaxy Tab S6 Lite va a ser tu gran compañía portátil para tomar notas. Con una gran pantalla de 10.4'' dentro de tamaño delgado y ligero, One UI 2 en Android y S Pen, está lista para acompañarte. Estés jugando, aprendiendo o dibujando, esta tablet está hecha para unirse a tu momento.",
+          "marca": "Samsumg",
+          "modelo": "S6",
+          "SO": "Android 10.0",
+          "CPU": "Octa-Core",
+          "Ram": "4",
+          "Color": "Grey",
+          "Pantalla": "10.4"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_689767-MLA43675157500_102020-O.webp",
+        "Stock": 5,
+        "Disable": "True",
+        "Price": 818,
+        "Conectividad": "ANT+,Bluetooth,USB,Wi-Fi,Wi-Fi Direct",
+        "Category": "Tablet"
+      },
+      {
+        "id": 72,
+        "title": "Samsung Galaxy Tab Active 3 ",
+        "rating": "4.8",
+        "Detail": {
+          "detail": "Galaxy Tab Active3 cuenta con un diseño resistente al agua, polvo y a caídas de más 1,5 metros, ideal para afrontar el día a día. Además, cuenta con batería reemplazable, NFC mejorado y Samsung Dex, para mejorar la productividad. Es una herramienta ideal para el trabajo gracias a sus ajustes de sensibilidad táctil, Active Key y S Pen.",
+          "marca": "Samsumg",
+          "modelo": "Tab Active 3",
+          "SO": "Android",
+          "CPU": "Octa-Core",
+          "Ram": "4",
+          "Color": "Black",
+          "Pantalla": "8"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_641773-MLA47631270935_092021-O.webp",
+        "Stock": 16,
+        "Disable": "True",
+        "Price": 1.46,
+        "Conectividad": "ANT+,Bluetooth,USB,Wi-Fi,Wi-Fi Direct",
+        "Category": "Tablet"
+      },
+      {
+        "id": 73,
+        "title": "Tablet Samsung Galaxy Tab E Sm-t560 ",
+        "rating": "4.7",
+        "Detail": {
+          "detail": "Su sistema operativo Android 4.4 KitKat permitirá mejorar el rendimiento de tu tablet optimizando la memoria y dando mayor fluidez a su pantalla táctil de 9.6 pulgadas. Podrás trabajar en dos aplicaciones simultáneamente gracias al modo de pantalla dividida y el multitareas mejorado. Además, podrás controlar las actividades de los más pequeños con el Kids Mode.",
+          "marca": "Samsumg",
+          "modelo": "E",
+          "SO": "Android 4.4.4",
+          "CPU": "Quad-Core Cortex-A7",
+          "Ram": "1.5",
+          "Color": "White",
+          "Pantalla": "9.6"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_869210-MLA50161052611_062022-O.webp",
+        "Stock": 2,
+        "Disable": "True",
+        "Price": 184,
+        "Conectividad": "Bluetooth,USB,Wi-Fi",
+        "Category": "Tablet"
+      },
+      {
+        "id": 74,
+        "title": "Samsung Galaxy Tab S7  ",
+        "rating": "4.5",
+        "Detail": {
+          "detail": "Su sistema operativo Android 4.4 KitKat permitirá mejorar el rendimiento de tu tablet optimizando la memoria y dando mayor fluidez a su pantalla táctil de 9.6 pulgadas. Podrás trabajar en dos aplicaciones simultáneamente gracias al modo de pantalla dividida y el multitareas mejorado. Además, podrás controlar las actividades de los más pequeños con el Kids Mode.",
+          "marca": "Samsumg",
+          "modelo": "S7",
+          "SO": "Android 11.0",
+          "CPU": "Dual-Core Cortex-A77,Hexa-Core Cortex-A55",
+          "Ram": "6",
+          "Color": "Black",
+          "Pantalla": "12.4"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_788706-MLA48050493737_102021-O.webp",
+        "Stock": 5,
+        "Disable": "True",
+        "Price": 1.328,
+        "Conectividad": "Bluetooth,USB,Wi-Fi",
+        "Category": "Tablet"
+      },
+      {
+        "id": 75,
+        "title": "Tablet Samsung Galaxy Tab A 2019 SM-T510",
+        "rating": "4.9",
+        "Detail": {
+          "detail": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad.",
+          "marca": "Samsumg",
+          "modelo": "A",
+          "SO": "Android 9.0",
+          "CPU": "Octa-Core de 1.8GHz",
+          "Ram": "2",
+          "Color": "Black",
+          "Pantalla": "10.1"
+        },
+        "image": "https://http2.mlstatic.com/D_NQ_NP_941627-MLA42924518202_072020-O.webp",
+        "Stock": 6,
+        "Disable": "True",
+        "Price": 812,
+        "Conectividad": "Bluetooth,USB,Wi-Fi",
+        "Category": "Tablet"
+      }
+  
+    {
+      "id": 76,
+      "title": "Apple Watch - Serie 7 con GPS y caja de aluminio color rojo de 1.61 pulgadas con correa deportiva color rojo, tamaño regular",
+      "rating": "3,7",
+      "Detail": {
+        "detail": "Monitor de actividad, monitor de ritmo cardíaco, monitor de sueño, oxígeno en sangre.",
+        "marca": "Apple",
+        "modelo": "Apple Watch Series 7",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "Pink",
+        "Pantalla": "4"
+      },
+      "image": "https://m.media-amazon.com/images/I/711BW6zqs0L._AC_SX679_.jpg",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 315.84,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 77,
+      "title": "AMSUNG Galaxy Watch 4",
+      "rating": "1,8",
+      "Detail": {
+        "detail": "Time Display, Sleep Monitor, Text Messaging, GPS",
+        "marca": "Samsung",
+        "modelo": "Samsung Galaxy",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "Negro",
+        "Pantalla": "4"
+      },
+      "image": "https://m.media-amazon.com/images/I/61aCopNtt7L._AC_SX679_.jpg",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 199.99,
+      "Conectividad": "Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 78,
+      "title": "Accutime Microsoft Minecraft",
+      "rating": "1.5",
+      "Detail": {
+        "detail": "Accutime Microsoft Minecraft Green - Reloj inteligente educativo con pantalla táctil para niños, niñas, niños pequeños, cámara selfie, juegos de aprendizaje, alarma, calculadora, podómetro y más (modelo: MIN4045AZ), forro polar verde con licencia oficial de star wars silent one crew., 40mm, Moderno",
+        "marca": "Microsoft",
+        "modelo": "Minecraft",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "",
+        "Pantalla": "1.35"
+      },
+      "image": "https://m.media-amazon.com/images/I/61dfuJcPnEL._AC_UY741_.jpg",
+      "Stock": 10,
+      "Disable": "True",
+      "Price": 34.99,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 79,
+      "title": "Apple Watch Series 3",
+      "rating": "1.4",
+      "Detail": {
+        "detail": "El producto está reacondicionado, es totalmente funcional y se encuentra en excelente estado. Respaldado por la garantía de Amazon Renewed de 90 días.",
+        "marca": "Apple",
+        "modelo": "Apple Watch Series 3",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "",
+        "Pantalla": "4"
+      },
+      "image": "https://m.media-amazon.com/images/I/71DvR4Ji95L._AC_SX679_.jpg",
+      "Stock": 2,
+      "Disable": "True",
+      "Price": 239.36,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 80,
+      "title": "Garmin 010-02173-11 Venu",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Garmin 010-02173-11 Venu, GPS SmartWatch con pantalla táctil brillante, presenta música, monitoreo de energía corporal, entrenamientos animados, sensor de buey de pulso y más, negro",
+        "marca": "Garmin",
+        "modelo": "010-02173-11 Venu",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "",
+        "Pantalla": "1.3"
+      },
+      "image": "https://m.media-amazon.com/images/I/51kyjYuOZhL._AC_SL1000_.jpg",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 227.49,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 81,
+      "title": "Apple Series 3 Watch",
+      "rating": "",
+      "Detail": {
+        "detail": "Altavoz, Aplicación deportiva, Asistente virtual, Calculadora, Calendario, Clima, Control de ciclo menstrual, Cronómetro, Distancia recorrida, Emergencia SOS, Encuentra mi teléfono, Gestión de llamadas, Gestión de mensajes, Medidor de frecuencia cardíaca, Monitor de sueño, Notificaciones, Pagos, Recordatorio anti sedentarismo, Recordatorios, Relajación, Reproducción de música, Walkie-talkie",
+        "marca": "Apple",
+        "modelo": "Watch (GPS) serie 3",
+        "SO": "watchOS 8",
+        "CPU": "",
+        "Ram": "8 GB",
+        "Color": "white",
+        "Pantalla": "4"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_733035-MLA46397466792_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 479.54,
+      "Conectividad": "Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 82,
+      "title": "Xiaomi Mi Smart Band 6",
+      "rating": "",
+      "Detail": {
+        "detail": "Alarma, Alerta de vibración, Aplicación deportiva, Calendario, Capturador de fotos remoto, Clima, Consumo de calorías, Control de ciclo menstrual, Control de música, Cronómetro, Cuenta pasos, Distancia recorrida, Encuentra mi smartwatch, Encuentra mi teléfono, Medidor de frecuencia cardíaca, Medidor de oxígeno, Monitor de sueño, Notificaciones, Recibir mensajes, Recordatorio anti sedentarismo, Recordatorios, Redes sociales, Relajación, Temporizador, Velocidad, Visualizar llamadas",
+        "marca": "Xiaomi",
+        "modelo": "Mi Smart Band 6",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": "1.56"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_917772-MLA46164931649_052021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 58.24,
+      "Conectividad": "USB,Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 83,
+      "title": "Huawei Fit TIA-B09",
+      "rating": "",
+      "Detail": {
+        "detail": "Alarma, Alerta de vibración, Aplicación deportiva, Calendario, Clima, Consumo de calorías, Cronómetro, Cuenta pasos, Distancia recorrida, Encuentra mi teléfono, Linterna, Medidor de frecuencia cardíaca, Medidor de oxígeno, Monitor de sueño, Notificaciones, Recibir mensajes, Recordatorio anti sedentarismo, Recordatorios, Redes sociales, Relajación, Temporizador, Visualizar llamadas",
+        "marca": "Huawei",
+        "modelo": "Fit TIA-B09",
+        "SO": "iOS 9.0, Android 5.0",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": "1.64"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_771823-MLA45810691826_052021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 162.3,
+      "Conectividad": "USB,Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 84,
+      "title": "Xiaomi Redmi Watch 2 Lite In-ear",
+      "rating": "",
+      "Detail": {
+        "detail": "Alarma, Aplicación deportiva, Brújula, Calendario, Clima, Consumo de calorías, Control de ciclo menstrual, Control de música, Cuenta pasos, Encuentra mi teléfono, Medidor de frecuencia cardíaca, Medidor de oxígeno, Monitor de sueño, Recibir mensajes, Recordatorio anti sedentarismo, Relajación, Temporizador, Visualizar llamadas",
+        "marca": "Xiaomi",
+        "modelo": "Redmi Watch 2 Lite",
+        "SO": "Android 6.0, iOS 10.0",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": "1.55"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_799200-MLA49011477414_022022-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 106.96,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 85,
+      "title": "Auriculares in-ear Motorola Earbuds 2",
+      "rating": "",
+      "Detail": {
+        "detail": "Con micrófono incorporado-Sonido superior y sin límites.Cómodos y prácticos.",
+        "marca": "Motorola",
+        "modelo": "Earbuds 2",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_780004-MLA41188556823_032020-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 14.68,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 86,
+      "title": "Apple AirPods con estuche de carga inalámbrica In-ear",
+      "rating": "4.6",
+      "Detail": {
+        "detail": "Los AirPods te brindan una experiencia inalámbrica inigualable con un sonido de alta calidad, acceso a Siri (1) activado por voz. Gracias al estuche de carga inalámbrica, sólo tienes que colocar los audífonos sobre una base de carga para cargar su batería. Los AirPods están listos para funcionar con todos tus dispositivos (2). Póntelos y se conectarán al instante, como por arte de magia",
+        "marca": "Apple",
+        "modelo": "AirPods with wireless charging case (2nd generation)",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_776908-MLA46302567710_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 191.8,
+      "Conectividad": "USB,Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 87,
+      "title": "Auriculares in-ear gamer inalámbricos Xiaomi Redmi Buds 3 Lite",
+      "rating": "",
+      "Detail": {
+        "detail": "Control de llamadas, Control de canciones, Control de modo de baja latencia, Play",
+        "marca": "Xiaomi",
+        "modelo": "Redmi Buds 3 Lite",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_737334-MLA51162565871_082022-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 46.47,
+      "Conectividad": "USB,Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 88,
+      "title": "Auriculares in-ear inalámbricos Xiaomi Mi Earphones 2 Basic blanco",
+      "rating": "",
+      "Detail": {
+        "detail": "Cuenta con tecnología True Wireless - Alcance inalámbrico de 10 m-La batería dura 5 h-Modo manos libres incluido-Con estuche de carga inalámbrica-Con micrófono incorporado-Sonido superior y sin límites-Cómodos y prácticos.",
+        "marca": "Xiaomi",
+        "modelo": "Mi Earphones 2 Basic",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_671211-MLA45814044235_052021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 44.78,
+      "Conectividad": "USB,Bluetooth",
+      "category": 4
+    },
+    {
+      "id": 89,
+      "title": "Auriculares inalámbricos Sony WH-CH510 negro On-ear",
+      "rating": "",
+      "Detail": {
+        "detail": "Alcance inalámbrico de 10 m-La batería dura 35 h-Modo manos libres incluido-Con micrófono incorporado-Sonido superior y sin límites-Cómodos y prácticos.",
+        "marca": "Sony",
+        "modelo": "WH-CH510",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_933418-MLA40865317836_022020-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 65.65,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 90,
+      "title": "Auriculares Philips 1000 Series TAH1205 On-ear",
+      "rating": "4.5",
+      "Detail": {
+        "detail": "Alcance inalámbrico de 10 m-La batería dura 15 h-Modo manos libres incluido-Con micrófono incorporado-Sonido superior y sin límites-Cómodos y prácticos.",
+        "marca": "Philips",
+        "modelo": "TAH1205",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": "4"
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_856025-MLA46482186622_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 56.06,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 91,
+      "title": "Teclado bluetooth Apple Magic QWERTY",
+      "rating": "5.9",
+      "Detail": {
+        "detail": "",
+        "marca": "Apple",
+        "modelo": "Magic",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_881724-MLA32721760966_102019-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 126.96,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 92,
+      "title": "Teclado gamer bluetooth Redragon Draconic K530 QWERTY Outemu Brown inglés US color blanco con luz RGB",
+      "rating": "",
+      "Detail": {
+        "detail": "Distinción a todo color.Su retroiluminación le da un toque diferente a tu equipo y resalta su composición cuando es utilizado en espacios poco iluminados.Tecnología antighosting: Este dispositivo tiene teclas antighosting. Esta cualidad es indispensable si requerís de un uso intensivo del periférico. Gracias a esto podrás evitar fallas al tocar varias teclas al mismo tiempo.",
+        "marca": "Redragon",
+        "modelo": "Draconic K530",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "brown",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_975008-MLA46503943203_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 85.1,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 93,
+      "title": "Teclado gamer HyperX Alloy Elite 2 QWERTY Red español latinoamérica color negro con luz RGB",
+      "rating": "4.9",
+      "Detail": {
+        "detail": "Distinción a todo color:Suretroiluminación le da un toque diferente a tu equipo y resalta su composición cuando es utilizado en espacios poco iluminados.Tecnología antighosting.Este dispositivo tiene teclas antighosting. Esta cualidad es indispensable si requerís de un uso intensivo del periférico. Gracias a esto podrás evitar fallas al tocar varias teclas al mismo tiempo.",
+        "marca": "HyperX",
+        "modelo": "Alloy Elite 2",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_929016-MLA45169314172_032021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 167.48,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 94,
+      "title": "Mouse inalámbrico recargable Logitech Master Series MX Master 3 grafito",
+      "rating": "",
+      "Detail": {
+        "detail": "Contiene usb inalámbrico.-Puede conectarse a cualquier dispositivo a través de Bluetooth-tiliza cable-Incluye batería recargable-Posee rueda de desplazamiento-Cuenta con 7 botones para un mayor control-Con sensor óptico-Resolución de 8000dpi-Creado para llevar a todas partes-Control inteligente y navegación fácil.",
+        "marca": "Logitech",
+        "modelo": "Master Series MX Master 3",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_658245-MLA43229688028_082020-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 182.62,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 95,
+      "title": "Mouse táctil inalámbrico Apple Magic A1296 blanco",
+      "rating": "4.2",
+      "Detail": {
+        "detail": "ontiene usb inalámbrico-Puede conectarse a cualquier dispositivo a través de Bluetooth-Utiliza cable-Tipo de alimentación inalámbrica: pilas-Con sensor láser-Creado para llevar a todas partes-Control inteligente y navegación fácil.",
+        "marca": "Apple",
+        "modelo": "Magic Mouse A1296",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_624987-MLA48881660084_012022-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 184.45,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 96,
+      "title": "Mouse inalámbrico Microsoft Bluetooth Mobile 3600 negro",
+      "rating": "4.3",
+      "Detail": {
+        "detail": "Contiene usb inalámbrico-Puede conectarse a cualquier dispositivo a través de Bluetooth-Posee rueda de desplazamiento-Cuenta con 3 botones para un mayor control-Con sensor óptico-Resolución de 1000dpi-Creado para llevar a todas partes-Control inteligente y navegación fácil.",
+        "marca": "Microsoft",
+        "modelo": "Mobile 3600",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_861042-MLA32146410266_092019-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 29.5,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 97,
+      "title": "https://http2.mlstatic.com/D_NQ_NP_2X_674043-MLA48688191484_122021-F.webp",
+      "rating": "4.2",
+      "Detail": {
+        "detail": "Modelo detallado: K552RGB-BA-W-SP-Modelo del teclado: Kumara K552W RGB-Modelo del mouse: Griffin M607W",
+        "marca": "Redragon",
+        "modelo": "K552RGB-BA-W",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_674043-MLA48688191484_122021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 73.78,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 98,
+      "title": "Kit Combo Redragon Gamer Pandora Storm Elite Draconic White",
+      "rating": "",
+      "Detail": {
+        "detail": "Modelo del mouse: Storm Elite M988 White-Modelo del teclado: Draconic K530RGB White",
+        "marca": "Redragon",
+        "modelo": "Pandora, Storm Elite y Draconic White",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "white",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_806962-MLA46738644931_072021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 219.46,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 99,
+      "title": "Joystick inalámbrico Sony PlayStation DualSense CFI-ZCT1 midnight black",
+      "rating": "",
+      "Detail": {
+        "detail": "Cuenta con Bluetooth-Pantalla táctil-Mando inalámbrico-Compatible con: PlayStation 5 y Televisores y iPadOS 14.5-Incluye un control- Con sistema de vibración incorporado-Compatible con: Android 12, iOS 14.5, MacOS Big Sur 11.3-iversión garantizada con tu joystick PlayStation-Diseño ergonómico.",
+        "marca": "Sony",
+        "modelo": "PlayStation DualSense CFI-ZCT1",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "black",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_621951-MLA46237882917_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 168.4,
+      "Conectividad": "USB",
+      "category": 4
+    },
+    {
+      "id": 100,
+      "title": "Joystick inalámbrico Sony PlayStation DualSense CFI-ZCT1 cosmic red",
+      "rating": "4.9",
+      "Detail": {
+        "detail": "Cuenta con Bluetooth-Pantalla táctil-Mando inalámbrico-ompatible con: PlayStation 5 y Televisores y iPadOS 14.5-Incluye un control-Con sistema de vibración incorporado-Compatible con: Android 12, iOS 14.5, MacOS Big Sur 11.3-Diversión garantizada con tu joystick PlayStation-Diseño ergonómico.",
+        "marca": "Sony",
+        "modelo": "PlayStation DualSense CFI-ZCT1",
+        "SO": "",
+        "CPU": "",
+        "Ram": "",
+        "Color": "red",
+        "Pantalla": ""
+      },
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_665357-MLA46237938567_062021-F.webp",
+      "Stock": 12,
+      "Disable": "True",
+      "Price": 192.56,
+      "Conectividad": "USB",
+      "category": 4
+    }
+  ]
 }
