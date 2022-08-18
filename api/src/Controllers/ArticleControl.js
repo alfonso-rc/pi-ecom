@@ -17,7 +17,7 @@ const testFunction = (req,res,next)=>{
 //GET
 const getArticle = async(req,res,next)=>{
     try {
-      const apiDato = await axios.get('http://localhost:3001/article');
+      const apiDato = await axios.get('http://localhost:3002/article');
 
       return res.send(apiDato.data);
     } catch (error) {
