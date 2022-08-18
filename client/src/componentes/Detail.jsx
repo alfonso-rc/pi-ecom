@@ -13,13 +13,13 @@ export default function ArticleDetail() {
             setArticle(response.data)
         })
     }, [])
-    return <div className="general">
+    return <div>
         {
         article ? (
-        <div className="containerx">
+        <div>
 
-                <h3 className="titlex">{article.title}</h3>
-        <img src={article.image} alt="image" className="imgx" />
+                <h3>{article.title}</h3>
+        <img src={article.image} alt="image" />
         <p>rating: {article.rating}</p>
         <p>price: {article.price}</p>
         <p>description: {article.detail.detail}</p>
@@ -31,11 +31,11 @@ export default function ArticleDetail() {
         <p>"color": {article.detail.color}</p>
         <p>"pantalla": {article.detail.pantalla}</p>
         {/* <p>category:{article.category}</p> */}
-        <Link to='/Home'><button className="btnx" >Volver</button></Link>
+        <Link to='/'><button>Volver</button></Link>
 
 
         </div>) : (
-        <div className="loadingx">loading</div>)
+        <div>loading</div>)
         }
     </div>
 }
