@@ -1,10 +1,18 @@
 const axios = require('axios');
-const {Category} = require('../db');
+const {Category, Article} = require('../db');
 const { Op } = require("sequelize");
 const {
     API_URL,API_URL_ID,API_URL_NAME,API_URL_TIPO,IMG_DEFAULT
   } = process.env;
-
+  const {
+    createArticle,
+    getAllArticles,
+    detailArticle,
+    getAticleByName, 
+    putDeleteArticle,
+    deleteArticle,
+    getArticle
+    } = require('./ArticleControl.js');
   //TEST DE FUNCIONAMIENTO
 const testFunction = (req,res,next)=>{
     try {
@@ -27,4 +35,22 @@ const getCategories = async(req,res,next)=>{
   };
 }
 
-  module.exports = {testFunction,getCategories}
+const getArticleByCategory = async (req, res, next) => {
+  let {category}= req.params;
+  console.log(category);
+  try {
+    let allArticle= await getArticle();
+    const articleCategory = await Article.findAll({
+      include:{
+        where: {name: category},
+        model: Category, 
+        attribute: ["name"]
+      } 
+    });
+    res.status(200).send(articleCategory)
+  } catch (error) {
+    next(error);
+  }
+};
+
+  module.exports = {testFunction,getCategories,getArticleByCategory}
