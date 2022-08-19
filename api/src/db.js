@@ -40,19 +40,41 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { Article, Category,Comment, Order, User} = sequelize.models;
+const { Article, Category,Comment, Orders, User, Favorites} = sequelize.models;
 
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-// User.belongsToMany(Article,{through: "article_user"});
-// Article.belongsToMany(User,{through: "article_user"});
 
-Category.belongsToMany(Article,{through: "article_category"});
-Article.belongsToMany(Category,{through: "article_category"});
 
-// Article.belongsToMany(Order,{through: "article_order"});
-// Order.belongsToMany(Article,{through: "article_order"});
+// Article.belongsToMany(Category,{ as:"categories", through: "article_category", foreingKey:{ name: "article_id", allowNull: false }, });
+// Category.belongsToMany(Article,{ as: "articles", through: "article_category", foreingKey:{ name: "category_id", allowNull: false } });
+
+Article.belongsToMany(Category,{  through: "article_category" });
+Category.belongsToMany(Article,{ through: "article_category" });
+
+//aca estan todas las relaciones para probar
+
+User.hasMany(Favorites);
+Favorites.belongsTo(User);
+
+Article.hasMany(Favorites);
+Favorites.belongsTo(Article);
+
+User.hasMany(Comment);
+Comment.belongsTo(User);
+
+Article.hasMany(Comment);
+Comment.belongsTo(Article);
+
+Article.belongsToMany(Orders);
+Orders.belongsToMany(Article);
+
+Cards.hasMany(Orders);
+Orders.belongsTo(Cards);
+
+User.hasMany(Cards);
+Cards.belongsTo(User);
 
 
 module.exports = {
