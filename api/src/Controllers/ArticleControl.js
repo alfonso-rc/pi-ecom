@@ -61,7 +61,7 @@ const getArticle = async () => {
   return (apiDB);
 };
 
-//GETDETAIL
+// GET DETAIL ARTICLE BY ID
 const detailArticle = async (req, res, next) => {
   const { id } = req.params;
   // console.log(typeof (id))
@@ -77,7 +77,7 @@ const detailArticle = async (req, res, next) => {
   };
 };
 
-//POST  
+// CREATE ARTICLE 
 const createArticle = async (req, res, next) => {
   try {
     const artcleToCreate = req.body;
@@ -88,7 +88,7 @@ const createArticle = async (req, res, next) => {
   };
 };
 
-//FILTERS
+// GET ARTICLE WITH STRING INCLUDED
 const getAticleByName = async (req, res, next) => {
   const { title } = req.query;
   try {
