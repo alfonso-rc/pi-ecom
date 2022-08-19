@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const {testFunction,getCategories} = require('../Controllers/CategoryControl.js');
+const {testFunction,getCategories,filterByCategory} = require('../Controllers/CategoryControl.js');
 
 const CategoryRouter = Router();
 
-CategoryRouter.get('/',getCategories);
+CategoryRouter.get('/',filterByCategory);
 
 module.exports = CategoryRouter;
