@@ -4,7 +4,9 @@ const { testFunction,
    getAllArticles,
    detailArticle,
    getAticleByName, 
-   putDeleteArticle} = require('../Controllers/ArticleControl.js');
+   putDeleteArticle,
+   deleteArticle
+   } = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();
 
@@ -12,6 +14,7 @@ const RouteArticle = Router();
 RouteArticle.get('/', getAticleByName);
 RouteArticle.post('/', createArticle);
 RouteArticle.put('/:id', putDeleteArticle);
+RouteArticle.delete('/:id', deleteArticle);
 RouteArticle.get('/:id', detailArticle);
 
 

@@ -33,7 +33,7 @@ const getArticle = async () => {
     include: {
       model: Category,
       attributes: ["name"],
-      through: { attributes:{exlude:[disable=true]}  }
+      through: { attributes:{exlude:[disablegit=true]}  }
     }
   });
 
@@ -124,5 +124,28 @@ const putDeleteArticle = async (req, res, next) => {
     next(error)
   }
 }
+async function deleteArticle(req, res,next){
+  try {
+    const id = req.params.id;
+    const disable = req.body;
+    let destro = await Article.update(
+      {disable},
+      {
+        where:{id}
+      }
+      )
+      res.status(200).send("eliminado")
+    
+  } catch (error) {
+    next(error);
+  }
+};
 
-module.exports = { testFunction, createArticle, getArticle, detailArticle, getAticleByName,putDeleteArticle };
+
+module.exports = { testFunction, 
+  createArticle, 
+  getArticle, 
+  detailArticle, 
+  getAticleByName,
+  putDeleteArticle,
+  deleteArticle };
