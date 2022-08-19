@@ -63,9 +63,14 @@ export default function reducer(state = initialState, action) {
           ...state,
           articles: sortedPrice,
         };
-    default:
-      return {
-        ...state,
-      };
-  }
+        case "GET_NAME":
+          return{
+            ...state,
+            articles: action.payload
+          }
+        default:
+          return {
+            ...state,
+          };
+        }
 }
