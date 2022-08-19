@@ -2,6 +2,7 @@ const initialState = {
   articles: [],
   filteredArticle: [],
   categorys: [],
+  smartphones: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -40,21 +41,21 @@ export default function reducer(state = initialState, action) {
 
       case "ORDER_BY_PRICE":
         let sortedPrice =
-          action.payload === "may"
+          action.payload === "men"
             ? state.articles.sort(function (a, b) {
-                if (a.Price > b.Price) {
+                if (a.price > b.price) {
                   return 1;
                 }
-                if (b.Price > a.Price) {
+                if (b.price > a.price) {
                   return -1;
                 }
                 return 0;
               })
             : state.articles.sort(function (a, b) {
-                if (a.Price > b.Price) {
+                if (a.price > b.price) {
                   return -1;
                 }
-                if (b.Price > a.Price) {
+                if (b.price > a.price) {
                   return 1;
                 }
                 return 0;
@@ -68,6 +69,27 @@ export default function reducer(state = initialState, action) {
             ...state,
             articles: action.payload
           }
+          case "GET_SMARTPHONES":
+            console.log(action.payload)
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_TABLETS":
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_NOTEBOOKS":
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_ACCESORIES":
+            return{
+              ...state,
+              articles: action.payload
+            }
         default:
           return {
             ...state,

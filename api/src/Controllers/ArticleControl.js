@@ -106,7 +106,7 @@ const getAticleByName = async (req, res, next) => {
   };
 };
 
-module.exports = { 
+module.exports = { testFunction, 
   createArticle, 
   getArticle, 
   detailArticle, 
