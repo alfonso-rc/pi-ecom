@@ -15,6 +15,9 @@ const router = Router();
 
 router.use('/category', CategoryRouter);
 router.use('/article',RouteArticle);
+
+router.use('/comment',RouteComment);
+
 router.use('/user', userRouter);
 
 module.exports = router;
