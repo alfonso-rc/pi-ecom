@@ -1,5 +1,9 @@
 const { Router } = require('express');
-const { testFunction, createArticle, getAllArticles, detailArticle, getAticleByName } = require('../Controllers/ArticleControl.js');
+const { testFunction,
+   createArticle,
+   getAllArticles,
+   detailArticle,
+   getAticleByName } = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();
 
@@ -7,5 +11,8 @@ const RouteArticle = Router();
 RouteArticle.get('/', getAticleByName);
 RouteArticle.post('/', createArticle);
 RouteArticle.get('/:id', detailArticle);
+
+
+
 
 module.exports = RouteArticle;
