@@ -3,7 +3,7 @@ const { Category } = require('../db');
 module.exports = async function loadCategoriesBD() {
     // Verificamos si las categorias ya fueron creadas
     const allCategories = await Category.findAll()
-    if (allCategories) {
+    if (allCategories.length > 0) {
         console.log("Categorías creadas previamente")
         return
     }

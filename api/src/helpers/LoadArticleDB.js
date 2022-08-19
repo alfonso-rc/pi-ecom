@@ -2090,7 +2090,7 @@ const allArt = [
 module.exports = async function loadArticle() {
   // Verificamos si los artículos ya fueron creados
   const allArticles = await Article.findAll()
-  if (allArticles) {
+  if (allArticles.length > 0) {
     console.log("Artículos creados previamente")
     return
   }
