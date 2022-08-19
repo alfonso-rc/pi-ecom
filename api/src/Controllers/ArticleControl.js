@@ -64,8 +64,11 @@ const getArticle = async () => {
 //GETDETAIL
 const detailArticle = async (req, res, next) => {
   const { id } = req.params;
+  // console.log(typeof (id))
   try {
-    const articleFound = await Article.findByPk(id);
+    const articleFound = await Article.findByPk(id, {
+      include: Category
+    });
     articleFound ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
