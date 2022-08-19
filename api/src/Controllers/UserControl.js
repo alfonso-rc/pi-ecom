@@ -49,4 +49,5 @@ const addFavoriteToUser = async (req, res, next) => {
 }
 
 
+
 module.exports = { createUser, addFavoriteToUser }

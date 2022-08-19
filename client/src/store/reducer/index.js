@@ -40,21 +40,21 @@ export default function reducer(state = initialState, action) {
 
       case "ORDER_BY_PRICE":
         let sortedPrice =
-          action.payload === "may"
+          action.payload === "men"
             ? state.articles.sort(function (a, b) {
-                if (a.Price > b.Price) {
+                if (a.price > b.price) {
                   return 1;
                 }
-                if (b.Price > a.Price) {
+                if (b.price > a.price) {
                   return -1;
                 }
                 return 0;
               })
             : state.articles.sort(function (a, b) {
-                if (a.Price > b.Price) {
+                if (a.price > b.price) {
                   return -1;
                 }
-                if (b.Price > a.Price) {
+                if (b.price > a.price) {
                   return 1;
                 }
                 return 0;
