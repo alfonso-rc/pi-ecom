@@ -2,6 +2,7 @@ const initialState = {
   articles: [],
   filteredArticle: [],
   categorys: [],
+  smartphones: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -69,6 +70,7 @@ export default function reducer(state = initialState, action) {
             articles: action.payload
           }
           case "GET_SMARTPHONES":
+            console.log(action.payload)
           return{
             ...state,
             articles: action.payload
