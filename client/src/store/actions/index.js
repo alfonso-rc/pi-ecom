@@ -47,3 +47,12 @@ export function getName(title) {
     });
   };
 }
+export function getName(title) {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3001/category/smartphone`);
+    return dispatch({
+      type: "GET_NAME",
+      payload: json.data,
+    });
+  };
+}
