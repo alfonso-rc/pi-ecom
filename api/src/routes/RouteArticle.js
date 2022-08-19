@@ -3,13 +3,15 @@ const { testFunction,
    createArticle,
    getAllArticles,
    detailArticle,
-   getAticleByName } = require('../Controllers/ArticleControl.js');
+   getAticleByName, 
+   putDeleteArticle} = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();
 
 // RouteArticle.get('/', getAllArticles); // Trae todos los artículos de la BD
 RouteArticle.get('/', getAticleByName);
 RouteArticle.post('/', createArticle);
+RouteArticle.put('/:id', putDeleteArticle);
 RouteArticle.get('/:id', detailArticle);
 
 
