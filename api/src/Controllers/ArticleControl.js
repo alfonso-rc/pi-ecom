@@ -25,19 +25,18 @@ const getAllToDB = (req, res, next) => {
 };
 
 
-//GET
+//GET Solo Visualiza los que tenga disable=false
 const getArticle = async () => {
-
   // const apiDato = await axios.get('http://localhost:3002/article');
   let apiDB = await Article.findAll({
     include: {
       model: Category,
       attributes: ["name"],
-      through: { attributes:{exlude:[disablegit=true]}  }
+      through: { attributes:[]  }
     }
   });
-
-  apiDB = apiDB.map(el => {
+  const apiFilter = apiDB.filter((el)=> el.disable == false) 
+   const api2 = apiFilter.map(el => {
     return {
       id: el.id,
       title: el.title,
@@ -58,7 +57,7 @@ const getArticle = async () => {
       category: el.categories[0].name,
     }
   })
-  return (apiDB);
+  return (api2);
 };
 
 // GET DETAIL ARTICLE BY ID
@@ -67,9 +66,9 @@ const detailArticle = async (req, res, next) => {
   // console.log(typeof (id))
   try {
     const articleFound = await Article.findByPk(id, {
-      include: Category
-    });
-    articleFound ?
+      include: Category,
+    }); //Visualiza los disable = false
+    articleFound.disable===false ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
   } catch (error) {
@@ -107,45 +106,9 @@ const getAticleByName = async (req, res, next) => {
   };
 };
 
-const putDeleteArticle = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const {disable}=req.body
-
-     await Article.update(
-      {disable},
-      {
-      where:{id}
-    })
-      
-      res.send("cambio actualizado")
-      
-  } catch (error) {
-    next(error)
-  }
-}
-async function deleteArticle(req, res,next){
-  try {
-    const id = req.params.id;
-    const disable = req.body;
-    let destro = await Article.update(
-      {disable},
-      {
-        where:{id}
-      }
-      )
-      res.status(200).send("eliminado")
-    
-  } catch (error) {
-    next(error);
-  }
-};
-
-
-module.exports = { testFunction, 
+module.exports = { 
   createArticle, 
   getArticle, 
   detailArticle, 
   getAticleByName,
-  putDeleteArticle,
-  deleteArticle };
+  };
