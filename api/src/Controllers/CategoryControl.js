@@ -15,16 +15,35 @@ const testFunction = (req,res,next)=>{
   };
 
   //GETCATEGORIES
-const getCategories = async(req,res,next)=>{
+const getCategories = async()=>{
   try {
     let getAllCategories = await Category.findAll({
       attributes:["id","name"],
       through:{attributes:[]}
     });
-    res.status(200).send(getAllCategories);
+    return(getAllCategories);
   } catch (error) {
-      next(error);
+      console.log(error);
   };
-}
+};
 
-  module.exports = {testFunction,getCategories}
+//GET-FOR-CATEGORY
+const filterByCategory = async(req,res,next)=>{
+  const { name } = req.query;
+  try {
+    let getNameTotal = await getCategories();
+    if (name) {
+      let categoryName = await getNameTotal.filter(n => n.name.toLowerCase().includes(name.toLowerCase()));
+      categoryName.length
+        ? res.status(200).send(categoryName) :
+        res.status(400).send('No Existe la categoria');
+    }
+    else {
+      res.status(200).send(getNameTotal);
+    }
+  } catch (error) {
+    next(error);
+  };
+};
+
+  module.exports = {testFunction,getCategories,filterByCategory}
