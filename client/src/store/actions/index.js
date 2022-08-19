@@ -37,3 +37,13 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
+
+export function getName(title) {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3001/article?title=${title}`);
+    return dispatch({
+      type: "GET_NAME",
+      payload: json.data,
+    });
+  };
+}

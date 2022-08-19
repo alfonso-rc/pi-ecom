@@ -3,10 +3,10 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME,
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME,
 } = process.env;
 
- const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecom`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecom`, {
   // const sequelize = new Sequelize(`postgres://postgres:2722@localhost/ecom`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -40,38 +40,27 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { Article, Category,Comment, Orders, User, Favorites, Cards} = sequelize.models;
+const { Article, Category, Comment, Orders, User, Favorites, Cards } = sequelize.models;
 
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
 
-Article.belongsToMany(Category,{ through: "article_category" });
-Category.belongsToMany(Article,{ through: "article_category" });
+Article.belongsToMany(Category, { through: "article_category" });
+Category.belongsToMany(Article, { through: "article_category" });
 
-//aca estan todas las relaciones para probar
+// UN USUARIO TIENE MUCHOS ARTÍCULOS COMO FAVORITOS
+// UN ARTÍCULO PUEDE SER FAVORITO DE MUCHOS USUARIOS
+User.belongsToMany(Article, { through: "user_favorites" });
+Article.belongsToMany(User, { through: "user_favorites" });
 
-User.hasMany(Favorites);
-Favorites.belongsTo(User);
-
-Article.hasMany(Favorites);
-Favorites.belongsTo(Article);
-
+// UN USUARIO TIENE MUCHOS COMENTARIOS
+// UN ARTÍCULO TIENE MUCHOS COMENTARIOS
+// UN COMENTARIO PERTENECE A UN USUARIO
 User.hasMany(Comment);
-Comment.belongsTo(User);
-
 Article.hasMany(Comment);
-Comment.belongsTo(Article);
-
-Article.belongsToMany(Orders,{ through: "article_order" });
-Orders.belongsToMany(Article,{ through: "article_order" });
-
-Cards.hasMany(Orders);
-Orders.belongsTo(Cards);
-
-User.hasMany(Cards);
-Cards.belongsTo(User);
+Comment.belongsTo(User)
 
 
 module.exports = {
