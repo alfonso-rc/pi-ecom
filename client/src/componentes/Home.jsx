@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import {orderByAZ, orderByPrice, getArticles} from '../store/actions'
 import Card from "./Card"
 import Paginado from "./Paginado"
+import SearchBar from "./SearchBox"
 
 export default function Home() {
     const allArticle = useSelector((state) => state.articles)
@@ -38,7 +39,7 @@ export default function Home() {
       }
       return (
         <div>
-            hola
+            <SearchBar/>
             <div>
               <div>
               <Paginado
