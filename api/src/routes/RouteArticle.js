@@ -1,11 +1,11 @@
 const { Router } = require('express');
-const {testFunction,createArticle,getArticle,detailArticle,getAticleByName} = require('../Controllers/ArticleControl.js');
+const { testFunction, createArticle, getAllArticles, detailArticle, getAticleByName } = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();
 
-// RouteArticle.get('/',getArticle);
-RouteArticle.get('/',getAticleByName);
-RouteArticle.post('/',createArticle);
-RouteArticle.get('/:id',detailArticle);
+// RouteArticle.get('/', getAllArticles); // Trae todos los artículos de la BD
+RouteArticle.get('/', getAticleByName);
+RouteArticle.post('/', createArticle);
+RouteArticle.get('/:id', detailArticle);
 
 module.exports = RouteArticle;

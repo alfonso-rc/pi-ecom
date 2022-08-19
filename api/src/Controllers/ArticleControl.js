@@ -61,11 +61,14 @@ const getArticle = async () => {
   return (apiDB);
 };
 
-//GETDETAIL
+// GET DETAIL ARTICLE BY ID
 const detailArticle = async (req, res, next) => {
   const { id } = req.params;
+  // console.log(typeof (id))
   try {
-    const articleFound = await Article.findByPk(id);
+    const articleFound = await Article.findByPk(id, {
+      include: Category
+    });
     articleFound ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
@@ -74,7 +77,7 @@ const detailArticle = async (req, res, next) => {
   };
 };
 
-//POST  
+// CREATE ARTICLE 
 const createArticle = async (req, res, next) => {
   try {
     const artcleToCreate = req.body;
@@ -85,7 +88,7 @@ const createArticle = async (req, res, next) => {
   };
 };
 
-//FILTERS
+// GET ARTICLE WITH STRING INCLUDED
 const getAticleByName = async (req, res, next) => {
   const { title } = req.query;
   try {
