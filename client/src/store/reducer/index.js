@@ -68,6 +68,26 @@ export default function reducer(state = initialState, action) {
             ...state,
             articles: action.payload
           }
+          case "GET_SMARTPHONES":
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_TABLETS":
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_NOTEBOOKS":
+          return{
+            ...state,
+            articles: action.payload
+          }
+          case "GET_ACCESORIES":
+            return{
+              ...state,
+              articles: action.payload
+            }
         default:
           return {
             ...state,
