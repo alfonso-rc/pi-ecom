@@ -9,7 +9,6 @@ export function getArticles(){
               type: "GET_ARTICLES",
               payload: articles.data
           })
-          console.log("hola2",articles)
       })
     }
   } catch (error) {
@@ -49,7 +48,7 @@ export function getName(title) {
 }
 export function getSmartphones() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/smartphone`);
+    var json = await axios.get(`http://localhost:3001/category/smartphones`);
     return dispatch({
       type: "GET_SMARTPHONES",
       payload: json.data,
