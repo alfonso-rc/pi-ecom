@@ -9,7 +9,6 @@ export function getArticles(){
               type: "GET_ARTICLES",
               payload: articles.data
           })
-          console.log("hola2",articles)
       })
     }
   } catch (error) {
@@ -47,11 +46,38 @@ export function getName(title) {
     });
   };
 }
-export function getName(title) {
+export function getSmartphones() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/smartphone`);
+    var json = await axios.get(`http://localhost:3001/category/smartphones`);
     return dispatch({
-      type: "GET_NAME",
+      type: "GET_SMARTPHONES",
+      payload: json.data,
+    });
+  };
+}
+export function getTablets() {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3001/category/tablets`);
+    return dispatch({
+      type: "GET_TABLETS",
+      payload: json.data,
+    });
+  };
+}
+export function getNotebooks() {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3001/category/notebooks`);
+    return dispatch({
+      type: "GET_NOTEBOOKS",
+      payload: json.data,
+    });
+  };
+}
+export function getAccesories() {
+  return async function (dispatch) {
+    var json = await axios.get(`http://localhost:3001/category/accesories`);
+    return dispatch({
+      type: "GET_ACCESORIES",
       payload: json.data,
     });
   };
