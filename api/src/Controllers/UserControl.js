@@ -1,4 +1,5 @@
 const { User } = require("../db.js")
+const validateUser = require("./auxUserLogin/getUser.js");
 
 const createUser = async (req, res, next) => {
    const userToCreate = req.body
@@ -24,7 +25,10 @@ const createUser = async (req, res, next) => {
 
       const userCreated = await User.create(userToCreate)
       // console.log(userCreated.dataValues)
-      res.status(200).send(userCreated.dataValues)
+      const response = await validateUser(userCreated.dataValues.mail, userCreated.dataValues.password);
+      res.status(200).json(response);
+
+      //res.status(200).send(userCreated.dataValues)
    } catch (error) {
       next(error)
    }
@@ -48,6 +52,21 @@ const addFavoriteToUser = async (req, res, next) => {
    }
 }
 
+const loginUser = async (req, res, next) => {
+   const { mail, password } = req.body
+   try {
+      const response = await validateUser(mail, password);
+      res.json(response);
+   } catch (error) {
+      next(error);
+   }
+};
 
 
-module.exports = { createUser, addFavoriteToUser }
+const infoUser = (req, res, next) => {
+   res.send('DATOS ENTREGADOS CORRECTAMENTE');
+};
+
+
+
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser };
