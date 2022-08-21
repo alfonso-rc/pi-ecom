@@ -15,13 +15,13 @@ export default function ArticleDetail() {
             setArticle(response.data)
         })
     }, [])
-    return <div className="font-Work text-xl md:text-2xl ">
+    return <div className="font-Work text-xl md:text-2xl bg-white text-black">
         <div>
             {
             article ? (
             <div>
                 <div className="flex flex-wrap">               
-                    <div className="place-self-center row-span-1">
+                    <div className="flex justify-center">
                         <img src={article.image} alt="image" />
                     </div>
                     <div>
@@ -31,9 +31,9 @@ export default function ArticleDetail() {
                         </div>
                         <div>                           
                             <p>price:{article.price}</p>
-                            <div className="flex flex-row">
+                            <div className="flex justify-center">
                                 <button class="btn btn-outline btn-primary btn-sm btn-square"><IoRemove className="text-2xl"/></button>
-                                <p>1</p>
+                                <p className="px-5">1</p>
                                 <button class="btn btn-primary btn-sm btn-square "><IoAdd className="text-2xl"/></button>
                             </div>
                             <p>stock: {article.stock}</p>
@@ -57,7 +57,6 @@ export default function ArticleDetail() {
                         </div>                       
                     </div>
                     <div>
-
                     </div>
                 </div>
             </div>) : (
