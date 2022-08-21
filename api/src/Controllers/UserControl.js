@@ -4,7 +4,6 @@ const validateUser = require("./auxUserLogin/getUser.js");
 
 const createUser = async (req, res, next) => {
    const userToCreate = req.body
-   //console.log(userToCreate)
    try {
       // Verificar si el mail ya está registrado
       const userFound1 = await User.findOne({
