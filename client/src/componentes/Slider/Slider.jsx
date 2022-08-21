@@ -1,6 +1,7 @@
 import s from "./Slider.module.css"
 import { mostFavoriteArticles } from "./mostFavoriteArticles"  // LLegan por props
 import { useState, useEffect } from "react"
+import {Link} from "react-router-dom"
 
 export default function Slider() {
    const [actualSlide, setActualSlide] = useState(0)
@@ -51,12 +52,15 @@ export default function Slider() {
    )
 }
 
-function SliderSection({ item }) {
+function SliderSection({ item}) {
+   console.log(item)
    return (
       <div className={ s.slider_section }>
          <img className={ s.slider_img } src={ item.image } alt="slider_image"></img>
          <h4>{ item.title.length > 35 ? item.title.slice(0, 35) + "..." : item.title }</h4>
+         <Link to={`/${item.id}`}>
          <button className={ s.buttonDetail }>VER DETALLE</button>
+         </Link>
       </div>
    )
 }
