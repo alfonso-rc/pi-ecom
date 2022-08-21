@@ -85,17 +85,17 @@ export default function Home() {
     e.preventDefault();
     dispatch(getArticles());
   }
-
+  let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
     <div>
       <SearchBar/>
       <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
       <div>
-        <div className="flex flex-wrap">
-          <button className="flex flex-wrap" onClick={(e) => handleSmartPhone(e)}><FcMultipleSmartphones/></button>
-          <button onClick={(e) => handleNotebooks(e)}><RiComputerLine /></button>
-          <button onClick={(e) => handleTablets(e)}><FcTabletAndroid/></button>
-          <button onClick={(e) => handleAccesories(e)}><FaKeyboard/></button>
+        <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
+          <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70}/></button>
+          <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
+          <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
+          <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70}/></button>
         </div>
         <div>
           <Paginado
