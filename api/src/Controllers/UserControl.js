@@ -1,9 +1,10 @@
-const { User } = require("../db.js")
+const { User } = require("../db.js");
+const { bcrypt } = require("./auxUserLogin/bcrypt.js");
 const validateUser = require("./auxUserLogin/getUser.js");
 
 const createUser = async (req, res, next) => {
    const userToCreate = req.body
-   console.log(userToCreate)
+   //console.log(userToCreate)
    try {
       // Verificar si el mail ya está registrado
       const userFound1 = await User.findOne({
@@ -23,9 +24,14 @@ const createUser = async (req, res, next) => {
          return
       }
 
+      //contraseña inicial
+      const passwordIn = userToCreate.password;
+      //se encripta la contraseña del nuevo usuario
+      userToCreate.password = await bcrypt(userToCreate.password);
+
       const userCreated = await User.create(userToCreate)
       // console.log(userCreated.dataValues)
-      const response = await validateUser(userCreated.dataValues.mail, userCreated.dataValues.password);
+      const response = await validateUser(userCreated.dataValues.mail, passwordIn);
       res.status(200).json(response);
 
       //res.status(200).send(userCreated.dataValues)
