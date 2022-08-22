@@ -67,7 +67,7 @@ export default function ArticleDetail() {
                 <h1 className=" font-bold text-4xl">Comentarios</h1>
                 <p className="mt-10">No hay comentarios sobre este producto</p>
             </div>
-            <Link to='/'><button>Volver</button></Link>
+            <Link to='/home'><button>Volver</button></Link>
         </div>
     </div>
 }

@@ -36,8 +36,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if(!allArticle.length){
     dispatch(getArticles());
-    setLoading(true);
+    setLoading(true);}
   }, [dispatch]);
 
   function handleSortAZ(e) {
