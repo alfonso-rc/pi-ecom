@@ -13,10 +13,9 @@ import {
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBox";
-import {RiComputerLine} from "react-icons/ri"
-import {FcMultipleSmartphones, FcTabletAndroid} from "react-icons/fc"
-import {FaKeyboard} from "react-icons/fa"
-
+import { RiComputerLine } from "react-icons/ri";
+import { FcMultipleSmartphones, FcTabletAndroid } from "react-icons/fc";
+import { FaKeyboard } from "react-icons/fa";
 
 export default function Home() {
   const allArticle = useSelector((state) => state.articles);
@@ -92,10 +91,24 @@ export default function Home() {
       <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
       <div>
         <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
-          <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70}/></button>
-          <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
-          <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
-          <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70}/></button>
+          <button
+            className={circleClasses}
+            onClick={(e) => handleSmartPhone(e)}
+          >
+            <FcMultipleSmartphones size={70} />
+          </button>
+          <button onClick={(e) => handleNotebooks(e)} className={circleClasses}>
+            <RiComputerLine size={70} />
+          </button>
+          <button onClick={(e) => handleTablets(e)} className={circleClasses}>
+            <FcTabletAndroid size={70} />
+          </button>
+          <button
+            onClick={(e) => handleAccesories(e)}
+            className={circleClasses}
+          >
+            <FaKeyboard size={70} />
+          </button>
         </div>
         <div>
           <Paginado
@@ -105,14 +118,24 @@ export default function Home() {
           />
         </div>
         <div>
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortAZ(e)}>
-          <option disabled selected>Ordenar por...</option>
+          <select
+            className="select select-primary w-full max-w-xs"
+            onChange={(e) => handleSortAZ(e)}
+          >
+            <option disabled selected>
+              Ordenar por...
+            </option>
             <option value="AZ">AZ</option>
             <option value="ZA">ZA</option>
           </select>
 
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortPrice(e)}>
-          <option disabled selected>Ordenar por...</option>
+          <select
+            className="select select-primary w-full max-w-xs"
+            onChange={(e) => handleSortPrice(e)}
+          >
+            <option disabled selected>
+              Ordenar por...
+            </option>
             <option value="may">Mayor precio</option>
             <option value="men">Menor precio</option>
           </select>
@@ -127,8 +150,8 @@ export default function Home() {
                 title={art.title}
                 price={art.price}
               />
-          );
-        })}
+            );
+          })}
         </div>
       </div>
     </div>
