@@ -88,7 +88,7 @@ export default function Home() {
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
     <div className="bg-white">
-      <SearchBar />
+      <SearchBar/>
       <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
       <div>
         <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
@@ -141,9 +141,9 @@ export default function Home() {
             <option value="men">Menor precio</option>
           </select>
         </div>
-        <div className="grid grid-cols-3 gap-4">
-          {currentArticle.map((art) => {
-            return (
+        <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {currentArticle.map((art) => {
+          return (
               <Card
                 key={art.id}
                 id={art.id}
