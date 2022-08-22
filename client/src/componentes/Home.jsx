@@ -12,7 +12,7 @@ import {
 } from "../store/actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
-import SearchBar from "./SearchBox";
+import NavBar from "./NavBar";
 import {RiComputerLine} from "react-icons/ri"
 import {FcMultipleSmartphones, FcTabletAndroid} from "react-icons/fc"
 import {FaKeyboard} from "react-icons/fa"
@@ -41,18 +41,18 @@ export default function Home() {
     setLoading(true);
   }, [dispatch]);
 
-  function handleSortAZ(e) {
-    e.preventDefault();
-    dispatch(orderByAZ(e.target.value));
-    // setCurrentPage(1)
-    setOrder(e.target.value);
-  }
-  function handleSortPrice(e) {
-    e.preventDefault();
-    dispatch(orderByPrice(e.target.value));
-    setCurrentPage(1);
-    setOrder(e.target.value);
-  }
+  // function handleSortAZ(e) {
+  //   e.preventDefault();
+  //   dispatch(orderByAZ(e.target.value));
+  //   // setCurrentPage(1)
+  //   setOrder(e.target.value);
+  // }
+  // function handleSortPrice(e) {
+  //   e.preventDefault();
+  //   dispatch(orderByPrice(e.target.value));
+  //   setCurrentPage(1);
+  //   setOrder(e.target.value);
+  // }
   function handleSmartPhone(e) {
     // e.preventDefault()
     dispatch(getSmartphones(e.target.value));
@@ -81,17 +81,18 @@ export default function Home() {
     setCurrentPage(1);
     // setOrder(e.target.value)
   }
-  function resetCharacters(e) {
-    e.preventDefault();
-    dispatch(getArticles());
-  }
+  // function resetCharacters(e) {
+  //   e.preventDefault();
+  //   dispatch(getArticles());
+  // }
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
-    <div>
-      <SearchBar/>
-      <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
+    <div className="absolute">
+      <div  className="fixed top-0 left-0 right-0">
+        <NavBar />
+      </div>
       <div>
-        <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
+        <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
           <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70}/></button>
           <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
           <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
@@ -104,23 +105,11 @@ export default function Home() {
             paginado={paginado}
           />
         </div>
-        <div>
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortAZ(e)}>
-          <option disabled selected>Ordenar por...</option>
-            <option value="AZ">AZ</option>
-            <option value="ZA">ZA</option>
-          </select>
 
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortPrice(e)}>
-          <option disabled selected>Ordenar por...</option>
-            <option value="may">Mayor precio</option>
-            <option value="men">Menor precio</option>
-          </select>
-        </div>
         <div className="grid grid-cols-3 gap-4">
         {currentArticle.map((art) => {
           return (
-            <div  key={art.id}>
+            <div  key={art.id} className="">
               <Card
                 id={art.id}
                 image={art.image}
