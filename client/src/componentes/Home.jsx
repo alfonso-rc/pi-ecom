@@ -13,10 +13,9 @@ import {
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBox";
-import {RiComputerLine} from "react-icons/ri"
-import {FcMultipleSmartphones, FcTabletAndroid} from "react-icons/fc"
-import {FaKeyboard} from "react-icons/fa"
-
+import { RiComputerLine } from "react-icons/ri";
+import { FcMultipleSmartphones, FcTabletAndroid } from "react-icons/fc";
+import { FaKeyboard } from "react-icons/fa";
 
 export default function Home() {
   const allArticle = useSelector((state) => state.articles);
@@ -37,8 +36,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if(!allArticle.length){
     dispatch(getArticles());
-    setLoading(true);
+    setLoading(true);}
   }, [dispatch]);
 
   function handleSortAZ(e) {
@@ -87,15 +87,29 @@ export default function Home() {
   }
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
-    <div>
+    <div className="bg-white">
       <SearchBar/>
       <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
       <div>
         <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
-          <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70}/></button>
-          <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
-          <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
-          <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70}/></button>
+          <button
+            className={circleClasses}
+            onClick={(e) => handleSmartPhone(e)}
+          >
+            <FcMultipleSmartphones size={70} />
+          </button>
+          <button onClick={(e) => handleNotebooks(e)} className={circleClasses}>
+            <RiComputerLine size={70} />
+          </button>
+          <button onClick={(e) => handleTablets(e)} className={circleClasses}>
+            <FcTabletAndroid size={70} />
+          </button>
+          <button
+            onClick={(e) => handleAccesories(e)}
+            className={circleClasses}
+          >
+            <FaKeyboard size={70} />
+          </button>
         </div>
         <div>
           <Paginado
@@ -105,32 +119,40 @@ export default function Home() {
           />
         </div>
         <div>
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortAZ(e)}>
-          <option disabled selected>Ordenar por...</option>
+          <select
+            className="select select-primary w-full max-w-xs"
+            onChange={(e) => handleSortAZ(e)}
+          >
+            <option disabled selected>
+              Ordenar por...
+            </option>
             <option value="AZ">AZ</option>
             <option value="ZA">ZA</option>
           </select>
 
-          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortPrice(e)}>
-          <option disabled selected>Ordenar por...</option>
+          <select
+            className="select select-primary w-full max-w-xs"
+            onChange={(e) => handleSortPrice(e)}
+          >
+            <option disabled selected>
+              Ordenar por...
+            </option>
             <option value="may">Mayor precio</option>
             <option value="men">Menor precio</option>
           </select>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8">
         {currentArticle.map((art) => {
           return (
-            <div  key={art.id}>
               <Card
+                key={art.id}
                 id={art.id}
                 image={art.image}
                 title={art.title}
                 price={art.price}
               />
-            </div>
-            
-          );
-        })}
+            );
+          })}
         </div>
       </div>
     </div>

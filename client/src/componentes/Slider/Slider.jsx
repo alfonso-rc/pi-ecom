@@ -1,7 +1,11 @@
 import s from "./Slider.module.css"
 import { mostFavoriteArticles } from "./mostFavoriteArticles"  // LLegan por props
 import { useState, useEffect } from "react"
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+
+>>>>>>> 25c136788dfc2f6fdfd0eac8ba625b71e2244dcb
 export default function Slider() {
    const [actualSlide, setActualSlide] = useState(0)
    const itemsPerPage = window.innerWidth < 200 ? 2 : 4
@@ -56,9 +60,7 @@ function SliderSection({ item }) {
       <div className={ s.slider_section }>
          <img className={ s.slider_img } src={ item.image } alt="slider_image"></img>
          <h4>{ item.title.length > 35 ? item.title.slice(0, 35) + "..." : item.title }</h4>
-         <Link to={`/${item.id}`}>
          <button className={ s.buttonDetail }>VER DETALLE</button>
-         </Link>
       </div>
    )
 }
