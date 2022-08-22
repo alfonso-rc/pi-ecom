@@ -1,3 +1,5 @@
+import {ASCENDENTE,DESCENDENTE,MAYOR,MENOR} from "../../Constants";
+
 const initialState = {
   articles: [],
   filteredArticle: [],
@@ -15,54 +17,34 @@ export default function reducer(state = initialState, action) {
       }
    case "ORDER_BY_ARTICLES":
       let sortedArr =
-        action.payload === "AZ"
-          ? state.articles.sort(function (a, b) {
-              if (a.title > b.title) {
-                return 1;
-              }
-              if (b.title > a.title) {
-                return -1;
-              }
-              return 0;
-            })
-          : state.articles.sort(function (a, b) {
-              if (a.title > b.title) {
-                return -1;
-              }
-              if (b.title > a.title) {
-                return 1;
-              }
-              return 0;
-            });
+        [...state.articles]
+        sortedArr=sortedArr.sort((a,b)=>{
+          if(a.title<b.title){
+            return(action.payload===ASCENDENTE?-1:1)
+          }
+          if(a.title>b.title){
+            return(action.payload===ASCENDENTE?1:-1)
+          }
+        })
       return {
         ...state,
         articles: sortedArr,
       };
 
       case "ORDER_BY_PRICE":
-        let sortedPrice =
-          action.payload === "men"
-            ? state.articles.sort(function (a, b) {
-                if (a.price > b.price) {
-                  return 1;
-                }
-                if (b.price > a.price) {
-                  return -1;
-                }
-                return 0;
-              })
-            : state.articles.sort(function (a, b) {
-                if (a.price > b.price) {
-                  return -1;
-                }
-                if (b.price > a.price) {
-                  return 1;
-                }
-                return 0;
-              });
+        let sortedPriceArr =
+        [...state.articles]
+        sortedPriceArr=sortedPriceArr.sort((a,b)=>{
+          if(a.price<b.price){
+            return(action.payload===MAYOR?-1:1)
+          }
+          if(a.price>b.price){
+            return(action.payload===MAYOR?1:-1)
+          }
+        })
         return {
           ...state,
-          articles: sortedPrice,
+          articles: sortedPriceArr,
         };
         case "GET_NAME":
           return{

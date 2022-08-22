@@ -38,7 +38,7 @@ export default function Pagination({
   }
 
   return (
-    <div className='py-2 flex justify-center ...' >
+    <div className='py-2 flex justify-center' >
       <nav className='block'>
         <ul className='flex pl-0 rounded list-none flex-wrap'>
           <li>
