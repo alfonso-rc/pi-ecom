@@ -37,8 +37,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if(!allArticle.length){
     dispatch(getArticles());
-    setLoading(true);
+    setLoading(true);}
   }, [dispatch]);
 
   // function handleSortAZ(e) {
@@ -87,6 +88,7 @@ export default function Home() {
   // }
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
+
     <div className="absolute">
       <div  className="fixed top-0 left-0 right-0">
         <NavBar />
@@ -97,6 +99,31 @@ export default function Home() {
           <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
           <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
           <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70}/></button>
+
+    <div className="bg-white">
+      <SearchBar/>
+      <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
+      <div>
+        <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
+          <button
+            className={circleClasses}
+            onClick={(e) => handleSmartPhone(e)}
+          >
+            <FcMultipleSmartphones size={70} />
+          </button>
+          <button onClick={(e) => handleNotebooks(e)} className={circleClasses}>
+            <RiComputerLine size={70} />
+          </button>
+          <button onClick={(e) => handleTablets(e)} className={circleClasses}>
+            <FcTabletAndroid size={70} />
+          </button>
+          <button
+            onClick={(e) => handleAccesories(e)}
+            className={circleClasses}
+          >
+            <FaKeyboard size={70} />
+          </button>
+
         </div>
         <div>
           <Paginado
@@ -111,15 +138,14 @@ export default function Home() {
           return (
             <div  key={art.id} className="">
               <Card
+                key={art.id}
                 id={art.id}
                 image={art.image}
                 title={art.title}
                 price={art.price}
               />
-            </div>
-            
-          );
-        })}
+            );
+          })}
         </div>
       </div>
     </div>
