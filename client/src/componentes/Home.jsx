@@ -13,6 +13,10 @@ import {
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBox";
+import {RiComputerLine} from "react-icons/ri"
+import {FcMultipleSmartphones, FcTabletAndroid} from "react-icons/fc"
+import {FaKeyboard} from "react-icons/fa"
+
 
 export default function Home() {
   const allArticle = useSelector((state) => state.articles);
@@ -21,7 +25,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlePerPage, setArticlePerPage] = useState(15);
+  const [articlePerPage, setArticlePerPage] = useState(12);
   const indexOfLastArticle = currentPage * articlePerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlePerPage;
   const currentArticle = allArticle.slice(
@@ -81,16 +85,17 @@ export default function Home() {
     e.preventDefault();
     dispatch(getArticles());
   }
+  let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   return (
     <div>
-      <SearchBar />
+      <SearchBar/>
       <button onClick={(e) => resetCharacters(e)}>Reseteo</button>
       <div>
-        <div>
-          <button onClick={(e) => handleSmartPhone(e)}>Smartphones</button>
-          <button onClick={(e) => handleNotebooks(e)}>Notebooks</button>
-          <button onClick={(e) => handleTablets(e)}>Tablets</button>
-          <button onClick={(e) => handleAccesories(e)}>Accesorios</button>
+        <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto">
+          <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70}/></button>
+          <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70}/></button>
+          <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70}/></button>
+          <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70}/></button>
         </div>
         <div>
           <Paginado
@@ -100,19 +105,22 @@ export default function Home() {
           />
         </div>
         <div>
-          <select onChange={(e) => handleSortAZ(e)}>
+          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortAZ(e)}>
+          <option disabled selected>Ordenar por...</option>
             <option value="AZ">AZ</option>
             <option value="ZA">ZA</option>
           </select>
 
-          <select onChange={(e) => handleSortPrice(e)}>
+          <select className="select select-primary w-full max-w-xs" onChange={(e) => handleSortPrice(e)}>
+          <option disabled selected>Ordenar por...</option>
             <option value="may">Mayor precio</option>
             <option value="men">Menor precio</option>
           </select>
         </div>
+        <div className="grid grid-cols-3 gap-4">
         {currentArticle.map((art) => {
           return (
-            <div key={art.id}>
+            <div  key={art.id}>
               <Card
                 id={art.id}
                 image={art.image}
@@ -120,8 +128,10 @@ export default function Home() {
                 price={art.price}
               />
             </div>
+            
           );
         })}
+        </div>
       </div>
     </div>
   );
