@@ -92,9 +92,11 @@ export default function Home() {
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   let card = "card w-96 bg-base-100 shadow-xl bg-white"
   return (
-    <div className="absolute">
-      <div className="fixed top-0 left-0 right-0">
-        <NavBar />
+    <div>
+      <div className="">
+        <div className="fixed top-0 left-0 right-0 z-10 w-screen">
+          <NavBar />
+        </div>
       </div>
       <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
         <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70} /></button>
@@ -113,7 +115,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4 justify-items-center">
           {currentArticle.map((art) => {
             return (
               <div key={art.id} className={card}>
