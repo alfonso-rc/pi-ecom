@@ -10,12 +10,6 @@ import {
   getAccesories,
   getTablets,
 } from "../store/actions/index";
-import Card from "./Card";
-import Paginado from "./Paginado";
-import NavBar from "./NavBar";
-import {RiComputerLine} from "react-icons/ri"
-import {FcMultipleSmartphones, FcTabletAndroid} from "react-icons/fc"
-import {FaKeyboard} from "react-icons/fa"
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR } from "../Constants";
 
 

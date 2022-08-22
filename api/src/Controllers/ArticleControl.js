@@ -27,7 +27,7 @@ const getAllToDB = (req, res, next) => {
 
 //GET Solo Visualiza los que tenga disable=false
 const getArticle = async () => {
-  // const apiDato = await axios.get('http://localhost:3002/article');
+  //  const apiDato = await axios.get('http://localhost:3002/article');
   let apiDB = await Article.findAll({
     include: {
       model: Category,
