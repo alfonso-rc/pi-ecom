@@ -1,8 +1,7 @@
 import s from "./Slider.module.css"
 import { mostFavoriteArticles } from "./mostFavoriteArticles"  // LLegan por props
 import { useState, useEffect } from "react"
-import {Link} from "react-router-dom"
-
+import { Link } from "react-router-dom";
 export default function Slider() {
    const [actualSlide, setActualSlide] = useState(0)
    const itemsPerPage = window.innerWidth < 200 ? 2 : 4
@@ -52,8 +51,7 @@ export default function Slider() {
    )
 }
 
-function SliderSection({ item}) {
-   console.log(item)
+function SliderSection({ item }) {
    return (
       <div className={ s.slider_section }>
          <img className={ s.slider_img } src={ item.image } alt="slider_image"></img>
