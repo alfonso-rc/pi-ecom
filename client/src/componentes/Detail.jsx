@@ -58,7 +58,7 @@ export default function ArticleDetail() {
                                 <h1 className="font-bold mt-8">CPU:</h1><p className="mt-8">{article.detail.cpu}</p>
                                 <h1 className="font-bold mt-8">RAM:</h1><p className="mt-8">{article.detail.ram}</p>                       
                                 <h1 className="font-bold mt-8">Pantalla:</h1><p className="mt-8">{article.detail.pantalla}</p>                       
-                                <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{article.categories[0].name}</p>
+                                <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{article.categories?article.categories[0].name:article.categories}</p>
                             </div>
                         </div> 
             </div>) : (

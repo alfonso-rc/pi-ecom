@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { Op } = require("sequelize");
 const { Article } = require('../db');
-const { Category } = require('../db');
+const { Category, Comment } = require('../db');
 const {
   API_URL, API_URL_ID, API_URL_NAME, API_URL_TIPO, IMG_DEFAULT
 } = process.env;
@@ -54,7 +54,7 @@ const getArticle = async () => {
       disable: el.disable,
       price: el.price,
       conectividad: el.conectividad,
-      category: el.categories[0].name,
+      category: el.categories.name,
     }
   })
   return (api2);
@@ -66,8 +66,9 @@ const detailArticle = async (req, res, next) => {
   // console.log(typeof (id))
   try {
     const articleFound = await Article.findByPk(id, {
-      include: Category,
+      include: Comment,Category,
     }); //Visualiza los disable = false
+    console.log(articleFound)
     articleFound.disable===false ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
@@ -79,9 +80,16 @@ const detailArticle = async (req, res, next) => {
 // CREATE ARTICLE 
 const createArticle = async (req, res, next) => {
   try {
-    const artcleToCreate = req.body;
-    const newArticle = await Article.create(artcleToCreate);
-    res.send(newArticle);
+    const {title,rating,detail,marca,modelo,so,cpu,ram,color,pantalla,image,stock,disable,price,conectividad,category} = req.body;
+    const newArticle = await Article.create({title,rating,detail,marca,modelo,so,cpu,ram,color,pantalla,image,stock,disable,price,conectividad});
+    
+    const categoryAll = await Category.findAll({
+      where:{
+        name: category
+      }
+    });
+    newArticle.addCategory(categoryAll);
+    res.status(200).send(newArticle);
   } catch (error) {
     next(error);
   };
