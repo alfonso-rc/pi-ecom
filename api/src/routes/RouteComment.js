@@ -3,7 +3,7 @@ const {testFunction,getAllComments,createComment} = require('../Controllers/Comm
 
 const CommentRouter = Router();
 
-CommentRouter.get('/',testFunction);
+// CommentRouter.get('/',testFunction);
 CommentRouter.get('/',getAllComments);
 CommentRouter.post('/create',createComment);
 
