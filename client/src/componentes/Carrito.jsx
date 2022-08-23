@@ -1,7 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { useDispatch, useSelector } from "react-redux"
 // import { XIcon } from '@heroicons/react/outline'
+import { toggleCart } from '../store/actions/index.js'
 
 const products = [
   {
@@ -45,13 +47,24 @@ const products = [
 ]
 
 export default function Example() {
+  const dispatch = useDispatch()
+  const showCart = useSelector(state => state.showCart)
   const [open, setOpen] = useState(true)
 
+  useEffect(() => {
+
+    setOpen(() => {
+      return !open
+    })
+
+  }, [showCart])
+
+
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={ open } as={ Fragment }>
+      <Dialog as="div" className="relative z-10" onClose={ setOpen }>
         <Transition.Child
-          as={Fragment}
+          as={ Fragment }
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -66,7 +79,7 @@ export default function Example() {
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
-                as={Fragment}
+                as={ Fragment }
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"
                 enterTo="translate-x-0"
@@ -83,10 +96,10 @@ export default function Example() {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={ () => setOpen(false) }
                           >
                             <span className="sr-only">Close panel</span>
-                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */}
+                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */ }
                           </button>
                         </div>
                       </div>
@@ -94,12 +107,12 @@ export default function Example() {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
-                              <li key={product.id} className="flex py-6">
+                            { products.map((product) => (
+                              <li key={ product.id } className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={ product.imageSrc }
+                                    alt={ product.imageAlt }
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -108,14 +121,14 @@ export default function Example() {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}> {product.name} </a>
+                                        <a href={ product.href }> { product.name } </a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">{ product.price }</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                    <p className="mt-1 text-sm text-gray-500">{ product.color }</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty {product.quantity}</p>
+                                    <p className="text-gray-500">Qty { product.quantity }</p>
 
                                     <div className="flex">
                                       <button
@@ -128,7 +141,7 @@ export default function Example() {
                                   </div>
                                 </div>
                               </li>
-                            ))}
+                            )) }
                           </ul>
                         </div>
                       </div>
@@ -150,11 +163,11 @@ export default function Example() {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{' '}
+                          or{ ' ' }
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={ () => setOpen(false) }
                           >
                             Continue Shopping<span aria-hidden="true"> &rarr;</span>
                           </button>

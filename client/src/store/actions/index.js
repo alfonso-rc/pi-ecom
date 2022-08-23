@@ -4,16 +4,27 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_ALL_ARTICLES = process.env.NODE_ENV === "production" ?
   BASE_URL + "/article" : "http://localhost:3001/article"
 
-export function getArticles(){
+
+export function toggleCart() {
+  return function (dispatch) {
+    dispatch({
+      type: "TOOGLE_CART"
+    })
+  }
+}
+
+
+
+export function getArticles() {
   try {
-  return function(dispatch) {
+    return function (dispatch) {
       axios.get(URL_GET_ALL_ARTICLES)
-      .then ((articles) => {
+        .then((articles) => {
           dispatch({
-              type: "GET_ARTICLES",
-              payload: articles.data
+            type: "GET_ARTICLES",
+            payload: articles.data
           })
-      })
+        })
     }
   } catch (error) {
     console.log(error);
@@ -55,7 +66,7 @@ export function getName(title) {
 const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
 
-  export function getSmartphones() {
+export function getSmartphones() {
   return async function (dispatch) {
     var json = await axios(URL_GET_SMARTPHONE);
     return dispatch({
@@ -105,14 +116,14 @@ export function getAccesories() {
 const URL_POST_ART = process.env.NODE_ENV === "production" ?
   BASE_URL + "/article" : `http://localhost:3001/article/`
 
-export function postArticle(payload){
-  return async function (dispatch){
-      const json= await axios.post(URL_POST_ART ,payload)
-       console.log(json.data) 
-      return dispatch({
-          type: "POST_ARTICLE",
-          json
-      });
+export function postArticle(payload) {
+  return async function (dispatch) {
+    const json = await axios.post(URL_POST_ART, payload)
+    console.log(json.data)
+    return dispatch({
+      type: "POST_ARTICLE",
+      json
+    });
   }
 }
 
@@ -129,27 +140,27 @@ export function getCategory() {
 const URL_POST_USER = process.env.NODE_ENV === "production" ?
   BASE_URL + "/user/" : `http://localhost:3001/user/`
 
-export function registerUser(payload){
-  return async function (dispatch){
-      const json= await axios.post(URL_POST_USER,payload)
-       console.log(json.data) 
-      return dispatch({
-          type: "RES_USER",
-          json
-      });
+export function registerUser(payload) {
+  return async function (dispatch) {
+    const json = await axios.post(URL_POST_USER, payload)
+    console.log(json.data)
+    return dispatch({
+      type: "RES_USER",
+      json
+    });
   }
 }
 
 const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
   BASE_URL + "/user/login" : `http://localhost:3001/user/login`
 
-export function loginUser(payload){
-  return async function (dispatch){
-      const json= await axios.post(URL_LOGIN_USER,payload)
-       console.log(json.data) 
-      return dispatch({
-          type: "LOG_USER",
-          json
-      });
+export function loginUser(payload) {
+  return async function (dispatch) {
+    const json = await axios.post(URL_LOGIN_USER, payload)
+    console.log(json.data)
+    return dispatch({
+      type: "LOG_USER",
+      json
+    });
   }
 }
