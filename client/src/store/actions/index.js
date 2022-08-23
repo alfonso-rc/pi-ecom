@@ -1,9 +1,13 @@
 import axios from "axios";
 
+const BASE_URL = process.env.REACT_APP_API_URL;
+const URL_GET_ALL_ARTICLES = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/article" : "http://localhost:3001/article"
+
 export function getArticles(){
   try {
   return function(dispatch) {
-      axios.get("http://localhost:3001/article")
+      axios.get(URL_GET_ALL_ARTICLES)
       .then ((articles) => {
           dispatch({
               type: "GET_ARTICLES",
@@ -36,49 +40,116 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
+const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
+  BASE_URL + `/article?title=` : `http://localhost:3001/article?title=`
 
 export function getName(title) {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/article?title=${title}`);
+    var json = await axios.get(`${URL_GET_TITLE}${title}`);
     return dispatch({
       type: "GET_NAME",
       payload: json.data,
     });
   };
 }
-export function getSmartphones() {
+const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
+
+  export function getSmartphones() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/smartphones`);
+    var json = await axios(URL_GET_SMARTPHONE);
     return dispatch({
       type: "GET_SMARTPHONES",
       payload: json.data,
     });
   };
 }
+const URL_GET_TABLETS = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/category/tablets" : `http://localhost:3001/category/tablets`
+
 export function getTablets() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/tablets`);
+    var json = await axios(URL_GET_TABLETS);
     return dispatch({
       type: "GET_TABLETS",
       payload: json.data,
     });
   };
 }
+const URL_GET_NOTEBOOKS = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/category/notebooks" : `http://localhost:3001/category/notebooks`
+
 export function getNotebooks() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/notebooks`);
+    var json = await axios(URL_GET_NOTEBOOKS);
     return dispatch({
       type: "GET_NOTEBOOKS",
       payload: json.data,
     });
   };
 }
+
+const URL_GET_ACCESORIES = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/category/accesories" : `http://localhost:3001/category/accesories`
+
 export function getAccesories() {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/category/accesories`);
+    var json = await axios(URL_GET_ACCESORIES);
     return dispatch({
       type: "GET_ACCESORIES",
       payload: json.data,
     });
   };
+}
+
+const URL_POST_ART = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/article" : `http://localhost:3001/article/`
+
+export function postArticle(payload){
+  return async function (dispatch){
+      const json= await axios.post(URL_POST_ART ,payload)
+       console.log(json.data) 
+      return dispatch({
+          type: "POST_ARTICLE",
+          json
+      });
+  }
+}
+
+const URL_GET_CATEGORY = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/category/" : `http://localhost:3001/category/`
+
+export function getCategory() {
+  return async function (dispatch) {
+    var info = await axios.get(URL_GET_CATEGORY);
+    return dispatch({ type: "GET_CATEGORY", payload: info.data });
+  };
+}
+
+const URL_POST_USER = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/user/" : `http://localhost:3001/user/`
+
+export function registerUser(payload){
+  return async function (dispatch){
+      const json= await axios.post(URL_POST_USER,payload)
+       console.log(json.data) 
+      return dispatch({
+          type: "RES_USER",
+          json
+      });
+  }
+}
+
+const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/user/login" : `http://localhost:3001/user/login`
+
+export function loginUser(payload){
+  return async function (dispatch){
+      const json= await axios.post(URL_LOGIN_USER,payload)
+       console.log(json.data) 
+      return dispatch({
+          type: "LOG_USER",
+          json
+      });
+  }
 }

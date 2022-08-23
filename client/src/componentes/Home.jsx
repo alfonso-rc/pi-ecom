@@ -113,7 +113,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-5">
           {currentArticle.map((art) => {
             return (
               <div key={art.id} className={card}>

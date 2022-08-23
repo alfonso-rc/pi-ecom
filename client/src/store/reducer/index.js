@@ -72,6 +72,23 @@ export default function reducer(state = initialState, action) {
               ...state,
               articles: action.payload
             }
+            case "POST_ARTICLE": 
+            return {
+                ...state,
+            };
+            case "GET_CATEGORY":
+              return {
+                ...state,
+                categorys: action.payload,
+              };
+              case "LOG_USER": 
+              return {
+                  ...state,
+              };
+              case "RES_USER": 
+              return {
+                  ...state,
+              };
         default:
           return {
             ...state,
