@@ -26,14 +26,14 @@ const createUser = async (req, res, next) => {
       //contraseña inicial
       const passwordIn = userToCreate.password;
       //se encripta la contraseña del nuevo usuario
-      userToCreate.password = await bcrypt(userToCreate.password);
+      userToCreate.password = bcrypt(userToCreate.password);
 
       const userCreated = await User.create(userToCreate)
       // console.log(userCreated.dataValues)
       const response = await validateUser(userCreated.dataValues.mail, passwordIn);
       res.status(200).json(response);
 
-      //res.status(200).send(userCreated.dataValues)
+      // res.status(200).send(userCreated.dataValues)
    } catch (error) {
       next(error)
    }

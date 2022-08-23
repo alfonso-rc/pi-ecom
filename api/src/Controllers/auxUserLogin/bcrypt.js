@@ -1,12 +1,12 @@
 const crypt = require('bcryptjs');
 
-async function bcrypt(password) {
-    const salt = await crypt.genSalt(10);
-    return crypt.hash(password, salt);
+function bcrypt(password) {
+    const salt = crypt.genSaltSync(10);
+    return crypt.hashSync(password, salt);
 };
 
 function validatePassword(passIn, passDb) {
-    return crypt.compare(passIn, passDb);
+    return crypt.compareSync(passIn, passDb);
 };
 
 module.exports = {
