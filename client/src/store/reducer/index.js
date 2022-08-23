@@ -5,6 +5,7 @@ const initialState = {
   filteredArticle: [],
   categorys: [],
   smartphones: [],
+  showCart: false,
 };
 
 export default function reducer(state = initialState, action) {

@@ -17,6 +17,7 @@ import { RiComputerLine } from "react-icons/ri"
 import { FcMultipleSmartphones, FcTabletAndroid } from "react-icons/fc"
 import { FaKeyboard } from "react-icons/fa"
 import { SearchBar } from "./SearchBox";
+import Carrito from "./Carrito";
 
 
 
@@ -96,6 +97,7 @@ export default function Home() {
       <div className="">
         <div className="fixed top-0 left-0 right-0 z-10 w-screen">
           <NavBar />
+          <Carrito />
         </div>
       </div>
       <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
