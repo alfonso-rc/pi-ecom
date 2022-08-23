@@ -25,7 +25,7 @@ export default function ArticleDetail() {
             <div>
                 <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">               
                     <div className="justify-center">
-                        <img src={article.image} alt="image"  className="lg:m-auto"/>
+                        <img src={article.image} alt="image"  className="lg:m-auto h-96 w-auto"/>
                     </div>
                     <div className="lg:m-auto xl:ml-20 pt-6">
                         <div>
