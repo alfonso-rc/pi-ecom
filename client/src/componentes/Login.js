@@ -1,6 +1,27 @@
+import axios from 'axios';
 import Logo from "../ECOM-10_2.png";
+import { useState } from 'react';
 
 export default function Example() {
+  const [ user, setUser] = useState({
+    mail: '',
+    password: ''
+  });
+
+  function handleInputChange(e) {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  async function submitData(e) {
+    e.preventDefault();
+    let info = (await axios.post('http://localhost:3001/user/login', user)).data;
+    console.log(info);
+  };
+
+  
   return (
     <>
       {/*
@@ -23,7 +44,7 @@ export default function Example() {
               Sign in to your account
             </h2>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form onSubmit={submitData} className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -32,7 +53,9 @@ export default function Example() {
                 </label>
                 <input
                   id="email-address"
-                  name="email"
+                  name="mail"
+                  onChange={handleInputChange}
+                  value={user.mail}
                   type="email"
                   autoComplete="email"
                   required
@@ -47,6 +70,8 @@ export default function Example() {
                 <input
                   id="password"
                   name="password"
+                  onChange={handleInputChange}
+                  value={user.password}
                   type="password"
                   autoComplete="current-password"
                   required
