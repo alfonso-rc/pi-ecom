@@ -13,21 +13,19 @@ export function toggleCart() {
   }
 }
 
-
-
 export function getArticles() {
-  try {
-    return function (dispatch) {
-      axios.get(URL_GET_ALL_ARTICLES)
-        .then((articles) => {
-          dispatch({
-            type: "GET_ARTICLES",
-            payload: articles.data
-          })
+  return function (dispatch) {
+    return axios(URL_GET_ALL_ARTICLES)
+      .then((articles) => {
+        dispatch({
+          type: "GET_ARTICLES",
+          payload: articles.data
         })
-    }
-  } catch (error) {
-    console.log(error);
+      })
+      .catch((error) => {
+        console.log(error)
+
+      })
   }
 }
 

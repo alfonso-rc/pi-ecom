@@ -19,13 +19,18 @@ import { FaKeyboard } from "react-icons/fa"
 import { SearchBar } from "./SearchBox";
 import Carrito from "./Carrito";
 
+const stylesCategoriesContainer = {
+  height: "100px",
+  backgroundColor: "#4D4454"
+}
 
 
 export default function Home() {
+  let isLoading = useSelector((state) => state.isLoading)
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);
   let dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [articlePerPage, setArticlePerPage] = useState(12);
@@ -40,11 +45,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (!allArticle.length) {
-      dispatch(getArticles());
-      setLoading(true);
-    }
-  }, [dispatch]);
+    dispatch(getArticles());
+
+  }, []);
 
   // function handleSortAZ(e) {
   //   e.preventDefault();
@@ -90,6 +93,29 @@ export default function Home() {
   //   e.preventDefault();
   //   dispatch(getArticles());
   // }
+
+  function RenderItems() {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4 justify-items-center">
+        { currentArticle.map((art) => {
+          return (
+            <div key={ art.id } className={ card }>
+              <Card
+                key={ art.id }
+                id={ art.id }
+                image={ art.image }
+                title={ art.title }
+                price={ art.price }
+              />
+            </div>
+          )
+        }) }
+      </div>
+    )
+  }
+
+
+
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
   let card = "card w-96 bg-base-100 shadow-xl bg-white"
   return (
@@ -100,39 +126,32 @@ export default function Home() {
           <Carrito />
         </div>
       </div>
-      <div className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
-        <button className={circleClasses} onClick={(e) => handleSmartPhone(e)} ><FcMultipleSmartphones size={70} /></button>
-        <button onClick={(e) => handleNotebooks(e)} className={circleClasses} ><RiComputerLine size={70} /></button>
-        <button onClick={(e) => handleTablets(e)} className={circleClasses}><FcTabletAndroid size={70} /></button>
-        <button onClick={(e) => handleAccesories(e)} className={circleClasses}><FaKeyboard size={70} /></button>
+
+      <div style={ stylesCategoriesContainer } className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
+        <button className={ circleClasses } onClick={ (e) => handleSmartPhone(e) } ><FcMultipleSmartphones size={ 40 } /></button>
+        <button onClick={ (e) => handleNotebooks(e) } className={ circleClasses } ><RiComputerLine size={ 40 } /></button>
+        <button onClick={ (e) => handleTablets(e) } className={ circleClasses }><FcTabletAndroid size={ 40 } /></button>
+        <button onClick={ (e) => handleAccesories(e) } className={ circleClasses }><FaKeyboard size={ 40 } /></button>
       </div>
+
       <div className="bg-white">
-        {/* <SearchBar /> */}
-        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */}
+        {/* <SearchBar /> */ }
+        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */ }
         <div>
           <Paginado
-            articlePerPage={articlePerPage}
-            allArticle={allArticle.length}
-            paginado={paginado}
+            articlePerPage={ articlePerPage }
+            allArticle={ allArticle.length }
+            paginado={ paginado }
           />
         </div>
+        {/* AQUÍ RENDERIZAMOS LOS ITEMS */ }
+        {
+          isLoading ? <h1>CARGANDO</h1> : <RenderItems />
+        }
 
-        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4 justify-items-center">
-          {currentArticle.map((art) => {
-            return (
-              <div key={art.id} className={card}>
-                <Card
-                  key={art.id}
-                  id={art.id}
-                  image={art.image}
-                  title={art.title}
-                  price={art.price}
-                />
-                </div>
-          )})}
-              </div>
       </div>
-        <div />
-      </div>
-      );
+      <div />
+    </div>
+  );
 }
+
