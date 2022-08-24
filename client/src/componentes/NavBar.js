@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Logo from "../ECOM-10_2.png";
+import Log2 from "../imagenes/logo-ecom.png";
 import Orderings from './Orderings';
 import SearchBar from "./SearchBox";
 import { Link } from 'react-router-dom';
@@ -9,6 +10,11 @@ import {
   getArticles,
   toggleCart,
 } from "../store/actions";
+
+const styleNavBar = {
+  backgroundColor: "white",
+  boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
+}
 
 export default function NavBar() {
 
@@ -20,8 +26,8 @@ export default function NavBar() {
   }
 
   return (
-    <div className="bg-slate-800 flex flex-row justify-between mr-3">
-      <img src={ Logo } alt="Logo" className="w-36 h-26" />
+    <div style={ styleNavBar } className="bg-slate-800 flex flex-row justify-between mr-3">
+      <img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" />
       <div className="">
         <Orderings />
       </div>

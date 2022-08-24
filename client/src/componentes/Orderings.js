@@ -12,6 +12,9 @@ import {
 } from "../store/actions/index";
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR } from "../Constants";
 
+const stylesDropdown = {
+  backgroundColor: "white",
+}
 
 export default function Orderings() {
   const allArticle = useSelector((state) => state.articles);
@@ -38,27 +41,29 @@ export default function Orderings() {
     <div className="flex flex-row">
       <div className="">
         <select
+          style={ stylesDropdown }
           className="select select-accent w-40 max-w-xs m-5"
-          onChange={(e) => handleSortAZ(e)}
+          onChange={ (e) => handleSortAZ(e) }
         >
           <option disabled selected>
             Ordenar por...
           </option>
-          <option value={ASCENDENTE}>AZ</option>
-          <option value={DESCENDENTE}>ZA</option>
+          <option value={ ASCENDENTE }>AZ</option>
+          <option value={ DESCENDENTE }>ZA</option>
         </select>
       </div>
 
       <div className="">
         <select
+          style={ stylesDropdown }
           className="select select-accent w-40 max-w-xs m-5"
-          onChange={(e) => handleSortPrice(e)}
+          onChange={ (e) => handleSortPrice(e) }
         >
           <option disabled selected>
             Ordenar por...
           </option>
-          <option value={MAYOR}>Menor precio</option>
-          <option value={MENOR}>Mayor precio</option>
+          <option value={ MAYOR }>Menor precio</option>
+          <option value={ MENOR }>Mayor precio</option>
         </select>
       </div>
     </div>

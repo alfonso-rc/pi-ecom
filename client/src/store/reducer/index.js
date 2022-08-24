@@ -6,6 +6,7 @@ const initialState = {
   categorys: [],
   smartphones: [],
   showCart: false,
+  isLoading: true,
 };
 
 export default function reducer(state = initialState, action) {
@@ -22,6 +23,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: action.payload,
         filteredArticle: action.payload,
+        isLoading: false
       }
     case "ORDER_BY_ARTICLES":
       let sortedArr =
