@@ -3,6 +3,9 @@ import axios from "axios"
 import { Link, useParams } from "react-router-dom";
 import "../App.css"
 import { IoAdd, IoRemove } from "react-icons/io5";
+import NavBarDetail from "./NavBarDetail";
+import Carrito from "./Carrito";
+
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID = process.env.NODE_ENV === "production" ?
@@ -21,48 +24,87 @@ export default function ArticleDetail() {
                 setStockCon(response.data.stock)
             })
     }, [])
-
-    return <div className="font-Work text-xl md:text-2xl bg-white text-black">
+        
+    return <div>
+        <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
+            <NavBarDetail />
+            <Carrito />
+        </div>
         <div>
+        <button class="btn btn-circle btn-outline">           
+        </button>
+        </div>
+        <div className="font-Work text-xl md:text-1xl bg-white text-black pt-40">
             {
-                article ? (
-                    <div>
-                        <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
-                            <div className="justify-center">
-                                <img src={ article.image } alt="..." className="lg:m-auto h-96 w-auto" />
-                            </div>
-                            <div className="lg:m-auto xl:ml-20 pt-6">
-                                <div>
-                                    <h3 className="font-bold text-4xl">{ article.title }</h3>
-                                    <p className="pt-6">Rating: { article.rating }</p>
-                                </div>
-                                <div>
-                                    <p className="py-3">Price: ${ article.price }</p>
-                                    <div className="flex justify-center">
-                                        <button className="btn btn-outline btn-primary btn-sm btn-square"><IoRemove className="text-2xl" /></button>
-                                        <p className="px-5">1</p>
-                                        <button className="btn btn-primary btn-sm btn-square "><IoAdd className="text-2xl" /></button>
-                                    </div>
-                                    <p className="pt-3">Stock: { article.stock } (disponible)</p>
-                                    <p className="pt-3">Color: { article.detail.color }</p><br /><br />
-                                    <button className="btn btn-accent btn-wide my-2">Agregar al carrito</button><br />
-                                    <button className="btn btn-primary btn-wide">Comprar</button>
-                                </div>
-                            </div>
+            article ? (
+            <div>
+                <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">               
+                    <div className="justify-center">
+                        <img src={article.image} alt="image"  className="lg:m-auto h-96 w-auto"/>
+                    </div>
+                    <div className="lg:m-auto xl:ml-20 pt-6">
+                        <div>
+                            <h3 className="font-bold text-4xl">{article.title}</h3>  
+                            <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Rating: </h1><p>{article.rating}</p></div>
                         </div>
-                        <br /><br /><br /><br />
-                        <div className="mx-8 text-start lg:px-20">
-                            <h1 className="mt-14 font-bold text-4xl">Descripcion</h1><br />
-                            <p >{ article.detail.detail }</p>
-                            <h1 className="mt-14 font-bold text-4xl">Especificaciones</h1><br />
+                        <div>                           
+                        <div className="flex flex-row justify-center py-3 font-bold pb-6"><h1>Precio: </h1><p className="text-accent font-mono">${article.price}</p></div>
+                            <div className="flex justify-center">
+                                <button className="btn btn-outline btn-primary btn-sm btn-square"><IoRemove className="text-2xl"/></button>
+                                <p className="px-5">1</p>
+                                <button className="btn btn-primary btn-sm btn-square "><IoAdd className="text-2xl"/></button>
+                            </div>
+                            <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Stock: </h1><p>{article.stock}</p></div>
+                            <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Color: </h1><p>{article.detail.color}</p></div><br/><br/>
+                            <button className="btn btn-accent btn-wide my-2">Agregar al carrito</button><br/>
+                            <button className="btn btn-primary btn-wide">Comprar</button>               
+                        </div>                                                                  
+                    </div>
+                </div>
+                <br/><br/><br/><br/>
+                <div className="mx-8 text-start lg:px-20">
+                            <h1 className="mt-14 font-bold text-4xl">Descripcion</h1><br/>                                                                              
+                            <p >{article.detail.detail}</p>
+                            <h1 className="mt-14 font-bold text-4xl">Especificaciones</h1><br/>  
                             <div className="grid grid-cols-2">
-                                <h1 className="font-bold mt-2">Marca:</h1><p className="mt-2">{ article.detail.marca }</p>
-                                <h1 className="font-bold mt-8">Modelo:</h1> <p className="mt-8">{ article.detail.modelo } </p>
-                                <h1 className="font-bold mt-8">SO:</h1><p className="mt-8">{ article.detail.so }</p>
-                                <h1 className="font-bold mt-8">CPU:</h1><p className="mt-8">{ article.detail.cpu }</p>
-                                <h1 className="font-bold mt-8">RAM:</h1><p className="mt-8">{ article.detail.ram }</p>
-                                <h1 className="font-bold mt-8">Pantalla:</h1><p className="mt-8">{ article.detail.pantalla }</p>
-                                <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{ article.categories ? article.categories[0].name : article.categories }</p>
+                                <h1 className="font-bold mt-2">Marca:</h1><p className="mt-2">{article.detail.marca}</p>
+                                <h1 className="font-bold mt-8">Modelo:</h1> <p className="mt-8">{article.detail.modelo} </p>
+
+                                {/* Si a alguien le parece que este codigo esta muy feo cosa que a mi tambien y quiere arreglarlo con gusto lo acepto
+                                Comprobamos que descripcion existe y mostramos, pasa que lo hice 1 por uno porque no queria romper el estilo,despues arreglo u.u */}
+                                {
+                                    article.detail.so &&
+                                    <h1 className="font-bold mt-8">SO:</h1>
+                                }
+                                {
+                                    article.detail.so &&
+                                    <p className="mt-8">{article.detail.so}</p>
+                                }                               
+                                {   
+                                    article.detail.cpu && 
+                                    <h1 className="font-bold mt-8">CPU:</h1>
+                                }
+                                {
+                                    article.detail.cpu && 
+                                    <p className="mt-8">{article.detail.cpu}</p>
+                                }
+                                {   
+                                    article.detail.ram && 
+                                    <h1 className="font-bold mt-8">RAM:</h1>   
+                                }
+                                {   
+                                    article.detail.ram && 
+                                    <p className="mt-8">{article.detail.ram}</p>    
+                                }
+                                {
+                                    article.detail.pantalla && 
+                                    <h1 className="font-bold mt-8">Pantalla:</h1>
+                                }
+                                {
+                                    article.detail.pantalla && 
+                                    <p className="mt-8">{article.detail.pantalla}</p>  
+                                }
+                                <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{article.categories?article.categories[0].name:article.categories}</p>
                             </div>
                         </div>
                     </div>) : (

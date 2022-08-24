@@ -95,33 +95,33 @@ export default function Home() {
 
   function RenderItems() {
     return (
-      <div className="wrid wrid-cols-2">
-        <div className="  grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 justify-items-center">
-          <div >
-            <div className="grid row-span-6">
-              <Orderings />
-            </div>
+      <div>
+        <div className="fixed z-10 pl-8 mr-2 ">
+          <Orderings />
+        </div>
+        <div className="flex justify-end">
+          <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-x-20 gap-y-32 justify-items-center mx-44">
+            {currentArticle.map((art) => {
+              return (
+                <div key={art.id} className={card}>
+                  <Card
+                    key={art.id}
+                    id={art.id}
+                    image={art.image}
+                    title={art.title}
+                    price={art.price}
+                  />
+                </div>
+              );
+            })}
           </div>
-          {currentArticle.map((art) => {
-            return (
-              <div key={art.id} className={card}>
-                <Card
-                  key={art.id}
-                  id={art.id}
-                  image={art.image}
-                  title={art.title}
-                  price={art.price}
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
     );
   }
 
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
-  let card = "card w-96 bg-base-100 shadow-xl bg-white";
+  let card = "card transition delay-100 hover:scale-110 hover:drop-shadow-xl shadow-xl bg-white border-zinc-300 border-2 rounded-8"
   return (
     <div>
       <div className="">
@@ -148,11 +148,10 @@ export default function Home() {
           <FaKeyboard size={40} />
         </button>
       </div>
-
       <div className="bg-white">
         {/* <SearchBar /> */}
         {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */}
-        <div>
+        <div className="pt-5 pb-5">
           <Paginado
             articlePerPage={articlePerPage}
             allArticle={allArticle.length}

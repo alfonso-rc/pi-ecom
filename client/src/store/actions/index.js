@@ -136,12 +136,13 @@ export function getCategory() {
 }
 
 const URL_POST_USER = process.env.NODE_ENV === "production" ?
-  BASE_URL + "/user/" : `http://localhost:3001/user/`
+  BASE_URL + "/user/" : `http://localhost:3001/user`
 
-export function registerUser(payload) {
+export function registerUser(user) {
   return async function (dispatch) {
-    const json = await axios.post(URL_POST_USER, payload)
-    console.log(json.data)
+    const json = await (await axios.post(URL_POST_USER, user)).data
+    localStorage.setItem('token', json.token);
+    console.log(json)
     return dispatch({
       type: "RES_USER",
       json
@@ -152,10 +153,11 @@ export function registerUser(payload) {
 const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
   BASE_URL + "/user/login" : `http://localhost:3001/user/login`
 
-export function loginUser(payload) {
+export function loginUser(user) {
   return async function (dispatch) {
-    const json = await axios.post(URL_LOGIN_USER, payload)
-    console.log(json.data)
+    const json = (await axios.post(URL_LOGIN_USER, user)).data
+    localStorage.setItem('token', json.token)
+    console.log(json)
     return dispatch({
       type: "LOG_USER",
       json
