@@ -6,11 +6,10 @@ const {
   } = process.env;
   const {
     createArticle,
-    getAllArticles,
+   
     detailArticle,
     getAticleByName, 
-    putDeleteArticle,
-    deleteArticle,
+   
     getArticle
     } = require('./ArticleControl.js');
   //TEST DE FUNCIONAMIENTO

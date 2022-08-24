@@ -3,7 +3,7 @@ const {  detailArticle,
          getAticleByName, 
          putDeleteArticle,
          deleteArticle
-} = require('../Controllers/DeleteArticle');
+} = require('../Controllers/DeleteArticle.js');
 
 
 
