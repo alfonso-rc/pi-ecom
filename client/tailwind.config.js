@@ -22,6 +22,6 @@ module.exports = {
       prefix: "",
       darkTheme: "dark",
     
-    themes: ["light","dark","cupcake","black"],
+    themes: ["light","dark"],
   },
 }
