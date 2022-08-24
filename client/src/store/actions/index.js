@@ -140,7 +140,8 @@ const URL_POST_USER = process.env.NODE_ENV === "production" ?
 
 export function registerUser(payload) {
   return async function (dispatch) {
-    const json = await axios.post(URL_POST_USER, payload)
+    const json = await (await axios.post(URL_POST_USER, payload)).data
+    localStorage.setItem('token', json.token);
     console.log(json.data)
     return dispatch({
       type: "RES_USER",
@@ -154,7 +155,8 @@ const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
 
 export function loginUser(payload) {
   return async function (dispatch) {
-    const json = await axios.post(URL_LOGIN_USER, payload)
+    const json = await (axios.post(URL_LOGIN_USER, payload)).data
+    localStorage.setItem('token', json.token)
     console.log(json.data)
     return dispatch({
       type: "LOG_USER",
