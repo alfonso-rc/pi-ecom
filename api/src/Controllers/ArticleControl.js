@@ -66,8 +66,9 @@ const detailArticle = async (req, res, next) => {
   // console.log(typeof (id))
   try {
     const articleFound = await Article.findByPk(id, {
-      include: Comment,Category,
-    }); //Visualiza los disable = false
+    include:Category
+    })
+  ; //Visualiza los disable = false
     console.log(articleFound)
     articleFound.disable===false ?
       res.status(200).send(articleFound.dataValues) :
