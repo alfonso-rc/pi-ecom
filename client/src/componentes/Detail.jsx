@@ -25,7 +25,7 @@ export default function ArticleDetail() {
             })
     }, [])
         
-    return <div data-theme="dark">
+    return <div>
         <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
             <NavBarDetail />
             <Carrito />
