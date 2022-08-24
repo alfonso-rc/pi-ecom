@@ -6,6 +6,7 @@ import Log2 from "../imagenes/logo-ecom.png";
 import Orderings from './Orderings';
 import SearchBar from "./SearchBox";
 import { Link } from 'react-router-dom';
+import {BiUserCircle} from "react-icons/bi"
 import {
   getArticles,
   toggleCart,
@@ -20,20 +21,19 @@ export default function NavBar() {
 
   let dispatch = useDispatch();
 
-  function resetCharacters(e) {
-    e.preventDefault();
-    dispatch(getArticles());
-  }
+
 
   return (
     <div style={ styleNavBar } className="bg-slate-800 flex flex-row justify-between mr-3">
       <img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" />
       <div className="">
-        <Orderings />
       </div>
-      <div className=" m-5">
-        <button onClick={ (e) => resetCharacters(e) } className="btn btn-outline btn-accent">Reseteo</button>
+      <div className="">
+        <SearchBar />
       </div>
+      <Link to="/newUser">
+        <button className="btn btn-outline btn-accent my-5"><BiUserCircle size={25}/> Iniciar sesion</button>
+      </Link>
       <div className=" m-5">
 
         {/* BOTÓN PARA MOSTRAT EL CARRITO */ }
@@ -42,9 +42,7 @@ export default function NavBar() {
         </svg> }</button>
 
       </div>
-      <div className="">
-        <SearchBar />
-      </div>
+     
     </div>
   )
 }
