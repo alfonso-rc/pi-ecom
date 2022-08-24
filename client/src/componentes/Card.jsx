@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {addToCart} from "../store/actions"
+import { addToCart } from "../store/actions"
 import React from "react";
 const stylesCard = {
   backgroundColor: "white",
@@ -24,8 +24,8 @@ const stylesImg = {
 
 export default function Card({ id, title, image, price, category }) {
   const dispatch = useDispatch()
-  function addCart(id) {  
-    dispatch(addToCart(id));
+  function addCart(item) {
+    dispatch(addToCart(item));
   }
   // return (
   //   <div style={ stylesCard } className="card-compact w-96 bg-base-100 shadow-xl h-full">
@@ -56,7 +56,7 @@ export default function Card({ id, title, image, price, category }) {
           </div>
         </div>
       </Link>
-      <button onClick={addCart} className="btn btn-primary">añadir al carrito</button>
+      <button onClick={ () => addCart({ id, title, image, price, category }) } className="btn btn-primary">añadir al carrito</button>
     </div>
   );
 }

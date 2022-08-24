@@ -159,7 +159,7 @@ export function removeCart(id) {
 };
 
 export function addToCart(payload) {
-  console.log(payload)
+  // console.log(payload)
   return (dispatch) =>
     dispatch({
       type: "ADD_TO_CART",
