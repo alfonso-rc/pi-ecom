@@ -6,7 +6,7 @@ import { IoAdd, IoRemove } from "react-icons/io5";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID = process.env.NODE_ENV === "production" ?
-    BASE_URL + "/article/" : "http://localhost:3001/article"
+    BASE_URL + "/article/" : "http://localhost:3001/article/"
 
 export default function ArticleDetail() {
 
