@@ -150,6 +150,23 @@ export function registerUser(user) {
   }
 }
 
+export function removeCart(id) {
+  return (dispatch) =>
+    dispatch({
+      type: "REMOVE_TO_CART",
+      payload: id,
+    });
+};
+
+export function addToCart(payload) {
+  console.log(payload)
+  return (dispatch) =>
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: payload,
+    });
+};
+
 const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
   BASE_URL + "/user/login" : `http://localhost:3001/user/login`
 
