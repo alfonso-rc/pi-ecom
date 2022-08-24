@@ -2091,7 +2091,7 @@ module.exports = async function loadArticle() {
   // Verificamos si los artículos ya fueron creados
   const allArticles = await Article.findAll()
   if (allArticles.length > 0) {
-    console.log("Artículos creados previamente")
+    console.log("Artículos cargados previamente")
     return
   }
 
@@ -2116,6 +2116,6 @@ module.exports = async function loadArticle() {
     await newArticle.addCategory(el.category);
 
   })
-  console.log("TODOS LOS ARTÍCULOS Y SUS CATEGORIAS AGREGADOS EXITOSAMENTE")
+  console.log("Artículos cargados")
 };
 

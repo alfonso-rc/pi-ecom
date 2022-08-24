@@ -20,6 +20,7 @@
 const server = require('./src/app.js');
 const loadArticle = require('./src/helpers/LoadArticleDB.js');
 const loadCategoriesBD = require('./src/helpers/LoadCategory.js');
+const createDefaulUsers = require('./src/helpers/LoadUsersDB')
 const { conn } = require('./src/db.js');
 const portToUse = process.env.PORT || 3001  // Al hacer deploy el puerto no lo manejamos nosotros
 
@@ -30,8 +31,9 @@ conn.sync({ force: false }).then(() => {
     try {
       await loadCategoriesBD();
       await loadArticle();
+      await createDefaulUsers()
     } catch (error) {
-      console.log("Error al crear los artículos u categorías")
+      console.log("Error al crear los artículos u categorías", error.message)
     }
 
 
