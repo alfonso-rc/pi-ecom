@@ -1,9 +1,22 @@
 import axios from 'axios';
 import Logo from "../ECOM-10_2.png";
 import { useState } from 'react';
-
+import { loginUser } from "../store/actions"
+import { useDispatch, useSelector } from "react-redux";
+function validate(user) {
+  let errors = {};
+  if (!user.mail) {
+    errors.mail = 'Se necesita poner un mail';
+  }
+  if (!user.password) {
+    errors.password = 'Se necesita una password';
+  }
+  return errors
+}
 export default function Example() {
-  const [ user, setUser] = useState({
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState({});
+  const [user, setUser] = useState({
     mail: '',
     password: ''
   });
@@ -13,16 +26,22 @@ export default function Example() {
       ...user,
       [e.target.name]: e.target.value
     });
+    setErrors(validate({
+      ...user,
+      [e.target.name]: e.target.value,
+    }))
   };
 
   async function submitData(e) {
     e.preventDefault();
-    let response = (await axios.post('http://localhost:3001/user/login', user)).data;
-    localStorage.setItem('token', response.token)
-    console.log(response);
+    if (!Object.getOwnPropertyNames(errors).length && user.password && user.mail) {
+      dispatch(loginUser(user));
+    } else {
+      alert('Faltan datos para ingresar')
+    }
   };
 
-  
+
   return (
     <>
       {/*
@@ -63,6 +82,9 @@ export default function Example() {
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
+                {errors.mail && (
+                  <p><strong>{errors.mail}</strong></p>
+                )}
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">
@@ -79,6 +101,9 @@ export default function Example() {
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
+                {errors.password && (
+                  <p><strong>{errors.password}</strong></p>
+                )}
               </div>
             </div>
 
