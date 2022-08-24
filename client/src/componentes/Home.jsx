@@ -13,20 +13,20 @@ import {
 import Card from "./Card";
 import Paginado from "./Paginado";
 import NavBar from "./NavBar";
-import { RiComputerLine } from "react-icons/ri"
-import { FcMultipleSmartphones, FcTabletAndroid } from "react-icons/fc"
-import { FaKeyboard } from "react-icons/fa"
+import { RiComputerLine } from "react-icons/ri";
+import { FcMultipleSmartphones, FcTabletAndroid } from "react-icons/fc";
+import { FaKeyboard } from "react-icons/fa";
 import { SearchBar } from "./SearchBox";
 import Carrito from "./Carrito";
+import Orderings from "./Orderings";
 
 const stylesCategoriesContainer = {
   height: "100px",
-  backgroundColor: "#4D4454"
-}
-
+  backgroundColor: "#4D4454",
+};
 
 export default function Home() {
-  let isLoading = useSelector((state) => state.isLoading)
+  let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);
   let dispatch = useDispatch();
@@ -46,7 +46,6 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getArticles());
-
   }, []);
 
   // function handleSortAZ(e) {
@@ -96,28 +95,33 @@ export default function Home() {
 
   function RenderItems() {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4 justify-items-center">
-        { currentArticle.map((art) => {
-          return (
-            <div key={ art.id } className={ card }>
-              <Card
-                key={ art.id }
-                id={ art.id }
-                image={ art.image }
-                title={ art.title }
-                price={ art.price }
-              />
+      <div className="wrid wrid-cols-2">
+        <div className="  grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 justify-items-center">
+          <div >
+            <div className="grid row-span-6">
+              <Orderings />
             </div>
-          )
-        }) }
+          </div>
+          {currentArticle.map((art) => {
+            return (
+              <div key={art.id} className={card}>
+                <Card
+                  key={art.id}
+                  id={art.id}
+                  image={art.image}
+                  title={art.title}
+                  price={art.price}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    )
+    );
   }
 
-
-
   let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
-  let card = "card w-96 bg-base-100 shadow-xl bg-white"
+  let card = "card w-96 bg-base-100 shadow-xl bg-white";
   return (
     <div>
       <div className="">
@@ -127,31 +131,38 @@ export default function Home() {
         </div>
       </div>
 
-      <div style={ stylesCategoriesContainer } className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20">
-        <button className={ circleClasses } onClick={ (e) => handleSmartPhone(e) } ><FcMultipleSmartphones size={ 40 } /></button>
-        <button onClick={ (e) => handleNotebooks(e) } className={ circleClasses } ><RiComputerLine size={ 40 } /></button>
-        <button onClick={ (e) => handleTablets(e) } className={ circleClasses }><FcTabletAndroid size={ 40 } /></button>
-        <button onClick={ (e) => handleAccesories(e) } className={ circleClasses }><FaKeyboard size={ 40 } /></button>
+      <div
+        style={stylesCategoriesContainer}
+        className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20"
+      >
+        <button className={circleClasses} onClick={(e) => handleSmartPhone(e)}>
+          <FcMultipleSmartphones size={40} />
+        </button>
+        <button onClick={(e) => handleNotebooks(e)} className={circleClasses}>
+          <RiComputerLine size={40} />
+        </button>
+        <button onClick={(e) => handleTablets(e)} className={circleClasses}>
+          <FcTabletAndroid size={40} />
+        </button>
+        <button onClick={(e) => handleAccesories(e)} className={circleClasses}>
+          <FaKeyboard size={40} />
+        </button>
       </div>
 
       <div className="bg-white">
-        {/* <SearchBar /> */ }
-        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */ }
+        {/* <SearchBar /> */}
+        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */}
         <div>
           <Paginado
-            articlePerPage={ articlePerPage }
-            allArticle={ allArticle.length }
-            paginado={ paginado }
+            articlePerPage={articlePerPage}
+            allArticle={allArticle.length}
+            paginado={paginado}
           />
         </div>
-        {/* AQUÍ RENDERIZAMOS LOS ITEMS */ }
-        {
-          isLoading ? <h1>CARGANDO</h1> : <RenderItems />
-        }
-
+        {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
+        {isLoading ? <h1>CARGANDO</h1> : <RenderItems />}
       </div>
       <div />
     </div>
   );
 }
-
