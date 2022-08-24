@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.48465341.css",
+    "main.js": "/static/js/main.debfd77d.js",
+    "static/js/377.b33aecdb.chunk.js": "/static/js/377.b33aecdb.chunk.js",
+    "static/media/oferta3.jpg": "/static/media/oferta3.d3f9eeda400128f4b798.jpg",
+    "static/media/oferta1.jpg": "/static/media/oferta1.bf502353b0c8f4b3e000.jpg",
+    "static/media/oferta2.jpg": "/static/media/oferta2.43a59a143e6792faad09.jpg",
+    "static/media/logo-ecom.png": "/static/media/logo-ecom.34de166f76c25824e2dc.png",
+    "static/media/ECOM-10_2.png": "/static/media/ECOM-10_2.ac8ac6349f13ff5a04e1.png",
+    "index.html": "/index.html",
+    "main.48465341.css.map": "/static/css/main.48465341.css.map",
+    "main.debfd77d.js.map": "/static/js/main.debfd77d.js.map",
+    "377.b33aecdb.chunk.js.map": "/static/js/377.b33aecdb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48465341.css",
+    "static/js/main.debfd77d.js"
+  ]
+}
