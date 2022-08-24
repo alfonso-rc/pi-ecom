@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Logo from "../ECOM-10_2.png";
 import { useState } from 'react';
 import { loginUser } from "../store/actions"
