@@ -25,7 +25,7 @@ const { conn } = require('./src/db.js');
 const portToUse = process.env.PORT || 3001  // Al hacer deploy el puerto no lo manejamos nosotros
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(portToUse, async () => {
 
     try {
@@ -33,7 +33,7 @@ conn.sync({ force: true }).then(() => {
       await loadArticle();
       await createDefaulUsers()
     } catch (error) {
-      console.log("Error al crear los artículos u categorías")
+      console.log("Error al crear los artículos u categorías", error.message)
     }
 
 

@@ -43,6 +43,12 @@ const usersToCreate = [
 ]
 
 async function createDefaulUsers() {
+   const usersFound = await User.findAll()
+   if (usersFound) {
+      console.log("Usuarios creados previamente")
+      return
+   }
+
    usersToCreate.forEach(async user => {
       await axios.post(URL_POST_CREATE_USERS, user)
          .then(e => console.log("Usuario", user.userName, "agregado"))
