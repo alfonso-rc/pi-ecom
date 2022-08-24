@@ -44,7 +44,7 @@ const usersToCreate = [
 
 async function createDefaulUsers() {
    const usersFound = await User.findAll()
-   if (usersFound) {
+   if (usersFound.length > 0) {
       console.log("Usuarios creados previamente")
       return
    }
