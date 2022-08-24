@@ -4,11 +4,11 @@ module.exports = async function loadCategoriesBD() {
     // Verificamos si las categorias ya fueron creadas
     const allCategories = await Category.findAll()
     if (allCategories.length > 0) {
-        console.log("Categorías creadas previamente")
+        console.log("Categorías cargadas previamente")
         return
     }
 
-    console.log('LoadCategory Funcionando');
+    console.log('Categorías cargadas');
     const categories = [
         { id: 1, name: "smartphones", },
         { id: 2, name: "notebooks", },

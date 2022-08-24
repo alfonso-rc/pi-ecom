@@ -11,6 +11,7 @@ import {
   getTablets,
 } from "../store/actions/index";
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR } from "../Constants";
+import NavBar from "./NavBar";
 
 const stylesDropdown = {
   backgroundColor: "white",
@@ -37,35 +38,21 @@ export default function Orderings() {
     //setCurrentPage(1);
     setOrder(e.target.value);
   }
+  function resetCharacters(e) {
+    e.preventDefault();
+    dispatch(getArticles());
+  }
   return (
-    <div className="flex flex-row">
-      <div className="">
-        <select
-          style={ stylesDropdown }
-          className="select select-accent w-40 max-w-xs m-5"
-          onChange={ (e) => handleSortAZ(e) }
-        >
-          <option disabled selected>
-            Ordenar por...
-          </option>
-          <option value={ ASCENDENTE }>AZ</option>
-          <option value={ DESCENDENTE }>ZA</option>
-        </select>
-      </div>
-
-      <div className="">
-        <select
-          style={ stylesDropdown }
-          className="select select-accent w-40 max-w-xs m-5"
-          onChange={ (e) => handleSortPrice(e) }
-        >
-          <option disabled selected>
-            Ordenar por...
-          </option>
-          <option value={ MAYOR }>Menor precio</option>
-          <option value={ MENOR }>Mayor precio</option>
-        </select>
+    <div >
+      <div className="flex flex-col">
+   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
+   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
+   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
+   <button className="btn btn-outline btn-accent m-5 " onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
+   <button onClick={ (e) => resetCharacters(e) } className="btn btn-outline btn-accent m-5">Por defecto</button>
       </div>
     </div>
   );
 }
+
+
