@@ -4,12 +4,14 @@ import ArticleDetail from "./componentes/Detail";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import LandingPage from "./componentes/LandingPage";
 import Example from "./componentes/Login";
+import NewUser from "./componentes/newUser";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
+          <Route exact path="/newUser" component={NewUser}/>
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Example} />
           <Route path="/:id" component={ArticleDetail} />

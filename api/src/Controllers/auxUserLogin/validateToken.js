@@ -19,6 +19,7 @@ verification.use((req, res, next) => {
             }
             else {
                 req.decoded = decoded;
+                console.log(decoded.id);
                 next();
             }
         });
