@@ -1,15 +1,12 @@
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 
-function generateToken() {
+function generateToken(id) {
     const payload = {
-        check: true
+        id: id
     };
     const token = jwt.sign(payload, config.secret, { expiresIn: '3d' });
-    return {
-        auth: true,
-        token
-    };
+    return token;
 };
 
 module.exports = generateToken;

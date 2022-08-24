@@ -26,8 +26,7 @@ const testFunction = (req,res,next)=>{
 const getCategories = async(req,res,next)=>{
   try {
     let getAllCategories = await Category.findAll({
-      attributes:["id","name"],
-      through:{attributes:[]}
+      attributes:["id","name"]
     });
     res.status(200).send(getAllCategories);
   } catch (error) {
