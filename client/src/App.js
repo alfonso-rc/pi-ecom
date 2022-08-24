@@ -5,17 +5,19 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import LandingPage from "./componentes/LandingPage";
 import Example from "./componentes/Login";
 import NewUser from "./componentes/newUser";
-
+import buy from "./componentes/buy";
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
+        <Route path= "/checkout" component={buy}/>
           <Route exact path="/newUser" component={NewUser}/>
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Example} />
           <Route path="/:id" component={ArticleDetail} />
           <Route exact path="/" component={LandingPage} />
+        
         </Switch>
       </div>
     </BrowserRouter>
