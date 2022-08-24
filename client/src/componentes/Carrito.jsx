@@ -45,15 +45,15 @@ export default function Example() {
   var totalPrice = 0;
 
   for (let i = 0; i < cart.length; i++) {
-    console.log(cart[i].price);
+    // console.log(cart[i].price);
     totalPrice = totalPrice + cart[i].price;
   }
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={ open } as={ Fragment }>
+      <Dialog as="div" className="relative z-10" onClose={ setOpen }>
         <Transition.Child
-          as={Fragment}
+          as={ Fragment }
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -68,7 +68,7 @@ export default function Example() {
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
-                as={Fragment}
+                as={ Fragment }
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"
                 enterTo="translate-x-0"
@@ -85,10 +85,10 @@ export default function Example() {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={ () => setOpen(false) }
                           >
                             <span className="sr-only">Close panel</span>
-                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */}
+                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */ }
                           </button>
                         </div>
                       </div>
@@ -111,19 +111,19 @@ export default function Example() {
 // //   })} */}
 
                             <div className="containerCarrito">
-                              {cart &&
+                              { cart &&
                                 cart.map((e) => {
                                   return (
                                     <CardCarrito
-                                      key={e.id}
-                                      id={e.id}
-                                      nombre={e.title}
-                                      image={e.image}
-                                      tipo={e.tipo}
-                                      precio={e.price}
+                                      key={ e.id }
+                                      id={ e.id }
+                                      nombre={ e.title }
+                                      image={ e.image }
+                                      tipo={ e.tipo }
+                                      precio={ e.price }
                                     />
                                   );
-                                })}
+                                }) }
                             </div>
                           </ul>
                         </div>
@@ -133,7 +133,7 @@ export default function Example() {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>{totalPrice}</p>
+                        <p>{ totalPrice }</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
@@ -146,11 +146,11 @@ export default function Example() {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{' '}
+                          or{ ' ' }
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={ () => setOpen(false) }
                           >
                             Continue Shopping<span aria-hidden="true"> &rarr;</span>
                           </button>
