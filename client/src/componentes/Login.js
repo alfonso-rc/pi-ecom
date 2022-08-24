@@ -17,8 +17,9 @@ export default function Example() {
 
   async function submitData(e) {
     e.preventDefault();
-    let info = (await axios.post('http://localhost:3001/user/login', user)).data;
-    console.log(info);
+    let response = (await axios.post('http://localhost:3001/user/login', user)).data;
+    localStorage.setItem('token', response.token)
+    console.log(response);
   };
 
   
