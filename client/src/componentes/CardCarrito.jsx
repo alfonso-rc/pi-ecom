@@ -16,14 +16,14 @@ return (
             <p>{title}</p>
         </div>
             <div>
-                <p>{price}</p>
+                <p>$ {price}</p>
             </div>
             <div>
                 <p>{stock}</p>
             </div>
             <abbr>
        <span  onClick={() => handleDelete(id)}>
-        <MdDeleteForever />
+        <MdDeleteForever size={30} color="#dc2626" />
         </span>
         </abbr>
     </div>
