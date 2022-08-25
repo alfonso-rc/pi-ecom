@@ -66,10 +66,13 @@ const detailArticle = async (req, res, next) => {
   // console.log(typeof (id))
   try {
     const articleFound = await Article.findByPk(id, {
-    include:Category
+      include: {
+        model: Comment,
+        attributes: ["texto"]
+      }
     })
   ; //Visualiza los disable = false
-    console.log(articleFound)
+    console.log(articleFound);
     articleFound.disable===false ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe

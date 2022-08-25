@@ -72,6 +72,16 @@ const infoUser = (req, res, next) => {
    res.send('DATOS ENTREGADOS CORRECTAMENTE');
 };
 
+const getUsers = async(req,res,next)=>{
+   try {
+      const allUser = await User.findAll();
+      res.status(200).send(allUser);
+   } catch (error) {
+      next(error);
+   }
+
+}
 
 
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser };
+
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser,getUsers };
