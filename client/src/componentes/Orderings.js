@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import {
   orderByAZ,
   orderByPrice,
+  orderByRating,
   getArticles,
   getSmartphones,
   getNotebooks,
   getAccesories,
   getTablets,
 } from "../store/actions/index";
-import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR } from "../Constants";
+import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, MEJOR, PEOR } from "../Constants";
 import NavBar from "./NavBar";
 
 const stylesDropdown = {
@@ -32,6 +33,12 @@ export default function Orderings() {
     // setCurrentPage(1)
     setOrder(e.target.value);
   }
+  function handleSortRating(e) {
+    e.preventDefault();
+    dispatch(orderByRating(e.target.value));
+    // setCurrentPage(1)
+    setOrder(e.target.value);
+  }
   function handleSortPrice(e) {
     e.preventDefault();
     dispatch(orderByPrice(e.target.value));
@@ -49,6 +56,8 @@ export default function Orderings() {
    <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
    <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
    <button className="btn btn-outline btn-accent m-5 " onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
+   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
+   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
    <button onClick={ (e) => resetCharacters(e) } className="btn btn-outline btn-accent m-5">Por defecto</button>
       </div>
     </div>
