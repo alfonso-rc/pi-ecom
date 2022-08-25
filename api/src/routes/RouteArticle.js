@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const { testFunction,
+const {
+   testFunction,
    createArticle,
    getAllArticles,
    detailArticle,
-   getAticleByName, 
+   getAticleByName,
+   createArticleUserRating
 } = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();
@@ -12,6 +14,7 @@ const RouteArticle = Router();
 RouteArticle.get('/', getAticleByName);
 RouteArticle.post('/create', createArticle);
 RouteArticle.get('/:id', detailArticle);
+RouteArticle.post('/rating', createArticleUserRating);
 
 
 
