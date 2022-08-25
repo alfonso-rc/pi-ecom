@@ -117,10 +117,10 @@ export default function Example() {
                                     <CardCarrito
                                       key={ e.id }
                                       id={ e.id }
-                                      nombre={ e.title }
+                                      title={ e.title }
                                       image={ e.image }
-                                      tipo={ e.tipo }
-                                      precio={ e.price }
+                                      
+                                      price={ e.price }
                                     />
                                   );
                                 }) }
