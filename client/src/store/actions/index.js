@@ -49,6 +49,16 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
+export function orderByRating(payload) {
+  try {
+    return {
+      type: "ORDER_BY_RATING",
+      payload,
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
 const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
   BASE_URL + `/article?title=` : `http://localhost:3001/article?title=`
 

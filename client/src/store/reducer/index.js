@@ -1,4 +1,4 @@
-import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, TOOGLE_CART } from "../../Constants";
+import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, TOOGLE_CART, MEJOR, PEOR } from "../../Constants";
 import { toast } from "react-toastify"
 
 function toastError() {
@@ -110,6 +110,21 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: sortedPriceArr,
       };
+      case "ORDER_BY_RATING":
+        let sortedRating =
+          [...state.articles]
+          sortedRating = sortedRating.sort((a, b) => {
+          if (a.rating < b.rating) {
+            return (action.payload === MEJOR ? -1 : 1)
+          }
+          if (a.rating > b.rating) {
+            return (action.payload === MEJOR ? 1 : -1)
+          }
+        })
+        return {
+          ...state,
+          articles: sortedRating,
+        };
 
     case "GET_NAME":
       return {
