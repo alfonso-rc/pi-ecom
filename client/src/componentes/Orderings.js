@@ -52,12 +52,12 @@ export default function Orderings() {
   return (
     <div >
       <div className="flex flex-col">
-   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
-   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
-   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
-   <button className="btn btn-outline btn-accent m-5 " onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
-   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
-   <button className="btn btn-outline btn-accent m-5" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
+   <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
    <button onClick={ (e) => resetCharacters(e) } className="btn btn-outline btn-accent m-5">Por defecto</button>
       </div>
     </div>

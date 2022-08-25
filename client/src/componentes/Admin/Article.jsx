@@ -15,7 +15,7 @@ export default function Admin({id,title,modelo,stock,price}) {
 
   return (
     <div>
-      <div class="overflow-x-auto">
+      <div class="">
   <table class="table table-compact w-full">
     <thead>
       <tr>

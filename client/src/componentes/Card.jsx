@@ -43,7 +43,7 @@ export default function Card({ id, title, image, price, category }) {
   //   </div>
   // );
   return (
-    <div style={ stylesCard } className="card-compact w-83 bg-base-100 shadow-xl h-full">
+    <div style={ stylesCard } className="card-compact bg-base-100 shadow-xlshadow-xl w-64 h-full lg:w-72 lg:h-full xl:w-80 xl:h-full 2xl:w-96 2xl:h-full">
       <Link to={ `/${id}` }>
         <figure className="px-10 pt-10">
           <img style={ stylesImg } src={ image } alt="img not found" className="rounded-xl h-64" />
@@ -56,7 +56,9 @@ export default function Card({ id, title, image, price, category }) {
           </div>
         </div>
       </Link>
-      <button onClick={ () => addCart({ id, title, image, price, category }) } className="btn btn-primary">añadir al carrito</button>
+      <div className="pb-6">
+        <button onClick={ () => addCart({ id, title, image, price, category }) } className="btn btn-outline btn-primary">añadir al carrito</button>
+      </div>
     </div>
   );
 }
