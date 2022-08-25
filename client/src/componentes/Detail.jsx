@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "../App.css"
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
@@ -14,9 +14,21 @@ const URL_GET_DETAIL_BY_ID = process.env.NODE_ENV === "production" ?
 
 export default function ArticleDetail() {
     const dispatch = useDispatch()
+    const history=useHistory();
     function addCart(item) {
         dispatch(addToCart(item));
       }
+      
+      const HandleClickComment = () => {
+        const token = sessionStorage.getItem("token");
+        if (token) {
+          console.log("Comentario realizado");
+          //Hacer visible el Input de Comment
+        } else {
+          history.push("/login");
+        }
+      };
+
     const [article, setArticle] = useState(null)
     const [stockCon, setStockCon] = useState()
     let { id } = useParams()
@@ -61,7 +73,7 @@ export default function ArticleDetail() {
                             <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Stock: </h1><p>{article.stock}</p></div>
                             <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Color: </h1><p>{article.detail.color}</p></div><br/><br/>
                             <button className="btn btn-accent btn-wide my-2" onClick={ () => addCart(article) }>Agregar al carrito</button><br/>
-                            <button className="btn btn-primary btn-wide">Comprar</button>               
+                            {/* <button className="btn btn-primary btn-wide">Comprar</button>                */}
                         </div>                                                                  
                     </div>
                 </div>
@@ -108,16 +120,30 @@ export default function ArticleDetail() {
                                     article.detail.pantalla && 
                                     <p className="mt-8">{article.detail.pantalla}</p>  
                                 }
-                                <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{article.categories?article.categories[0].name:article.categories}</p>
+                                {/* <h1 className="font-bold mt-8">Categoria:</h1><p className="mt-8">{article.categories?article.categories[0].name:article.categories}</p> */}
                             </div>
                         </div>
+                        <br /><br />
+                            <div tabindex="0" class="collapse collapse-plus bg-accent rounded-box ">
+                                <div class="collapse-title text-white text-xl font-medium">
+                                    <h1>Comentarios</h1>
+                                </div>
+                                <div class="collapse-content bg-white border-4"> 
+                                {
+                                    <p className="mt-8">
+                                    {article.comments.length>0?
+                                        article.comments.map((comm)=>{
+                                            return <p className="border-b-4">{comm.texto}</p>
+                                })
+                            :<p className="mt-10">No hay comentarios sobre este producto</p>
+                        }
+                        </p>
+                }
+                                </div>
+                                </div>
                     </div>) : (
                     <div>loading</div>)
             }
-            <div className="mx-20 pl-7 text-start mt-14">
-                <h1 className=" font-bold text-4xl">Comentarios</h1>
-                <p className="mt-10">No hay comentarios sobre este producto</p>
-            </div>
             <br /><br />
             <Link to='/home'><button className="my-10 btn sm:btn-sm md:btn-md lg:btn-lg">Volver</button></Link>
         </div>

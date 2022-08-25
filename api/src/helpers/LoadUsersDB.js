@@ -9,8 +9,7 @@ const {
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_POST_CREATE_USERS = process.env.NODE_ENV === "production" ?
-   BASE_URL + "/user" : "http://localhost:3001/user"
-
+   BASE_URL + "/user/create" : "http://localhost:3001/user/create"
 
 const usersToCreate = [
    {
