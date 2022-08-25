@@ -63,11 +63,11 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      {/* <Link to="/home">
+      <Link to="/home">
         <button className="btn btn-outline btn-success">
           Empeza tu busqueda
         </button>
-      </Link> */}
+      </Link>
       <Slider />
     </div>
   );
