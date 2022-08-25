@@ -7,6 +7,7 @@ import Example from "./componentes/Login";
 import NewUser from "./componentes/newUser";
 import buy from "./componentes/buy";
 import Admin from "./componentes/Admin/Admin";
+import CheckoutForm from "./componentes/buy"
 function App() {
   return (
     <BrowserRouter>
@@ -17,8 +18,10 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Example} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path ="/pago" component={CheckoutForm}/>
           <Route path="/:id" component={ArticleDetail} />
           <Route exact path="/" component={LandingPage} />
+          
         </Switch>
       </div>
     </BrowserRouter>
