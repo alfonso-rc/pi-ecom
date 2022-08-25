@@ -5,20 +5,24 @@ import "../App.css"
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/actions";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID = process.env.NODE_ENV === "production" ?
     BASE_URL + "/article/" : "http://localhost:3001/article/"
 
 export default function ArticleDetail() {
-
+    const dispatch = useDispatch()
+    function addCart(item) {
+        dispatch(addToCart(item));
+      }
     const [article, setArticle] = useState(null)
     const [stockCon, setStockCon] = useState()
     let { id } = useParams()
 
     useEffect(() => {
-        axios.get(URL_GET_DETAIL_BY_ID + id)
+          axios.get(URL_GET_DETAIL_BY_ID + id)
             .then((response) => {
                 setArticle(response.data)
                 setStockCon(response.data.stock)
@@ -56,7 +60,7 @@ export default function ArticleDetail() {
                             </div>
                             <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Stock: </h1><p>{article.stock}</p></div>
                             <div className="flex flex-row justify-center pt-6"><h1 className="font-bold">Color: </h1><p>{article.detail.color}</p></div><br/><br/>
-                            <button className="btn btn-accent btn-wide my-2">Agregar al carrito</button><br/>
+                            <button className="btn btn-accent btn-wide my-2" onClick={ () => addCart(article) }>Agregar al carrito</button><br/>
                             <button className="btn btn-primary btn-wide">Comprar</button>               
                         </div>                                                                  
                     </div>
