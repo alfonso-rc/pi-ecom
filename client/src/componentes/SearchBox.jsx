@@ -34,19 +34,17 @@ export default function SearchBar() {
       <div className="m-5">
         <input
           style={ styleSearch }
-          className="input input-bordered input-accent w-50 max-w-xs"
+          className="input input-bordered w-50 max-w-xs"
           onChange={ (e) => handleInput(e) }
           type="text"
           placeholder="Busqueda por nombre..."
         />
-        <button className="btn btn-outline btn-accent"
-          type="submit"
+        <button className="btn btn-outline text-white"
           onClick={ (e) => handleName(e) }
         >
           Search
         </button>
       </div>
     </nav>
-
   );
 }

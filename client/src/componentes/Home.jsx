@@ -19,6 +19,7 @@ import { FaKeyboard } from "react-icons/fa";
 import { SearchBar } from "./SearchBox";
 import Carrito from "./Carrito";
 import Orderings from "./Orderings";
+import Footer from "./Footer";
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -96,11 +97,11 @@ export default function Home() {
   function RenderItems() {
     return (
       <div>
-        <div className="fixed z-10 pl-8 mr-2 ">
+        <div className="fixed z-10 pl-4 mr-2">
           <Orderings />
         </div>
-        <div className="flex justify-end">
-          <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-x-20 gap-y-32 justify-items-center mx-44">
+        <div className="flex justify-end pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-20 gap-y-32 justify-items-center mx-auto 2xl:mx-56">
             {currentArticle.map((art) => {
               return (
                 <div key={art.id} className={card}>
@@ -162,6 +163,10 @@ export default function Home() {
         {isLoading ? <h1>CARGANDO</h1> : <RenderItems />}
       </div>
       <div />
+
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

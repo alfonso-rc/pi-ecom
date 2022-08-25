@@ -1,21 +1,22 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import {
-    getArticles
-  } from "../../store/actions/index";
+// import { useSelector, useDispatch } from "react-redux";
+// import { useEffect, useState } from "react";
+// import {
+//     getArticles
+//   } from "../../../store/actions/index";
 
-export default function Admin({id,title,modelo,stock,price}) {
-    const allArticle = useSelector((state) => state.articles);
-    let dispatch = useDispatch();
+export default function User({id,title,modelo,stock,price}) {
+//     const allArticle = useSelector((state) => state.articles);
+//     let dispatch = useDispatch();
   
-    useEffect(() => {
-        dispatch(getArticles());
-      }, []);
+//     useEffect(() => {
+//         dispatch(getArticles());
+//       }, []);
 
   return (
     <div>
-      <div class="overflow-x-auto">
+      <h1>HOLAAAAAAAAAAAAAA</h1>
+      {/* <div class="overflow-x-auto">
   <table class="table table-compact w-full">
     <thead>
       <tr>
@@ -55,7 +56,7 @@ export default function Admin({id,title,modelo,stock,price}) {
       </tr>
     </tfoot>
   </table>
-</div>
+</div> */}
     </div>
   )
 }
