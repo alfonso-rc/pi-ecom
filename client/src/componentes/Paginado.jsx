@@ -1,28 +1,4 @@
-// import React from "react";
 
-// export default function Paginado({ articlePerPage, allArticle, paginado }) {
-//   const pageNumber = [];
-
-//   for (let i = 1; i <= Math.ceil(allArticle / articlePerPage); i++) {
-//     pageNumber.push(i);
-//   }
-//   return (
-//     <div className="btn-group grid grid-cols-3 gap-4">
-//       <nav>
-//         {pageNumber &&
-//           pageNumber.map((number) => (
-//             <div className="flex flex-nowrap">
-//             <ul  key={number}>
-//               <button className="bg-white border-gray-300 text-gray-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium" onClick={() => paginado(number)}>
-//                 {number}
-//               </button>
-//             </ul>
-//             </div>
-//           ))}
-//       </nav>
-//     </div>
-//   );
-// }
 import React from "react";
 
 export default function Pagination({
@@ -43,7 +19,7 @@ export default function Pagination({
         <ul className='flex pl-0 rounded list-none flex-wrap'>
           <li>
             {pageNumbers.map((number) => (
-              <a
+              <a key={number}
                 onClick={() => {
                   paginado(number);
                 }}

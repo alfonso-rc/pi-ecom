@@ -4,53 +4,36 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from "react-redux"
 // import { XIcon } from '@heroicons/react/outline'
 import { toggleCart } from '../store/actions/index.js'
-
-const products = [
-  {
-    "id": "85b6add7-7b51-469e-a052-e6c7dd0aae25",
-    "title": "Samsung Galaxy S22 Ultra",
-    "rating": 4.6,
-    "detail": "Conocé el Galaxy S22 Ultra, con el poder del Note. El marco pulido, delgado y audaz, rodea la forma extruida para lograr una simetria elegamte. Y la cámara lineal, acentuada por anillos de lentes espejados, parece flotar en su lugar.",
-    "marca": "Samsung",
-    "modelo": "S22 Ultra",
-    "so": "Android",
-    "cpu": "2.99GHz, 2.4GHz, 1.7GHz",
-    "ram": "12GB",
-    "color": "Green, Black, White, Burgundy",
-    "pantalla": "8.9",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_668050-MLA49303776893_032022-O.webp",
-    "stock": 4,
-    "disable": false,
-    "price": 2449,
-    "conectividad": "USB Type-C, USB 3.2 Gen 1",
-    "category": "smartphones"
-  },
-  {
-    "id": "fc9d7835-16e5-47f6-b098-3d1bc626da00",
-    "title": "Samsung Galaxy S22",
-    "rating": 4.4,
-    "detail": "Es un kit de nivel profesional que cabe en una mano. La cámara posterior triple y la cámara de selfie ofrecen hardware y software de cámara innovadores para que puedas capturar fácilmente una galería llena de contenido digno de compartir.",
-    "marca": "Samsung",
-    "modelo": "S22",
-    "so": "Android",
-    "cpu": "Octa-Core de 2.99GHz",
-    "ram": "8GB",
-    "color": "Green",
-    "pantalla": "6.1",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_686082-MLA49387650727_032022-O.webp",
-    "stock": 3,
-    "disable": false,
-    "price": 1593,
-    "conectividad": "USB Type-C, USB 3.2 Gen 1",
-    "category": "smartphones"
-  }
-]
+import { useHistory } from 'react-router-dom'
+import CardCarrito from './CardCarrito.jsx'
 
 export default function Example() {
-  const dispatch = useDispatch()
   const showCart = useSelector(state => state.showCart)
   const [open, setOpen] = useState(true)
+  const history = useHistory()
+  const dispatch = useDispatch();
+  const [totalPrecio, settotalPrecio] = useState(0);
+  const [totalItems, settotalItems] = useState([]);
+  const { cart } = useSelector((state) => state);
+  useEffect(() => {
+    if (cart) {
+      cart &&
+        cart.forEach((e) => {
+          settotalPrecio(totalPrecio + e.price);
+        });
+      settotalItems(cart.length);
+    }
+  }, [cart]);
 
+  const HandleClickComprar = () => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      history("/home/pasarela");
+      console.log("COMPRADISIMO BRO");
+    } else {
+      history("/home/login");
+    }
+  };
   useEffect(() => {
 
     setOpen(() => {
@@ -59,6 +42,12 @@ export default function Example() {
 
   }, [showCart])
 
+  var totalPrice = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    // console.log(cart[i].price);
+    totalPrice = totalPrice + cart[i].price;
+  }
 
   return (
     <Transition.Root show={ open } as={ Fragment }>
@@ -107,41 +96,35 @@ export default function Example() {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            { products.map((product) => (
-                              <li key={ product.id } className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src={ product.imageSrc }
-                                    alt={ product.imageAlt }
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
+                            {/* // // {cart &&
+// //   cart.map((e) => {
+// //     return (
+// //       <CarritoCard
+// //         key={e.id}
+// //         id={e.id}
+// //         title={e.title}
+// //         image={e.posterImagen}
+// //         category={e.category}
+// //         price={e.price}
+// //       />
+// //     );
+// //   })} */}
 
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href={ product.href }> { product.name } </a>
-                                      </h3>
-                                      <p className="ml-4">{ product.price }</p>
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">{ product.color }</p>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty { product.quantity }</p>
-
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            )) }
+                            <div className="containerCarrito">
+                              { cart &&
+                                cart.map((e) => {
+                                  return (
+                                    <CardCarrito
+                                      key={ e.id }
+                                      id={ e.id }
+                                      nombre={ e.title }
+                                      image={ e.image }
+                                      tipo={ e.tipo }
+                                      precio={ e.price }
+                                    />
+                                  );
+                                }) }
+                            </div>
                           </ul>
                         </div>
                       </div>
@@ -150,7 +133,7 @@ export default function Example() {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p>{ totalPrice }</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
@@ -184,3 +167,47 @@ export default function Example() {
     </Transition.Root>
   )
 }
+
+
+//   return (
+//     <div className="container">
+//       <div className="containerCarrito">
+//         {cart &&
+//           cart.map((e) => {
+//             return (
+//               <CarritoCard
+//                 key={e.id}
+//                 id={e.id}
+//                 title={e.title}
+//                 image={e.posterImagen}
+//                 category={e.category}
+//                 price={e.price}
+//               />
+//             );
+//           })}
+//       </div>
+//       <div>
+//         <div className="containerTotal">
+//           <div>
+//             <h4>Resumen</h4>
+//             <p>
+//               <h5>Cantidad: </h5>
+//               <h6>{totalItems}</h6>
+//             </p>
+//             <p>
+//               <h5>Total: </h5>
+//               <h6>${totalPrice}.00</h6>
+//             </p>
+//             <button
+//               className="submit formEntry4"
+//               onClick={() => HandleClickComprar()}
+//             >
+//               COMPRAR
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+

@@ -1,4 +1,57 @@
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, TOOGLE_CART } from "../../Constants";
+import { toast } from "react-toastify"
+
+function toastError() {
+  return toast.error("Ya esta en el carrito", {
+    position: "bottom-left",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+}
+function toastSucces() {
+  return toast.success("Se añadio al carrito", {
+    position: "bottom-left",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+}
+
+let cartStorage;
+try {
+  let local = localStorage.getItem("cart") || [];
+  if (local !== "undefined") {
+    cartStorage = JSON.parse(local);
+  }
+} catch (error) {
+  // console.log({error});
+}
+
+if (!cartStorage) {
+  cartStorage = [];
+}
+
+// let wishlistStorage;
+// try {
+//   let local2 = localStorage.getItem("wishlist") || [];
+//   if (local2 !== "undefined") {
+//     // console.log(local2);
+//     wishlistStorage = JSON.parse(local2);
+//   }
+// } catch (error) {
+//   // console.log({error});
+// }
+
+// if (!wishlistStorage) {
+//   wishlistStorage = [];
+// }
 
 const initialState = {
   articles: [],
@@ -7,6 +60,8 @@ const initialState = {
   smartphones: [],
   showCart: false,
   isLoading: true,
+  cart: cartStorage,
+  // wishlist: wishlistStorage,
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,7 +71,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         showCart: !state.showCart,
       }
-
 
     case "GET_ARTICLES":
       return {
@@ -56,6 +110,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: sortedPriceArr,
       };
+
     case "GET_NAME":
       return {
         ...state,
@@ -98,6 +153,44 @@ export default function reducer(state = initialState, action) {
     case "RES_USER":
       return {
         ...state,
+      };
+
+    case "REMOVE_TO_CART":
+      let filter = state.cart.filter((e) => e.id !== action.payload);
+      localStorage.setItem("cart", JSON.stringify(filter));
+      return {
+        ...state,
+        cart: filter,
+      };
+
+    case "ADD_TO_CART":
+      console.log("ITEM PARA AÑADIR", action.payload)
+      const itemToAdd = state.articles.find((e) => e.id === action.payload.id); // Verificamos que el id del artículo a añadir se encuentre en la lista de todos los artículos
+      // if (itemToAdd) console.log("SE ENCUENTRA EL ID")
+      let cartInLocalStorage = localStorage.getItem("cart"); // Traemos los items que hay en el local storage
+      // console.log("ITEMS EN LOCAL STORAGE", cartInLocalStorage)
+
+      if (!cartInLocalStorage) {
+        // console.log("NO HAY NADA EN LOCAL STORAGE")
+        localStorage.setItem("cart", JSON.stringify([itemToAdd]));
+        console.log("ITEMS EN LOCAL STORAGE", localStorage.getItem("cart"))
+      } else {
+        let dataFromLocalStorage = JSON.parse(cartInLocalStorage);
+
+        // Preguntamos si ya está en el localstorage el item que queremos añadir, y mostramos un mensaje adecuado
+        const isInLocalStorage = dataFromLocalStorage.find((el) => el.id === itemToAdd.id)
+        if (!isInLocalStorage) {
+          dataFromLocalStorage.push(itemToAdd)
+          localStorage.setItem("cart", JSON.stringify(dataFromLocalStorage))
+          toastSucces()
+        } else {
+          toastError()
+        }
+      }
+
+      return {
+        ...state,
+        cart: JSON.parse(localStorage.getItem("cart")),
       };
     default:
       return {

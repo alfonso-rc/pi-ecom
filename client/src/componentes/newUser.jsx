@@ -14,14 +14,14 @@ function validate(user) {
   else if (!isNaN(Number(user.name))) {
     errors.name = 'El nombre debe tener letras';
   }
-  if (!user.lastname) {
-    errors.lastname = 'Se necesita un apellido';
+  if (!user.lastName) {
+    errors.lastName = 'Se necesita un apellido';
   }
-  else if (user.lastname.length > 30) {
-    errors.lastname = 'Ese es un apellido demasiado largo.';
+  else if (user.lastName.length > 30) {
+    errors.lastName = 'Ese es un apellido demasiado largo.';
   }
-  else if (!isNaN(Number(user.lastname))) {
-    errors.lastname = 'El apellido debe tener letras';
+  else if (!isNaN(Number(user.lastName))) {
+    errors.lastName = 'El apellido debe tener letras';
   }
   if (!user.address) {
     errors.address = 'Se necesita añadir una direccion';
@@ -51,7 +51,7 @@ export default function Example() {
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     name: "",
-    lastname: "",
+    lastName: "",
     address: "",
     mail: "",
     userName: "",
@@ -71,19 +71,20 @@ export default function Example() {
 
   async function submitData(e) {
     e.preventDefault();
-    if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastname && user.address && user.mail && user.userName && user.password) {
-   dispatch(registerUser(user));
+    if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.address && user.mail && user.userName && user.password) {
+    dispatch(registerUser(user));
     alert('New user successfully created');
     setUser({
       name: "",
-      lastname: "",
+      lastName: "",
       address: "",
       mail: "",
       userName: "",
       password: "",
-    })};
-    alert('Faltan datos para crear')
-  }
+    });
+    }
+    else alert('Faltan datos para crear');    
+  };
 
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -125,16 +126,16 @@ export default function Example() {
 
             <div>
               <input
-                name="lastname"
+                name="lastName"
                 onChange={handleInputChange}
-                value={user.lastname}
+                value={user.lastName}
                 type="text"
                 required
                 className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mt-6 rounded-md"
-                placeholder="Lastname"
+                placeholder="Last name"
               />
               {errors.lastname && (
-                <p><strong>{errors.lastname}</strong></p>
+                <p><strong>{errors.lastName}</strong></p>
               )}
             </div>
 
