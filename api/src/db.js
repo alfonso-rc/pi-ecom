@@ -6,17 +6,17 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecom`, {
+// SSL necesario en production
+const sslConn = process.env.NODE_ENV === "production" ?
+  { ssl: { require: true, rejectUnauthorized: false } } :
+  {}
+
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   // const sequelize = new Sequelize(`postgres://postgres:2722@localhost/ecom`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false
-  //   }
-  // }
+  dialectOptions: sslConn
 
 });
 const basename = path.basename(__filename);
@@ -40,12 +40,9 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { Article, Category, Comment, Orders, User, Favorites, Cards } = sequelize.models;
+const { Article, Category, Comment, Orders, User, Favorites, Cards, Rating } = sequelize.models;
 
-
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-
+// RELACIONES DE MODELOS
 
 Article.belongsToMany(Category, { through: "article_category" });
 Category.belongsToMany(Article, { through: "article_category" });
@@ -62,6 +59,10 @@ User.hasMany(Comment);
 Article.hasMany(Comment);
 Comment.belongsTo(User)
 
+// UN USUARIO TIENE MUCHAS CALIFICACIONES
+// UN ARTÍCULO TIENE MUCHAS CALIFICACIONES
+User.hasMany(Rating)
+Article.hasMany(Rating)
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

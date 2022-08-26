@@ -19,7 +19,7 @@ const testFunction = (req, res, next) => {
 const getAllComments = async(req,res,next)=>{
     try {
       let getAllComment = await Comment.findAll({
-        attributes:["id","texto"],
+        attributes:["id","texto","userId"],
         through:{attributes:[]}
       });
       res.status(200).send(getAllComment);
@@ -30,10 +30,17 @@ const getAllComments = async(req,res,next)=>{
 
 //POSTCOMMENT
   const createComment = async (req, res, next) => {
+    const {userId,texto,articleId} = req.body;
     try {
-      const commentToCreate = req.body;
-      const newComment = await Comment.create(commentToCreate);
-      res.send(newComment);
+      const userComment = await Comment.findAll({
+        where: {userId:userId}
+      });
+      if(userComment.length>0){
+        res.status(404).send('Ya comentaste este articulo!')
+      }else{
+        const newComment = await Comment.create({userId,texto,articleId});
+        res.status(200).send(newComment);        
+      }
     } catch (error) {
       next(error);
     };
