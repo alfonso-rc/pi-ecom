@@ -64,13 +64,18 @@ const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
 
 export function getName(title) {
   return async function (dispatch) {
-    var json = await axios.get(`${URL_GET_TITLE}${title}`);
-    return dispatch({
-      type: "GET_NAME",
-      payload: json.data,
-    });
+    try {
+      var json = await axios.get(`${URL_GET_TITLE}${title}`);
+      return dispatch({
+        type: "GET_NAME",
+        payload: json.data,
+      });
+    } catch (error) {
+        alert("Este producto no existe...")
+    }
   };
 }
+
 const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
 

@@ -18,15 +18,16 @@ export default function SearchBar() {
 
   function handleInput(e) {
     e.preventDefault();
-    setCurrentPage(1)
+    //setCurrentPage(1)
     setName(e.target.value);
   }
 
 
   function handleName(e) {
     e.preventDefault();
-    setCurrentPage(1)
+    //setCurrentPage(1)
     dispatch(getName(name));
+    setName("")
   }
 
   return (
@@ -37,6 +38,7 @@ export default function SearchBar() {
           className="input input-bordered w-50 max-w-xs"
           onChange={ (e) => handleInput(e) }
           type="text"
+          value={name}
           placeholder="Busqueda por nombre..."
         />
         <button className="btn btn-outline text-white"
