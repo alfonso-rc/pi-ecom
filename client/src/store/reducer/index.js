@@ -57,6 +57,7 @@ const initialState = {
   articles: [],
   filteredArticle: [],
   categorys: [],
+  comment: [],
   smartphones: [],
   showCart: false,
   isLoading: true,
@@ -161,6 +162,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         categorys: action.payload,
       };
+    case "POST_COMMENT":
+      return {
+        ...state,
+        comment: action.payload,
+      };
     case "LOG_USER":
       return {
         ...state,
@@ -202,7 +208,6 @@ export default function reducer(state = initialState, action) {
           toastError()
         }
       }
-
       return {
         ...state,
         cart: JSON.parse(localStorage.getItem("cart")),
