@@ -2095,18 +2095,12 @@ module.exports = async function loadArticle() {
     return
   }
 
+  //Articulos para cargar a la BD
   allArt.forEach(async el => {
     const newArticle = await Article.create({
       title: el.title,
       rating: el.rating,
       detail: el.detail,
-      // marca: el.detail.marca,
-      // modelo: el.detail.modelo,
-      // so: el.detail.so,
-      // cpu: el.detail.cpu,
-      // ram: el.detail.ram,
-      // color: el.detail.color,
-      // pantalla: el.detail.pantalla,
       image: el.image,
       stock: el.stock,
       disable: el.disable,
