@@ -21,6 +21,7 @@ import Carrito from "./Carrito";
 import Orderings from "./Orderings";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
+import loading  from "../imagenes/loading2.gif"
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -161,7 +162,9 @@ export default function Home() {
           />
         </div>
         {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
-        {isLoading ?<NotFound/>  : <RenderItems />}
+        {isLoading ?<div className="flex  place-content-center">
+            {<img src={loading} alt="img not found" />}
+          </div>: <RenderItems />}
       </div>
       <div />
       <div>
