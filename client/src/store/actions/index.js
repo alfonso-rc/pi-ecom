@@ -191,3 +191,17 @@ export function loginUser(user) {
     });
   }
 }
+
+const URL_POST_COMMENT = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/comment/create" : `http://localhost:3001/comment/create`
+
+export function addComment(payload) {
+  return async function (dispatch) {
+    const json = await axios.post(URL_POST_COMMENT, payload)
+    console.log(json.data)
+    return dispatch({
+      type: "POST_COMMENT",
+      json
+    });
+  }
+}

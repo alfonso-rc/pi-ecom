@@ -65,10 +65,14 @@ const detailArticle = async (req, res, next) => {
     const articleFound = await Article.findByPk(id, {
       include: {
         model: Comment,
-        attributes: ["texto"]
+        attributes: ["texto","userId"],
+        include:{
+          model: User,
+          attributes: ["userName"],
+        }
       }
-    })
-      ; //Visualiza los disable = false
+    }); 
+  ; //Visualiza los disable = false
     console.log(articleFound);
     articleFound.disable === false ?
       res.status(200).send(articleFound.dataValues) :
