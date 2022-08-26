@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 
 export default function Slider() {
    const [actualSlide, setActualSlide] = useState(0)
-   const itemsPerPage = window.innerWidth < 200 ? 2 : 4
-   const timeInterval = 3300 //milisegundos
+   const itemsPerPage = window.innerWidth < 600 ? 2 : 4
+   const timeInterval = 4300 //milisegundos
 
    // Para que se
    useEffect(() => {
@@ -14,7 +14,7 @@ export default function Slider() {
          irAdelante()
       }, timeInterval)
       return () => clearInterval(interval)   // Eliminar el intervalo cuando se desmonte
-   }, [] //
+   }, [actualSlide] //
    )
 
    function irAdelante() {
@@ -57,8 +57,8 @@ function SliderSection({ item }) {
       <div className={ s.slider_section }>
          <img className={ s.slider_img } src={ item.image } alt="slider_image"></img>
          <h4>{ item.title.length > 35 ? item.title.slice(0, 35) + "..." : item.title }</h4>
-         <Link to={`/${item.id}`}>
-         <button className={ s.buttonDetail }>VER DETALLE</button>
+         <Link className={ s.buttonDetail } to={ `/${item.id}` }>
+            <span >VER DETALLE</span>
          </Link>
 
       </div>
