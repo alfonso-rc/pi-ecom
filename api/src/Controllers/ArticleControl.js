@@ -1,10 +1,7 @@
 const axios = require('axios');
 const { Op } = require("sequelize");
-const { Article } = require('../db');
-const { Category, Comment, User } = require('../db');
-const {
-  API_URL, API_URL_ID, API_URL_NAME, API_URL_TIPO, IMG_DEFAULT
-} = process.env;
+const { Category, Comment, Article, Rating, User } = require('../db');
+const { API_URL, API_URL_ID, API_URL_NAME, API_URL_TIPO, IMG_DEFAULT } = process.env;
 
 //TEST DE FUNCIONAMIENTO
 const testFunction = (req, res, next) => {
@@ -32,11 +29,11 @@ const getArticle = async () => {
     include: {
       model: Category,
       attributes: ["name"],
-      through: { attributes:[]  }
+      through: { attributes: [] }
     }
   });
-  const apiFilter = apiDB.filter((el)=> el.disable == false) 
-   const api2 = apiFilter.map(el => {
+  const apiFilter = apiDB.filter((el) => el.disable == false)
+  const api2 = apiFilter.map(el => {
     return {
       id: el.id,
       title: el.title,
@@ -77,8 +74,7 @@ const detailArticle = async (req, res, next) => {
     }); 
   ; //Visualiza los disable = false
     console.log(articleFound);
-
-    articleFound.disable===false ?
+    articleFound.disable === false ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
   } catch (error) {
@@ -89,11 +85,11 @@ const detailArticle = async (req, res, next) => {
 // CREATE ARTICLE 
 const createArticle = async (req, res, next) => {
   try {
-    const {title,rating,detail,marca,modelo,so,cpu,ram,color,pantalla,image,stock,disable,price,conectividad,category} = req.body;
-    const newArticle = await Article.create({title,rating,detail,marca,modelo,so,cpu,ram,color,pantalla,image,stock,disable,price,conectividad});
-    
+    const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
+    const newArticle = await Article.create({ title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad });
+
     const categoryAll = await Category.findAll({
-      where:{
+      where: {
         name: category
       }
     });
@@ -123,9 +119,56 @@ const getAticleByName = async (req, res, next) => {
   };
 };
 
-module.exports = { testFunction, 
-  createArticle, 
-  getArticle, 
-  detailArticle, 
-  getAticleByName,
+
+// CREATE ARTICLE USER RATING
+const createArticleUserRating = async (req, res, next) => {
+  const { idArticle, idUser, score } = req.body;
+  try {
+    // Verificar si el idUser existe
+    const userFound = await User.findByPk(idUser)
+    if (!userFound) { res.status(404).send("El usuario no existe en la base de datos"); return }
+
+    // Verificar si el artículo existe
+    const articleFound = await Article.findByPk(idArticle)
+    if (!articleFound) { res.status(404).send("El artículo no existe en la base de datos"); return }
+
+    // Verificar que el usuario no haya hecho ya un comentario a ese producto
+    const ratingFound = await Rating.findOne({
+      where: {
+        userId: idUser,
+        articleId: idArticle
+      }
+    })
+    if (ratingFound) { res.status(400).send("El usuario ya ha hecho un comentario a este artículo"); return }
+
+    // Verificar que el score se encuentre en el rango 1-5 y creamos el rating
+    if (score >= 1 && score <= 5) {
+      // Creamos el rating
+      const createdRating = await Rating.create({
+        score: score,
+        userId: idUser,
+        articleId: idArticle
+      })
+
+      { res.status(200).send(createdRating.dataValues); return }
+    } else {
+      res.status(404).send(":(")
+    }
+
+  } catch (error) {
+    next(error);
   };
+};
+
+
+
+
+
+module.exports = {
+  testFunction,
+  createArticle,
+  getArticle,
+  detailArticle,
+  getAticleByName,
+  createArticleUserRating
+};
