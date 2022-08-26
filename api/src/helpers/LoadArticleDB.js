@@ -15,7 +15,7 @@ const allArt = [
       "color": "Green",
       "pantalla": "6.1"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_686082-MLA49387650727_032022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406158/ecom/71PnneF5LRL._AC_SX522__xx72jv.jpg",
     "stock": 3,
     "disable": false,
     "price": 1593,
@@ -36,7 +36,7 @@ const allArt = [
       "color": "Green, Black, White, Burgundy",
       "pantalla": "8.9"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_668050-MLA49303776893_032022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406222/ecom/D_NQ_NP_668050-MLA49303776893_032022-O_dvw71o.webp",
     "stock": 4,
     "disable": false,
     "price": 2449,
@@ -57,7 +57,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.2"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_730981-MLA48800008115_012022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406332/ecom/D_NQ_NP_730981-MLA48800008115_012022-O_esaofd.webp",
     "stock": 1,
     "disable": false,
     "price": 1291,
@@ -78,7 +78,7 @@ const allArt = [
       "color": "Violet",
       "pantalla": "6.2"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_908285-MLA50209440689_062022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406359/ecom/D_NQ_NP_908285-MLA50209440689_062022-O_pvxcpn.webp",
     "stock": 2,
     "disable": false,
     "price": 1622,
@@ -99,7 +99,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "6.7"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_618327-MLA48897052450_012022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406397/ecom/D_NQ_NP_618327-MLA48897052450_012022-O_cjtp0f.webp",
     "stock": 3,
     "disable": false,
     "price": 1955,
@@ -120,7 +120,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "7.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_680610-MLA47574356658_092021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406419/ecom/D_NQ_NP_680610-MLA47574356658_092021-O_n1nbwo.webp",
     "stock": 7,
     "disable": false,
     "price": 1955,
@@ -141,7 +141,7 @@ const allArt = [
       "color": "Bora Purple, Graphite, Pink y Blue",
       "pantalla": "7.3"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_624071-MLA47717269574_092021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406441/ecom/D_NQ_NP_624071-MLA47717269574_092021-O_rnlvi5.webp",
     "stock": 3,
     "disable": false,
     "price": 1593,
@@ -162,7 +162,7 @@ const allArt = [
       "color": "Green, Bronce",
       "pantalla": "7.6"
     },
-    "image": "https://images.samsung.com/is/image/samsung/p6pim/ar/sm-f916bznqaro/gallery/ar-galaxy-z-fold2-f916-341065-sm-f916bznqaro-thumb-344960155?$160_160_PNG$",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406471/ecom/ar-galaxy-z-fold2-f916-341065-sm-f916bznqaro-thumb-344960155_ofmsrm.webp",
     "stock": 10,
     "disable": false,
     "price": 2449,
@@ -183,7 +183,7 @@ const allArt = [
       "color": "Black, White, Blue",
       "pantalla": "6.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_848144-MLA49898514252_052022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406498/ecom/D_NQ_NP_848144-MLA49898514252_052022-O_vcrn7u.webp",
     "stock": 1,
     "disable": false,
     "price": 538,
@@ -204,7 +204,7 @@ const allArt = [
       "color": "Awesome Peach, Black, White, Blue",
       "pantalla": "6.4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_737517-MLA50739491200_072022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406525/ecom/D_NQ_NP_737517-MLA50739491200_072022-O_atdpui.webp",
     "stock": 8,
     "disable": false,
     "price": 590,
@@ -225,7 +225,7 @@ const allArt = [
       "color": "Black, White",
       "pantalla": "6.5"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_622636-MLA50113502606_052022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466378/ecom/D_NQ_NP_622636-MLA50113502606_052022-O_hlkqwc.webp",
     "stock": 7,
     "disable": false,
     "price": 761,
@@ -246,7 +246,7 @@ const allArt = [
       "color": "Blue, Black, White, Violet",
       "pantalla": "6.5"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_861218-MLA50576439367_072022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466411/ecom/D_NQ_NP_861218-MLA50576439367_072022-O_mhtbhi.webp",
     "stock": 10,
     "disable": false,
     "price": 848,
@@ -267,7 +267,7 @@ const allArt = [
       "color": "Black, Silver",
       "pantalla": "6.7"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_815858-MLA41632030909_052020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466435/ecom/D_NQ_NP_815858-MLA41632030909_052020-O_x72uyq.webp",
     "stock": 12,
     "disable": false,
     "price": 961,
@@ -288,7 +288,7 @@ const allArt = [
       "color": "Blue, Black",
       "pantalla": "6.5"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_782705-MLA46928759833_072021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466455/ecom/D_NQ_NP_782705-MLA46928759833_072021-O_kzuffx.webp",
     "stock": 4,
     "disable": false,
     "price": 346,
@@ -309,7 +309,7 @@ const allArt = [
       "color": "Green, Blue",
       "pantalla": "6.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_833241-MLA50136358907_052022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466474/ecom/D_NQ_NP_833241-MLA50136358907_052022-O_vgr9pw.webp",
     "stock": 15,
     "disable": false,
     "price": 634,
@@ -330,7 +330,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_990246-MLA46153276373_052021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466504/ecom/D_NQ_NP_990246-MLA46153276373_052021-O_gu5sg3.webp",
     "stock": 10,
     "disable": false,
     "price": 696.99,
@@ -351,7 +351,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_786531-MLA44294196323_122020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466523/ecom/D_NQ_NP_786531-MLA44294196323_122020-O_xz5x3i.webp",
     "stock": "10",
     "disable": false,
     "price": 774.96,
@@ -372,7 +372,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_644895-MLA46153583487_052021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466545/ecom/D_NQ_NP_644895-MLA46153583487_052021-O_h9gkyd.webp",
     "stock": 10,
     "disable": false,
     "price": 871.51,
@@ -393,7 +393,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_990892-MLA49590214677_042022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466565/ecom/D_NQ_NP_990892-MLA49590214677_042022-O_haqsb5.webp",
     "stock": 7,
     "disable": false,
     "price": 546.45,
@@ -414,7 +414,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_976471-MCO50076875473_052022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466594/ecom/D_NQ_NP_976471-MCO50076875473_052022-O_ivg0tu.webp",
     "stock": 12,
     "disable": false,
     "price": 1354.17,
@@ -435,7 +435,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_624279-MLA47681022745_092021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466621/ecom/D_NQ_NP_624279-MLA47681022745_092021-O_wcjdmv.webp",
     "stock": 9,
     "disable": false,
     "price": 248.98,
@@ -456,7 +456,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_604878-MLA43704039116_102020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466639/ecom/D_NQ_NP_604878-MLA43704039116_102020-O_xk8fus.webp",
     "stock": 6,
     "disable": false,
     "price": 482.88,
@@ -477,7 +477,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_950598-MCO32413287415_102019-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466655/ecom/D_NQ_NP_950598-MCO32413287415_102019-O_rhfvnk.webp",
     "stock": 7,
     "disable": false,
     "price": 579.22,
@@ -498,7 +498,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_625521-MCO32404760254_102019-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466677/ecom/D_NQ_NP_625521-MCO32404760254_102019-O_uef4js.webp",
     "stock": 10,
     "disable": false,
     "price": 558.02,
@@ -519,7 +519,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_751680-MLA46183698427_052021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466694/ecom/D_NQ_NP_751680-MLA46183698427_052021-O_ugcarv.webp",
     "stock": 6,
     "disable": false,
     "price": 1107.08,
@@ -540,7 +540,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_837813-MLA44156024093_112020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466715/ecom/D_NQ_NP_837813-MLA44156024093_112020-O_eszgmo.webp",
     "stock": 6,
     "disable": false,
     "price": 977.53,
@@ -561,7 +561,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_839636-MLA46597380704_072021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466735/ecom/D_NQ_NP_839636-MLA46597380704_072021-O_k5t4yd.webp",
     "stock": 10,
     "disable": false,
     "price": 506.41,
@@ -582,7 +582,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_933513-MLA44156542321_112020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466755/ecom/D_NQ_NP_933513-MLA44156542321_112020-O_ed9vuo.webp",
     "stock": 11,
     "disable": false,
     "price": 529.99,
@@ -603,7 +603,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_890424-MLA44156537587_112020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466778/ecom/D_NQ_NP_890424-MLA44156537587_112020-O_mozveo.webp",
     "stock": 7,
     "disable": false,
     "price": 411.98,
@@ -624,7 +624,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "6.1\""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_733492-MCO48109679666_112021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466800/ecom/D_NQ_NP_733492-MCO48109679666_112021-O_flsyoz.webp",
     "stock": 6,
     "disable": false,
     "price": 989.28,
@@ -644,7 +644,7 @@ const allArt = [
       "color": "Azul",
       "pantalla": "6.5"
     },
-    "image": "https://http2.mlstatic.com/D_627579-MLA48579055364_122021-I.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466826/ecom/D_627579-MLA48579055364_122021-I_z1unzt.jpg",
     "stock": 30,
     "disable": false,
     "price": 442,
@@ -664,7 +664,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_689330-MLA50263507908_062022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466848/ecom/D_NQ_NP_689330-MLA50263507908_062022-O_j2qy4v.webp",
     "stock": 10,
     "disable": false,
     "price": 460,
@@ -684,7 +684,7 @@ const allArt = [
       "color": "White",
       "pantalla": "6.43"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_698445-MLA49172994594_022022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466872/ecom/D_NQ_NP_2X_698445-MLA49172994594_022022-F_ccq6c8.webp",
     "stock": 3,
     "disable": false,
     "price": 450,
@@ -704,7 +704,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.43"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_729373-MLA48591993422_122021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466889/ecom/D_NQ_NP_2X_729373-MLA48591993422_122021-F_ac3nfc.webp",
     "stock": 2,
     "disable": false,
     "price": 300,
@@ -724,7 +724,7 @@ const allArt = [
       "color": "Blue",
       "pantalla": "6.55"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_799365-MLA50143685842_052022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466911/ecom/D_NQ_NP_799365-MLA50143685842_052022-O_voeiar.webp",
     "stock": 5,
     "disable": false,
     "price": 439,
@@ -744,7 +744,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.43"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_734580-MLA49397636457_032022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466930/ecom/D_NQ_NP_2X_734580-MLA49397636457_032022-F_tm4vbr.webp",
     "stock": 3,
     "disable": false,
     "price": 320,
@@ -764,7 +764,7 @@ const allArt = [
       "color": "Gold",
       "pantalla": "5.99"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_729097-MLA31545355570_072019-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466954/ecom/D_NQ_NP_729097-MLA31545355570_072019-O_m2f2wo.webp",
     "stock": 13,
     "disable": false,
     "price": 190,
@@ -784,7 +784,7 @@ const allArt = [
       "color": "Orange",
       "pantalla": "6.53"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_936910-MLA50965794872_082022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466991/ecom/D_NQ_NP_2X_936910-MLA50965794872_082022-F_nyjbrv.webp",
     "stock": 13,
     "disable": false,
     "price": 160,
@@ -804,7 +804,7 @@ const allArt = [
       "color": "Blue",
       "pantalla": "6.53"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_746902-MLA48765111950_012022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467011/ecom/D_NQ_NP_2X_746902-MLA48765111950_012022-F_tfmfch.webp",
     "stock": 6,
     "disable": false,
     "price": 170,
@@ -824,7 +824,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "6.53"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_760932-MLA48183269393_112021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467035/ecom/D_NQ_NP_760932-MLA48183269393_112021-O_yqi75q.webp",
     "stock": 2,
     "disable": false,
     "price": 130,
@@ -844,7 +844,7 @@ const allArt = [
       "color": "Orange",
       "pantalla": "6.53"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_758484-MLA43682967980_102020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661466991/ecom/D_NQ_NP_2X_936910-MLA50965794872_082022-F_nyjbrv.webp",
     "stock": 2,
     "disable": false,
     "price": 180,
@@ -864,7 +864,7 @@ const allArt = [
       "color": "Blue",
       "pantalla": "6.67"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_627008-MLA46481261873_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467150/ecom/D_NQ_NP_2X_627008-MLA46481261873_062021-F_nu3ku3.webp",
     "stock": 1,
     "disable": false,
     "price": 460,
@@ -884,7 +884,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "6.67"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_782725-MLA49423195235_032022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467177/ecom/D_NQ_NP_2X_782725-MLA49423195235_032022-F_k01akg.webp",
     "stock": 7,
     "disable": false,
     "price": 469,
@@ -904,7 +904,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.67"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_932890-MLA48554022561_122021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467198/ecom/D_NQ_NP_2X_932890-MLA48554022561_122021-F_gwimm8.webp",
     "stock": 7,
     "disable": false,
     "price": 519,
@@ -924,7 +924,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "6.3"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_616304-MLA47208005375_082021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467221/ecom/D_NQ_NP_2X_616304-MLA47208005375_082021-F_et7xv4.webp",
     "stock": 10,
     "disable": false,
     "price": 320,
@@ -945,7 +945,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "10.1"
     },
-    "image": "https://m.media-amazon.com/images/I/41+I5GmZcBL._AC_SY300_SX300_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467257/ecom/41_I5GmZcBL._AC_SY300_SX300__id7mbg.jpg",
     "stock": 10,
     "disable": false,
     "price": 320,
@@ -966,7 +966,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "14"
     },
-    "image": "https://m.media-amazon.com/images/I/61ST0gpYFPL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467274/ecom/61ST0gpYFPL._AC_SX522__ojinkc.jpg",
     "stock": 15,
     "disable": false,
     "price": 479.50,
@@ -986,7 +986,7 @@ const allArt = [
       "ram": "8gb", "color": "Silver",
       "pantalla": "15.1"
     },
-    "image": "https://m.media-amazon.com/images/I/81iKKYRE89L._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467274/ecom/61ST0gpYFPL._AC_SX522__ojinkc.jpg",
     "stock": 8,
     "disable": false,
     "price": 432,
@@ -1007,7 +1007,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/41nznX70ODL._AC_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467408/ecom/41nznX70ODL._AC__nuraip.jpg",
     "stock": 9,
     "disable": false,
     "price": 498,
@@ -1028,7 +1028,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/51CFVDBG71L._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467635/ecom/51CFVDBG71L._AC_SX522__zcjc2t.jpg",
     "stock": 8,
     "disable": false,
     "price": 1299,
@@ -1049,7 +1049,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/51q12xWfifL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467653/ecom/51q12xWfifL._AC_SX522__wq0kb7.jpg",
     "stock": 12,
     "disable": false,
     "price": 244.95,
@@ -1070,7 +1070,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/71233PTgAjL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467670/ecom/71233PTgAjL._AC_SX522__opfnuk.jpg",
     "stock": 10,
     "disable": false,
     "price": 406,
@@ -1091,7 +1091,7 @@ const allArt = [
       "color": "Negra con teclado en Rojo",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/81Z8NvO2TFL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467693/ecom/81Z8NvO2TFL._AC_SX522__edpvrw.jpg",
     "stock": 12,
     "disable": false,
     "price": 998.95,
@@ -1112,7 +1112,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/71nz3cIcFOL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467710/ecom/71nz3cIcFOL._AC_SX522__wojlkr.jpg",
     "stock": 15,
     "disable": false,
     "price": 1670,
@@ -1133,7 +1133,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/61Ze2wc9nyS._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467748/ecom/61Ze2wc9nyS._AC_SX522__tzs3a8.jpg",
     "stock": 12,
     "disable": false,
     "price": 1899,
@@ -1154,7 +1154,7 @@ const allArt = [
       "color": "Gray",
       "pantalla": "14"
     },
-    "image": "https://m.media-amazon.com/images/I/61DocMRdvyL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467770/ecom/61DocMRdvyL._AC_SX522__srtokl.jpg",
     "stock": 19,
     "disable": false,
     "price": 352.55,
@@ -1175,7 +1175,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/61kwF967nJL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467790/ecom/61kwF967nJL._AC_SX522__lmrdj2.jpg",
     "stock": 7,
     "disable": false,
     "price": 549.95,
@@ -1196,7 +1196,7 @@ const allArt = [
       "color": "plateado",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/71x7o-Ii5tL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467790/ecom/61kwF967nJL._AC_SX522__lmrdj2.jpg",
     "stock": 20,
     "disable": false,
     "price": 1009,
@@ -1217,7 +1217,7 @@ const allArt = [
       "color": "Gold",
       "pantalla": "15.6"
     },
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51uL8Dgxe7S.__AC_SY300_SX300_QL70_ML2_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467834/ecom/51uL8Dgxe7S.__AC_SY300_SX300_QL70_ML2__btpz12.jpg",
     "stock": 7,
     "disable": false,
     "price": 974.95,
@@ -1238,7 +1238,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "15.6"
     },
-    "image": "https://m.media-amazon.com/images/I/71PnneF5LRL._AC_SX522_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406158/ecom/71PnneF5LRL._AC_SX522__xx72jv.jpg",
     "stock": 14,
     "disable": false,
     "price": 1314,
@@ -1259,7 +1259,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "8"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661467884/ecom/D_NQ_NP_684275-MLA49153411562_022022-O_xw8ylo.webp",
     "stock": 3,
     "disable": false,
     "price": 442,
@@ -1280,7 +1280,7 @@ const allArt = [
       "color": "Grey",
       "pantalla": "10.4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_795499-MLA42520536795_072020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468802/ecom/D_NQ_NP_795499-MLA42520536795_072020-O_kxfpup.webp",
     "stock": 1,
     "disable": false,
     "price": 671,
@@ -1301,7 +1301,7 @@ const allArt = [
       "color": "Grey",
       "pantalla": "8.7"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_765874-MLA47146197629_082021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468825/ecom/D_NQ_NP_765874-MLA47146197629_082021-O_l41tbn.webp",
     "stock": 8,
     "disable": false,
     "price": 228,
@@ -1322,7 +1322,7 @@ const allArt = [
       "color": "Grey",
       "pantalla": "8"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_882575-MLA42902471570_072020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468844/ecom/D_NQ_NP_882575-MLA42902471570_072020-O_bfojek.webp",
     "stock": 7,
     "disable": false,
     "price": 324,
@@ -1343,7 +1343,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "12.4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_710925-MLA45377263029_032021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468869/ecom/D_NQ_NP_710925-MLA45377263029_032021-O_f4ckq2.webp",
     "stock": 4,
     "disable": false,
     "price": 1475,
@@ -1364,7 +1364,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "14.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_888357-MLA50219535100_062022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468892/ecom/D_NQ_NP_888357-MLA50219535100_062022-O_ymvf0k.webp",
     "stock": 1,
     "disable": false,
     "price": 2036,
@@ -1385,7 +1385,7 @@ const allArt = [
       "color": "White",
       "pantalla": "8.7"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_939243-MLA48658808917_122021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468913/ecom/D_NQ_NP_939243-MLA48658808917_122021-O_qnecvo.webp",
     "stock": 9,
     "disable": false,
     "price": 228,
@@ -1406,7 +1406,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "10.5"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_757891-MLA48886951265_012022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468934/ecom/D_NQ_NP_757891-MLA48886951265_012022-O_uaiema.webp",
     "stock": 14,
     "disable": false,
     "price": 442,
@@ -1427,7 +1427,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "8"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_910953-MLA45078386265_032021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468954/ecom/D_NQ_NP_910953-MLA45078386265_032021-O_w6hnpz.webp",
     "stock": 20,
     "disable": false,
     "price": 324,
@@ -1448,7 +1448,7 @@ const allArt = [
       "color": "Silver",
       "pantalla": "8.7"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_715404-MLA49333054220_032022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661468971/ecom/D_NQ_NP_715404-MLA49333054220_032022-O_rrpihk.webp",
     "stock": 5,
     "disable": false,
     "price": 228,
@@ -1469,7 +1469,7 @@ const allArt = [
       "color": "Grey",
       "pantalla": "10.4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_689767-MLA43675157500_102020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469357/ecom/D_NQ_NP_689767-MLA43675157500_102020-O_b3ags7.webp",
     "stock": 5,
     "disable": false,
     "price": 818,
@@ -1490,7 +1490,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "8"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_641773-MLA47631270935_092021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469386/ecom/D_NQ_NP_641773-MLA47631270935_092021-O_sgxdr9.webp",
     "stock": 16,
     "disable": false,
     "price": 146,
@@ -1511,7 +1511,7 @@ const allArt = [
       "color": "White",
       "pantalla": "9.6"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_869210-MLA50161052611_062022-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469404/ecom/D_NQ_NP_869210-MLA50161052611_062022-O_rzkp3a.webp",
     "stock": 2,
     "disable": false,
     "price": 184,
@@ -1532,7 +1532,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "12.4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_788706-MLA48050493737_102021-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469437/ecom/D_NQ_NP_788706-MLA48050493737_102021-O_nxhjsh.webp",
     "stock": 5,
     "disable": false,
     "price": 1328,
@@ -1553,7 +1553,7 @@ const allArt = [
       "color": "Black",
       "pantalla": "10.1"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_941627-MLA42924518202_072020-O.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469456/ecom/D_NQ_NP_941627-MLA42924518202_072020-O_diwwnm.webp",
     "stock": 6,
     "disable": false,
     "price": 812,
@@ -1574,7 +1574,7 @@ const allArt = [
       "color": "Pink",
       "pantalla": "4"
     },
-    "image": "https://m.media-amazon.com/images/I/711BW6zqs0L._AC_SX679_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469477/ecom/711BW6zqs0L._AC_SX679__u9tjjw.jpg",
     "stock": 12,
     "disable": false,
     "price": 315.84,
@@ -1595,7 +1595,7 @@ const allArt = [
       "color": "Negro",
       "pantalla": "4"
     },
-    "image": "https://m.media-amazon.com/images/I/61aCopNtt7L._AC_SX679_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469494/ecom/61aCopNtt7L._AC_SX679__z744ug.jpg",
     "stock": 12,
     "disable": false,
     "price": 199.99,
@@ -1616,7 +1616,7 @@ const allArt = [
       "color": "",
       "pantalla": "1.35"
     },
-    "image": "https://m.media-amazon.com/images/I/61dfuJcPnEL._AC_UY741_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469518/ecom/61dfuJcPnEL._AC_UY741__rlckbs.jpg",
     "stock": 10,
     "disable": false,
     "price": 34.99,
@@ -1637,7 +1637,7 @@ const allArt = [
       "color": "",
       "pantalla": "4"
     },
-    "image": "https://m.media-amazon.com/images/I/71DvR4Ji95L._AC_SX679_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469536/ecom/71DvR4Ji95L._AC_SX679__ghlbwy.jpg",
     "stock": 2,
     "disable": false,
     "price": 239.36,
@@ -1658,7 +1658,7 @@ const allArt = [
       "color": "",
       "pantalla": "1.3"
     },
-    "image": "https://m.media-amazon.com/images/I/51kyjYuOZhL._AC_SL1000_.jpg",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469553/ecom/51kyjYuOZhL._AC_SL1000__iuqltj.jpg",
     "stock": 12,
     "disable": false,
     "price": 227.49,
@@ -1679,7 +1679,7 @@ const allArt = [
       "color": "white",
       "pantalla": "4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_733035-MLA46397466792_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469570/ecom/D_NQ_NP_2X_733035-MLA46397466792_062021-F_y7hcf4.webp",
     "stock": 12,
     "disable": false,
     "price": 479.54,
@@ -1700,7 +1700,7 @@ const allArt = [
       "color": "black",
       "pantalla": "1.56"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_917772-MLA46164931649_052021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469589/ecom/D_NQ_NP_2X_917772-MLA46164931649_052021-F_bqcrhr.webp",
     "stock": 12,
     "disable": false,
     "price": 58.24,
@@ -1721,7 +1721,7 @@ const allArt = [
       "color": "black",
       "pantalla": "1.64"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_771823-MLA45810691826_052021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469607/ecom/D_NQ_NP_2X_771823-MLA45810691826_052021-F_rbwubg.webp",
     "stock": 12,
     "disable": false,
     "price": 162.3,
@@ -1742,7 +1742,7 @@ const allArt = [
       "color": "white",
       "pantalla": "2"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_799200-MLA49011477414_022022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469627/ecom/D_NQ_NP_2X_799200-MLA49011477414_022022-F_nabddp.webp",
     "stock": 12,
     "disable": false,
     "price": 106.96,
@@ -1763,7 +1763,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_780004-MLA41188556823_032020-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469643/ecom/D_NQ_NP_2X_780004-MLA41188556823_032020-F_kmnhwb.webp",
     "stock": 12,
     "disable": false,
     "price": 14.68,
@@ -1784,7 +1784,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_776908-MLA46302567710_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469677/ecom/D_NQ_NP_2X_776908-MLA46302567710_062021-F_nuym6g.webp",
     "stock": 12,
     "disable": false,
     "price": 191.8,
@@ -1805,7 +1805,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_737334-MLA51162565871_082022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469693/ecom/D_NQ_NP_2X_737334-MLA51162565871_082022-F_zb29dq.webp",
     "stock": 12,
     "disable": false,
     "price": 46.47,
@@ -1826,7 +1826,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_671211-MLA45814044235_052021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469714/ecom/D_NQ_NP_2X_671211-MLA45814044235_052021-F_jwltyu.webp",
     "stock": 12,
     "disable": false,
     "price": 44.78,
@@ -1847,7 +1847,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_933418-MLA40865317836_022020-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469733/ecom/D_NQ_NP_2X_933418-MLA40865317836_022020-F_itkuso.webp",
     "stock": 12,
     "disable": false,
     "price": 65.65,
@@ -1868,7 +1868,7 @@ const allArt = [
       "color": "black",
       "pantalla": "4"
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_856025-MLA46482186622_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469761/ecom/D_NQ_NP_2X_856025-MLA46482186622_062021-F_rwubct.webp",
     "stock": 12,
     "disable": false,
     "price": 56.06,
@@ -1889,7 +1889,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_881724-MLA32721760966_102019-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469782/ecom/D_NQ_NP_2X_881724-MLA32721760966_102019-F_lykied.webp",
     "stock": 12,
     "disable": false,
     "price": 126.96,
@@ -1910,7 +1910,7 @@ const allArt = [
       "color": "brown",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_975008-MLA46503943203_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469800/ecom/D_NQ_NP_2X_975008-MLA46503943203_062021-F_pndaoi.webp  ",
     "stock": 12,
     "disable": false,
     "price": 85.1,
@@ -1931,7 +1931,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_929016-MLA45169314172_032021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469829/ecom/D_NQ_NP_2X_929016-MLA45169314172_032021-F_pq6fyz.webp",
     "stock": 12,
     "disable": false,
     "price": 167.48,
@@ -1952,7 +1952,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_658245-MLA43229688028_082020-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469846/ecom/D_NQ_NP_2X_658245-MLA43229688028_082020-F_fcxzck.webp",
     "stock": 12,
     "disable": false,
     "price": 182.62,
@@ -1973,7 +1973,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_624987-MLA48881660084_012022-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469879/ecom/D_NQ_NP_2X_624987-MLA48881660084_012022-F_hqx1f3.webp",
     "stock": 12,
     "disable": false,
     "price": 184.45,
@@ -1994,7 +1994,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_861042-MLA32146410266_092019-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469914/ecom/D_NQ_NP_2X_861042-MLA32146410266_092019-F_d91z6c.webp",
     "stock": 12,
     "disable": false,
     "price": 29.5,
@@ -2015,7 +2015,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_674043-MLA48688191484_122021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469932/ecom/D_NQ_NP_2X_674043-MLA48688191484_122021-F_grx0c5.webp",
     "stock": 12,
     "disable": false,
     "price": 73.78,
@@ -2036,7 +2036,7 @@ const allArt = [
       "color": "white",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_806962-MLA46738644931_072021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469951/ecom/D_NQ_NP_2X_806962-MLA46738644931_072021-F_pqwzpd.webp",
     "stock": 12,
     "disable": false,
     "price": 219.46,
@@ -2057,7 +2057,7 @@ const allArt = [
       "color": "black",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_621951-MLA46237882917_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469970/ecom/D_NQ_NP_2X_621951-MLA46237882917_062021-F_dacsy1.webp",
     "stock": 12,
     "disable": false,
     "price": 168.4,
@@ -2078,7 +2078,7 @@ const allArt = [
       "color": "red",
       "pantalla": ""
     },
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_665357-MLA46237938567_062021-F.webp",
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661469986/ecom/D_NQ_NP_2X_665357-MLA46237938567_062021-F_l3ur3k.webp",
     "stock": 12,
     "disable": false,
     "price": 192.56,
@@ -2095,18 +2095,12 @@ module.exports = async function loadArticle() {
     return
   }
 
+  //Articulos para cargar a la BD
   allArt.forEach(async el => {
     const newArticle = await Article.create({
       title: el.title,
       rating: el.rating,
       detail: el.detail,
-      // marca: el.detail.marca,
-      // modelo: el.detail.modelo,
-      // so: el.detail.so,
-      // cpu: el.detail.cpu,
-      // ram: el.detail.ram,
-      // color: el.detail.color,
-      // pantalla: el.detail.pantalla,
       image: el.image,
       stock: el.stock,
       disable: el.disable,
