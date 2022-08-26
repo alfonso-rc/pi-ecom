@@ -33,7 +33,7 @@ conn.sync({ force: true }).then(() => {
       await loadArticle();
       await createDefaulUsers()
     } catch (error) {
-      console.log("Error al crear los artículos u categorías", error.message)
+      console.log("Error al crear los artículos o categorías", error.message)
     }
 
 

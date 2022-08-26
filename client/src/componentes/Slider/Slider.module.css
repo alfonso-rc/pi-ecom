@@ -83,11 +83,18 @@
 
 .buttonDetail{
    height: 45px;
-   width: 70%;
-   background-color: rgb(54, 187, 72);
+   width: 70%;   
    border: 0;
    border-radius: 5px;
    font-size: 15px;
    color: white;
    cursor: pointer;
+
+   background: #43566a;  /* fallback for old browsers */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   margin-top: 15px;
+
 }
