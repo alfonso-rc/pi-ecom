@@ -91,6 +91,14 @@ export default function Home() {
     setCurrentPage(1);
     // setOrder(e.target.value)
   }
+  function handleMarca(e) {
+    // e.preventDefault()
+    dispatch(getSmartphones(e.target.value));
+    // console.log(getSmartphones)
+    setCurrentPage(1);
+    // setOrder(e.target.value)git 
+  }
+
   // function resetCharacters(e) {
   //   e.preventDefault();
   //   dispatch(getArticles());

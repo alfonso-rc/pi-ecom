@@ -71,7 +71,7 @@ export function getName(title) {
         payload: json.data,
       });
     } catch (error) {
-        alert("Este producto no existe")
+        alert("Este producto no existe...")
     }
   };
 }
