@@ -7,6 +7,7 @@ import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
 import { useDispatch } from "react-redux";
 import { addToCart,addComment } from "../store/actions";
+import Footer from "./Footer";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
@@ -201,10 +202,13 @@ export default function ArticleDetail() {
         <br />
         <br />
         <Link to="/home">
-          <button className="my-10 btn sm:btn-sm md:btn-md lg:btn-lg">
+          <button className="my-20 btn sm:btn-sm md:btn-md lg:btn-lg">
             Volver
           </button>
         </Link>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
