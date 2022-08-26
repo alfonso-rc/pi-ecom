@@ -5,7 +5,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import LandingPage from "./componentes/LandingPage";
 import Example from "./componentes/Login";
 import NewUser from "./componentes/newUser";
-import buy from "./componentes/buy";
+import CheckoutForm from "./componentes/buy";
 import AdminHome from "./componentes/Admin/Pages/AdminHome";
 import ArticleList from "./componentes/Admin/Pages/ArticleList"
 import UserList from "./componentes/Admin/Pages/UserList"
