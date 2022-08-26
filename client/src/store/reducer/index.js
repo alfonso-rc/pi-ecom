@@ -181,6 +181,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "ORDER_FAVORITE":
+        const all = state.articles;
+        const originFiltered = action.payload === 'all' ? all : action.payload === 'favorite' ? all.filter(el => el.texto) : all.filter(el => !el.texto);
+        return {
+            ...state,
+            articles: originFiltered
+        }
 
     case "REMOVE_TO_CART":
       let filter = state.cart.filter((e) => e.id !== action.payload);

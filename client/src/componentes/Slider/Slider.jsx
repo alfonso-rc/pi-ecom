@@ -42,7 +42,7 @@ export default function Slider() {
          <div className={ s.containerSlider }>
             <div style={ { width: width, marginLeft: marginLeft } } id="slider" className={ s.slider }>
                {
-                  mostFavoriteArticles.map((item) => <SliderSection key={ `imgSlider${item.name}` } item={ item } />)
+                  mostFavoriteArticles.map((item) => <SliderSection  item={ item } />)
                }
                <div onClick={ irAdelante } className={ s.slider_btn_right }>{ ">" }</div>
                <div onClick={ irAtras } className={ s.slider_btn_left }>{ "<" }</div>

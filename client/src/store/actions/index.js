@@ -219,3 +219,10 @@ export function addRating(payload) {
     });
   }
 }
+
+export function orderFavorite(order) {
+  return {
+      type: "ORDER_FAVORITE",
+      order, 
+  }
+};
