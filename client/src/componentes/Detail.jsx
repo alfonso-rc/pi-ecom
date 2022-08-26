@@ -8,6 +8,7 @@ import Carrito from "./Carrito";
 import { useDispatch } from "react-redux";
 import { addToCart,addComment, addRating } from "../store/actions";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
@@ -224,7 +225,7 @@ export default function ArticleDetail() {
             </div>
           </div>
         ) : (
-          <div>loading</div>
+          <div><NotFound/></div>
         )}
         <br />
         <br />
