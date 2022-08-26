@@ -20,6 +20,7 @@ import { SearchBar } from "./SearchBox";
 import Carrito from "./Carrito";
 import Orderings from "./Orderings";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -160,7 +161,7 @@ export default function Home() {
           />
         </div>
         {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
-        {isLoading ? <h1>CARGANDO</h1> : <RenderItems />}
+        {isLoading ?<NotFound/>  : <RenderItems />}
       </div>
       <div />
       <div>
