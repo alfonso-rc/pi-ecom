@@ -205,3 +205,17 @@ export function addComment(payload) {
     });
   }
 }
+
+const URL_POST_RATING = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/article/rating" : `http://localhost:3001/article/rating`
+
+export function addRating(payload) {
+  return async function (dispatch) {
+    const json = await axios.post(URL_POST_RATING, payload)
+    console.log(json.data)
+    return dispatch({
+      type: "POST_RATING",
+      json
+    });
+  }
+}

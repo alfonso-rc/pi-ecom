@@ -6,7 +6,7 @@ import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
 import { useDispatch } from "react-redux";
-import { addToCart,addComment } from "../store/actions";
+import { addToCart,addComment, addRating } from "../store/actions";
 import Footer from "./Footer";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
@@ -32,6 +32,20 @@ export default function ArticleDetail() {
     const token = sessionStorage.getItem("token");
     if (token) {
         dispatch(addComment(input))
+        alert('Comentario Agregado!')
+        setInput({
+          texto:''
+        })
+    } else {
+      history.push("/login");
+    }
+  };
+  
+  const HandleClickRating = (e) => {
+    e.preventDefault();
+    const token = sessionStorage.getItem("token");
+    if (token) {
+        dispatch(addRating(input))
         alert('Comentario Agregado!')
         setInput({
           texto:''
@@ -113,6 +127,19 @@ export default function ArticleDetail() {
                   <br />
                   {/* <button className="btn btn-primary btn-wide">Comprar</button>                */}
                 </div>
+                <div class="rating rating-lg rating-half">
+  <input type="radio" name="rating-10" class="rating-hidden" />
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={0.5} />
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={1}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={1.5}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={2}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={2.5}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={3}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={3.5}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={4}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={4.5}/>
+  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={5}/>
+</div>
               </div>
             </div>
             <br />
