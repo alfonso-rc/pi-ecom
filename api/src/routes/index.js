@@ -6,9 +6,11 @@ const RouteComment = require("./RouteComment.js");
 const userRouter = require("./RouterUser.js");
 const deleteRouter = require("./DeleteRouter.js");
 const PaymentRouter = require("./RouteCheckout.js");
+const defaultRouter = require("./RouteDefault")
 
 const router = Router();
 
+router.use("/", defaultRouter)
 router.use("/category", CategoryRouter);
 router.use("/article", RouteArticle);
 
