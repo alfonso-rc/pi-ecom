@@ -6,6 +6,7 @@ import oferta1 from "../imagenes/oferta1.jpg";
 import oferta2 from "../imagenes/oferta2.jpg";
 import oferta3 from "../imagenes/oferta3.jpg";
 import NavBarDetail from "./NavBarDetail";
+import Footer from "./Footer";
 
 export default function LandingPage() {
   return (
@@ -69,6 +70,9 @@ export default function LandingPage() {
         </button>
       </Link>
       <Slider />
+      <div className="mt-10">
+        <Footer />
+      </div>
     </div>
   );
 }
