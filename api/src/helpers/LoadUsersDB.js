@@ -7,9 +7,8 @@ const {
    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME,
 } = process.env;
 
-const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_POST_CREATE_USERS = process.env.NODE_ENV === "production" ?
-   BASE_URL + "/user/create" : "http://localhost:3001/user/create"
+   "https://api-ecom-07.herokuapp.com" + "/user/create" : "http://localhost:3001/user/create"
 
 const usersToCreate = [
    {
