@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from 'axios';
 import Home from "./componentes/Home";
 import ArticleDetail from "./componentes/Detail";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
@@ -11,8 +12,28 @@ import ArticleList from "./componentes/Admin/Pages/ArticleList"
 import UserList from "./componentes/Admin/Pages/UserList"
 import Offer from "./componentes/Admin/Pages/Offer";
 import NotFound from'./componentes/NotFound';
+import { useEffect, useState } from "react";
 
 function App() {
+
+  //const [user, setUser] = useState(null);
+
+	const getUser = async () => {
+		try {
+			const url = `http://localhost:3001/google`;
+			const { data } = await axios.get(url, { withCredentials: true });
+      console.log(data);
+			//setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+
+
   return (
     <BrowserRouter>
       <div className="App">
