@@ -9,5 +9,6 @@ userRouter.post('/add_favorite', addFavoriteToUser);
 userRouter.post('/login', loginUser);
 userRouter.get('/info', verification, infoUser);
 userRouter.get('/', getUsers);
+userRouter.get('/all', getUsers);
 
 module.exports = userRouter;
