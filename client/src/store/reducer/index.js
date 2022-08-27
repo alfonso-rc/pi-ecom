@@ -62,7 +62,8 @@ const initialState = {
   showCart: false,
   isLoading: true,
   cart: cartStorage,
-  rating: []
+  rating: [],
+  user: {}
   // wishlist: wishlistStorage,
 };
 
@@ -176,10 +177,17 @@ export default function reducer(state = initialState, action) {
     case "LOG_USER":
       return {
         ...state,
+        user: action.payload
+      };
+    case "LOGOUT_USER":
+      return {
+        ...state,
+        user: action.payload
       };
     case "RES_USER":
       return {
         ...state,
+        user: action.payload
       };
 
     case "REMOVE_TO_CART":

@@ -145,20 +145,28 @@ export function getCategory() {
   };
 }
 
-const URL_POST_USER = process.env.NODE_ENV === "production" ?
-  BASE_URL + "/user/" : `http://localhost:3001/user`
+// const URL_POST_USER = process.env.NODE_ENV === "production" ?
+//   BASE_URL + "/user/create" : `http://localhost:3001/user/create`
 
+// export function registerUser(user) {
+//   return async function (dispatch) {
+//     const json = (await axios.post(URL_POST_USER, user)).data
+//     //localStorage.setItem('token', json.token);
+//     return dispatch({
+//       type: "RES_USER",
+//       payload: json
+//     });
+//   }
+// }
 export function registerUser(user) {
-  return async function (dispatch) {
-    const json = await (await axios.post(URL_POST_USER, user)).data
-    localStorage.setItem('token', json.token);
-    console.log(json)
-    return dispatch({
+  return (dispatch) => {
+    dispatch({
       type: "RES_USER",
-      json
+      payload: user
     });
   }
 }
+
 
 export function removeCart(id) {
   return (dispatch) =>
@@ -177,17 +185,33 @@ export function addToCart(payload) {
     });
 };
 
-const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
-  BASE_URL + "/user/login" : `http://localhost:3001/user/login`
+// const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
+//   BASE_URL + "/user/login" : `http://localhost:3001/user/login`
 
+// export function loginUser(user) {
+//   return async function (dispatch) {
+//     const json = (await axios.post(URL_LOGIN_USER, user)).data
+//     //localStorage.setItem('token', json.token)
+//     return dispatch({
+//       type: "LOG_USER",
+//       payload: json
+//     });
+//   }
+// }
 export function loginUser(user) {
-  return async function (dispatch) {
-    const json = (await axios.post(URL_LOGIN_USER, user)).data
-    localStorage.setItem('token', json.token)
-    console.log(json)
-    return dispatch({
+  return (dispatch) => {
+    dispatch({
       type: "LOG_USER",
-      json
+      payload: user
+    });
+  }
+}
+
+export function logOutUser(user) {
+  return (dispatch) => {
+    dispatch({
+      type: "LOGOUT_USER",
+      payload: user
     });
   }
 }

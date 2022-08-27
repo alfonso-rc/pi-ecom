@@ -1,18 +1,22 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import {BiUserCircle} from "react-icons/bi"
+import { useHistory } from "react-router-dom";
 
 function LoginAuth0() {
+    const history = useHistory();
 
-    const { loginWithRedirect } = useAuth0();
+    function goLogin(e) {
+        e.preventDefault();
+        history.push("/login");
+    };
 
     return (
         <div >            
             <button
-                className="btn btn-outline my-5 text-white "
-                onClick={() => loginWithRedirect()}
+                className="btn btn-outline my-5 text-white my-5"
+                onClick={goLogin}
             >
-                <BiUserCircle size={25}/>
-                LOG IN
+                <BiUserCircle size={30}/>
+                <span className="ml-2">LOG IN</span>
             </button>
         </div>
     );

@@ -15,11 +15,11 @@ const createUser = async (req, res, next) => {
       })
 
       if (userFound1) {
-         res.status(400).send("El mail de usuario ya está registrado")
+         res.json({ error: "El mail de usuario ya está registrado" });
          return
       }
       if (userFound2) {
-         res.status(400).send("El userName de usuario ya está registrado")
+         res.json({ error: "El userName de usuario ya está registrado" });
          return
       }
 

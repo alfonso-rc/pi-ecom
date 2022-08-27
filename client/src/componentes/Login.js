@@ -1,7 +1,10 @@
-import Logo from "../ECOM-10_2.png";
+import Logo from "../imagenes/logo-ecom.png";
+import axios from 'axios';
 import { useState } from 'react';
 import { loginUser } from "../store/actions"
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+
 function validate(user) {
   let errors = {};
   if (!user.mail) {
@@ -12,13 +15,17 @@ function validate(user) {
   }
   return errors
 }
+
 export default function Example() {
+  const userLogin = useSelector((state) => state.user);
+  const history = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     mail: '',
     password: ''
   });
+
 
   function handleInputChange(e) {
     setUser({
@@ -34,36 +41,44 @@ export default function Example() {
   async function submitData(e) {
     e.preventDefault();
     if (!Object.getOwnPropertyNames(errors).length && user.password && user.mail) {
-      dispatch(loginUser(user));
+      let response = (await axios.post("http://localhost:3001/user/login", user)).data
+     
+      if (response.error) {
+        alert(response.error);
+        setUser({
+          mail: '',
+          password: ''
+        });
+      }
+      else {
+        setUser({
+          mail: '',
+          password: ''
+        });
+        alert('Sesión iniciada')
+        dispatch(loginUser(response));
+        history.push('/home');
+      }
     } else {
       alert('Faltan datos para ingresar')
     }
   };
 
-
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-50">
-        <body class="h-full">
-        ```
-      */}
-      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <div>
+      <div className="flex min-h-full justify-center pt-44">
+        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md">
+          <div className="mb-20">
             <img
-              className="mx-auto h-32 justify-center w-auto"
+              className="mx-auto justify-center w-52"
               src={Logo}
               alt="Workflow"
             />
-            <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">
-              Sign in to your account
-            </h2>
+            {/* <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">
+              
+            </h2> */}
           </div>
-          <form onSubmit={submitData} className="mt-8 space-y-6" action="#" method="POST">
+          <form onSubmit={submitData} className="mt-8 space-y-6 mb-20" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -78,7 +93,7 @@ export default function Example() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
                 {errors.mail && (
@@ -97,7 +112,7 @@ export default function Example() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
                 {errors.password && (
@@ -106,9 +121,9 @@ export default function Example() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
+            <div className="text-sm flex items-center">
+              <div className="inline">
+                {/* <input
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
@@ -116,20 +131,25 @@ export default function Example() {
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
                   Remember me
-                </label>
+                </label> */}
+                <span className="ml-1 font-medium text-gray-700">
+                  Not a registered user?
+                </span>
               </div>
 
-              {/* <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </a>
-              </div> */}
+              <div className="inline">
+                <Link to='/newUser'>
+                  <h3 className="ml-3 font-bold text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                    Sign up
+                  </h3>
+                </Link>
+              </div>
             </div>
 
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
