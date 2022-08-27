@@ -5,7 +5,8 @@ const {
    getAllArticle,
    detailArticle,
    getAticleByName,
-   createArticleUserRating
+   createArticleUserRating,
+   
 } = require('../Controllers/ArticleControl.js');
 
 const RouteArticle = Router();

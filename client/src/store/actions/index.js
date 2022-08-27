@@ -49,6 +49,18 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
+export function orderBrand(payload) {///////////////////////
+  return {
+      type: "ORDER_BY_BRAND",
+      payload,
+    };
+}
+export function orderBrand2(payload) {///////////////////////
+  return {
+      type: "ORDER_BY_BRAND2",
+      payload,
+    };
+}
 export function orderByRating(payload) {
   try {
     return {
@@ -75,7 +87,7 @@ const URL_GET_ALL_ARTICLES_DB = process.env.NODE_ENV === "production" ?
         .catch((error) => {
           console.log(error);
         })
-    }
+}
   };
 
 const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
@@ -96,6 +108,15 @@ export function getName(title) {
 };
 
 
+export function getbrands(){ // **
+  return async function (dispatch){
+      var info= await axios.get('http://localhost:3001/brand');
+      return dispatch({
+          type: 'GET_BRAND',
+          payload: info.data
+      });
+  }
+}
 
 const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
@@ -121,6 +142,7 @@ export function getTablets() {
     });
   };
 }
+
 const URL_GET_NOTEBOOKS = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/notebooks" : `http://localhost:3001/category/notebooks`
 

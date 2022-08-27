@@ -4,8 +4,6 @@ const {
     paymentCheck
 } = require('../Controllers/CheckoutControl.js');
 
-
-
 const PaymentRouter = Router();
 
 
