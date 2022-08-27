@@ -118,7 +118,7 @@ export function getbrands(){ // **
   }
 }
 
-const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
+const URL_GET_SMARTPHONE = process.env.NODE_ENV  === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
 
 export function getSmartphones() {
@@ -181,7 +181,24 @@ export function postArticle(payload) {
       json
     });
   }
-}
+};
+
+const URL_DELETE_ART = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/delete/" : `http://localhost:3001/delete/`
+
+  export function deleteArticle(id) {
+    return async function (dispatch){
+      try {
+          var respuesta = await axios.get(`URL_DELETE_ART`+{id});
+          return dispatch({
+              type: 'DELETE_ARTICLE',
+              payload: respuesta.data
+          })
+      } catch (error) {
+          console.log(error)
+      }
+  }
+  };
 
 const URL_GET_CATEGORY = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/" : `http://localhost:3001/category/`

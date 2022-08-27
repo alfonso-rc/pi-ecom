@@ -17,15 +17,3 @@ export default function Admin() {
     </div>
   );
 }
-
-
-{/* <div>
-<img
-  className="mx-auto h-32 justify-center w-auto"
-  src={Logo}
-  alt="Workflow"
-/>
-<h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">
-  Admin
-</h2>
-</div> */}
