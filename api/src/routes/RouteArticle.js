@@ -2,7 +2,7 @@ const { Router } = require('express');
 const {
    testFunction,
    createArticle,
-   getAllArticles,
+   getAllArticle,
    detailArticle,
    getAticleByName,
    createArticleUserRating
@@ -10,8 +10,8 @@ const {
 
 const RouteArticle = Router();
 
-// RouteArticle.get('/', getAllArticles); // Trae todos los artículos de la BD
 RouteArticle.get('/', getAticleByName);
+RouteArticle.get('/all', getAllArticle); // Trae todos los artículos de la BD
 RouteArticle.post('/create', createArticle);
 RouteArticle.get('/:id', detailArticle);
 RouteArticle.post('/rating', createArticleUserRating);

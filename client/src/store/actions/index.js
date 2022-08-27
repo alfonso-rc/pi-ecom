@@ -27,7 +27,7 @@ export function getArticles() {
 
       })
   }
-}
+};
 
 export function orderByAZ(payload) {
   try {
@@ -58,23 +58,44 @@ export function orderByRating(payload) {
   } catch (error) {
     console.log(error);
   }
-}
+};
+
+const URL_GET_ALL_ARTICLES_DB = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/article/all" : "http://localhost:3001/article/all"
+
+  export function getAllArticles() {
+    return function (dispatch) {
+      return axios(URL_GET_ALL_ARTICLES_DB)
+        .then((articles) => {
+          dispatch({
+            type: "GET_ARTICLES",
+            payload: articles.data
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+  };
+
 const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
   BASE_URL + `/article?title=` : `http://localhost:3001/article?title=`
 
 export function getName(title) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`${URL_GET_TITLE}${title}`);
-      return dispatch({
-        type: "GET_NAME",
-        payload: json.data,
-      });
+    var json = await axios.get(`${URL_GET_TITLE}${title}`);
+    return dispatch({
+      type: "GET_NAME",
+      payload: json.data,
+    });
     } catch (error) {
         alert("Este producto no existe...")
     }
   };
-}
+};
+
+
 
 const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
@@ -162,6 +183,25 @@ export function registerUser(user) {
       type: "RES_USER",
       json
     });
+  }
+};
+
+const URL_GET_USER = process.env.NODE_ENV === "production" ?
+  BASE_URL + "/user/all" : `http://localhost:3001/user/all`
+
+export function getUsers() {
+  return function (dispatch) {
+    return axios(URL_GET_USER)
+      .then((users) => {
+        dispatch({
+          type: "GET_USER",
+          payload: users.data
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+
+      })
   }
 }
 

@@ -55,6 +55,7 @@ if (!cartStorage) {
 
 const initialState = {
   articles: [],
+  users: [],
   filteredArticle: [],
   categorys: [],
   comment: [],
@@ -81,6 +82,13 @@ export default function reducer(state = initialState, action) {
         filteredArticle: action.payload,
         isLoading: false
       }
+
+      case "GET_ARTICLES_DB":
+        return {
+          ...state,
+          articles: action.payload,
+        }
+
     case "ORDER_BY_ARTICLES":
       let sortedArr =
         [...state.articles]
@@ -181,6 +189,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "GET_USER":
+        return {
+          ...state,
+          users: action.payload,
+        };     
 
     case "REMOVE_TO_CART":
       let filter = state.cart.filter((e) => e.id !== action.payload);
