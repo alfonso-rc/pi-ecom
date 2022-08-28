@@ -22,6 +22,8 @@ import Orderings from "./Orderings";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading  from "../imagenes/loading2.gif"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -168,6 +170,7 @@ export default function Home() {
           </div>: <RenderItems />}
       </div>
       <div />
+      <ToastContainer/>
       <div>
         <Footer />
       </div>
