@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../store/actions";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 
+
 import React from "react";
 const stylesCard = {
   backgroundColor: "white",
@@ -23,6 +24,17 @@ const stylesText = {
 const stylesImg = {
   objectFit: "contain",
 };
+// function toastSucces() {
+//   return toast.success("Se añadio al carrito", {
+//     position: "bottom-left",
+//     autoClose: 2000,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//   });
+// }
 
 export default function Card({ id, title, image, price, category }) {
   const dispatch = useDispatch();
@@ -64,9 +76,12 @@ export default function Card({ id, title, image, price, category }) {
           </h2>
           <h5 style={stylesText}> $ {price}</h5>
           <div className="card-actions ">
-            <button className="btn btn-primary">Detalle</button>
+            <button
+            // onClick={toastSucces}
+             className="btn btn-primary">Detalle</button>
           </div>
         </div>
+        
       </Link>
       {/* <div class="rating gap-1">
   <input type="radio" name="rating-3" class="mask mask-heart bg-red-400" />
@@ -80,6 +95,7 @@ export default function Card({ id, title, image, price, category }) {
         <button
           onClick={() => addCart({ id, title, image, price, category })}
           className="btn btn-outline btn-primary"
+          
         >
           añadir al carrito
         </button>
