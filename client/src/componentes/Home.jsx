@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -29,6 +30,32 @@ const stylesCategoriesContainer = {
 };
 
 export default function Home() {
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
+
+  // const [user, setUser] = useState(null);
+
+	// const getUser = async () => {
+	// 	try {
+	// 		const url = `http://localhost:3001/auth/google/callback`;
+  //     console.log('se Renderizo');
+	// 		const { data } = await axios.get(url, { withCredentials: true });
+      
+  //     console.log(data);
+	// 		//setUser(data.user._json);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
+
+	// useEffect(() => {
+	// 	getUser();
+	// }, []);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);

@@ -100,6 +100,7 @@ const createArticle = async (req, res, next) => {
   };
 };
 
+
 // GET ARTICLE WITH STRING INCLUDED
 const getAticleByName = async (req, res, next) => {
   const { title } = req.query;

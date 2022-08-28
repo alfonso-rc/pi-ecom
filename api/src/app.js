@@ -35,8 +35,8 @@ server.use(
       "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/userinfo.email",
     ],
-    successRedirect: "http://localhost:3000/home",
     session: false,
+    //successRedirect: "http://localhost:3000/home",    
   }),
   loginRouter
 );
