@@ -20,6 +20,8 @@ import { SearchBar } from "./SearchBox";
 import Carrito from "./Carrito";
 import Orderings from "./Orderings";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
+import loading  from "../imagenes/loading2.gif"
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -89,6 +91,7 @@ export default function Home() {
     setCurrentPage(1);
     // setOrder(e.target.value)
   }
+  
   // function resetCharacters(e) {
   //   e.preventDefault();
   //   dispatch(getArticles());
@@ -160,7 +163,9 @@ export default function Home() {
           />
         </div>
         {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
-        {isLoading ? <h1>CARGANDO</h1> : <RenderItems />}
+        {isLoading ?<div className="flex  place-content-center">
+            {<img src={loading} alt="img not found" />}
+          </div>: <RenderItems />}
       </div>
       <div />
       <div>

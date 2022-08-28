@@ -55,6 +55,7 @@ if (!cartStorage) {
 
 const initialState = {
   articles: [],
+  users: [],
   filteredArticle: [],
   categorys: [],
   comment: [],
@@ -62,7 +63,8 @@ const initialState = {
   showCart: false,
   isLoading: true,
   cart: cartStorage,
-  rating: []
+  rating: [],
+  brand: []
   // wishlist: wishlistStorage,
 };
 
@@ -112,6 +114,33 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: sortedPriceArr,
       };
+      case "ORDER_BY_BRAND": ///////////////////////////////////////////
+      let sortBrand =[...state.articles]
+      console.log (sortBrand)
+      sortBrand = sortBrand.sort((a, b) => {
+      if (a.title < b.title) {
+        return (action.payload === ASCENDENTE ? -1 : 1)
+      }
+      if (a.title > b.title) {
+        return (action.payload === ASCENDENTE ? 1 : -1)
+      }
+    })
+    return {
+      ...state,
+      articles: sortBrand,
+    }
+    
+    case 'ORDER_BY_BRAND2'://///
+            const articleBrand = state.articles
+            const filterTemp = action.payload === 'All'
+            ?articleBrand
+            :articleBrand.filter(e => e.marca.includes(action.payload))
+            console.log(filterTemp)
+            return{
+                ...state,
+                articles:action.payload === 'All'? state.articles:filterTemp, 
+            };   
+
       case "ORDER_BY_RATING":
         let sortedRating =
           [...state.articles]
@@ -133,6 +162,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: action.payload
       }
+    case 'GET_BRAND'://aqui puede ir sin comillas
+     return { 
+        ...state,
+        brand: action.payload ,
+    }  
     case "GET_SMARTPHONES":
       console.log(action.payload)
       return {
@@ -181,13 +215,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
-      case "ORDER_FAVORITE":
-        const all = state.articles;
-        const originFiltered = action.payload === 'all' ? all : action.payload === 'favorite' ? all.filter(el => el.texto) : all.filter(el => !el.texto);
+      case "GET_USER":
         return {
-            ...state,
-            articles: originFiltered
-        }
+          ...state,
+          users: action.payload,
+        };     
 
     case "REMOVE_TO_CART":
       let filter = state.cart.filter((e) => e.id !== action.payload);

@@ -1,61 +1,24 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import {
-    getArticles
-  } from "../../store/actions/index";
+import SideBar from './SideBar';
+import ArticleList from '../Admin/Pages/ArticleList';
 
-export default function Admin({id,title,modelo,stock,price}) {
-    const allArticle = useSelector((state) => state.articles);
-    let dispatch = useDispatch();
-  
-    useEffect(() => {
-        dispatch(getArticles());
-      }, []);
 
-  return (
-    <div>
-      <div class="">
-  <table class="table table-compact w-full">
-    <thead>
-      <tr>
-        <th></th> 
-        <th>Name</th> 
-        <th>Modelo</th> 
-        <th>Stock</th> 
-        <th>Price</th> 
-        <th>Action</th> 
-        <th>Action</th>
-      </tr>
-    </thead> 
-    <tbody>
-      {allArticle?.map((art) => {
-        return(
-            <tr>
-                <th>{art.id}</th> 
-                <td>{art.title}</td> 
-                <td>{art.modelo}</td> 
-                <td>{art.stock}</td> 
-                <td>{art.price}</td> 
-                <td><button className="btn btn-info btn-xs">Edit</button></td> 
-                <td><button className="btn btn-error btn-xs">Delete</button></td>
-            </tr>            
-        )
-      })}
-    </tbody> 
-    <tfoot>
-      <tr>
-        <th></th> 
-        <th>Name</th> 
-        <th>Modelo</th> 
-        <th>Stock</th> 
-        <th>Price</th> 
-        <th>Action</th> 
-        <th>Action</th>
-      </tr>
-    </tfoot>
-  </table>
-</div>
+export default function Article({id,title,modelo,stock,price}) {
+
+  const handleAddArticle = () => {
+    
+  };
+
+  return(
+    <div className='m-0 p-0'>
+      <h1>Articles Admin</h1>
+      <div className='flex'>
+        <SideBar/>
+        <div className='overflow-scroll h-96  w-4/5 m-8'>
+          <ArticleList/>
+        </div>
+      </div>
+        <button class="btn btn-outline btn-accent" onClick={(e)=>handleAddArticle(e)}>Add Article</button>;
     </div>
   )
 }

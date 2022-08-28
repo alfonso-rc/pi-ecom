@@ -28,10 +28,10 @@ export default function Example() {
   const HandleClickComprar = () => {
     const token = sessionStorage.getItem("token");
     if (token) {
-      history.push("/pago");
+      history.push("/checkout");
       console.log("COMPRADISIMO BRO");
     } else {
-      history.push("/login");
+      history.push("/carlosarte.us.auth0.com/u/login?state=hKFo2SBuVFhOUDdiY0t3bDRNNkxKaERmMmJtNk1idVotZlloaaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIG1lR1k1akYybmItOWZLeG9jd0FnOVk3dW5tVTBLeFRIo2NpZNkgVjk2T2JJdUNOSURYajFPZjdNbFlEYmVxWGpSc3RQczQ");
     }
   };
   useEffect(() => {

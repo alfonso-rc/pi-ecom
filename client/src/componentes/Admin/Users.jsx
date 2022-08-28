@@ -1,62 +1,18 @@
 import React from 'react';
-// import { useSelector, useDispatch } from "react-redux";
-// import { useEffect, useState } from "react";
-// import {
-//     getArticles
-//   } from "../../../store/actions/index";
+import SideBar from './SideBar';
+import UserList from '../Admin/Pages/UserList';
 
-export default function User({id,title,modelo,stock,price}) {
-//     const allArticle = useSelector((state) => state.articles);
-//     let dispatch = useDispatch();
-  
-//     useEffect(() => {
-//         dispatch(getArticles());
-//       }, []);
 
-  return (
-    <div>
-      <h1>HOLAAAAAAAAAAAAAA</h1>
-      {/* <div class="overflow-x-auto">
-  <table class="table table-compact w-full">
-    <thead>
-      <tr>
-        <th></th> 
-        <th>Name</th> 
-        <th>Modelo</th> 
-        <th>Stock</th> 
-        <th>Price</th> 
-        <th>Action</th> 
-        <th>Action</th>
-      </tr>
-    </thead> 
-    <tbody>
-      {allArticle?.map((art) => {
-        return(
-            <tr>
-                <th>{art.id}</th> 
-                <td>{art.title}</td> 
-                <td>{art.modelo}</td> 
-                <td>{art.stock}</td> 
-                <td>{art.price}</td> 
-                <td><button className="btn btn-info btn-xs">Edit</button></td> 
-                <td><button className="btn btn-error btn-xs">Delete</button></td>
-            </tr>            
-        )
-      })}
-    </tbody> 
-    <tfoot>
-      <tr>
-        <th></th> 
-        <th>Name</th> 
-        <th>Modelo</th> 
-        <th>Stock</th> 
-        <th>Price</th> 
-        <th>Action</th> 
-        <th>Action</th>
-      </tr>
-    </tfoot>
-  </table>
-</div> */}
+export default function Users({id,name,lastName,address,mail,userName,password,coins,userType}) {
+  return(
+    <div className='m-0 p-0'>
+      <h1>Users Admin</h1>
+      <div className='flex'>
+        <SideBar/>
+        <div className='overflow-scroll h-auto  w-4/5 m-8'>
+          <UserList/>
+        </div>
+      </div>
     </div>
   )
 }
