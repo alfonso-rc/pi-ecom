@@ -65,12 +65,6 @@ export default function Example() {
     }
   };
 
-
-
-  const googleAuth = () => {
-		window.open("http://localhost:3001/auth/google", "_self" );
-	};
-
   return (
     <>
       <div className="flex min-h-full justify-center pt-44">
@@ -167,8 +161,7 @@ export default function Example() {
 
               <button
                 className="group relative w-auto flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8 mx-auto"
-                type="submit"
-                onClick={googleAuth}                
+                type="submit"             
               >
                 <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
                 Sign in with google
