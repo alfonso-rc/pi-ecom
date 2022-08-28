@@ -67,6 +67,18 @@ export default function ArticleDetail() {
       setStockCon(response.data.stock);
     });
   }, []);
+  article.rating.length =  article.rating.length
+  for (let i = 0; i < article.rating.length; i++) {
+    // console.log(cart[i].price);
+    totalPrice = totalPrice + cart[i].price;
+  }
+  function ArrayAvg(myArray) {
+    var i = 0, summ = 0, ArrayLen = myArray.length;
+    while (i < ArrayLen) {
+        summ = summ + myArray[i++];
+}
+    return summ / ArrayLen;
+}
 
   return (
     <div>
