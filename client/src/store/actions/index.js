@@ -73,7 +73,7 @@ export function orderByRating(payload) {
 };
 
 const URL_GET_ALL_ARTICLES_DB = process.env.NODE_ENV === "production" ?
-  BASE_URL + "/article/all" : "http://localhost:3001/article/all"
+  BASE_URL + "/article" : "http://localhost:3001/article"
 
   export function getAllArticles() {
     return function (dispatch) {
@@ -182,14 +182,14 @@ export function postArticle(payload) {
     });
   }
 };
-
+//Borrado Fisico
 const URL_DELETE_ART = process.env.NODE_ENV === "production" ?
   BASE_URL + "/delete/" : `http://localhost:3001/delete/`
 
   export function deleteArticle(id) {
     return async function (dispatch){
       try {
-          var respuesta = await axios.get(`URL_DELETE_ART`+{id});
+          var respuesta = await axios.delete(URL_DELETE_ART+id);
           return dispatch({
               type: 'DELETE_ARTICLE',
               payload: respuesta.data
@@ -199,6 +199,24 @@ const URL_DELETE_ART = process.env.NODE_ENV === "production" ?
       }
   }
   };
+
+  //Borrado Logico
+const URL_PUT_ART = process.env.NODE_ENV === "production" ?
+BASE_URL + "/delete/" : `http://localhost:3001/delete/`
+
+export function deleteArticleLogic(id) {
+  return async function (dispatch){
+    try {
+        var respuesta = await axios.put(URL_PUT_ART+id);
+        return dispatch({
+            type: 'DELETE_ARTICLE_LOGIC',
+            payload: respuesta.data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+};
 
 const URL_GET_CATEGORY = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/" : `http://localhost:3001/category/`
