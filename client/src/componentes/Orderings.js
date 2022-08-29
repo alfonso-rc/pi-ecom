@@ -23,7 +23,7 @@ const stylesDropdown = {
 
 export default function Orderings() {
   const allArticle = useSelector((state) => state.articles);
-  const brands = useSelector((state)=> state.articles)
+  const brands = useSelector((state)=> state.brand)
   const allSmartPhones = useSelector((state) => state.smartphones);
   let dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -70,7 +70,7 @@ export default function Orderings() {
     dispatch(orderBrand2(e.target.value));
   }
 
-    let BrandMap = allArticle.map(el=>{
+    let BrandMap = brands.map(el=>{
     return [el.marca,el]
     });
     var BrandMapArr = new Map(BrandMap); 

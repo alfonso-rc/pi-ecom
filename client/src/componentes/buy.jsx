@@ -10,6 +10,22 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito";
+import NavBarDetail from "./NavBarDetail";
+import Footer from "./Footer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function toastSucces() {
+  return toast.success("Compra realizada!", {
+    position: "bottom-left",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+}
 
 /* require('dotenv').config();
 const {
@@ -60,10 +76,13 @@ function CheckoutForm() {
   };
 
   return (
-    <div>
+    <div className="bg-white">
       <div>
+      <NavBarDetail/>
+      </div>
+      <div >
         <h3>Cantidad de articulos: {cart.length}</h3>
-        <div>
+        <div className="flex justify-center ">
           {cart &&
             cart.map((e) => {
               return (
@@ -79,17 +98,21 @@ function CheckoutForm() {
         </div>
         <p>Total: {precioTotal}.00</p>
         <form onSubmit={handleSubmit}>
-          <div>
-            {/* <input type="text" />
-            <input type="text" /> */}
-        </div>
+      <div className="mx-96">
       <CardElement />
-      <button>Buy</button>
+      </div>
+      <button className="btn btn-outline btn-accent m-2" onClick={toastSucces}>Buy</button>
         </form>
+        <ToastContainer/>
+      </div>
+      <div className="mt-auto">
+        <Footer/>
       </div>
     </div>
   );
 }
+
+
 
 export default function buy() {
   return (

@@ -107,7 +107,7 @@ export default function Example() {
   };
 
   const googleAuth = () => {
-		window.open("http://localhost:3001/auth/google", "_self" );
+		window.open("http://localhost:3001/auth/google/callback", "_self" );
 	};
 
   return (

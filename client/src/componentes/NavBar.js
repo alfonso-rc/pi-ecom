@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Log2 from "../imagenes/logo-ecom.png";
 import SearchBar from "./SearchBox";
 import {
@@ -14,7 +14,6 @@ const styleNavBar = {
 }
 
 export default function NavBar() {
-  //const user = useSelector((state) => state.user);
   let dispatch = useDispatch();
 
   return (

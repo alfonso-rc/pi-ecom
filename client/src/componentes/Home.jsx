@@ -23,6 +23,8 @@ import Orderings from "./Orderings";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading  from "../imagenes/loading2.gif"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -34,31 +36,34 @@ export default function Home() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
 
-  // const [user, setUser] = useState(null);
+	const getGoogleUser = async () => {
+		try {
+			let response = (await axios.get("http://localhost:3001/google/User")).data;
+      if (!response.error) {
+        response = {
+          name: response.given_name,
+          lastName: response.family_name,
+          mail: response.email,
+          userName: response.name,
+          image: response.picture,
+          token: 'esta pendiente'
+        };
+        sessionStorage.clear();
+        for (const item in response) {
+          sessionStorage.setItem(item, response[item]);
+        }
+      }
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
-	// const getUser = async () => {
-	// 	try {
-	// 		const url = `http://localhost:3001/auth/google/callback`;
-  //     console.log('se Renderizo');
-	// 		const { data } = await axios.get(url, { withCredentials: true });
-      
-  //     console.log(data);
-	// 		//setUser(data.user._json);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
-
-	// useEffect(() => {
-	// 	getUser();
-	// }, []);
+	useEffect(() => {
+		getGoogleUser();
+	}, []);
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-  const theUser = useSelector((state) => state.user);
-  console.log(theUser);
 
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
@@ -199,6 +204,7 @@ export default function Home() {
           </div>: <RenderItems />}
       </div>
       <div />
+      <ToastContainer/>
       <div>
         <Footer />
       </div>

@@ -55,6 +55,7 @@ if (!cartStorage) {
 
 const initialState = {
   articles: [],
+  brand: [],
   users: [],
   filteredArticle: [],
   categorys: [],
@@ -81,6 +82,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         articles: action.payload,
+        brand: action.payload,
         filteredArticle: action.payload,
         isLoading: false
       }
@@ -116,7 +118,7 @@ export default function reducer(state = initialState, action) {
         articles: sortedPriceArr,
       };
       case "ORDER_BY_BRAND": ///////////////////////////////////////////
-      let sortBrand =[...state.articles]
+      /* let sortBrand =[...state.articles]
       console.log (sortBrand)
       sortBrand = sortBrand.sort((a, b) => {
       if (a.title < b.title) {
@@ -129,17 +131,17 @@ export default function reducer(state = initialState, action) {
     return {
       ...state,
       articles: sortBrand,
-    }
+    } */
     
     case 'ORDER_BY_BRAND2'://///
-            const articleBrand = state.articles
+            const articleBrand = state.brand
             const filterTemp = action.payload === 'All'
             ?articleBrand
             :articleBrand.filter(e => e.marca.includes(action.payload))
             console.log(filterTemp)
             return{
                 ...state,
-                articles:action.payload === 'All'? state.articles:filterTemp, 
+                articles:action.payload === 'All'? state.brand:filterTemp, 
             };   
 
       case "ORDER_BY_RATING":
@@ -193,6 +195,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "DELETE_ARTICLE":
+        return {
+          ...state,
+        };
+      case "DELETE_ARTICLE_LOGIC":
+          return {
+            ...state,
+          };
     case "GET_CATEGORY":
       return {
         ...state,

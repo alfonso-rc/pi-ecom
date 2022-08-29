@@ -23,7 +23,6 @@ passport.use(
         emails.push(profile.emails[0].value);
         done(null, profile);
       }
-      console.log(emails);
     }
   )
 );

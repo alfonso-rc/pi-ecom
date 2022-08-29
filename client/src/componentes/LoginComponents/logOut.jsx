@@ -1,10 +1,12 @@
+import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 function LogOut() {
     const history = useHistory();
 
-    function onSubmit() {
+    const closeSession = async () => {
         sessionStorage.clear();
+        let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
         history.push("/home");
     };
 
@@ -12,7 +14,7 @@ function LogOut() {
         <div>
             <button
                 className="btn btn-outline my-5 text-white "
-                onClick={onSubmit}
+                onClick={() => closeSession()}
             >
                 logout
             </button>
