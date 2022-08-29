@@ -65,11 +65,7 @@ const initialState = {
   isLoading: true,
   cart: cartStorage,
   rating: [],
-<<<<<<< HEAD
-  user: {}
-=======
-  
->>>>>>> 1e043fe309aa81100cafa65846904bc92ca02ed1
+  brand: [],
   // wishlist: wishlistStorage,
 };
 

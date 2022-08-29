@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Log2 from "../imagenes/logo-ecom.png";
 import SearchBar from "./SearchBox";
 import {
@@ -17,53 +17,20 @@ const styleNavBar = {
 }
 
 export default function NavBar() {
-  const user = useSelector((state) => state.user);
   let dispatch = useDispatch();
 
-<<<<<<< HEAD
-  return (
-    <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
-      <img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" />
-
-=======
-  const { isAuthenticated } = useAuth0();
-
-  // <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
   return (
     <div style={ styleNavBar } className="bg-white flex flex-row justify-between mr-3">
       <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="w-36 h-12" />
-      <div className="">
-      </div>
->>>>>>> 1e043fe309aa81100cafa65846904bc92ca02ed1
+
       <div>
         <SearchBar />
       </div>
 
       <LogOut/>
-
-<<<<<<< HEAD
       {        
-        user.mail ? <Profile/> : <LoginAuth0/>
+        sessionStorage.name ? <Profile/> : <LoginAuth0/>
       }
-=======
-
-      {/* <Link to="/newUser">
-        <button className="btn btn-outline my-5 text-white "><BiUserCircle size={25}/> Iniciar sesion</button>
-      </Link> */}
-
-
-
-      {
-        isAuthenticated ? <LogOut /> : <LoginAuth0 />
-      }
-
-      <Profile />
-
-
-
-
-
->>>>>>> 1e043fe309aa81100cafa65846904bc92ca02ed1
 
       <div className=" m-5">
         {/* BOTÓN PARA MOSTRAT EL CARRITO */ }

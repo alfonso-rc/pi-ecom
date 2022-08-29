@@ -1,20 +1,20 @@
-import { useDispatch } from "react-redux";
-import { logOutUser } from "../../store/actions";
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function LogOut() {
-    const user = {};
-    const dispatch = useDispatch();
+    const history = useHistory();
 
-    function onSubmit(e) {
-        e.preventDefault();
-        dispatch(logOutUser(user));
+    const closeSession = async () => {
+        sessionStorage.clear();
+        let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
+        history.push("/home");
     };
 
     return (
         <div>
             <button
                 className="btn btn-outline my-5 text-white "
-                onClick={onSubmit}
+                onClick={() => closeSession()}
             >
                 logout
             </button>

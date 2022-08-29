@@ -14,7 +14,6 @@ import St from "./componentes/Admin/Pages/St";
 import NotFound from'./componentes/NotFound';
 
 function App() {
-  
   return (
     <BrowserRouter>
       <div className="App">

@@ -2,8 +2,6 @@ import Logo from "../imagenes/logo-ecom.png";
 import logoGoogle from "../imagenes/google.png";
 import axios from 'axios';
 import { useState } from 'react';
-import { loginUser } from "../store/actions"
-import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 function validate(user) {
@@ -18,15 +16,12 @@ function validate(user) {
 }
 
 export default function Example() {
-  const userLogin = useSelector((state) => state.user);
   const history = useHistory();
-  const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     mail: '',
     password: ''
   });
-
 
   function handleInputChange(e) {
     setUser({
@@ -56,8 +51,13 @@ export default function Example() {
           mail: '',
           password: ''
         });
-        alert('Sesión iniciada')
-        dispatch(loginUser(response));
+
+        sessionStorage.clear();
+        for (const item in response) {
+          sessionStorage.setItem(item, response[item]);
+        }
+
+        alert('Sesión iniciada');
         history.push('/home');
       }
     } else {
@@ -65,23 +65,28 @@ export default function Example() {
     }
   };
 
+  const googleAuth = () => {
+		window.open("http://localhost:3001/auth/google/callback", "_self" );
+	};
+
   return (
     <>
       <div className="flex min-h-full justify-center pt-44">
-        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md">
+        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md border border-indigo-400">
+
           <div className="mb-20">
             <img
               className="mx-auto justify-center w-52"
               src={Logo}
               alt="Workflow"
             />
-            {/* <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">
-              
-            </h2> */}
           </div>
+
           <form onSubmit={submitData} className="mt-8 space-y-6 mb-20" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
+
             <div className="rounded-md shadow-sm -space-y-px">
+
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -101,6 +106,7 @@ export default function Example() {
                   <p><strong>{errors.mail}</strong></p>
                 )}
               </div>
+
               <div>
                 <label htmlFor="password" className="sr-only">
                   Password
@@ -120,9 +126,11 @@ export default function Example() {
                   <p><strong>{errors.password}</strong></p>
                 )}
               </div>
+
             </div>
 
             <div className="text-sm flex items-center">
+
               <div className="inline">
                 {/* <input
                   id="remember-me"
@@ -145,9 +153,11 @@ export default function Example() {
                   </h3>
                 </Link>
               </div>
+
             </div>
 
             <div>
+
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10"
@@ -158,17 +168,14 @@ export default function Example() {
                 Sign in
               </button>
 
-
               <button
                 className="group relative w-auto flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8 mx-auto"
-                type="submit"             
+                type="submit"
+                onClick={googleAuth}           
               >
                 <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
                 Sign in with google
               </button>
-
-
-
 
             </div>
           </form>
@@ -176,4 +183,4 @@ export default function Example() {
       </div>
     </>
   )
-}
+};

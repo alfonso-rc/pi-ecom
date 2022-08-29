@@ -2,9 +2,7 @@ import Logo from "../imagenes/logo-ecom.png";
 import logoGoogle from "../imagenes/google.png";
 import axios from 'axios';
 import { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import {registerUser} from "../store/actions"
 
 function validate(user) {
   let errors = {};
@@ -39,6 +37,9 @@ function validate(user) {
   else if (!isNaN(Number(user.userName))) {
     errors.userName = 'El usuario debe tener letras';
   }
+  else if (!user.address) {
+    errors.address = 'El campo no puede estar vacio';
+  }
   if (!user.password) {
     errors.password = 'Se necesita una contraseña de usuario';
   }
@@ -46,15 +47,14 @@ function validate(user) {
 }
 
 export default function Example() {
-  const userLogin = useSelector((state) => state.user);
   const history = useHistory();
-  const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     name: "",
     lastName: "",
     mail: "",
     userName: "",
+    address: "",
     password: "",
   });
 
@@ -71,7 +71,7 @@ export default function Example() {
 
   async function submitData(e) {
     e.preventDefault();
-    if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.mail && user.userName && user.password) {
+    if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.mail && user.userName && user.address && user.password) {
       let response = (await axios.post("http://localhost:3001/user/create", user)).data;
       if (response.error) {
         alert(response.error);
@@ -80,6 +80,7 @@ export default function Example() {
           lastName: "",
           mail: "",
           userName: "",
+          address: "",
           password: "",
         });
       }
@@ -89,20 +90,31 @@ export default function Example() {
           lastName: "",
           mail: "",
           userName: "",
+          address: "",
           password: "",
         });
+
+        sessionStorage.clear();
+        for (const item in response) {
+          sessionStorage.setItem(item, response[item]);
+        }
+
         alert('New user successfully created');
-        dispatch(registerUser(response));
         history.push('/home');
       }
     }
     else alert('Faltan datos para crear');    
   };
 
+  const googleAuth = () => {
+		window.open("http://localhost:3001/auth/google/callback", "_self" );
+	};
+
   return (
     <>
-      <div className="flex min-h-full justify-center pt-40">
-        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md">
+      <div className="flex min-h-full justify-center pt-28">
+        <div className="bg-white max-w-md w-full space-y-8 pt-16 pb-16 px-14 rounded-md border border-indigo-400">
+
           <div className="mb-10">
             <img
               className="mx-auto justify-center w-52"
@@ -113,8 +125,10 @@ export default function Example() {
               ¡create new user!
             </h3>
           </div>
+
           <form onSubmit={submitData} className="mt-8 space-y-6 mb-14" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
+
             <div className="rounded-md shadow-sm -space-y-px">
               
               <div>
@@ -163,8 +177,7 @@ export default function Example() {
                 )}
               </div>
 
-              <div>
-                
+              <div>                
                 <input
                   name="userName"
                   onChange={handleInputChange}
@@ -176,6 +189,21 @@ export default function Example() {
                 />
                 {errors.userName && (
                   <p><strong>{errors.userName}</strong></p>
+                )}
+              </div>
+
+              <div>                
+                <input
+                  name="address"
+                  onChange={handleInputChange}
+                  value={user.address}
+                  type="text"
+                  required
+                  className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Address"
+                />
+                {errors.address && (
+                  <p><strong>{errors.address}</strong></p>
                 )}
               </div>
 
@@ -193,30 +221,12 @@ export default function Example() {
                   <p><strong>{errors.password}</strong></p>
                 )}
               </div>
+
             </div>
-
-            {/* <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </a>
-              </div>
-            </div> */}
 
             
             <div className="text-sm flex items-center">
+
               <div className="inline">
                 <span className="ml-1 font-medium text-gray-700">
                   You have an account?
@@ -230,8 +240,8 @@ export default function Example() {
                   </h3>
                 </Link>
               </div>
-            </div>
 
+            </div>
 
             <div>
               <button
@@ -246,19 +256,19 @@ export default function Example() {
 
               <button
                 className="group relative w-auto flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8 mx-auto"
-                type="submit"               
+                type="submit"
+                onClick={googleAuth}             
               >
                 <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
                 Sign up with google
               </button>
 
-
-
             </div>
+
           </form>
+
         </div>
       </div>
     </>
   )
-}
-
+};
