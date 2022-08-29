@@ -90,7 +90,7 @@ export default function AddArticles() {
     }
     function handleCheckDif(e) {
         e.preventDefault();
-        setEstado({
+        setInput({
           ...input,
           category: e.target.value,
         });
