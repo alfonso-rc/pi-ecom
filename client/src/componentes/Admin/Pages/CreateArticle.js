@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { postArticle, getCategory } from "../store/actions/index";
+import { postArticle, getCategory } from "../../../store/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -39,8 +39,8 @@ function validate(input) {
     else if (input.stock <= 0) {
         errors.stock = 'El stock no puede ser menor a 0';
     }
-    else if (!e.category.length ) {
-      error.category = "Es requerido al menos una categoria";
+    else if (!input.category.length ) {
+      errors.category = "Es requerido al menos una categoria";
     }
     else if (!input.image) {
         errors.image = "Please insert internet image URL";
@@ -61,11 +61,14 @@ export default function AddArticles() {
 
     const [input, setInput] = useState({
         title: '',
+        rating: '',
+        detail: '',
+        image: '',
+        stock: '',
         price: '',
+        conectivity: '',
         marca: '',
         modelo: '',
-        stock: '',
-        image: '',
         category: [],
     });
 
@@ -117,16 +120,19 @@ function handleCheck(e) {
     function handleSubmit(e) {
         e.preventDefault();
         // console.log(errors);
-        if (!Object.getOwnPropertyNames(errors).length && input.title && input.price && input.modelo && input.marca && input.stock && input.image && input.category.length) {
+        if (!Object.getOwnPropertyNames(errors).length && input.title  && input.rating  && input.detail && input.price && input.modelo && input.marca && input.stock  && input.conectivity && input.image && input.category.length) {
             dispatch(postArticle(input));
             alert('Breed creado con Exito');
             setInput({
                 title: '',
-                price: '',
-                modelo: '',
-                marca: '',
-                stock: '',
+                rating: '',
+                detail: '',
                 image: '',
+                stock: '',
+                price: '',
+                conectivity: '',
+                marca: '',
+                modelo: '',
                 category: [],
             });
            
@@ -153,6 +159,84 @@ function handleCheck(e) {
                     )}
                 </div>
                 <div>
+                    <label><strong >Rating: </strong></label>
+                    <input type='text' value={input.rating} name='rating' onChange={e => handleChange(e)} />
+                    {errors.ranting && (
+                        <p ><strong>{errors.ranting}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong >Detail: </strong></label>
+                    <input type='text' value={input.detail.detail} name='detail' onChange={e => handleChange(e)} />
+                    {errors.detail && (
+                        <p ><strong>{errors.detail}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>Marca: </strong></label>
+                    <input type='text' value={input.detail.marca} name='marca' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.marca && (
+                        <p className='error'><strong>{errors.marca}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>Modelo: </strong></label>
+                    <input type='text' value={input.detail.modelo} name='modelo' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.modelo && (
+                        <p className='error'><strong>{errors.modelo}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>SO: </strong></label>
+                    <input type='text' value={input.detail.so} name='so' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.so && (
+                        <p className='error'><strong>{errors.so}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>Ram: </strong></label>
+                    <input type='text' value={input.detail.modelo} name='modelo' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.modelo && (
+                        <p className='error'><strong>{errors.modelo}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>Color: </strong></label>
+                    <input type='text' value={input.detail.color} name='color' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.color && (
+                        <p className='error'><strong>{errors.color}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong>Pantalla: </strong></label>
+                    <input type='text' value={input.detail.pantalla} name='modelo' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.pantalla && (
+                        <p className='error'><strong>{errors.pantalla}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong >stock: </strong></label>
+                    <input type='text' value={input.weightMax} name='weightMax' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.weightMax && (
+                        <p className='error'><strong>{errors.stock}</strong></p>
+                    )}
+                </div>
+                <div>
+                    <label><strong >Image: </strong></label>
+                    <input type='text' value={input.image} name='image' onChange={e => handleChange(e)} />
+                    <label><strong></strong></label>
+                    {errors.image && (
+                        <p className='error'><strong>{errors.image}</strong></p>
+                    )}
+                </div>
+                <div>
                     <label><strong>Precio: </strong></label>
                     <input type='text' value={input.price} name='price' onChange={e => handleChange(e)} />
                     <label><strong></strong></label>
@@ -161,27 +245,11 @@ function handleCheck(e) {
                     )}
                 </div>
                 <div>
-                    <label><strong>Modelo: </strong></label>
-                    <input type='text' value={input.modelo} name='modelo' onChange={e => handleChange(e)} />
+                    <label><strong>Conectividad: </strong></label>
+                    <input type='text' value={input.conectividad} name='conectividad' onChange={e => handleChange(e)} />
                     <label><strong></strong></label>
-                    {errors.modelo && (
-                        <p className='error'><strong>{errors.modelo}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >Marca: </strong></label>
-                    <input type='text' value={input.marca} name='marca' onChange={e => handleChange(e)} />
-                    <label><strong> kg</strong></label>
-                    {errors.marca && (
-                        <p className='error'><strong>{errors.marca}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >stock: </strong></label>
-                    <input type='text' value={input.weightMax} name='weightMax' onChange={e => handleChange(e)} />
-                    <label><strong> kg</strong></label>
-                    {errors.weightMax && (
-                        <p className='error'><strong>{errors.weightMax}</strong></p>
+                    {errors.conectividad && (
+                        <p><strong>{errors.conectividad}</strong></p>
                     )}
                 </div>
 <div>
@@ -205,7 +273,7 @@ function handleCheck(e) {
               </option>
               
             </select>
-            {err.difficult}
+            {errors.category}
           </div>
                 <div>
                     <label><strong>Imagen: </strong></label>

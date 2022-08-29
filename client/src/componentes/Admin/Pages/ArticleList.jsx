@@ -11,7 +11,6 @@ export default function ArticleList() {
 
   useEffect(() => {
     dispatch(getAllArticles());
-    console.log(allArticle);
   }, [dispatch]);
 
   function handleClickDelete(id){
