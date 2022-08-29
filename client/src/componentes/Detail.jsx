@@ -10,7 +10,8 @@ import { addToCart,addComment, addRating } from "../store/actions";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading  from "../imagenes/loading2.gif"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
   process.env.NODE_ENV === "production"
@@ -26,7 +27,17 @@ export default function ArticleDetail() {
   function addCart(item) {
     dispatch(addToCart(item));
   }
-
+  function toastErrors() {
+    return toast.error("Necesitas logearte!", {
+      position: "bottom-left",
+      autoClose: 8000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
 
   const HandleClickComment = (e) => {
@@ -39,7 +50,7 @@ export default function ArticleDetail() {
           texto:''
         })
     } else {
-      history.push("/login");
+      toastErrors();
     }
   };
   
@@ -53,7 +64,7 @@ export default function ArticleDetail() {
           texto:''
         })
     } else {
-      history.push("/login");
+      toastErrors();
     }
   };
 
@@ -63,6 +74,7 @@ export default function ArticleDetail() {
 
   useEffect(() => {
     axios.get(URL_GET_DETAIL_BY_ID + id).then((response) => {
+      console.log(response.data)
       setArticle(response.data);
       setStockCon(response.data.stock);
     });
@@ -93,7 +105,8 @@ export default function ArticleDetail() {
                   <h3 className="font-bold text-4xl">{article.title}</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold">Rating: </h1>
-                    <p>{article.rating}</p>
+                    {/* esta es la forma provicional del Rating */}
+                    <p>{article.rating === "NaN" ? article.rating = 0 : article.rating }</p>
                   </div>
                 </div>
                 <div>
@@ -129,19 +142,20 @@ export default function ArticleDetail() {
                   <br />
                   {/* <button className="btn btn-primary btn-wide">Comprar</button>                */}
                 </div>
-                <div class="rating rating-lg rating-half">
-  <input type="radio" name="rating-10" class="rating-hidden" />
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={0.5} />
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={1}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={1.5}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={2}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={2.5}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={3}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={3.5}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={4}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-1" value={4.5}/>
-  <input onClick={(e)=>HandleClickRating(e)} type="radio" name="rating-10" class="bg-green-500 mask mask-star-2 mask-half-2" value={5}/>
+                <div className="rating rating-lg rating-half">
+  <input type="radio" name="rating-10" className="rating-hidden" />
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={0.5} onClick={(e)=>HandleClickRating(e)} />
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={1} onClick={(e)=>HandleClickRating(e)}/>
+  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={1.5} onClick={(e)=>HandleClickRating(e)}/>
+  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={2} onClick={(e)=>HandleClickRating(e)}/>
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={2.5} onClick={(e)=>HandleClickRating(e)}/>
+  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={3} onClick={(e)=>HandleClickRating(e)}/>
+  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={3.5} onClick={(e)=>HandleClickRating(e)}/>
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={4} onClick={(e)=>HandleClickRating(e)}/>
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={4.5} onClick={(e)=>HandleClickRating(e)}/>
+  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={5} onClick={(e)=>HandleClickRating(e)}/>
 </div>
+<ToastContainer/>
               </div>
             </div>
             <br />
@@ -185,7 +199,7 @@ export default function ArticleDetail() {
             <br />
             <br />
             <div
-              tabindex="0"
+              tabIndex="0"
               class="collapse collapse-plus bg-accent rounded-box "
             >
             <div className="">
