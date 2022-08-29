@@ -100,7 +100,7 @@ export default function Example() {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            <div className="containerCarrito">
+                            <div className="containerCarrito flex flex-col gap-10">
                               {cart &&
                                 cart.map((e) => {
                                   return (
