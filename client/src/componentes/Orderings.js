@@ -102,8 +102,12 @@ export default function Orderings() {
               }                       
           </select> 
       </div>  
+      <div class="toggleWrapper">
+      <label class="switch">
+      <input type="checkbox"/>
+      <span class="slider"></span>
+      </label>
+      </div>  
     </div>
   );
 }
-
-

@@ -65,9 +65,9 @@ const getAticleByName = async (req, res, next) => {
 const putDeleteArticle = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const {disable}=req.body
+    //const {disable}=req.body
     await Article.update(
-      {disable},
+      {disable:true},
       {where:{id}
       }
     )
