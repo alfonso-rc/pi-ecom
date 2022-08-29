@@ -54,7 +54,6 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
           <tfoot>
             <tr>
               <th></th>
-              <th>Id</th>
               <th>Last Name</th>
               <th>Address</th>
               <th>Mail</th>
