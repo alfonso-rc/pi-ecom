@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { postArticle, getCategory } from "../store/actions/index";
+import { postArticle, getCategory } from "../../../store/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -39,8 +39,8 @@ function validate(input) {
     else if (input.stock <= 0) {
         errors.stock = 'El stock no puede ser menor a 0';
     }
-    else if (!e.category.length ) {
-      error.category = "Es requerido al menos una categoria";
+    else if (!input.category.length ) {
+      errors.category = "Es requerido al menos una categoria";
     }
     else if (!input.image) {
         errors.image = "Please insert internet image URL";
@@ -61,11 +61,14 @@ export default function AddArticles() {
 
     const [input, setInput] = useState({
         title: '',
+        rating: '',
+        detail: '',
+        image: '',
+        stock: '',
         price: '',
+        conectivity: '',
         marca: '',
         modelo: '',
-        stock: '',
-        image: '',
         category: [],
     });
 
@@ -90,7 +93,7 @@ export default function AddArticles() {
     }
     function handleCheckDif(e) {
         e.preventDefault();
-        setEstado({
+        setInput({
           ...input,
           category: e.target.value,
         });
@@ -117,16 +120,19 @@ function handleCheck(e) {
     function handleSubmit(e) {
         e.preventDefault();
         // console.log(errors);
-        if (!Object.getOwnPropertyNames(errors).length && input.title && input.price && input.modelo && input.marca && input.stock && input.image && input.category.length) {
+        if (!Object.getOwnPropertyNames(errors).length && input.title  && input.rating  && input.detail && input.price && input.modelo && input.marca && input.stock  && input.conectivity && input.image && input.category.length) {
             dispatch(postArticle(input));
             alert('Breed creado con Exito');
             setInput({
                 title: '',
-                price: '',
-                modelo: '',
-                marca: '',
-                stock: '',
+                rating: '',
+                detail: '',
                 image: '',
+                stock: '',
+                price: '',
+                conectivity: '',
+                marca: '',
+                modelo: '',
                 category: [],
             });
            
@@ -205,7 +211,7 @@ function handleCheck(e) {
               </option>
               
             </select>
-            {err.difficult}
+            {errors.category}
           </div>
                 <div>
                     <label><strong>Imagen: </strong></label>

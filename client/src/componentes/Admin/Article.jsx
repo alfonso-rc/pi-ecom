@@ -2,9 +2,9 @@ import React from "react";
 import SideBar from "./SideBar";
 import ArticleList from "../Admin/Pages/ArticleList";
 import Logo from "../../../../client/src/ECOM-10_2.png";
+import { Link } from "react-router-dom";
 
 export default function Article({ id, title, modelo, stock, price }) {
-  const handleAddArticle = () => {};
 
   return (
     <div className="m-0 p-0">
@@ -20,12 +20,9 @@ export default function Article({ id, title, modelo, stock, price }) {
           <ArticleList />
         </div>
       </div>
-      <button
-        class="btn btn-outline btn-accent"
-        onClick={(e) => handleAddArticle(e)}
-      >
-        Add Article
-      </button>
+      <Link to="/create">
+        <button class="btn btn-outline btn-accent">Add Article</button>
+      </Link>
     </div>
   );
 }
