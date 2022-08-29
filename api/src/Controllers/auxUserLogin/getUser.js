@@ -9,7 +9,7 @@ async function validateUser(mail, password) {
         }
     });
     
-    if (!user || !validatePassword(password, user.password)) return 'El mail y/o el password son incorrectos';
+    if (!user || !validatePassword(password, user.password)) return { error: "El mail o el password son incorrectos"};
     else {
         const tokenGenerated = generateToken(user.id);
         delete user.dataValues.password;

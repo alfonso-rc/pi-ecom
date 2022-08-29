@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -57,6 +58,39 @@ const styleButtonTextCategory = {
 
 
 export default function Home() {
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
+
+	const getGoogleUser = async () => {
+		try {
+			let response = (await axios.get("http://localhost:3001/google/User")).data;
+      if (!response.error) {
+        response = {
+          name: response.given_name,
+          lastName: response.family_name,
+          mail: response.email,
+          userName: response.name,
+          image: response.picture,
+          token: 'esta pendiente'
+        };
+        sessionStorage.clear();
+        for (const item in response) {
+          sessionStorage.setItem(item, response[item]);
+        }
+      }
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getGoogleUser();
+	}, []);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);

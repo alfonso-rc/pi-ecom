@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 // import { XIcon } from '@heroicons/react/outline'
-import { toggleCart } from "../store/actions/index.js";
+// import { toggleCart } from "../store/actions/index.js";
 import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
 import { ToastContainer, toast } from 'react-toastify';
@@ -40,11 +40,12 @@ export default function Example() {
   }
 
   const HandleClickComprar = () => {
-    const token = sessionStorage.getItem("token");
+    const { token } = sessionStorage;
     if (token) {
       history.push("/checkout");
       console.log("COMPRADISIMO BRO");
     } else {
+      history.push("/login");
       toastErrors()
     }
   };
@@ -145,7 +146,7 @@ export default function Example() {
                         <button
                           href="#"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={(e) => HandleClickComprar(e)}>
+                          onClick={() => HandleClickComprar()}>
                         
                         
                           Checkout

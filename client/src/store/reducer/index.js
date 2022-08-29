@@ -65,7 +65,7 @@ const initialState = {
   isLoading: true,
   cart: cartStorage,
   rating: [],
-  
+  brand: [],
   // wishlist: wishlistStorage,
 };
 
@@ -220,10 +220,17 @@ export default function reducer(state = initialState, action) {
     case "LOG_USER":
       return {
         ...state,
+        user: action.payload
+      };
+    case "LOGOUT_USER":
+      return {
+        ...state,
+        user: action.payload
       };
     case "RES_USER":
       return {
         ...state,
+        user: action.payload
       };
       case "GET_USER":
         return {

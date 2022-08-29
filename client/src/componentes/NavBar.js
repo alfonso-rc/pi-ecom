@@ -1,21 +1,13 @@
-import React from 'react';
 import { useDispatch } from "react-redux";
-//import { useEffect, useState } from "react";
-//import Logo from "../ECOM-10_2.png";
 import Log2 from "../imagenes/logo-ecom.png";
-//import Orderings from './Orderings';
 import SearchBar from "./SearchBox";
-// import { Link } from 'react-router-dom';
-// import {BiUserCircle} from "react-icons/bi"
 import {
   //getArticles,
   toggleCart,
 } from "../store/actions";
-import LoginAuth0 from './LoginComponents/loginAuth0';
 import Profile from './LoginComponents/Profile';
 import LogOut from './LoginComponents/logOut';
-import { useAuth0 } from '@auth0/auth0-react';
-
+import LoginAuth0 from './LoginComponents/loginAuth0';
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
@@ -24,41 +16,21 @@ const styleNavBar = {
 
 }
 
-
 export default function NavBar() {
-
   let dispatch = useDispatch();
 
-  const { isAuthenticated } = useAuth0();
-
-  // <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
   return (
     <div style={ styleNavBar } className="bg-white flex flex-row justify-between mr-3">
       <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="w-36 h-12" />
-      <div className="">
-      </div>
+
       <div>
         <SearchBar />
       </div>
 
-
-
-      {/* <Link to="/newUser">
-        <button className="btn btn-outline my-5 text-white "><BiUserCircle size={25}/> Iniciar sesion</button>
-      </Link> */}
-
-
-
-      {
-        isAuthenticated ? <LogOut /> : <LoginAuth0 />
+      <LogOut/>
+      {        
+        sessionStorage.name ? <Profile/> : <LoginAuth0/>
       }
-
-      <Profile />
-
-
-
-
-
 
       <div className=" m-5">
         {/* BOTÓN PARA MOSTRAT EL CARRITO */ }
@@ -69,4 +41,4 @@ export default function NavBar() {
 
     </div>
   )
-}
+};
