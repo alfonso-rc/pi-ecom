@@ -1,14 +1,20 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function LogOut() {
+    const history = useHistory();
 
-    const { logout } = useAuth0();
+    const closeSession = async () => {
+        sessionStorage.clear();
+        let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
+        history.push("/home");
+    };
 
     return (
-        <div>
+        <div className="m-5">
             <button
-                className="btn btn-outline my-5 text-white "
-                onClick={() => logout()}
+                className="btn btn-outline "
+                onClick={() => closeSession()}
             >
                 logout
             </button>
