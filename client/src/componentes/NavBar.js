@@ -20,7 +20,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
   width: "100%",
-  backgroundColor: "#008B7D"
+  backgroundColor: "#6B4883"
 
 }
 
