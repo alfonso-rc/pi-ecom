@@ -59,7 +59,7 @@ export default function Card({ id, title, image, price, category }) {
   return (
     <div
       style={stylesCard}
-      className="card-compact bg-base-100 shadow-xlshadow-xl w-64 h-full lg:w-72 lg:h-full xl:w-80 xl:h-full 2xl:w-96 2xl:h-full"
+      className="card-compact bg-base-100 shadow-xlshadow-xl w-64 sm:w-80 h-full"
     >
       <Link to={`/${id}`}>
         <figure className="px-10 pt-10">
