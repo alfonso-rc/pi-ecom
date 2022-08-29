@@ -8,9 +8,9 @@ function handleDelete(id){
 dispatch(removeCart(id))
 }
 return (
-    <div>
+    <div className="min-w-[130px] text-center flex flex-col justify-center items-center">
         <div>
-            <img src={image} alt="img not found" height={180} width={120}/>
+            <img className="max-w-[120px]" src={image} alt="img not found" height={180} width={120}/>
         </div>
         <div>
             <p>{title}</p>

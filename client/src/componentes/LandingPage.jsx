@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import oferta1 from "../imagenes/oferta1.jpg";
 import oferta2 from "../imagenes/oferta2.jpg";
 import oferta3 from "../imagenes/oferta3.jpg";
-import NavBarDetail from "./NavBarDetail";
+import NavBarAdmin from "./NavBarAdmin";
 import Footer from "./Footer";
 
 export default function LandingPage() {
   return (
     <div className="bg-white h-full">
-      <NavBarDetail />
+      <NavBarAdmin />
       <div class="carousel w-full">
         <div id="slide1" class="carousel-item relative w-full">
           <img src={oferta1} class="w-full" />

@@ -72,7 +72,7 @@ export default function Example() {
   return (
     <>
       <div className="flex min-h-full justify-center pt-44">
-        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md">
+        <div className="bg-white max-w-md w-full space-y-8 pt-20 pb-24 px-14 rounded-md border border-indigo-400">
 
           <div className="mb-20">
             <img

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import { toggleCart } from "../store/actions/index.js";
 import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Example() {
   const showCart = useSelector((state) => state.showCart);
@@ -25,6 +27,18 @@ export default function Example() {
     }
   }, [cart]);
 
+  function toastErrors() {
+    return toast.error("Necesitas logearte!", {
+      position: "bottom-left",
+      autoClose: 8000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const HandleClickComprar = () => {
     const { token } = sessionStorage;
     if (token) {
@@ -32,6 +46,7 @@ export default function Example() {
       console.log("COMPRADISIMO BRO");
     } else {
       history.push("/login");
+      toastErrors()
     }
   };
   useEffect(() => {
@@ -100,7 +115,7 @@ export default function Example() {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            <div className="containerCarrito">
+                            <div className="containerCarrito flex flex-col gap-10">
                               {cart &&
                                 cart.map((e) => {
                                   return (

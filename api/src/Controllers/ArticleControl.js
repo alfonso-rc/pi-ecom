@@ -31,7 +31,7 @@ const getAllArticle = async (req, res, next) => {
         through: { attributes: [] }
       }
     });
-  
+
     const api2 = apiDB.map(el => {
       return {
         id: el.id,
@@ -100,18 +100,37 @@ const detailArticle = async (req, res, next) => {
   const { id } = req.params;
   // console.log(typeof (id))
   try {
-    const articleFound = await Article.findByPk(id, {
+    let articleFound = await Article.findByPk(id, {
       include: {
         model: Comment,
-        attributes: ["texto","userId"],
-        include:{
+        attributes: ["texto", "userId"],
+        include: {
           model: User,
           attributes: ["userName"],
         }
       }
-    }); 
-  ; //Visualiza los disable = false
-    console.log(articleFound);
+    });
+    const ratingFound = await Rating.findAll({
+      where: {
+        articleId: id,
+      }
+    })
+
+    if (!ratingFound) {
+      articleFound.dataValues.rating = 0;
+    } else {
+      let sum = 0
+      ratingFound.forEach(rating => {
+        sum = sum + rating.score
+      })
+      const ratingQuantity = ratingFound.length
+      console.log("Cantidad de calificaciones", ratingQuantity)
+      console.log(sum)
+      articleFound.dataValues.rating = (sum / ratingQuantity).toFixed(1);
+    }
+
+    //Visualiza los disable = false
+    // console.log(articleFound);
     articleFound.disable === false ?
       res.status(200).send(articleFound.dataValues) :
       res.status(404).send('No existe Articulo con ese Id!'); // Status 404 cuando el recurso no existe
@@ -162,6 +181,7 @@ const getAticleByName = async (req, res, next) => {
 // CREATE ARTICLE USER RATING
 const createArticleUserRating = async (req, res, next) => {
   const { idArticle, idUser, score } = req.body;
+  console.log(req.body)
   try {
     // Verificar si el idUser existe
     const userFound = await User.findByPk(idUser)
@@ -198,10 +218,6 @@ const createArticleUserRating = async (req, res, next) => {
     next(error);
   };
 };
-
-
-
-
 
 module.exports = {
   testFunction,

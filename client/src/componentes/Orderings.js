@@ -31,9 +31,10 @@ export default function Orderings() {
   // console.log("article:", allArticle)
   // console.log("Marca:", brands)
 
-  useEffect(() => {
-    dispatch(getArticles());
-  }, []);
+
+  // useEffect(() => {
+  //   dispatch(getArticles());
+  // }, []);
 
   useEffect(() => {
     dispatch((getbrands));
@@ -83,25 +84,26 @@ export default function Orderings() {
   return (
     <div >
       <div className="flex flex-col">
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
-        <button className="btn btn-outline btn-accent m-2" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
-        <button onClick={ (e) => resetCharacters(e) } className="btn btn-outline btn-accent m-5">Por defecto</button>
-      </div>
-        
-        <div>            
-            <select className="btn btn-outline btn-accent m-2" onChange={e => handleBrand2(e)}>  
-              <option value="All">Todos las Marcas</option>     
+      <div>            
+          <select className="btn btn-primary btn-sm md:btn-md m-2 no-animation" onChange={e => handleBrand2(e)}>  
+            <option value="All">Todas las Marcas</option>     
               { 
                 unicos.map((brand)=>(
                 <option key={brand.id} value={brand.marca}>{brand.marca}</option> 
               ))
-              }                       
+              }                  
           </select> 
-      </div>  
+      </div> 
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
+        <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-5">Por defecto</button>
+      </div>
+        
+       
     </div>
   );
 }
