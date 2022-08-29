@@ -194,6 +194,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "DELETE_ARTICLE":
+        return {
+          ...state,
+        };
+      case "DELETE_ARTICLE_LOGIC":
+          return {
+            ...state,
+          };
     case "GET_CATEGORY":
       return {
         ...state,
