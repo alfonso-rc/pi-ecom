@@ -25,7 +25,7 @@ import loading from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SideBar from "./SideBar";
-import FilterCategories from './FilterCategories/FilterCategories.jsx'
+// import FilterCategories from './FilterCategories/FilterCategories.jsx'
 // Iconos de filtrado
 import smartphoneIcon from '../imagenes/Filter/smart.png'
 import laptopIcon from '../imagenes/Filter/laptop.png'
