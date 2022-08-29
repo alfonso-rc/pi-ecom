@@ -7,6 +7,7 @@ import oferta2 from "../imagenes/oferta2.jpg";
 import oferta3 from "../imagenes/oferta3.jpg";
 import NavBarAdmin from "./NavBarAdmin";
 import Footer from "./Footer";
+import logo from "../imagenes/logo-ecom.png"
 
 export default function LandingPage() {
   return (
@@ -64,12 +65,29 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <Link to="/home">
-        <button className="btn btn-outline btn-success">
-          Empeza tu busqueda
-        </button>
-      </Link>
-      <Slider />
+      <section class="text-gray-600 body-font font-Work py-10">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            <img class="object-cover object-center rounded" alt="hero" src={logo} />
+          </div>
+          <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Encontrá en Ecom
+              <br class="hidden lg:inline-block"/>el producto que estás buscando.
+            </h1>
+            <p class="mb-8 leading-relaxed">Tenemos variedad de productos, un sistema de "coins" en el cual se te devolvera un porcentage en cada compra para que puedas ir acumulando y conseguir el producto que buscas a un precio increible!!</p>
+            <div class="flex justify-center">
+              <Link to="/home">
+                <button className="btn btn-accent btn-lg">
+                  Empezá tu busqueda
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="pt-8">
+        <Slider />
+      </div>
       <div className="mt-10">
         <Footer />
       </div>
