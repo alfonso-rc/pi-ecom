@@ -2,12 +2,9 @@ import React from "react";
 import SideBar from "./SideBar";
 import ArticleList from "../Admin/Pages/ArticleList";
 import Logo from "../../../../client/src/ECOM-10_2.png";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
 import NavBarAdmin from "../NavBarAdmin";
 import Footer from "../Footer";
->>>>>>> dfdf2c3e8a13e1d7baac991e3629cc0242b92ddb
 
 export default function Article({ id, title, modelo, stock, price }) {
 
@@ -26,19 +23,16 @@ export default function Article({ id, title, modelo, stock, price }) {
           <ArticleList />
         </div>
       </div>
-<<<<<<< HEAD
       <Link to="/create">
         <button class="btn btn-outline btn-accent">Add Article</button>
       </Link>
-=======
       <button
         class="btn btn-outline btn-accent"
-        onClick={(e) => handleAddArticle(e)}
+        // onClick={(e) => handleAddArticle(e)}
       >
         Add Article
       </button>
       <Footer/>
->>>>>>> dfdf2c3e8a13e1d7baac991e3629cc0242b92ddb
     </div>
   );
 }
