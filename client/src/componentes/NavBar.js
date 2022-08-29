@@ -19,7 +19,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
-  width: "100%"
+  width: "100%",
+  backgroundColor: "#6B4883"
 
 }
 
@@ -30,10 +31,10 @@ export default function NavBar() {
 
   const { isAuthenticated } = useAuth0();
 
-
+  // <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
   return (
-    <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
-      <img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" />
+    <div style={ styleNavBar } className="from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
+      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="w-36 h-12" />
       <div className="">
       </div>
       <div>
