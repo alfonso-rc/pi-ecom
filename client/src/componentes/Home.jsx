@@ -21,15 +21,40 @@ import Carrito from "./Carrito";
 import Orderings from "./Orderings";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
-import loading  from "../imagenes/loading2.gif"
+import loading from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SideBar from "./SideBar";
+import FilterCategories from './FilterCategories/FilterCategories.jsx'
+// Iconos de filtrado
+import smartphoneIcon from '../imagenes/Filter/smart.png'
+import laptopIcon from '../imagenes/Filter/laptop.png'
+import tabletIcon from '../imagenes/Filter/tablet.png'
+import accesoriesIcon from '../imagenes/Filter/acce.png'
 
 const stylesCategoriesContainer = {
   height: "100px",
-  backgroundColor: "#4D4454",
+  backgroundColor: "#f2f2f2",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  padding: "0 1rem"
+
 };
+
+const styleButtonCategory = {
+  // border: "1px solid blue",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "relative"
+}
+
+const styleButtonTextCategory = {
+  transform: "translateX(0%)"
+}
+
 
 export default function Home() {
   let isLoading = useSelector((state) => state.isLoading);
@@ -94,7 +119,7 @@ export default function Home() {
     setCurrentPage(1);
     // setOrder(e.target.value)
   }
-  
+
   // function resetCharacters(e) {
   //   e.preventDefault();
   //   dispatch(getArticles());
@@ -105,77 +130,93 @@ export default function Home() {
       <div>
         <div className="flex justify-end pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
-            {currentArticle.map((art) => {
+            { currentArticle.map((art) => {
               return (
-                <div key={art.id} className={card}>
+                <div key={ art.id } className={ card }>
                   <Card
-                    key={art.id}
-                    id={art.id}
-                    image={art.image}
-                    title={art.title}
-                    price={art.price}
+                    key={ art.id }
+                    id={ art.id }
+                    image={ art.image }
+                    title={ art.title }
+                    price={ art.price }
                   />
                 </div>
               );
-            })}
+            }) }
           </div>
         </div>
       </div>
     );
   }
 
-  let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
+  let circleClasses = "p-7 w-20 mx-auto";
   let card = "card transition delay-100 hover:scale-110 hover:drop-shadow-xl shadow-xl bg-white border-zinc-300 border-2 rounded-8"
   return (
     <div>
-      <div className="">
-        <div className="fixed top-0 left-0 right-0 z-10 w-screen">
-          <NavBar />
-          <Carrito />
-        </div>
+
+      <div className="fixed top-0 left-0 right-0 z-10 w-screen">
+        <NavBar />
+        <Carrito />
       </div>
 
+      {/* COMPONENTE PARA FILTRAR POR CATEGORÍAS */ }
       <div
-        style={stylesCategoriesContainer}
+        style={ stylesCategoriesContainer }
         className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20"
       >
-        <button className={circleClasses} onClick={(e) => handleSmartPhone(e)}>
-          <FcMultipleSmartphones size={40} />
+        <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
+          <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
+          <span style={ styleButtonTextCategory }>Smartphones</span>
         </button>
-        <button onClick={(e) => handleNotebooks(e)} className={circleClasses}>
-          <RiComputerLine size={40} />
+        <button style={ styleButtonCategory } onClick={ (e) => handleNotebooks(e) } className={ circleClasses }>
+          <img style={ { maxWidth: "45px" } } src={ laptopIcon } alt="..." />
+          <span style={ styleButtonTextCategory }>Laptops</span>
         </button>
-        <button onClick={(e) => handleTablets(e)} className={circleClasses}>
-          <FcTabletAndroid size={40} />
+        <button style={ styleButtonCategory } onClick={ (e) => handleTablets(e) } className={ circleClasses }>
+          <img style={ { maxWidth: "30px" } } src={ tabletIcon } alt="..." />
+          <span style={ styleButtonTextCategory }>Tablets</span>
         </button>
-        <button onClick={(e) => handleAccesories(e)} className={circleClasses}>
-          <FaKeyboard size={40} />
+        <button style={ styleButtonCategory } onClick={ (e) => handleAccesories(e) } className={ circleClasses }>
+          <img style={ { maxWidth: "40px" } } src={ accesoriesIcon } alt="..." />
+          <span style={ styleButtonTextCategory }>Accesories</span>
         </button>
       </div>
       <div className="bg-white">
-      <div className="flex fixed z-10 pl-2 mr-2 pt-6">
-        <SideBar/>
-      </div>
+
+
+        <div className="flex fixed z-10 pl-2 mr-2 pt-6">
+          <SideBar />
+        </div>
+
+
         {/* <div className="fixed z-10 pl-4 mr-2 pt-6">
           <Orderings/>
         </div> */}
-        {/* <SearchBar /> */}
-        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */}
-        
-        {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
-        {isLoading ?<div className="flex  place-content-center">
-            {<img src={loading} alt="img not found" />}
-          </div>: <RenderItems />}
+        {/* <SearchBar /> */ }
+        {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */ }
+
+
+
+
+
+
+
+
+
+        {/* AQUÍ RENDERIZAMOS LOS ITEMS */ }
+        { isLoading ? <div className="flex  place-content-center">
+          { <img src={ loading } alt="img not found" /> }
+        </div> : <RenderItems /> }
       </div>
       <div />
-      <ToastContainer/>
+      <ToastContainer />
       <div className="pt-5 pb-5 bg-white">
-          <Paginado
-            articlePerPage={articlePerPage}
-            allArticle={allArticle.length}
-            paginado={paginado}
-          />
-        </div>
+        <Paginado
+          articlePerPage={ articlePerPage }
+          allArticle={ allArticle.length }
+          paginado={ paginado }
+        />
+      </div>
       <div>
         <Footer />
       </div>

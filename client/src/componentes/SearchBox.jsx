@@ -5,9 +5,11 @@ import { getName } from "../store/actions";
 import { Link } from "react-router-dom";
 
 const styleSearch = {
-  backgroundColor: "white",
-  boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
-  marginRight: "5px"
+  backgroundColor: "transparent",
+  // boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
+  marginRight: "5px",
+  border: "1px solid white",
+  color: "white"
 }
 
 export default function SearchBar() {
@@ -38,7 +40,7 @@ export default function SearchBar() {
           className="input input-bordered w-50 max-w-xs"
           onChange={ (e) => handleInput(e) }
           type="text"
-          value={name}
+          value={ name }
           placeholder="Busqueda por nombre..."
         />
         <button className="btn btn-outline text-white"
