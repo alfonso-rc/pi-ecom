@@ -50,7 +50,7 @@ export default function ArticleDetail() {
           texto:''
         })
     } else {
-      history.push("/login");
+      toastErrors();
     }
   };
   
@@ -74,6 +74,7 @@ export default function ArticleDetail() {
 
   useEffect(() => {
     axios.get(URL_GET_DETAIL_BY_ID + id).then((response) => {
+      console.log(response.data)
       setArticle(response.data);
       setStockCon(response.data.stock);
     });
@@ -104,7 +105,8 @@ export default function ArticleDetail() {
                   <h3 className="font-bold text-4xl">{article.title}</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold">Rating: </h1>
-                    <p>{article.rating}</p>
+                    {/* esta es la forma provicional del Rating */}
+                    <p>{article.rating === "NaN" ? article.rating = 0 : article.rating }</p>
                   </div>
                 </div>
                 <div>
