@@ -2,6 +2,8 @@ import React from "react";
 import SideBar from "./SideBar";
 import UserList from "../Admin/Pages/UserList";
 import Logo from "../../../../client/src/ECOM-10_2.png";
+import NavBarAdmin from "../NavBarAdmin";
+import Footer from "../Footer";
 
 export default function Users({
   id,
@@ -16,6 +18,7 @@ export default function Users({
 }) {
   return (
     <div className="m-0 p-0">
+      <NavBarAdmin/>
       <img
         className="mx-auto h-32 justify-center w-auto"
         src={Logo}
@@ -28,6 +31,7 @@ export default function Users({
           <UserList />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
