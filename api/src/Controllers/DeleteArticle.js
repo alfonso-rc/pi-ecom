@@ -65,9 +65,9 @@ const getAticleByName = async (req, res, next) => {
 const putDeleteArticle = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const {disable}=req.body
+    //const {disable}=req.body
     await Article.update(
-      {disable},
+      {disable:true},
       {where:{id}
       }
     )
@@ -80,7 +80,7 @@ const putDeleteArticle = async (req, res, next) => {
 //Borrado Fisico
 async function deleteArticle(req, res,next){
   try {
-    const id = req.params.id;
+    const {id} = req.params;
     let destro = await Article.destroy(
       {where:{id:id}})
       destro===1
