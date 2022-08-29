@@ -24,6 +24,7 @@ import NotFound from "./NotFound";
 import loading  from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SideBar from "./SideBar";
 
 const stylesCategoriesContainer = {
   height: "100px",
@@ -102,8 +103,8 @@ export default function Home() {
   function RenderItems() {
     return (
       <div>
-        <div className="flex justify-end pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-20 gap-y-32 justify-items-center mx-auto 2xl:mx-56">
+        <div className="flex justify-end pb-20 pt-8">
+          <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             {currentArticle.map((art) => {
               return (
                 <div key={art.id} className={card}>
@@ -152,18 +153,15 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-        <div className="fixed z-10 pl-4 mr-2 pt-6">
+      <div className="flex fixed z-10 pl-2 mr-2 pt-6">
+        <SideBar/>
+      </div>
+        {/* <div className="fixed z-10 pl-4 mr-2 pt-6">
           <Orderings/>
-        </div>
+        </div> */}
         {/* <SearchBar /> */}
         {/* <button onClick={(e) => resetCharacters(e)}>Reseteo</button> */}
-        <div className="pt-5 pb-5">
-          <Paginado
-            articlePerPage={articlePerPage}
-            allArticle={allArticle.length}
-            paginado={paginado}
-          />
-        </div>
+        
         {/* AQUÍ RENDERIZAMOS LOS ITEMS */}
         {isLoading ?<div className="flex  place-content-center">
             {<img src={loading} alt="img not found" />}
@@ -171,6 +169,13 @@ export default function Home() {
       </div>
       <div />
       <ToastContainer/>
+      <div className="pt-5 pb-5 bg-white">
+          <Paginado
+            articlePerPage={articlePerPage}
+            allArticle={allArticle.length}
+            paginado={paginado}
+          />
+        </div>
       <div>
         <Footer />
       </div>
