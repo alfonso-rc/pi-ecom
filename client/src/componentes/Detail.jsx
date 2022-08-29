@@ -54,19 +54,7 @@ export default function ArticleDetail() {
     }
   };
   
-  const HandleClickRating = (e) => {
-    e.preventDefault();
-    const token = sessionStorage.getItem("token");
-    if (token) {
-        dispatch(addRating(input))
-        alert('Comentario Agregado!')
-        setInput({
-          texto:''
-        })
-    } else {
-      toastErrors();
-    }
-  };
+
 
   const [article, setArticle] = useState(null);
   const [stockCon, setStockCon] = useState();
@@ -79,7 +67,20 @@ export default function ArticleDetail() {
       setStockCon(response.data.stock);
     });
   }, []);
-
+  const HandleClickRating = (e, score) => {
+    e.preventDefault();
+    const token = sessionStorage.getItem("token");
+    if (token) {
+        dispatch(addRating({
+    idArticle : article.id,
+    idUser : token,
+    score: score
+        }))
+        alert('Rating Agregado!')
+    } else {
+      toastErrors();
+    }
+  };
   return (
     <div>
       <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
@@ -143,17 +144,12 @@ export default function ArticleDetail() {
                   {/* <button className="btn btn-primary btn-wide">Comprar</button>                */}
                 </div>
                 <div className="rating rating-lg rating-half">
-  <input type="radio" name="rating-10" className="rating-hidden" />
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={0.5} onClick={(e)=>HandleClickRating(e)} />
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={1} onClick={(e)=>HandleClickRating(e)}/>
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={1.5} onClick={(e)=>HandleClickRating(e)}/>
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={2} onClick={(e)=>HandleClickRating(e)}/>
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={2.5} onClick={(e)=>HandleClickRating(e)}/>
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={3} onClick={(e)=>HandleClickRating(e)}/>
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={3.5} onClick={(e)=>HandleClickRating(e)}/>
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={4} onClick={(e)=>HandleClickRating(e)}/>
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" value={4.5} onClick={(e)=>HandleClickRating(e)}/>
-  <input  type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" value={5} onClick={(e)=>HandleClickRating(e)}/>
+  <input type="radio" name="rating-7" className="rating-hidden" />
+  <input  type="radio" name="rating-7"  class="mask mask-star-2 bg-orange-400" value={1} onClick={(e)=>HandleClickRating(e, 1)}/>
+  <input type="radio" name="rating-7"  class="mask mask-star-2 bg-orange-400" value={2} onClick={(e)=>HandleClickRating(e, 2)}/>
+  <input type="radio" name="rating-7"  class="mask mask-star-2 bg-orange-400" value={3} onClick={(e)=>HandleClickRating(e, 3)}/>
+  <input  type="radio" name="rating-7"  class="mask mask-star-2 bg-orange-400" value={4} onClick={(e)=>HandleClickRating(e, 4)}/>
+  <input  type="radio" name="rating-7"  class="mask mask-star-2 bg-orange-400" value={5} onClick={(e)=>HandleClickRating(e, 5)}/>
 </div>
 <ToastContainer/>
               </div>

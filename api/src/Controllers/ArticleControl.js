@@ -180,6 +180,7 @@ const getAticleByName = async (req, res, next) => {
 // CREATE ARTICLE USER RATING
 const createArticleUserRating = async (req, res, next) => {
   const { idArticle, idUser, score } = req.body;
+  console.log(req.body)
   try {
     // Verificar si el idUser existe
     const userFound = await User.findByPk(idUser)
