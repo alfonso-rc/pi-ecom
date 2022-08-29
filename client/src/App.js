@@ -10,6 +10,7 @@ import AdminHome from "./componentes/Admin/Pages/AdminHome";
 import ArticleList from "./componentes/Admin/Article"
 import UserList from "./componentes/Admin/Users"
 import Offer from "./componentes/Admin/Pages/Offer";
+import St from "./componentes/Admin/Pages/St";
 import NotFound from'./componentes/NotFound';
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
           <Route exact path="/admin/articulos" component={ArticleList}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
           <Route exact path="/admin/ofertas"  component={Offer}/>
-          
+          <Route exact path="/admin/st"  component={St}/>
+
           <Route path="/:id" component={ArticleDetail} />
           <Route exact path="/" component={LandingPage} />
           <Route path="*" component={NotFound}/>

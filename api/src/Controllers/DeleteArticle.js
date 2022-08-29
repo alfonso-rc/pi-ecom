@@ -80,7 +80,7 @@ const putDeleteArticle = async (req, res, next) => {
 //Borrado Fisico
 async function deleteArticle(req, res,next){
   try {
-    const id = req.params.id;
+    const {id} = req.params;
     let destro = await Article.destroy(
       {where:{id:id}})
       destro===1
