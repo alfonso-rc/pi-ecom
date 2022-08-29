@@ -20,7 +20,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
   width: "100%",
-  backgroundColor: "#6B4883"
+  
 
 }
 
@@ -33,7 +33,7 @@ export default function NavBar() {
 
   // <div style={ styleNavBar } className="bg-gradient-to-r from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
   return (
-    <div style={ styleNavBar } className="from-slate-400  to-slate-600 flex flex-row justify-between mr-3">
+    <div style={ styleNavBar } className="bg-white flex flex-row justify-between mr-3">
       <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="w-36 h-12" />
       <div className="">
       </div>
@@ -62,7 +62,7 @@ export default function NavBar() {
 
       <div className=" m-5">
         {/* BOTÓN PARA MOSTRAT EL CARRITO */ }
-        <button onClick={ () => dispatch(toggleCart()) } className="btn btn-outline text-white">{ <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <button onClick={ () => dispatch(toggleCart()) } className="btn btn-outline ">{ <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
         </svg> }</button>
       </div>
