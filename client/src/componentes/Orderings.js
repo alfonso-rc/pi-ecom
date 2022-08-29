@@ -28,8 +28,8 @@ export default function Orderings() {
   let dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState("");
-  console.log("article:", allArticle)
-  console.log("Marca:", brands)
+  // console.log("article:", allArticle)
+  // console.log("Marca:", brands)
 
 
   // useEffect(() => {
@@ -77,7 +77,7 @@ export default function Orderings() {
     var BrandMapArr = new Map(BrandMap); 
     let unicos = [...BrandMapArr.values()];
 
-    console.log (unicos);
+    // console.log (unicos);
 
 
 

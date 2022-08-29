@@ -3,21 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Log2 from "../imagenes/logo-ecom.png";
 import { Link } from 'react-router-dom';
-import {BiUserCircle} from "react-icons/bi"
 import {
   toggleCart,
 } from "../store/actions";
-import { useAuth0 } from '@auth0/auth0-react';
-import LoginAuth0 from './LoginComponents/loginAuth0';
-import LogOut from './LoginComponents/logOut';
 import Profile from './LoginComponents/Profile';
+import LogOut from './LoginComponents/logOut';
+import LoginAuth0 from './LoginComponents/loginAuth0';
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
 }
 
 export default function NavBarDetail() {
-  const { isAuthenticated } = useAuth0();
   let dispatch = useDispatch();
   return (
     <div style={ styleNavBar } className="bg-primary from-slate-400  to-slate-600 flex place-content-between mr-3 ">
@@ -37,4 +34,4 @@ export default function NavBarDetail() {
         </div>    
     </div>
   )
-}
+};
