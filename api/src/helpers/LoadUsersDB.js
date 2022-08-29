@@ -48,9 +48,9 @@ async function createDefaulUsers() {
    }
 
    usersToCreate.forEach(async user => {
-      await axios.post(URL_POST_CREATE_USERS, user)
+      await User.create(user)
          .then(e => console.log("Usuario", user.userName, "agregado"))
-         .catch(e => console.log(e))
+         .catch(e => console.log("Rating ya agregado"))
    })
 }
 

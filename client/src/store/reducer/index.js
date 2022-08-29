@@ -55,6 +55,8 @@ if (!cartStorage) {
 
 const initialState = {
   articles: [],
+  brand: [],
+  users: [],
   filteredArticle: [],
   categorys: [],
   comment: [],
@@ -63,7 +65,11 @@ const initialState = {
   isLoading: true,
   cart: cartStorage,
   rating: [],
+<<<<<<< HEAD
   user: {}
+=======
+  
+>>>>>>> 1e043fe309aa81100cafa65846904bc92ca02ed1
   // wishlist: wishlistStorage,
 };
 
@@ -79,6 +85,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         articles: action.payload,
+        brand: action.payload,
         filteredArticle: action.payload,
         isLoading: false
       }
@@ -113,6 +120,33 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: sortedPriceArr,
       };
+      case "ORDER_BY_BRAND": ///////////////////////////////////////////
+      /* let sortBrand =[...state.articles]
+      console.log (sortBrand)
+      sortBrand = sortBrand.sort((a, b) => {
+      if (a.title < b.title) {
+        return (action.payload === ASCENDENTE ? -1 : 1)
+      }
+      if (a.title > b.title) {
+        return (action.payload === ASCENDENTE ? 1 : -1)
+      }
+    })
+    return {
+      ...state,
+      articles: sortBrand,
+    } */
+    
+    case 'ORDER_BY_BRAND2'://///
+            const articleBrand = state.brand
+            const filterTemp = action.payload === 'All'
+            ?articleBrand
+            :articleBrand.filter(e => e.marca.includes(action.payload))
+            console.log(filterTemp)
+            return{
+                ...state,
+                articles:action.payload === 'All'? state.brand:filterTemp, 
+            };   
+
       case "ORDER_BY_RATING":
         let sortedRating =
           [...state.articles]
@@ -134,6 +168,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: action.payload
       }
+    case 'GET_BRAND'://aqui puede ir sin comillas
+     return { 
+        ...state,
+        brand: action.payload ,
+    }  
     case "GET_SMARTPHONES":
       console.log(action.payload)
       return {
@@ -159,6 +198,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "DELETE_ARTICLE":
+        return {
+          ...state,
+        };
+      case "DELETE_ARTICLE_LOGIC":
+          return {
+            ...state,
+          };
     case "GET_CATEGORY":
       return {
         ...state,
@@ -189,6 +236,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         user: action.payload
       };
+      case "GET_USER":
+        return {
+          ...state,
+          users: action.payload,
+        };     
 
     case "REMOVE_TO_CART":
       let filter = state.cart.filter((e) => e.id !== action.payload);

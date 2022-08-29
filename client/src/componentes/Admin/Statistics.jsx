@@ -1,37 +1,23 @@
 import React from "react";
 import SideBar from "./SideBar";
-import UserList from "../Admin/Pages/UserList";
+import StatisArticle from "../Admin/Pages/StatisArticle";
 import Logo from "../../../../client/src/ECOM-10_2.png";
-import NavBarAdmin from "../NavBarAdmin";
-import Footer from "../Footer";
 
-export default function Users({
-  id,
-  name,
-  lastName,
-  address,
-  mail,
-  userName,
-  password,
-  coins,
-  userType,
-}) {
+export default function Statistics() {
   return (
     <div className="m-0 p-0">
-      <NavBarAdmin/>
       <img
         className="mx-auto h-32 justify-center w-auto"
         src={Logo}
         alt="Workflow"
       />
-      <h1 className="font-sans">Users Admin</h1>
+      <h1 className="font-sans">Statistics Admin</h1>
       <div className="flex">
         <SideBar />
         <div className="overflow-scroll h-auto  w-4/5 m-8">
-          <UserList />
+          <StatisArticle />
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }
