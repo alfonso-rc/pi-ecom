@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import {
   toggleCart,
 } from "../store/actions";
+import Profile from './LoginComponents/Profile';
+import LogOut from './LoginComponents/logOut';
+import LoginAuth0 from './LoginComponents/loginAuth0';
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",

@@ -10,15 +10,10 @@ function LoginAuth0() {
     };
 
     return (
-        <div >            
+        <div className="m-5">            
             <button
-<<<<<<< HEAD
-                className="btn btn-outline my-5 text-white my-5"
+                className="btn btn-outline "
                 onClick={goLogin}
-=======
-                className="btn btn-outline my-5 "
-                onClick={() => loginWithRedirect()}
->>>>>>> 1e043fe309aa81100cafa65846904bc92ca02ed1
             >
                 <BiUserCircle size={30}/>
                 <span className="ml-2">LOG IN</span>
@@ -28,3 +23,5 @@ function LoginAuth0() {
 };
 
 export default LoginAuth0;
+
+// "btn btn-outline my-5 text-white my-5"

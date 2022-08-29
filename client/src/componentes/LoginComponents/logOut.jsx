@@ -11,9 +11,9 @@ function LogOut() {
     };
 
     return (
-        <div>
+        <div className="m-5">
             <button
-                className="btn btn-outline my-5 text-white "
+                className="btn btn-outline "
                 onClick={() => closeSession()}
             >
                 logout
