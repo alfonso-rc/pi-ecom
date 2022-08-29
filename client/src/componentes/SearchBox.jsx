@@ -42,7 +42,7 @@ export default function SearchBar() {
           value={ name }
           placeholder="Busqueda por nombre..."
         />
-        <button className="btn btn-outline "
+        <button className="btn btn-outline  text-white "
           onClick={ (e) => handleName(e) }
         >
           Search
