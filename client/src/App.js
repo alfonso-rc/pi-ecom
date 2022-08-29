@@ -7,8 +7,8 @@ import Example from "./componentes/Login";
 import NewUser from "./componentes/newUser";
 import CheckoutForm from "./componentes/buy";
 import AdminHome from "./componentes/Admin/Pages/AdminHome";
-import ArticleList from "./componentes/Admin/Pages/ArticleList"
-import UserList from "./componentes/Admin/Pages/UserList"
+import ArticleList from "./componentes/Admin/Article"
+import UserList from "./componentes/Admin/Users"
 import Offer from "./componentes/Admin/Pages/Offer";
 import NotFound from'./componentes/NotFound';
 

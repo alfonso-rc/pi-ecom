@@ -1,13 +1,11 @@
-import { useDispatch } from "react-redux";
-import { logOutUser } from "../../store/actions";
+import { useHistory } from "react-router-dom";
 
 function LogOut() {
-    const user = {};
-    const dispatch = useDispatch();
+    const history = useHistory();
 
-    function onSubmit(e) {
-        e.preventDefault();
-        dispatch(logOutUser(user));
+    function onSubmit() {
+        sessionStorage.clear();
+        history.push("/home");
     };
 
     return (

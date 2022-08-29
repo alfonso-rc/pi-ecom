@@ -56,6 +56,10 @@ export default function Home() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+  const theUser = useSelector((state) => state.user);
+  console.log(theUser);
+
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);
@@ -118,6 +122,7 @@ export default function Home() {
     setCurrentPage(1);
     // setOrder(e.target.value)
   }
+  
   // function resetCharacters(e) {
   //   e.preventDefault();
   //   dispatch(getArticles());

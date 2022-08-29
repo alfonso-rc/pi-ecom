@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 // import { XIcon } from '@heroicons/react/outline'
-import { toggleCart } from "../store/actions/index.js";
+// import { toggleCart } from "../store/actions/index.js";
 import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
 
@@ -26,12 +26,12 @@ export default function Example() {
   }, [cart]);
 
   const HandleClickComprar = () => {
-    const token = sessionStorage.getItem("token");
+    const { token } = sessionStorage;
     if (token) {
       history.push("/checkout");
       console.log("COMPRADISIMO BRO");
     } else {
-      history.push("/carlosarte.us.auth0.com/u/login?state=hKFo2SBuVFhOUDdiY0t3bDRNNkxKaERmMmJtNk1idVotZlloaaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIG1lR1k1akYybmItOWZLeG9jd0FnOVk3dW5tVTBLeFRIo2NpZNkgVjk2T2JJdUNOSURYajFPZjdNbFlEYmVxWGpSc3RQczQ");
+      history.push("/login");
     }
   };
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function Example() {
                         <button
                           href="#"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={(e) => HandleClickComprar(e)}>
+                          onClick={() => HandleClickComprar()}>
                         
                         
                           Checkout

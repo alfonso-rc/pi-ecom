@@ -14,7 +14,7 @@ const styleNavBar = {
 }
 
 export default function NavBar() {
-  const user = useSelector((state) => state.user);
+  //const user = useSelector((state) => state.user);
   let dispatch = useDispatch();
 
   return (
@@ -28,7 +28,7 @@ export default function NavBar() {
       <LogOut/>
 
       {        
-        user.mail ? <Profile/> : <LoginAuth0/>
+        sessionStorage.name ? <Profile/> : <LoginAuth0/>
       }
 
       <div className=" m-5">

@@ -21,6 +21,44 @@ const getAllToDB = (req, res, next) => {
   };
 };
 
+//GET Solo Visualiza TODOS LOS ARTICULOS ----> (disable: true && false)
+const getAllArticle = async (req, res, next) => {
+  try {
+    let apiDB = await Article.findAll({
+      include: {
+        model: Category,
+        attributes: ["name"],
+        through: { attributes: [] }
+      }
+    });
+  
+    const api2 = apiDB.map(el => {
+      return {
+        id: el.id,
+        title: el.title,
+        rating: el.rating,
+        detail: el.detail.detail,
+        marca: el.detail.marca,
+        modelo: el.detail.modelo,
+        so: el.detail.so,
+        cpu: el.detail.cpu,
+        ram: el.detail.ram,
+        color: el.detail.color,
+        pantalla: el.detail.pantalla,
+        image: el.image,
+        stock: el.stock,
+        disable: el.disable,
+        price: el.price,
+        conectividad: el.conectividad,
+        category: el.categories.name,
+      }
+    })
+    res.status(200).send(api2);
+  } catch (error) {
+    next(error)
+  }
+};
+
 
 //GET Solo Visualiza los que tenga disable=false
 const getArticle = async () => {
@@ -169,6 +207,7 @@ module.exports = {
   testFunction,
   createArticle,
   getArticle,
+  getAllArticle,
   detailArticle,
   getAticleByName,
   createArticleUserRating
