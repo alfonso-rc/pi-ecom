@@ -180,12 +180,12 @@ const getAticleByName = async (req, res, next) => {
 
 // CREATE ARTICLE USER RATING
 const createArticleUserRating = async (req, res, next) => {
-  const { idArticle, idUser, score } = req.body;
+  const { idArticle, score } = req.body;
   console.log(req.body)
   try {
     // Verificar si el idUser existe
-    const userFound = await User.findByPk(idUser)
-    if (!userFound) { res.status(404).send("El usuario no existe en la base de datos"); return }
+    // const userFound = await User.findByPk(idUser)
+    // if (!userFound) { res.status(404).send("El usuario no existe en la base de datos"); return }
 
     // Verificar si el artículo existe
     const articleFound = await Article.findByPk(idArticle)
@@ -194,7 +194,7 @@ const createArticleUserRating = async (req, res, next) => {
     // Verificar que el usuario no haya hecho ya un comentario a ese producto
     const ratingFound = await Rating.findOne({
       where: {
-        userId: idUser,
+        // userId: idUser,
         articleId: idArticle
       }
     })
@@ -205,7 +205,7 @@ const createArticleUserRating = async (req, res, next) => {
       // Creamos el rating
       const createdRating = await Rating.create({
         score: score,
-        userId: idUser,
+        // userId: idUser,
         articleId: idArticle
       })
 
