@@ -8,7 +8,7 @@ function LoginAuth0() {
     return (
         <div >            
             <button
-                className="btn btn-outline my-5 "
+                className="btn btn-outline my-5 text-white "
                 onClick={() => loginWithRedirect()}
             >
                 <BiUserCircle size={25}/>
