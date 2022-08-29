@@ -80,32 +80,38 @@ function CheckoutForm() {
       <div>
       <NavBarDetail/>
       </div>
-      <div >
-        <h3>Cantidad de articulos: {cart.length}</h3>
-        <div className="flex justify-center ">
-          {cart &&
-            cart.map((e) => {
-              return (
-                <CardCarrito
-                  key={e.id}
-                  id={e.id}
-                  title={e.title}
-                  image={e.image}
-                  price={e.price}
-                />
-              );
-            })}
+      
+      <div className="font-Work  text-black p-10">
+        <h3 className="text-xl pb-10 ">Cantidad de articulos: {cart.length}</h3>
+        <div className="flex flex-col md:grid" style={{gridTemplateColumns:"70% 30%"}}>
+          <div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
+            {cart &&
+              cart.map((e) => {
+                return (
+                  <CardCarrito
+                    key={e.id}
+                    id={e.id}
+                    title={e.title}
+                    image={e.image}
+                    price={e.price}
+                  />
+                );
+              })}
+          </div>
+          <div className="shadow-xl border-2 border-stone-200 rounded-md">
+            <p className="text-2xl font-normal pb-8 mb-8">Total: {precioTotal}.00</p>
+            <p className="flex pb-10 text-lg  px-4">Ingrese su tarjeta:</p>
+            <form onSubmit={handleSubmit}>
+              <div className="pb-8 mb-8  px-4">
+                <CardElement />
+              </div>
+              <button className="btn btn-outline btn-accent m-2" onClick={toastSucces}>Buy</button>
+            </form>
+            <ToastContainer/>
+          </div>
         </div>
-        <p>Total: {precioTotal}.00</p>
-        <form onSubmit={handleSubmit}>
-      <div className="mx-96">
-      <CardElement />
       </div>
-      <button className="btn btn-outline btn-accent m-2" onClick={toastSucces}>Buy</button>
-        </form>
-        <ToastContainer/>
-      </div>
-      <div className="mt-auto">
+      <div className="absolute bottom-0 w-full">
         <Footer/>
       </div>
     </div>
