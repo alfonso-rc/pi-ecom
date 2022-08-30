@@ -6,7 +6,7 @@ import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
 import { useDispatch } from "react-redux";
-import { addToCart,addComment, addRating } from "../store/actions";
+import { addToCart,addComment, addRating, getUsers } from "../store/actions";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading  from "../imagenes/loading2.gif"
@@ -22,7 +22,8 @@ export default function ArticleDetail() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [input,setInput]=useState({texto:''});
+  
+  
 
   function addCart(item) {
     dispatch(addToCart(item));
@@ -40,19 +41,7 @@ export default function ArticleDetail() {
   }
 
 
-  const HandleClickComment = (e) => {
-    e.preventDefault();
-    const token = sessionStorage.getItem("token");
-    if (token) {
-        dispatch(addComment(input))
-        alert('Comentario Agregado!')
-        setInput({
-          texto:''
-        })
-    } else {
-      toastErrors();
-    }
-  };
+ 
   
 
 
@@ -67,13 +56,17 @@ export default function ArticleDetail() {
       setStockCon(response.data.stock);
     });
   }, []);
+
+  const [input,setInput]=useState({texto:''});
+
+
   const HandleClickRating = (e, score) => {
     e.preventDefault();
     const token = sessionStorage.getItem("token");
     if (token) {
         dispatch(addRating({
     idArticle: article.id,
-    // idUser: "",
+     idUser: sessionStorage.getItem("id"),
     score: score
         }))
         alert('Rating Agregado!')
@@ -81,6 +74,41 @@ export default function ArticleDetail() {
       toastErrors();
     }
   };
+  // function HandleClickComment(e) {
+  //   e.preventDefault();
+  //   const token = sessionStorage.getItem("token");
+  //   if (token) {
+  //       dispatch(addComment(input))
+  //     setInput({
+  //       ...input,
+  //         idUser: sessionStorage.getItem("id"),
+  //         articleId: article.id,
+  //       [e.target.texto]: e.target.value,});
+  //       alert('Comentario Agregado!')
+  //     } else {
+  //       toastErrors();
+  //     }
+  //   }
+
+  const HandleClickComment = (e, texto) => {
+    e.preventDefault();
+    const token = sessionStorage.getItem("token");
+    if (token) {
+        dispatch(addComment({
+          texto: texto,
+          idUser: sessionStorage.getItem("id"),
+          articleId: article.id
+        }))
+        alert('Comentario Agregado!')
+    } else {
+      toastErrors();
+    }
+  };
+
+
+
+
+
   return (
     <div>
       <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
@@ -231,6 +259,7 @@ export default function ArticleDetail() {
               <textarea
                 class="textarea textarea-accent bg-white  w-5/6 ml-10"
                 placeholder="Add new comment"
+                name="texto"
               ></textarea>
               <button class="btn btn-outline btn-accent" type= "submit" onClick={(e)=>HandleClickComment(e)}>Post</button>
             </div>
