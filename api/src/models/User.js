@@ -28,7 +28,6 @@ module.exports = (sequelize) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
     },
     coins: {
       type: DataTypes.INTEGER,
@@ -37,6 +36,9 @@ module.exports = (sequelize) => {
     userType: {
       type: DataTypes.ENUM('1', '2'), // 1-> USUARIO NORMAL | 2-> ADMIN
       defaultValue: '1'
+    },
+    image: {
+      type: DataTypes.TEXT
     }
   }, {
     timestamps: false
