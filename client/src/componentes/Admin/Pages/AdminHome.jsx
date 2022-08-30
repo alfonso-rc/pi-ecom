@@ -8,15 +8,18 @@ export default function Admin() {
   return (
     <div className="m-0 p-0">
       <NavBarAdmin/>
-      <img
-        className="mx-auto h-32 justify-center w-auto"
-        src={Logo}
-        alt="Workflow"
-      />
-      <div className="flex">
-        <SideBar />
-        <div className="content"></div>
+      <div className="min-h-screen">
+        <img
+          className="mx-auto h-32 justify-center w-auto"
+          src={Logo}
+          alt="Workflow"
+        />
+        <div className="flex">
+          <SideBar />
+          <div className="content"></div>
+        </div>
       </div>
+      
       <Footer/>
     </div>
   );
