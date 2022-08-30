@@ -6,7 +6,7 @@ function LogOut() {
 
     const closeSession = async () => {
         sessionStorage.clear();
-        let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
+        // let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
         history.push("/home");
     };
 

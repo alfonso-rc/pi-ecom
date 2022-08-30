@@ -2,13 +2,14 @@ import imageDefault from '../../imagenes/userImage.png';
 
 function Profile() {
     let user = sessionStorage;
+    let image = user.image ? user.image : imageDefault;
     return (
         <div className="m-5">
             <div className="btn btn-outline ">
                 <div >
                     <img
                         className="rounded-full mr-3 w-9"
-                        src={user.image ? user.image : imageDefault} alt="user"
+                        src={image} alt="user"
                     />
                 </div>
                 <div>

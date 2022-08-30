@@ -64,7 +64,7 @@ export default function Home() {
 
 	const getGoogleUser = async () => {
 		try {
-			let response = (await axios.get("http://localhost:3001/google/User")).data;
+			let response = (await axios.get("http://localhost:3001/google/User")).data;      
       if (!response.error) {
         response = {
           name: response.given_name,
@@ -78,6 +78,7 @@ export default function Home() {
         for (const item in response) {
           sessionStorage.setItem(item, response[item]);
         }
+        await axios.get("http://localhost:3001/del/googleUser");
       }
 		} catch (err) {
 			console.log(err);
