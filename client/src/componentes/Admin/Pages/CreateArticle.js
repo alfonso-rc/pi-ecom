@@ -9,20 +9,20 @@ function validate(input) {
     if (!input.title) {
         errors.title = 'El objeto a vender necesita un nombre';
     }
-    if (!input.modelo) {
-        errors.modelo = 'El modelo a vender necesita un nombre';
-    }
-    if (!input.marca) {
-        errors.marca = 'La marca a vender necesita un nombre';
-    }
     else if (input.title.length > 30) {
         errors.title = 'Ese es un nombre demasiado largo.';
     }
     else if(!isNaN(Number(input.title))) {
         errors.title = 'El nombre debe tener letras';
     }
+    if (!input.marca) {
+        errors.marca = 'La marca a vender necesita un nombre';
+    }
     else if(!isNaN(Number(input.marca))) {
         errors.marca = 'La marca debe tener letras';
+    }
+    if (!input.modelo) {
+        errors.modelo = 'El modelo a vender necesita un nombre';
     }
     else if (isNaN(parseInt(input.price))) {
         errors.price = 'El precio debe ser un número';
@@ -49,26 +49,29 @@ function validate(input) {
       ) {
         errors.image = "Please insert a valid image URL";
       }
+      if (!input.conectivity) {
+        errors.modelo = 'El modelo a vender necesita un nombre';
+    }
 
     return errors;
 }
 
 export default function AddArticles() {
+
     const dispatch = useDispatch();
     const allCategory = useSelector((state) => state.categorys);
 
     const [errors, setErrors] = useState({});
-
     const [input, setInput] = useState({
         title: '',
         rating: '',
-        detail: '',
+        detail: {
+            detail: '',marca: '',modelo: '',so:'',ram:'',cpu:'',color:'',pantalla:''
+        },
         image: '',
         stock: '',
         price: '',
         conectivity: '',
-        marca: '',
-        modelo: '',
         category: [],
     });
 
@@ -117,22 +120,23 @@ function handleCheck(e) {
       });
     }
 }
+
     function handleSubmit(e) {
         e.preventDefault();
         // console.log(errors);
         if (!Object.getOwnPropertyNames(errors).length && input.title  && input.rating  && input.detail && input.price && input.modelo && input.marca && input.stock  && input.conectivity && input.image && input.category.length) {
             dispatch(postArticle(input));
-            alert('Breed creado con Exito');
+            alert('Articulo creado con Exito');
             setInput({
                 title: '',
                 rating: '',
-                detail: '',
+                detail: {
+                    detail: '',marca: '',modelo: '',so:'',ram:'',cpu:'',color:'',pantalla:''
+                },
                 image: '',
                 stock: '',
                 price: '',
                 conectivity: '',
-                marca: '',
-                modelo: '',
                 category: [],
             });
            
@@ -140,9 +144,6 @@ function handleCheck(e) {
             alert('Faltan datos para crear')
         }
     }
-
-
- 
 
     return (
         <div className='fondo'>
@@ -298,14 +299,14 @@ function handleCheck(e) {
 // id: el.id,
 // title: el.title,
 // rating: el.rating,
-// detail: el.detail.detail,
-// marca: el.detail.marca,
-// modelo: el.detail.modelo,
-// so: el.detail.so,
-// cpu: el.detail.cpu,
-// ram: el.detail.ram,
-// color: el.detail.color,
-// pantalla: el.detail.pantalla,
+    // detail: el.detail.detail,
+    // marca: el.detail.marca,
+    // modelo: el.detail.modelo,
+    // so: el.detail.so,
+    // cpu: el.detail.cpu,
+    // ram: el.detail.ram,
+    // color: el.detail.color,
+    // pantalla: el.detail.pantalla,
 // image: el.image,
 // stock: el.stock,
 // disable: el.disable,
