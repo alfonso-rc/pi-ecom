@@ -2,7 +2,7 @@ import imageDefault from '../../imagenes/userImage.png';
 
 function Profile() {
     let user = sessionStorage;
-    let image = user.image ? user.image : imageDefault;
+    let image = !!user.image ? user.image : imageDefault;
     return (
         <div className="m-5">
             <div className="btn btn-outline ">

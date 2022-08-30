@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 function LogOut() {
@@ -6,7 +5,6 @@ function LogOut() {
 
     const closeSession = async () => {
         sessionStorage.clear();
-        // let response = (await axios.get("http://localhost:3001/del/googleUser")).data;
         history.push("/home");
     };
 
