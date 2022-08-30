@@ -3,7 +3,7 @@ import Log2 from "../imagenes/logo-ecom.png";
 
 export default function Footer() {
     return(
-        <div>
+        <div >
             <footer class="footer bg-base-200 text-base-content flex flex-row flex-wrap items-center justify-around py-4">
                 <div>
                 <img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" />

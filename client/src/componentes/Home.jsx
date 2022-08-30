@@ -40,7 +40,6 @@ const stylesCategoriesContainer = {
   flexDirection: "row",
   justifyContent: "space-evenly",
   padding: "0 1rem"
-
 };
 
 const styleButtonCategory = {
@@ -188,8 +187,8 @@ export default function Home() {
       {/* COMPONENTE PARA FILTRAR POR CATEGORÍAS */ }
       <div
         style={ stylesCategoriesContainer }
-        className="App grid grid-cols-2 sm:grid-cols-4 gap-10 w-4/4 mx-auto mt-20"
-      >
+        className="mt-20"
+      > 
         <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
           <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
           <span style={ styleButtonTextCategory }>Smartphones</span>
@@ -208,11 +207,8 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-
-
-        <div className="flex fixed z-10 pl-2 mr-2 pt-6">
-          <SideBar />
-        </div>
+      <SideBar/>
+      
 
 
         {/* <div className="fixed z-10 pl-4 mr-2 pt-6">

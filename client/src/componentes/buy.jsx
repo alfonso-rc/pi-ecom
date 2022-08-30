@@ -76,14 +76,13 @@ function CheckoutForm() {
   };
 
   return (
-    <div className="bg-white">
+    <div>
       <div>
-      <NavBarDetail/>
+        <NavBarDetail/>
       </div>
-      
-      <div className="font-Work  text-black p-10">
+      <div className="font-Work  text-black p-6 min-h-screen">
         <h3 className="text-xl pb-10 ">Cantidad de articulos: {cart.length}</h3>
-        <div className="flex flex-col md:grid" style={{gridTemplateColumns:"70% 30%"}}>
+        <div className="flex flex-col md:grid" style={{gridTemplateColumns:"65% 35%"}}>
           <div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
             {cart &&
               cart.map((e) => {
@@ -98,7 +97,7 @@ function CheckoutForm() {
                 );
               })}
           </div>
-          <div className="shadow-xl border-2 border-stone-200 rounded-md">
+          <div className="shadow-xl border-2 border-stone-200 rounded-md mt-10">
             <p className="text-2xl font-normal pb-8 mb-8">Total: {precioTotal}.00</p>
             <p className="flex pb-10 text-lg  px-4">Ingrese su tarjeta:</p>
             <form onSubmit={handleSubmit}>
@@ -111,9 +110,9 @@ function CheckoutForm() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full">
+      
         <Footer/>
-      </div>
+      
     </div>
   );
 }
