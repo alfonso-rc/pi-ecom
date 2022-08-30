@@ -5,7 +5,7 @@ function Profile() {
     let image = !!user.image ? user.image : imageDefault;
     return (
         <div className="m-5">
-            <div className="btn btn-outline ">
+            <div className="btn btn-outline text-white">
                 <div >
                     <img
                         className="rounded-full mr-3 w-9"

@@ -8,16 +8,18 @@ export default function Offer() {
   return (
     <div className="m-0 p-0">
       <NavBarAdmin/>
-      <img
-        className="mx-auto h-32 justify-center w-auto"
-        src={Logo}
-        alt="Workflow"
-      />
-      <h1 className="font-sans">Offer Admin</h1>
-      <div className="flex">
-        <SideBar />
-        <div className="content">
-          <p>ACA ESTAN LAS OFERTAS</p>
+      <div className="min-h-screen">
+          <img
+          className="mx-auto h-32 justify-center w-auto"
+          src={Logo}
+          alt="Workflow"
+        />
+        <h1 className="font-sans">Offer Admin</h1>
+        <div className="flex">
+          <SideBar />
+          <div className="content">
+            <p>ACA ESTAN LAS OFERTAS</p>
+          </div>
         </div>
       </div>
       <Footer/>
