@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import { toggleCart } from "../store/actions/index.js";
 import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Example() {
   const showCart = useSelector((state) => state.showCart);
@@ -17,6 +17,7 @@ export default function Example() {
   const [totalPrecio, settotalPrecio] = useState(0);
   const [totalItems, settotalItems] = useState([]);
   const { cart } = useSelector((state) => state);
+
   useEffect(() => {
     if (cart) {
       cart &&
@@ -39,6 +40,7 @@ export default function Example() {
     });
   }
 
+
   const HandleClickComprar = () => {
     const { token } = sessionStorage;
     if (token) {
@@ -46,7 +48,7 @@ export default function Example() {
       console.log("COMPRADISIMO BRO");
     } else {
       history.push("/login");
-      toastErrors()
+      toastErrors();
     }
   };
   useEffect(() => {
@@ -60,6 +62,13 @@ export default function Example() {
   for (let i = 0; i < cart.length; i++) {
     // console.log(cart[i].price);
     totalPrice = totalPrice + cart[i].price;
+  }
+
+  function buttonDisabled() {
+    if (cart.length === 0) {
+      return true;
+    }
+    return false;
   }
 
   return (
@@ -145,12 +154,12 @@ export default function Example() {
                       <div className="mt-6">
                         <button
                           href="#"
+                          disabled={buttonDisabled()}
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={() => HandleClickComprar()}>
-                        
-                        
+                          onClick={() => HandleClickComprar()}
+                        >
                           Checkout
-                          </button>
+                        </button>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
