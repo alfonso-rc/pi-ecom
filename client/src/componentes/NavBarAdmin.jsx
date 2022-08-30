@@ -10,12 +10,13 @@ import Profile from './LoginComponents/Profile';
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
+  width: "100%",
 }
 
 export default function NavBarAdmin() {
   return (
-    <div style={ styleNavBar } className="bg-primary from-slate-400  to-slate-600 flex place-content-between mr-3 w-screen">
-        <Link to="/home" className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-46 h-16" /></Link>
+    <div style={ styleNavBar } className="bg-primary flex place-content-between mr-3 w-screen">
+        <Link to="/home" className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-36 h-12" /></Link>
         <div className='flex place-content-end gap-6 mr-14'>
           <LogOut/>
           {        

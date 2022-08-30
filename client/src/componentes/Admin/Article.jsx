@@ -26,13 +26,10 @@ export default function Article({ id, title, modelo, stock, price }) {
       <Link to="/create">
         <button class="btn btn-outline btn-accent">Add Article</button>
       </Link>
-      <button
-        class="btn btn-outline btn-accent"
-        // onClick={(e) => handleAddArticle(e)}
-      >
-        Add Article
-      </button>
-      <Footer/>
+      <div className="pt-16">
+        <Footer/>
+      </div>
+      
     </div>
   );
 }
