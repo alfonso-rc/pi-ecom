@@ -14,7 +14,7 @@ async function validateUser(mail, password) {
         const tokenGenerated = generateToken(user.id);
         delete user.dataValues.password;
         user.dataValues.token = tokenGenerated;
-
+        console.log(user);
         return user;
     }    
 };

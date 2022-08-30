@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Session } = require("../db.js");
+const createGoogleUser = require("../Controllers/auxUserLogin/createGoogleUser.js");
 
 const loginRouter = Router();
 
@@ -7,7 +7,9 @@ const loginRouter = Router();
 // loginRouter.get("/google/callback", (req, res) => res.send(req.user));
 
 loginRouter.get("/google/callback", async (req, res) => {
-    await Session.create({ user: req.user._json});
+
+    await createGoogleUser(req.user._json);
+
     res.redirect("http://localhost:3000/home");
 });
 
