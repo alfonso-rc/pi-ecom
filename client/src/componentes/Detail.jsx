@@ -72,8 +72,8 @@ export default function ArticleDetail() {
     const token = sessionStorage.getItem("token");
     if (token) {
         dispatch(addRating({
-    idArticle : article.id,
-    idUser : token,
+    idArticle: article.id,
+    // idUser: "",
     score: score
         }))
         alert('Rating Agregado!')
