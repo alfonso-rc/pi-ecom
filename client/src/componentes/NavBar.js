@@ -27,7 +27,6 @@ export default function NavBar() {
         <SearchBar />
       </div>
 
-      <LogOut/>
       {        
         sessionStorage.name ? <Profile/> : <LoginAuth0/>
       }

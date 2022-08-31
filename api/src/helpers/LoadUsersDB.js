@@ -1,4 +1,4 @@
-
+const { bcrypt } = require("../Controllers/auxUserLogin/bcrypt");
 const { User } = require('../db');
 const axios = require('axios')
 const { createUser } = require('../db')
@@ -36,7 +36,7 @@ const usersToCreate = [
       "mail": "admin@gmail.com",
       "userName": "admin",
       "password": "admin",
-      "userType": "2"
+      "userType": "3"
    }
 ]
 
@@ -48,6 +48,7 @@ async function createDefaulUsers() {
    }
 
    usersToCreate.forEach(async user => {
+      user.password = bcrypt(user.password);
       await User.create(user)
          .then(e => console.log("Usuario", user.userName, "agregado"))
          .catch(e => console.log("Rating ya agregado"))

@@ -26,7 +26,10 @@ export default function Article({ id, title, detail, marca, modelo, ram, so, col
       <Link to="/admin/articulos/create">
         <button class="btn btn-outline btn-accent">Add Article</button>
       </Link>
-      <Footer/>
+      <div className="pt-16">
+        <Footer/>
+      </div>
+      
     </div>
   );
 }

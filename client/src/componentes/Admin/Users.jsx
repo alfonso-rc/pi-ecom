@@ -19,16 +19,18 @@ export default function Users({
   return (
     <div className="m-0 p-0">
       <NavBarAdmin/>
-      <img
-        className="mx-auto h-32 justify-center w-auto"
-        src={Logo}
-        alt="Workflow"
-      />
-      <h1 className="font-sans">Users Admin</h1>
-      <div className="flex">
-        <SideBar />
-        <div className="overflow-scroll h-auto  w-4/5 m-8">
-          <UserList />
+      <div className="min-h-screen">
+          <img
+          className="mx-auto h-32 justify-center w-auto"
+          src={Logo}
+          alt="Workflow"
+        />
+        <h1 className="font-sans">Users Admin</h1>
+        <div className="flex">
+          <SideBar />
+          <div className="overflow-scroll h-auto  w-4/5 m-8">
+            <UserList />
+          </div>
         </div>
       </div>
       <Footer/>
