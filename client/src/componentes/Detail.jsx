@@ -124,7 +124,7 @@ export default function ArticleDetail() {
       <div>
         <button className="btn btn-circle btn-outline"></button>
       </div>
-      <div className="font-Work text-xl md:text-1xl bg-white text-black pt-40">
+      <div className="font-Work text-lg md:text-xl bg-white text-black pt-40">
         { article ? (
           <div>
             <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
@@ -137,7 +137,7 @@ export default function ArticleDetail() {
               </div>
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
-                  <h3 className="font-bold text-4xl">{ article.title }</h3>
+                  <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
@@ -193,10 +193,10 @@ export default function ArticleDetail() {
             <br />
             <br />
             <div className="mx-8 text-start lg:px-20">
-              <h1 className="mt-14 font-bold text-4xl">Descripcion</h1>
+              <h1 className="mt-14 font-bold text-2xl md:text-4xl">Descripcion</h1>
               <br />
               <p>{ article.detail.detail }</p>
-              <h1 className="mt-14 font-bold text-4xl">Especificaciones</h1>
+              <h1 className="mt-14 font-bold text-2xl md:text-4xl">Especificaciones</h1>
               <br />
               <div className="grid grid-cols-2">
                 <h1 className="font-bold mt-2">Marca:</h1>
