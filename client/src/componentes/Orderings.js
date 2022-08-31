@@ -72,20 +72,20 @@ export default function Orderings() {
   }
 
     let BrandMap = brands.map(el=>{
-    return [el.marca,el]
-    });
+    return [el.marca,el]});
     var BrandMapArr = new Map(BrandMap); 
     let unicos = [...BrandMapArr.values()];
-
-    // console.log (unicos);
-
-
 
   return (
     <div >
       <div className="flex flex-col">
+<<<<<<< HEAD
+        <div>            
+          <select className="btn btn-primary btn-sm md:btn-md m-2 no-animation" onChange={e => handleBrand2(e)}>  
+=======
       <div>            
           <select className="btn btn-primary btn-sm m-2 no-animation" onChange={e => handleBrand2(e)}>  
+>>>>>>> 2468b4bee7f3e88b34724f99f2aa45d85ae16c8f
             <option value="All">Todas las Marcas</option>     
               { 
                 unicos.map((brand)=>(
@@ -93,7 +93,25 @@ export default function Orderings() {
               ))
               }                  
           </select> 
+         </div>  
+        <div class="toggleWrapper">
+          <label class="switch">
+          <input type="checkbox"/>
+          <span class="slider"></span>
+          </label>
+        </div>  
+
       </div> 
+<<<<<<< HEAD
+      <div>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
+        <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-5">Por defecto</button>
+=======
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
@@ -101,11 +119,9 @@ export default function Orderings() {
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
         <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-3">Por defecto</button>
+>>>>>>> 2468b4bee7f3e88b34724f99f2aa45d85ae16c8f
       </div>
         
-       
     </div>
   );
 }
-
-
