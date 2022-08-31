@@ -99,7 +99,9 @@ export default function ArticleDetail() {
         idUser: sessionStorage.getItem("id"),
         articleId: article.id
       }))
-      alert('Comentario Agregado!')
+      // Solo podemos decir que el comentario fue agregado si la respuesta es 200 (OK) por parte de la api
+      // 
+      // alert('Comentario Agregado!') 
     } else {
       toastErrors();
     }
@@ -120,7 +122,7 @@ export default function ArticleDetail() {
         <Carrito />
       </div>
       <div>
-        <button class="btn btn-circle btn-outline"></button>
+        <button className="btn btn-circle btn-outline"></button>
       </div>
       <div className="font-Work text-xl md:text-1xl bg-white text-black pt-40">
         { article ? (
@@ -177,11 +179,11 @@ export default function ArticleDetail() {
                 </div>
                 <div className="rating rating-lg rating-half">
                   <input type="radio" name="rating-7" className="rating-hidden" />
-                  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
-                  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" value={ 2 } onClick={ (e) => HandleClickRating(e, 2) } />
-                  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
-                  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
-                  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 2 } onClick={ (e) => HandleClickRating(e, 2) } />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
                 </div>
                 <ToastContainer />
               </div>
@@ -228,19 +230,19 @@ export default function ArticleDetail() {
             <br />
             <div
               tabIndex="0"
-              class="collapse collapse-plus bg-accent rounded-box "
+              className="collapse collapse-plus bg-accent rounded-box "
             >
               <div className="">
-                <div class="collapse-title text-white text-xl font-medium">
+                <div className="collapse-title text-white text-xl font-medium">
                   <h1>Comentarios</h1>
                 </div>
-                <div class="collapse-content bg-white border-4">
+                <div className="collapse-content bg-white border-4">
                   {
 
                     article.comments.length > 0 ? (
                       article.comments.map((comm) => {
                         return (
-                          <div className="flex flex-row justify-between">
+                          <div key={ comm } className="flex flex-row justify-between">
                             <p className="mt-8 border-b-4">{ comm.texto }</p>
                             <p className="mt-8 border-b-4">{ comm.user.userName }</p>
                           </div>
@@ -262,11 +264,11 @@ export default function ArticleDetail() {
             <div className="flex flex-row">
               <textarea
                 onChange={ (e) => handleTextInputComment(e) }
-                class="textarea textarea-accent bg-white  w-5/6 ml-10"
+                className="textarea textarea-accent bg-white  w-5/6 ml-10"
                 placeholder="Add new comment"
                 name="texto"
               ></textarea>
-              <button class="btn btn-outline btn-accent" type="submit" onClick={ (e) => HandleClickComment(e) }>Post</button>
+              <button className="btn btn-outline btn-accent" type="submit" onClick={ (e) => HandleClickComment(e) }>Post</button>
             </div>
           </div>
         ) : (
