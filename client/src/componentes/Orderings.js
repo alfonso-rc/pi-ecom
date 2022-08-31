@@ -72,19 +72,14 @@ export default function Orderings() {
   }
 
     let BrandMap = brands.map(el=>{
-    return [el.marca,el]
-    });
+    return [el.marca,el]});
     var BrandMapArr = new Map(BrandMap); 
     let unicos = [...BrandMapArr.values()];
-
-    // console.log (unicos);
-
-
 
   return (
     <div >
       <div className="flex flex-col">
-      <div>            
+        <div>            
           <select className="btn btn-primary btn-sm md:btn-md m-2 no-animation" onChange={e => handleBrand2(e)}>  
             <option value="All">Todas las Marcas</option>     
               { 
@@ -93,16 +88,16 @@ export default function Orderings() {
               ))
               }                  
           </select> 
-<<<<<<< HEAD
-      </div>  
-      <div class="toggleWrapper">
-      <label class="switch">
-      <input type="checkbox"/>
-      <span class="slider"></span>
-      </label>
-      </div>  
-=======
+         </div>  
+        <div class="toggleWrapper">
+          <label class="switch">
+          <input type="checkbox"/>
+          <span class="slider"></span>
+          </label>
+        </div>  
+
       </div> 
+      <div>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
@@ -112,8 +107,6 @@ export default function Orderings() {
         <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-5">Por defecto</button>
       </div>
         
-       
->>>>>>> d6490c53af59d0b4df4dbbee69a17a8209db5dc1
     </div>
   );
 }
