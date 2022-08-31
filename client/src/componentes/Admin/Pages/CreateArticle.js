@@ -1,315 +1,353 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { postArticle, getCategory } from "../../../store/actions/index";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { postArticle, getCategory } from "../../../store/actions/index";
 
+function validate(e) {
+  const pattern = new RegExp("^[A-Z]+$", "i");
+  const soloNum = new RegExp("/^[0-9]+$/");
 
-function validate(input) {
-    let errors = {};
-    if (!input.title) {
-        errors.title = 'El objeto a vender necesita un nombre';
-    }
-    else if (input.title.length > 30) {
-        errors.title = 'Ese es un nombre demasiado largo.';
-    }
-    else if(!isNaN(Number(input.title))) {
-        errors.title = 'El nombre debe tener letras';
-    }
-    if (!input.marca) {
-        errors.marca = 'La marca a vender necesita un nombre';
-    }
-    else if(!isNaN(Number(input.marca))) {
-        errors.marca = 'La marca debe tener letras';
-    }
-    if (!input.modelo) {
-        errors.modelo = 'El modelo a vender necesita un nombre';
-    }
-    else if (isNaN(parseInt(input.price))) {
-        errors.price = 'El precio debe ser un número';
-    }
-    else if (input.price <= 0) {
-        errors.price = 'La precio no puede ser menor a 0';
-    }
-    else if (!input.stock) {
-        errors.stock = 'Falta completar el stock';
-    }
-    else if (isNaN(parseInt(input.stock))) {
-        errors.stock = 'El stock disponible debe ser un número';
-    }
-    else if (input.stock <= 0) {
-        errors.stock = 'El stock no puede ser menor a 0';
-    }
-    else if (!input.category.length ) {
-      errors.category = "Es requerido al menos una categoria";
-    }
-    else if (!input.image) {
-        errors.image = "Please insert internet image URL";
-    } else if (
-        !/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|)/.test(input.image)
-      ) {
-        errors.image = "Please insert a valid image URL";
-      }
-      if (!input.conectivity) {
-        errors.modelo = 'El modelo a vender necesita un nombre';
-    }
-
-    return errors;
+  const urlImg = (url) => {
+    return /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
+  };
+  let errors = {};
+  //--------Title ----------------
+  if (!e.title) {
+    errors.title = "Se requiere un nombre";
+  }
+  //--------------Numbers Rating----------------
+  if (e.rating < 0 || e.rating > 5) {
+    errors.rating = "El rango debe ser entre 0 y 200";
+  }
+  //--------------Detail----------------
+  if (!e.detail) {
+    errors.detail = "Ingrese un detalle del articulo";
+  }
+  //--------------Marca----------------
+  if (!e.marca) {
+    errors.marca = "Ingrese la marca del articulo";
+  }
+  //--------------Modelo----------------
+  if (!e.modelo) {
+    errors.modelo = "Ingrese un modelo del articulo";
+  }
+  //--------------Image----------------
+  if (!e.image) {
+    errors.image = "Ingrese un image del articulo";
+  }
+  //------------Stock---------------------
+  if (!e.stock) {
+    errors.stock = "Ingrese el stock del articulo";
+  } else if (e.stock < 0 || e.stock > 100) {
+    errors.stock = "El stock debe ser entre 0 y 200";
+  }
+  //--------------Price----------------
+  if (!e.price) {
+    errors.price = "Ingrese el precio del articulo";
+  } else if (e.stock < 0) {
+    errors.price = "El Articulo debe tener un precio mayor a $0";
+  }
+  //--------------Conectivity---------------
+  if (!e.conectividad) {
+    errors.conectividad = "Ingrese un conectividad del articulo";
+  }
+  return errors;
 }
 
-export default function AddArticles() {
+export default function CreateArticle() {
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState({});
+  const history = useHistory();
+  const category = useSelector((state) => state.category);
 
-    const dispatch = useDispatch();
-    const allCategory = useSelector((state) => state.categorys);
+  const [input, setInput] = useState({
+    title: "",
+    rating: "",
+    detail: "",
+    marca: "",
+    modelo: "",
+    so: "",
+    ram: "",
+    cpu: "",
+    color: "",
+    pantalla: "",
+    image: "",
+    stock: "",
+    price: "",
+    conectividad: "",
+    category: "",
+  });
 
-    const [errors, setErrors] = useState({});
-    const [input, setInput] = useState({
-        title: '',
-        rating: '',
-        detail: {
-            detail: '',marca: '',modelo: '',so:'',ram:'',cpu:'',color:'',pantalla:''
-        },
-        image: '',
-        stock: '',
-        price: '',
-        conectivity: '',
-        category: [],
+  function handleChange(e) {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
     });
+  }
 
-    useEffect(() => {
-        dispatch(getCategory ());
-    },[dispatch]);
-
-    function handleChange(e) {
-        setInput({
-            ...input,
-            [e.target.title]: e.target.value,
-        });
-        // Esta función hace lo siguiente:
-        // Cada vez que modifique o agregue algo, a mi estado input, además de lo que tiene, le agrega
-        // el value de lo que se esté modificando. La idea es que a medida que vaya llenando los inputs
-        // del formulario, me vaya modificando el estado inicial, que tiene todas las propiedades vacías.
-
-        setErrors(validate({
-            ...input,
-            [e.target.title]: e.target.value,
-        }));
-    }
-    function handleCheckDif(e) {
-        e.preventDefault();
-        setInput({
-          ...input,
-          category: e.target.value,
-        });
-    }
-
-function handleCheck(e) {
+  function handleCheck(e) {
+    console.log("target", e.target.value);
     if (e.target.checked) {
       setInput({
         ...input,
-        category: [...input.category, e.target.value],
+        type: [...input.type, e.target.value],
       });
-    } else if (e.target.title === "category") {
-      setInput({
-        ...input,
-        category: e.target.value,
-      });
+      setErrors(
+        validate({
+          ...input,
+          type: [...input.type, e.target.value],
+        })
+      );
     } else {
       setInput({
         ...input,
-        category: input.category?.filter((s) => s !== e.target.value),
+        type: input.type.filter((t) => t !== e.target.value),
       });
+      setErrors(
+        validate({
+          ...input,
+          type: input.type.filter((t) => t !== e.target.value),
+        })
+      );
     }
-}
+  }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        // console.log(errors);
-        if (!Object.getOwnPropertyNames(errors).length && input.title  && input.rating  && input.detail && input.price && input.modelo && input.marca && input.stock  && input.conectivity && input.image && input.category.length) {
-            dispatch(postArticle(input));
-            alert('Articulo creado con Exito');
-            setInput({
-                title: '',
-                rating: '',
-                detail: {
-                    detail: '',marca: '',modelo: '',so:'',ram:'',cpu:'',color:'',pantalla:''
-                },
-                image: '',
-                stock: '',
-                price: '',
-                conectivity: '',
-                category: [],
-            });
-           
-        } else {
-            alert('Faltan datos para crear')
-        }
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(input);
+    dispatch(postArticle(input));
+    alert("Articulo Creado!");
+    setInput({
+      title: "",
+      rating: "",
+      detail: "",
+      marca: "",
+      modelo: "",
+      so: "",
+      ram: "",
+      cpu: "",
+      color: "",
+      pantalla: "",
+      image: "",
+      stock: "",
+      price: "",
+      conectividad: "",
+      category: "",
+    });
+    history.push("/admin/articulos");
+  }
 
-    return (
-        <div className='fondo'>
-           
-            <h1 className='title-create'> Añadir un nuevo producto </h1>
-            <br/>
-            <div className="containerCv">
-            <form onSubmit={e => handleSubmit(e)}>
-                <div>
-                    <label><strong >titulo: </strong></label>
-                    <input type='text' value={input.title} name='title' onChange={e => handleChange(e)} />
-                    {errors.title && (
-                        <p ><strong>{errors.title}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >Rating: </strong></label>
-                    <input type='text' value={input.rating} name='rating' onChange={e => handleChange(e)} />
-                    {errors.ranting && (
-                        <p ><strong>{errors.ranting}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >Detail: </strong></label>
-                    <input type='text' value={input.detail.detail} name='detail' onChange={e => handleChange(e)} />
-                    {errors.detail && (
-                        <p ><strong>{errors.detail}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Marca: </strong></label>
-                    <input type='text' value={input.detail.marca} name='marca' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.marca && (
-                        <p className='error'><strong>{errors.marca}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Modelo: </strong></label>
-                    <input type='text' value={input.detail.modelo} name='modelo' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.modelo && (
-                        <p className='error'><strong>{errors.modelo}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>SO: </strong></label>
-                    <input type='text' value={input.detail.so} name='so' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.so && (
-                        <p className='error'><strong>{errors.so}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Ram: </strong></label>
-                    <input type='text' value={input.detail.modelo} name='modelo' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.modelo && (
-                        <p className='error'><strong>{errors.modelo}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Color: </strong></label>
-                    <input type='text' value={input.detail.color} name='color' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.color && (
-                        <p className='error'><strong>{errors.color}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Pantalla: </strong></label>
-                    <input type='text' value={input.detail.pantalla} name='modelo' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.pantalla && (
-                        <p className='error'><strong>{errors.pantalla}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >stock: </strong></label>
-                    <input type='text' value={input.weightMax} name='weightMax' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.weightMax && (
-                        <p className='error'><strong>{errors.stock}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong >Image: </strong></label>
-                    <input type='text' value={input.image} name='image' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.image && (
-                        <p className='error'><strong>{errors.image}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Precio: </strong></label>
-                    <input type='text' value={input.price} name='price' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.price && (
-                        <p><strong>{errors.price}</strong></p>
-                    )}
-                </div>
-                <div>
-                    <label><strong>Conectividad: </strong></label>
-                    <input type='text' value={input.conectividad} name='conectividad' onChange={e => handleChange(e)} />
-                    <label><strong></strong></label>
-                    {errors.conectividad && (
-                        <p><strong>{errors.conectividad}</strong></p>
-                    )}
-                </div>
-<div>
-            <label>categoria: </label>
-            <select  onChange={(e) => handleCheckDif(e)}>
-                
-            <option   value={0} >
-                Seleccionar Dificultad
-              </option>
-              <option value={1} onChange={(e) => handleCheckDif(e)}>
-                smartphone
-              </option>
-              <option value={2} onChange={(e) => handleCheckDif(e)}>
-                notebooks
-              </option>
-              <option value={3} onChange={(e) => handleCheckDif(e)}>
-                tablets
-              </option>
-              <option value={4} onChange={(e) => handleCheckDif(e)}>
-                accesories
-              </option>
-              
-            </select>
-            {errors.category}
+  useEffect(() => {
+    dispatch(getCategory());
+  }, []);
+
+  return (
+    <div className="bg-slate-500 ">
+      <div className="">
+        <form onSubmit={(e) => handleSubmit(e)} className="bg-lime-500">
+          <h1 className="">Create a Article</h1>
+          <div className="bg-sky-500 flex flex-row">
+            <label className="">Categorias: </label>
+            <label>
+              Smartphone
+              <input
+                type="checkbox"
+                name="smartphones"
+                value="smartphones"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+            <label>
+              Notebooks
+              <input
+                type="checkbox"
+                name="notebooks"
+                value="notebooks"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+            <label>
+              Tablets
+              <input
+                type="checkbox"
+                name="tablets"
+                value="tablets"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+            <label>
+              Accesories
+              <input
+                type="checkbox"
+                name="accesories"
+                value="accesories"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
           </div>
-                <div>
-                    <label><strong>Imagen: </strong></label>
-                    <input type='text' value={input.image} name='image' onChange={e => handleChange(e)} />
-                    {errors.image && (
-                        <p className='error'><strong>{errors.image}</strong></p>
-                    )}
+          <div className="bg-amber-500 flex flex-row justify-evenly">
+            <div className="bg-violet-500 flex flex-col justify-evenly">
+              <div className="bg-red-500 m-4">
+                {/* Datos Grales del Articulo */}
+                <div className="m-2">
+                  <label className="">Title: </label>
+                  <input
+                    type="text"
+                    value={input.title}
+                    name="title"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.title && <p className="">{errors.title}</p>} */}
                 </div>
-               
-                {/* crear el botton de dog y enviar al home */}
-                {/* <button type='submit' className='boop' ><strong>Crear<IoPaw/></strong></button> */}
-               <button type='submit' ><strong>Crear</strong></button>
-               {/* button de salida */}
-                 <Link to='/home'><button ><strong>Volver</strong></button></Link>
-               {/* <Link to='/home'><button className='buttonHome'>Home <GiDogHouse /></button></Link> */}
-            </form>
+                <div className="m-2 flex justify-end">
+                  <label className="">Rating: </label>
+                  <input
+                    type="number"
+                    value={input.rating}
+                    name="rating"
+                    min={0}
+                    max={5}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.rating && <p className="">{errors.rating}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Marca: </label>
+                  <input
+                    type="text"
+                    value={input.marca}
+                    name="marca"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.modelo && <p className="">{errors.modelo}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Modelo: </label>
+                  <input
+                    type="text"
+                    value={input.modelo}
+                    name="modelo"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.modelo && <p className="">{errors.modelo}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Detail: </label>
+                  <input
+                    type="text"
+                    value={input.detail}
+                    name="detail"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.detail && <p className="">{errors.detail}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Price: </label>
+                  <input
+                    type="number"
+                    value={input.price}
+                    name="price"
+                    min={0}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.price && <p className="">{errors.price}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Stock: </label>
+                  <input
+                    type="number"
+                    value={input.stock}
+                    name="stock"
+                    min={0}
+                    max={200}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.stock && <p className="">{errors.stock}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Image: </label>
+                  <input
+                    type="text"
+                    value={input.image}
+                    name="image"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.image && <p className="">{errors.image}</p>} */}
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Conectivity: </label>
+                  <input
+                    type="text"
+                    value={input.conectividad}
+                    name="conectividad"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {/* {errors.conectividad && <p className="">{errors.conectividad}</p>} */}
+                </div>
+              </div>
+              <div className="bg-orange-500 m-4">
+                {/* Datos Opcionales segun categoria */}
+                <div className="m-2 flex justify-end">
+                  <label className="">Sistema Operativo: </label>
+                  <input
+                    type="text"
+                    value={input.so}
+                    name="so"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">RAM: </label>
+                  <input
+                    type="text"
+                    value={input.ram}
+                    name="ram"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">CPU: </label>
+                  <input
+                    type="text"
+                    value={input.cpu}
+                    name="cpu"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Color: </label>
+                  <input
+                    type="text"
+                    value={input.color}
+                    name="color"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="m-2 flex justify-end">
+                  <label className="">Pantalla: </label>
+                  <input
+                    type="text"
+                    value={input.pantalla}
+                    name="pantalla"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+              </div>
             </div>
-        </div>
-    )
+              <div className="bg-green-500">
+              <div className="h-96 w-96 rounded-3xl bg-slate-700"></div>
+              </div>
+          </div>
+          <div className="">
+            <button type="submit" className="btn btn-outline btn-accent m-4">
+              Create
+            </button>
+            <Link to="/admin/articulos" className="">
+              <button className="btn btn-outline btn-accent m-4">Back</button>
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
-
-// id: el.id,
-// title: el.title,
-// rating: el.rating,
-    // detail: el.detail.detail,
-    // marca: el.detail.marca,
-    // modelo: el.detail.modelo,
-    // so: el.detail.so,
-    // cpu: el.detail.cpu,
-    // ram: el.detail.ram,
-    // color: el.detail.color,
-    // pantalla: el.detail.pantalla,
-// image: el.image,
-// stock: el.stock,
-// disable: el.disable,
-// price: el.price,
-// conectividad: el.conectividad,
-// category: el.categories[0].name,

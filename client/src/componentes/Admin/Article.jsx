@@ -5,13 +5,8 @@ import Logo from "../../../../client/src/ECOM-10_2.png";
 import { Link } from "react-router-dom";
 import NavBarAdmin from "../NavBarAdmin";
 import Footer from "../Footer";
-import CreateArticle from "../Admin/Pages/CreateArticle";
 
 export default function Article({ id, title, detail, marca, modelo, ram, so, color, pantalla, stock, price }) {
-
-function handleAddArticle(){
-
-}
 
   return (
     <div className="m-0 p-0">
@@ -28,15 +23,9 @@ function handleAddArticle(){
           <ArticleList />
         </div>
       </div>
-      <Link to="/create">
+      <Link to="/admin/articulos/create">
         <button class="btn btn-outline btn-accent">Add Article</button>
       </Link>
-      <button
-        class="btn btn-outline btn-accent"
-        // onClick={(e) => handleAddArticle(e)}
-      >
-        Add Article
-      </button>
       <Footer/>
     </div>
   );
