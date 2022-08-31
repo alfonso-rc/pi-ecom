@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getName } from "../store/actions";
 import { Link } from "react-router-dom";
+import {IoSearchOutline} from "react-icons/io5"
 
 const styleSearch = {
   
@@ -10,6 +11,7 @@ const styleSearch = {
   marginRight: "5px",
   border: "1px solid #B7BBD0",
 }
+
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -33,21 +35,21 @@ export default function SearchBar() {
 
   return (
     <nav>
-      <div className="m-5">
+      <form className="my-5 sm:my-4 mx-3 md:m-5 flex pt-1 md:pt-0 ">
         <input
           style={ styleSearch }
-          className="input input-bordered w-50 max-w-xs bg-white text-black opacity-100"
+          className="input input-bordered bg-white text-black h-9 w-28 sm:w-full sm:h-12"
           onChange={ (e) => handleInput(e) }
           type="text"
           value={ name }
           placeholder="Busqueda por nombre..."
         />
-        <button className="btn btn-outline  text-white "
+        <button className="hidden lg:btn lg:btn-outline lg:text-white"
           onClick={ (e) => handleName(e) }
         >
-          Search
+          <IoSearchOutline className="text-2xl"/>
         </button>
-      </div>
+      </form>
     </nav>
   );
 }
