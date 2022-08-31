@@ -23,5 +23,3 @@ function LoginAuth0() {
 };
 
 export default LoginAuth0;
-
-// "btn btn-outline my-5 text-white my-5"

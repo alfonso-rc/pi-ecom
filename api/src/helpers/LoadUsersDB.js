@@ -36,7 +36,7 @@ const usersToCreate = [
       "mail": "admin@gmail.com",
       "userName": "admin",
       "password": "admin",
-      "userType": "2"
+      "userType": "3"
    }
 ]
 

@@ -20,10 +20,9 @@ export default function NavBarDetail() {
     <div style={ styleNavBar } className="bg-primary flex place-content-between mr-3 ">
         <Link to="/home" className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-36 h-12" /></Link>
         <div className='flex place-content-end '>
-          <LogOut/>
         {        
         sessionStorage.name ? <Profile/> : <LoginAuth0/>
-      }
+        }
         
           
             <div className=" m-5">
