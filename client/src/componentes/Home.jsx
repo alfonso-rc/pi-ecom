@@ -26,6 +26,8 @@ import loading from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SideBar from "./SideBar";
+import SubscibeMail from './SubscribeMail/SubscribeMail.jsx'
+
 // import FilterCategories from './FilterCategories/FilterCategories.jsx'
 // Iconos de filtrado
 import smartphoneIcon from '../imagenes/Filter/smart.png'
@@ -61,23 +63,23 @@ export default function Home() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
 
-	const getGoogleUser = async () => {
-		try {
-			let response = (await axios.get("http://localhost:3001/google/User")).data;      
+  const getGoogleUser = async () => {
+    try {
+      let response = (await axios.get("http://localhost:3001/google/User")).data;
       if (!response.error) {
         sessionStorage.clear();
         for (const item in response) {
           sessionStorage.setItem(item, response[item]);
         }
       }
-		} catch (err) {
-			console.log(err);
-		}
-	};
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-	useEffect(() => {
-		getGoogleUser();
-	}, []);
+  useEffect(() => {
+    getGoogleUser();
+  }, []);
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,7 +179,7 @@ export default function Home() {
   let circleClasses = "p-7 w-20 mx-auto";
   let card = "card transition delay-100 hover:scale-110 hover:drop-shadow-xl shadow-xl bg-white border-zinc-300 border-2 rounded-8"
   return (
-    <div>
+    <div style={ { position: "relative" } }>
 
       <div className="fixed top-0 left-0 right-0 z-10 w-screen">
         <NavBar />
@@ -188,7 +190,7 @@ export default function Home() {
       <div
         style={ stylesCategoriesContainer }
         className="mt-20"
-      > 
+      >
         <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
           <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
           <span style={ styleButtonTextCategory }>Smartphones</span>
@@ -207,8 +209,8 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-      <SideBar/>
-      
+        <SideBar />
+
 
 
         {/* <div className="fixed z-10 pl-4 mr-2 pt-6">
@@ -239,9 +241,11 @@ export default function Home() {
           paginado={ paginado }
         />
       </div>
+      <SubscibeMail />
       <div>
         <Footer />
       </div>
+
     </div>
   );
 }

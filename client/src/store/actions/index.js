@@ -359,3 +359,11 @@ export function orderFavorite(order) {
     order,
   }
 };
+
+// Funcion que suscribe un email a las ofertas (guarda el email en la tabla de la base de datos )
+export function subscribeEmail(email) {
+  return {
+    type: "SUBSCRIBE_EMAIL",
+    email,
+  }
+};
