@@ -9,14 +9,12 @@ function LogOut() {
     };
 
     return (
-        <div className="m-5">
-            <button
-                className="btn btn-outline text-white"
-                onClick={() => closeSession()}
-            >
-                logout
-            </button>
-        </div>
+        <li
+            className="text-left"
+            onClick={() => closeSession()}
+        >
+           Cerrar sesión
+        </li>
     );
 };
 

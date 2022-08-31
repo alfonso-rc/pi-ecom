@@ -13,6 +13,7 @@ import Offer from "./componentes/Admin/Pages/Offer";
 import St from "./componentes/Admin/Pages/St";
 import Create from './componentes/Admin/Pages/CreateArticle';
 import NotFound from'./componentes/NotFound';
+import InfoUser from "./componentes/LoginComponents/InfoUser";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/newUser" component={NewUser}/>
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Example} />
+          <Route exact path="/infoUser" component={InfoUser} />
           <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/articulos" component={ArticleList}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
