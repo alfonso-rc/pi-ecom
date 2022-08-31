@@ -12,7 +12,7 @@ function LoginAuth0() {
     return (
         <div className="m-5">            
             <button
-                className="btn btn-outline "
+                className="btn btn-outline text-white"
                 onClick={goLogin}
             >
                 <BiUserCircle size={30}/>
@@ -23,5 +23,3 @@ function LoginAuth0() {
 };
 
 export default LoginAuth0;
-
-// "btn btn-outline my-5 text-white my-5"
