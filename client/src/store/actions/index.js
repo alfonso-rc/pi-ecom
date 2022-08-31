@@ -51,15 +51,15 @@ export function orderByPrice(payload) {
 }
 export function orderBrand(payload) {///////////////////////
   return {
-      type: "ORDER_BY_BRAND",
-      payload,
-    };
+    type: "ORDER_BY_BRAND",
+    payload,
+  };
 }
 export function orderBrand2(payload) {///////////////////////
   return {
-      type: "ORDER_BY_BRAND2",
-      payload,
-    };
+    type: "ORDER_BY_BRAND2",
+    payload,
+  };
 }
 export function orderByRating(payload) {
   try {
@@ -75,20 +75,20 @@ export function orderByRating(payload) {
 const URL_GET_ALL_ARTICLES_DB = process.env.NODE_ENV === "production" ?
   BASE_URL + "/article" : "http://localhost:3001/article"
 
-  export function getAllArticles() {
-    return function (dispatch) {
-      return axios(URL_GET_ALL_ARTICLES_DB)
-        .then((articles) => {
-          dispatch({
-            type: "GET_ARTICLES",
-            payload: articles.data
-          })
+export function getAllArticles() {
+  return function (dispatch) {
+    return axios(URL_GET_ALL_ARTICLES_DB)
+      .then((articles) => {
+        dispatch({
+          type: "GET_ARTICLES",
+          payload: articles.data
         })
-        .catch((error) => {
-          console.log(error);
-        })
-}
-  };
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+};
 
 const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
   BASE_URL + `/article?title=` : `http://localhost:3001/article?title=`
@@ -96,29 +96,29 @@ const URL_GET_TITLE = process.env.NODE_ENV === "production" ?
 export function getName(title) {
   return async function (dispatch) {
     try {
-    var json = await axios.get(`${URL_GET_TITLE}${title}`);
-    return dispatch({
-      type: "GET_NAME",
-      payload: json.data,
-    });
+      var json = await axios.get(`${URL_GET_TITLE}${title}`);
+      return dispatch({
+        type: "GET_NAME",
+        payload: json.data,
+      });
     } catch (error) {
-        alert("Este producto no existe...")
+      alert("Este producto no existe...")
     }
   };
 };
 
 
-export function getbrands(){ // **
-  return async function (dispatch){
-      var info= await axios.get('http://localhost:3001/brand');
-      return dispatch({
-          type: 'GET_BRAND',
-          payload: info.data
-      });
+export function getbrands() { // **
+  return async function (dispatch) {
+    var info = await axios.get('http://localhost:3001/brand');
+    return dispatch({
+      type: 'GET_BRAND',
+      payload: info.data
+    });
   }
 }
 
-const URL_GET_SMARTPHONE = process.env.NODE_ENV  === "production" ?
+const URL_GET_SMARTPHONE = process.env.NODE_ENV === "production" ?
   BASE_URL + "/category/smartphones" : `http://localhost:3001/category/smartphones`
 
 export function getSmartphones() {
@@ -186,36 +186,36 @@ export function postArticle(payload) {
 const URL_DELETE_ART = process.env.NODE_ENV === "production" ?
   BASE_URL + "/delete/" : `http://localhost:3001/delete/`
 
-  export function deleteArticle(id) {
-    return async function (dispatch){
-      try {
-          var respuesta = await axios.delete(URL_DELETE_ART+id);
-          return dispatch({
-              type: 'DELETE_ARTICLE',
-              payload: respuesta.data
-          })
-      } catch (error) {
-          console.log(error)
-      }
+export function deleteArticle(id) {
+  return async function (dispatch) {
+    try {
+      var respuesta = await axios.delete(URL_DELETE_ART + id);
+      return dispatch({
+        type: 'DELETE_ARTICLE',
+        payload: respuesta.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
-  };
+};
 
-  //Borrado Logico
+//Borrado Logico
 const URL_PUT_ART = process.env.NODE_ENV === "production" ?
-BASE_URL + "/delete/" : `http://localhost:3001/delete/`
+  BASE_URL + "/delete/" : `http://localhost:3001/delete/`
 
 export function deleteArticleLogic(id) {
-  return async function (dispatch){
+  return async function (dispatch) {
     try {
-        var respuesta = await axios.put(URL_PUT_ART+id);
-        return dispatch({
-            type: 'DELETE_ARTICLE_LOGIC',
-            payload: respuesta.data
-        })
+      var respuesta = await axios.put(URL_PUT_ART + id);
+      return dispatch({
+        type: 'DELETE_ARTICLE_LOGIC',
+        payload: respuesta.data
+      })
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-}
+  }
 };
 
 const URL_GET_CATEGORY = process.env.NODE_ENV === "production" ?
@@ -323,12 +323,19 @@ const URL_POST_COMMENT = process.env.NODE_ENV === "production" ?
 
 export function addComment(payload) {
   return async function (dispatch) {
-    const json = await axios.post(URL_POST_COMMENT, payload)
-    console.log(json.data)
-    return dispatch({
-      type: "POST_COMMENT",
-      json
-    });
+    await axios.post(URL_POST_COMMENT, payload)
+      .then(json => {
+        // Solo si es exitosa la creación del comentario, lo ponemos directamente en el DOM para que lo visualize el usuario
+        window.alert("Comentario agregado")
+        return dispatch({
+          type: "POST_COMMENT",
+          json
+        });
+      })
+      .catch(error => {
+        // console.log(error)
+        window.alert(error.response.data)
+      });
   }
 }
 
@@ -348,7 +355,7 @@ export function addRating(payload) {
 
 export function orderFavorite(order) {
   return {
-      type: "ORDER_FAVORITE",
-      order, 
+    type: "ORDER_FAVORITE",
+    order,
   }
 };
