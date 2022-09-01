@@ -181,7 +181,7 @@ export default function Home() {
   return (
     <div style={ { position: "relative" } }>
 
-      <div className="fixed top-0 left-0 right-0 z-10 w-screen">
+      <div className="fixed top-0 left-0 right-0 z-20 w-screen">
         <NavBar />
         <Carrito />
       </div>
