@@ -11,12 +11,12 @@ export default function ArticleList() {
 
   useEffect(() => {
     dispatch(getAllArticles());
-  }, [dispatch,allArticle]);
+  }, [dispatch]);
 
   function handleClickDelete(id){
     try {
       dispatch(deleteArticle(id));
-      allArticle = allArticle.filter(a=>a.id!==id);
+      
       console.log(id);
       alert('Articulo Eliminado!')   
     } catch (error) {
