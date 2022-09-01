@@ -9,11 +9,6 @@ export default function Admin() {
     <div className="m-0 p-0">
       <NavBarAdmin/>
       <div className="min-h-screen">
-        <img
-          className="mx-auto h-32 justify-center w-auto"
-          src={Logo}
-          alt="Workflow"
-        />
         <div className="flex">
           <SideBar />
           <div className="content"></div>
