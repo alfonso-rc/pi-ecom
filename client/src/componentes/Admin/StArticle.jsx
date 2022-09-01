@@ -1,32 +1,52 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getArticles } from "../../store/actions/index";
+import { getArticles, orderByRating } from "../../store/actions/index";
   import {Bar} from 'react-chartjs-2';
 import { withRouter } from "react-router";
+import Chart from 'chart.js/auto';
+import {CategoryScale} from 'chart.js'; 
+Chart.register(CategoryScale);
+const BASE_URL = process.env.REACT_APP_API_URL;
+const URL_GET_DETAIL_BY_ID =
+  process.env.NODE_ENV === "production"
+    ? BASE_URL + "/article/"
+    : "http://localhost:3001/article/";
+    console.log( URL_GET_DETAIL_BY_ID )
+
 
 export default function StatisArticle() {
 
-  // const [artic,setArtic]=useState([]);
-  // const [pric,setPric]=useState([]);
+  const [article, setArticle] = useState(null);
+  const [pric,setPric]=useState([]);
+  const allArticle = useSelector((state) => state.articles);
 
-//   let dispatch = useDispatch();
+ 
 
-//   useEffect(() => {
-//     dispatch(getArticles());
-//   }, []);
+  const titulo1 = allArticle.map((e)=> e.title)
+  const rating1 = allArticle.map((e)=> e.rating)
+ 
+
+ 
+  
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getArticles());
+  }, []);
 
 
   const data={
-    labels: ['Smartphone','Tablets','Notebooks','Acessories'],
+    labels: (titulo1),
     datasets:[{
-        label: 'Categorias',
+        label: 'Rating',
         backgroundColor:'red',
         borderColor: 'black',
         borderWidth: 1,
         hoverBackgroundColor: 'pink',
         hoverBorderColor: 'blue',
-        data: [74.56,10.54,9.42,5.42],
+        data: (rating1),
+        
     }]
   };
 
