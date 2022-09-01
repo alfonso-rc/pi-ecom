@@ -17,13 +17,13 @@ function Profile() {
 
             <div class="dropdown dropdown-hover dropdown-end">
                 <label tabindex="0" class="btn btn-outline text-white">
-                    <div >
+                    <div>
                         <img
                             className="rounded-full mr-3 w-9"
                             src={image} alt="user"
                         />
                     </div>
-                    <div className="mr-2">
+                    <div className="mr-2 hidden lg:block">
                         {`${user.name} ${user.lastName}`}
                     </div>
                     <BiCaretDown size={16}/>
