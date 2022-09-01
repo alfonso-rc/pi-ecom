@@ -5,17 +5,18 @@ import { getAllArticles,deleteArticle,deleteArticleLogic } from "../../../../src
 
 export default function ArticleList() {
 
-  const allArticle = useSelector((state) => state.articles);
+  let allArticle = useSelector((state) => state.articles);
   let dispatch = useDispatch();
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
     dispatch(getAllArticles());
-  }, [dispatch]);
+  }, [dispatch,allArticle]);
 
   function handleClickDelete(id){
     try {
       dispatch(deleteArticle(id));
+      allArticle = allArticle.filter(a=>a.id!==id);
       console.log(id);
       alert('Articulo Eliminado!')   
     } catch (error) {
@@ -38,8 +39,8 @@ export default function ArticleList() {
         <table className="table table-compact w-full">
           <thead>
             <tr>
+              <th className="w-8">Name</th>
               <th>id</th>
-              <th>Name</th>
               <th>Marca</th>
               <th>Modelo</th>
               <th>Habilitado</th>
@@ -53,8 +54,8 @@ export default function ArticleList() {
             {allArticle?.map((art) => {
               return (
                 <tr>
-                  <th>{art.id}</th>
-                  <td>{art.title}</td>
+                  <th className="w-8">{art.title}</th>
+                  <td>{art.id}</td>
                   <td>{art.marca}</td>
                   <td>{art.modelo}</td>
                   <td>{art.disable}</td>
@@ -103,8 +104,8 @@ export default function ArticleList() {
           </tbody>
           <tfoot>
             <tr>
-              <th></th>
-              <th>Name</th>
+              <th className="w-8">Name</th>
+              <th>id</th>
               <th>Marca</th>
               <th>Modelo</th>
               <th>Habilitado</th>
