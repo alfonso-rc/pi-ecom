@@ -170,7 +170,7 @@ export function getAccesories() {
 }
 
 const URL_POST_ART = process.env.NODE_ENV === "production" ?
-  BASE_URL + "/article" : `http://localhost:3001/article/`
+  BASE_URL + "/article/create/" : `http://localhost:3001/article/create/`
 
 export function postArticle(payload) {
   return async function (dispatch) {

@@ -8,6 +8,8 @@ import {
 import Profile from './LoginComponents/Profile';
 import LogOut from './LoginComponents/logOut';
 import LoginAuth0 from './LoginComponents/loginAuth0';
+import OptionBtn from "./OptionBtn";
+
 
 const styleNavBar = {
   boxShadow: "0px 3px 5px 1px rgba(0, 0, 0, 0.1)",
@@ -20,15 +22,17 @@ export default function NavBar() {
   let dispatch = useDispatch();
 
   return (
-    <div style={ styleNavBar } className="bg-primary flex flex-row justify-between mr-3">
-      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="w-36 h-12" />
+    <div style={ styleNavBar } className="bg-primary flex flex-row justify-around sm:ustify-between mr-3">
+      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="hidden w-24 h-9 sm:block sm:w-36 sm:h-12 " />
+      <SearchBar />
+      <div className="flex flex-row justify-end">
 
-      <div>
-        <SearchBar />
+      <div className="sm:hidden">
+        <OptionBtn/>
+      
       </div>
-
       {        
-        sessionStorage.name ? <Profile/> : <LoginAuth0/>
+        sessionStorage.name ? <div className="hidden sm:block"><Profile/></div> : <div className="hidden sm:block"><LoginAuth0/></div>
       }
 
       <div className=" m-5">
