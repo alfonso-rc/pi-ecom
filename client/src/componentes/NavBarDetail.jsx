@@ -21,7 +21,7 @@ export default function NavBarDetail() {
         <Link to="/home" className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-36 h-12" /></Link>
         <div className='flex place-content-end '>
         {        
-        sessionStorage.name ? <div className=''><Profile/></div> : <LoginAuth0/>
+        sessionStorage.name ? <Profile/> : <LoginAuth0/>
         }
         
           
