@@ -1,6 +1,5 @@
 import {BiCaretDown} from "react-icons/bi";
 import {BiLogOut} from "react-icons/bi";
-import {BiDollarCircle} from "react-icons/bi";
 import {BiPackage} from "react-icons/bi";
 import {BiWrench} from "react-icons/bi";
 import {BiRocket} from "react-icons/bi";
@@ -32,12 +31,11 @@ function Profile() {
 
                 <ul tabindex="0" class="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
                     {
-                        sessionStorage.userType === '' && <li class="hover:bg-violet-800 rounded-none text-white">
+                        sessionStorage.userType === '3' && <li class="hover:bg-violet-800 rounded-none text-white">
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>
                         </li>
                     }
                     <li class="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li>
-                    <li class="hover:bg-violet-800 rounded-none text-white"><a><BiDollarCircle size={20}/>Mis coins</a></li>
 
                     <Link to={'/perfil'}>
                         <li class="hover:bg-violet-800 rounded-none text-white">
