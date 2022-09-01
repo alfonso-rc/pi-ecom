@@ -287,6 +287,23 @@ export function addToCart(payload) {
     });
 };
 
+export function removeFavorites(id) {
+  return (dispatch) =>
+    dispatch({
+      type: "REMOVE_TO_FAVORITE",
+      payload: id,
+    });
+};
+
+export function addToFavorites(payload) {
+  // console.log(payload)
+  return (dispatch) =>
+    dispatch({
+      type: "ADD_TO_FAVORITE",
+      payload: payload,
+    });
+};
+
 // const URL_LOGIN_USER = process.env.NODE_ENV === "production" ?
 //   BASE_URL + "/user/login" : `http://localhost:3001/user/login`
 
