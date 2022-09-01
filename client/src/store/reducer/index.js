@@ -275,6 +275,41 @@ export default function reducer(state = initialState, action) {
         ...state,
         cart: JSON.parse(localStorage.getItem("cart")),
       };
+      case "ADD_TO_FAVORITE":
+        console.log("ITEM PARA AÑADIR", action.payload)
+        const itemToAdds = state.articles.find((e) => e.id === action.payload.id); // Verificamos que el id del artículo a añadir se encuentre en la lista de todos los artículos
+        // if (itemToAdd) console.log("SE ENCUENTRA EL ID")
+        let favoriteInLocalStorage = localStorage.getItem("wishlist"); // Traemos los items que hay en el local storage
+        // console.log("ITEMS EN LOCAL STORAGE", cartInLocalStorage)
+  
+        if (!favoriteInLocalStorage) {
+          // console.log("NO HAY NADA EN LOCAL STORAGE")
+          localStorage.setItem("wishlist", JSON.stringify([itemToAdds]));
+          console.log("ITEMS EN LOCAL STORAGE", localStorage.getItem("wishlist"))
+        } else {
+          let dataFromLocalStorage = JSON.parse(favoriteInLocalStorage);
+  
+          // Preguntamos si ya está en el localstorage el item que queremos añadir, y mostramos un mensaje adecuado
+          const isInLocalStorage = dataFromLocalStorage.find((el) => el.id === itemToAdds.id)
+          if (!isInLocalStorage) {
+            dataFromLocalStorage.push(itemToAdds)
+            localStorage.setItem("wishlist", JSON.stringify(dataFromLocalStorage))
+            toastSucces()
+          } else {
+            toastError()
+          }
+        }
+        return {
+          ...state,
+          wishlist: JSON.parse(localStorage.getItem("favorite")),
+        };
+        case "REMOVE_TO_FAVORITE":
+        let filters = state.wishlist.filter((e) => e.id !== action.payload);
+        localStorage.setItem("favorite", JSON.stringify(filters));
+        return {
+          ...state,
+          wishlist: filters,
+        };
     default:
       return {
         ...state,

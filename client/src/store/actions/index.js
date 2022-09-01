@@ -367,3 +367,21 @@ export function subscribeEmail(email) {
     email,
   }
 };
+
+export function removeFavorites(id) {
+  return (dispatch) =>
+    dispatch({
+      type: "REMOVE_TO_FAVORITE",
+      payload: id,
+    });
+};
+
+export function addToFavorites(payload) {
+  // console.log(payload)
+  return (dispatch) =>
+    dispatch({
+      type: "ADD_TO_FAVORITE",
+      payload: payload,
+    });
+};
+ 
