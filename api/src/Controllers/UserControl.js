@@ -39,6 +39,7 @@ const createUser = async (req, res, next) => {
    }
 }
 
+// Añade un artículo favorito al usuario, 
 const addFavoriteToUser = async (req, res, next) => {
    const { idUser, idArticle } = req.body
 
