@@ -16,11 +16,9 @@ import {
 } from "../store/actions/index";
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, MEJOR, PEOR } from "../Constants";
 import NavBar from "./NavBar";
-
 const stylesDropdown = {
   backgroundColor: "white",
 }
-
 export default function Orderings() {
   const allArticle = useSelector((state) => state.articles);
   const brands = useSelector((state)=> state.brand)
@@ -30,12 +28,9 @@ export default function Orderings() {
   const [order, setOrder] = useState("");
   // console.log("article:", allArticle)
   // console.log("Marca:", brands)
-
-
   // useEffect(() => {
   //   dispatch(getArticles());
   // }, []);
-
   useEffect(() => {
     dispatch((getbrands));
   }, [dispatch]);
@@ -70,28 +65,21 @@ export default function Orderings() {
     e.preventDefault();
     dispatch(orderBrand2(e.target.value));
   }
-
-    let BrandMap = brands.map(el=>{
-    return [el.marca,el]
-    });
+  let BrandMap = brands.map(el=>{
+    return [el.marca,el]});
     var BrandMapArr = new Map(BrandMap); 
     let unicos = [...BrandMapArr.values()];
-
-    // console.log (unicos);
-
-
-
   return (
     <div >
       <div className="flex flex-col">
-      <div>            
-          <select className="btn btn-primary btn-sm m-2 no-animation" onChange={e => handleBrand2(e)}>  
+      <div>             
+      <select className="btn btn-primary btn-sm m-2 no-animation" onChange={e => handleBrand2(e)}>  
             <option value="All">Todas las Marcas</option>     
-              { 
+            { 
                 unicos.map((brand)=>(
                 <option key={brand.id} value={brand.marca}>{brand.marca}</option> 
               ))
-              }                  
+            }                 
           </select> 
       </div> 
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
@@ -102,10 +90,6 @@ export default function Orderings() {
         <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
         <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-3">Por defecto</button>
       </div>
-        
-       
     </div>
-  );
+  )
 }
-
-
