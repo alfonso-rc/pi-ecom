@@ -154,7 +154,7 @@ export default function Home() {
 
   function RenderItems() {
     return (
-      <div>
+      <div>        
         <div className="flex justify-end pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
@@ -181,7 +181,7 @@ export default function Home() {
   return (
     <div style={ { position: "relative" } }>
 
-      <div className="fixed top-0 left-0 right-0 z-10 w-screen">
+      <div className="fixed top-0 left-0 right-0 z-20 w-screen">
         <NavBar />
         <Carrito />
       </div>
@@ -243,9 +243,8 @@ export default function Home() {
       </div>
       <SubscibeMail />
       <div>
-        <Footer />
+          <Footer />
       </div>
-
     </div>
   );
 }

@@ -143,7 +143,7 @@ const detailArticle = async (req, res, next) => {
 const createArticle = async (req, res, next) => {
   try {
     const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
-    const newArticle = await Article.create({ title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad });
+    const newArticle = await Article.create({ title, rating, detail:{detail,marca,modelo,so,cpu,ram,color,pantalla}, image, stock, disable, price, conectividad });
 
     const categoryAll = await Category.findAll({
       where: {

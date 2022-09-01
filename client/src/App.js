@@ -10,7 +10,6 @@ import AdminHome from "./componentes/Admin/Pages/AdminHome";
 import ArticleList from "./componentes/Admin/Article"
 import UserList from "./componentes/Admin/Users"
 import Offer from "./componentes/Admin/Pages/Offer";
-import St from "./componentes/Admin/Pages/St";
 import Create from './componentes/Admin/Pages/CreateArticle';
 import NotFound from'./componentes/NotFound';
 import InfoUser from "./componentes/LoginComponents/InfoUser";
@@ -25,13 +24,13 @@ function App() {
           <Route exact path="/newUser" component={NewUser}/>
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Example} />
-          <Route exact path="/infoUser" component={InfoUser} />
+          <Route exact path="/perfil" component={InfoUser} />
           <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/articulos" component={ArticleList}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
           <Route exact path="/admin/ofertas"  component={Offer}/>
-          <Route exact path="/admin/st"  component={St}/>
-          <Route exact path="/admin/create"  component={Create}/>
+          
+          <Route exact path="/admin/articulos/create"  component={Create}/>
 
           <Route path="/:id" component={ArticleDetail} />
           <Route exact path="/" component={LandingPage} />
