@@ -6,7 +6,7 @@ import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
 import { useDispatch } from "react-redux";
-import { addToCart, addComment, addRating, getUsers } from "../store/actions";
+import { addToCart, addComment, addRating, getUsers, addToFavorites } from "../store/actions";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading from "../imagenes/loading2.gif"
@@ -28,6 +28,9 @@ export default function ArticleDetail() {
   function addCart(item) {
     dispatch(addToCart(item));
   }
+  function addFavorites(item) {
+   dispatch(addToFavorites(item));
+ }
   function toastErrors() {
     return toast.error("Necesitas logearte!", {
       position: "bottom-left",
@@ -135,10 +138,13 @@ export default function ArticleDetail() {
                   className="lg:m-auto h-96 w-auto"
                 />
               </div>
+              
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
+                  
                   <h3 className="font-bold text-4xl">{ article.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
+                     
                     <h1 className="font-bold">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
                     <p>{ article.rating === "NaN" ? article.rating = 0 : article.rating }</p>
@@ -184,6 +190,9 @@ export default function ArticleDetail() {
                   <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
                   <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
                   <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
+                  <button class="btn gap-2"  onClick={ () => addFavorites(article) }>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+ </button>
                 </div>
                 <ToastContainer />
               </div>

@@ -12,7 +12,8 @@ import {
   getAccesories,
   getTablets,
   orderBrand2,
-  getbrands
+  getbrands,
+  orderFavorite
 } from "../store/actions/index";
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, MEJOR, PEOR } from "../Constants";
 import NavBar from "./NavBar";
@@ -70,6 +71,10 @@ export default function Orderings() {
     e.preventDefault();
     dispatch(orderBrand2(e.target.value));
   }
+  function handleFavorite(e){
+    e.preventDefault();
+    dispatch(orderFavorite(e.target.value));
+  }
 
     let BrandMap = brands.map(el=>{
     return [el.marca,el]});
@@ -79,13 +84,13 @@ export default function Orderings() {
   return (
     <div >
       <div className="flex flex-col">
-<<<<<<< HEAD
+
         <div>            
-          <select className="btn btn-primary btn-sm md:btn-md m-2 no-animation" onChange={e => handleBrand2(e)}>  
-=======
+          <select className="btn btn-primary btn-sm md:btn-md m-2 no-animation" onChange={e => handleBrand2(e)}/>  
+
       <div>            
           <select className="btn btn-primary btn-sm m-2 no-animation" onChange={e => handleBrand2(e)}>  
->>>>>>> 2468b4bee7f3e88b34724f99f2aa45d85ae16c8f
+
             <option value="All">Todas las Marcas</option>     
               { 
                 unicos.map((brand)=>(
@@ -100,9 +105,9 @@ export default function Orderings() {
           <span class="slider"></span>
           </label>
         </div>  
-
+</div>
       </div> 
-<<<<<<< HEAD
+
       <div>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
@@ -110,16 +115,8 @@ export default function Orderings() {
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
         <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
+        <button className="btn btn-sm md:btn-md btn-primary m-2" onClick={ (e) => handleFavorite(e) }  value="favorite">Tus favoritos</button>
         <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-5">Por defecto</button>
-=======
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortAZ(e) }  value={ ASCENDENTE }>AZ</button>
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortAZ(e) }  value={ DESCENDENTE }>ZA</button>
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortPrice(e) }  value={ MAYOR }>Menor precio</button>
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortPrice(e) }  value={ MENOR }>Mayor precio</button>
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortRating(e) }  value={ MEJOR }>Menos gustados</button>
-        <button className="btn btn-sm btn-primary m-1" onClick={ (e) => handleSortRating(e) }  value={ PEOR }>Mayor gustados</button>
-        <button onClick={ (e) => resetCharacters(e) } className="btn btn-sm md:btn-md btn-primary m-3">Por defecto</button>
->>>>>>> 2468b4bee7f3e88b34724f99f2aa45d85ae16c8f
       </div>
         
     </div>
