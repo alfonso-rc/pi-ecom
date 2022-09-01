@@ -1,4 +1,5 @@
 import Logo from "../../imagenes/logo-ecom.png";
+import coin from '../../imagenes/dollar.png';
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
@@ -119,17 +120,32 @@ function InfoUser() {
       <div className="flex min-h-full px-20 py-24 w-full">
         <div className="bg-white max-w-full w-full space-y-8 pt-10 pb-16 px-14 rounded-md border border-indigo-400">
           <div className="mb-10 flex justify-start items-center text-center">
+
             <img
               className="w-40 h-14"
               src={Logo}
               alt="Workflow"
             />
-            <span className="text-3xl tracking-tight font-bold text-gray-700 ml-14">
+            <span className="text-2xl tracking-tight font-bold text-gray-700 ml-8">
               {useri.userName}
             </span>
-            <div className="ml-8">
+
+            <div className="ml-6">
                 <img className="rounded-full w-14" src={imagen} alt="profile" />
             </div>
+
+            <span className="text-2xl tracking-tight font-bold text-gray-700 ml-12">
+              Coins
+            </span>
+
+            <div className="ml-4">
+                <img className="rounded-full w-8" src={coin} alt="coins" />
+            </div>
+
+            <span className="text-2xl tracking-tight font-bold text-gray-700 ml-4">
+              {useri.coins}
+            </span>
+
           </div>
 
           <form
