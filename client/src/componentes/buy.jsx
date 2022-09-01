@@ -115,10 +115,14 @@ function CheckoutForm() {
       setLoading(false);
     }
     localStorage.setItem("cart", JSON.stringify([]));
+    cart.clear()
     toastSucces() 
+    refreshPage()
     history.push("/home", { replace: true });
-    
   };
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
   function activateButton() {
     console.log(precioTotal);
