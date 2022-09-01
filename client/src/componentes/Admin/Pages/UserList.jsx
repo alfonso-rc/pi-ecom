@@ -9,7 +9,8 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
 
   useEffect(() => {
     dispatch(getUsers());
-  }, []);
+    console.log(allUsers);
+  }, [dispatch]);
 
   return (
     <div className="">
@@ -30,7 +31,7 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
             </tr>
           </thead>
           <tbody>
-            {allUsers?.map((usr) => {
+            { allUsers?.map((usr) => {
               return (
                 <tr>
                   <td>{usr.id}</td>
@@ -53,7 +54,7 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
           </tbody>
           <tfoot>
             <tr>
-              <th></th>
+              <th>id</th>
               <th>Last Name</th>
               <th>Address</th>
               <th>Mail</th>
