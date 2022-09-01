@@ -11,7 +11,8 @@ import LogOut from "./logOut";
 
 function Profile() {
     let user = sessionStorage;
-    let image = !!user.image ? user.image : imageDefault;
+    let imagen = user.image === "null" ? imageDefault : user.image;
+
     return (
         <div className="m-5">
 
@@ -20,7 +21,7 @@ function Profile() {
                     <div >
                         <img
                             className="rounded-full mr-3 w-9"
-                            src={image} alt="user"
+                            src={imagen} alt="user"
                         />
                     </div>
                     <div className="mr-2">
@@ -37,7 +38,13 @@ function Profile() {
                     }
                     <li class="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li>
                     <li class="hover:bg-violet-800 rounded-none text-white"><a><BiDollarCircle size={20}/>Mis coins</a></li>
-                    <li class="hover:bg-violet-800 rounded-none text-white"><a><BiWrench size={20}/>Opciones de cuenta</a></li>
+
+                    <Link to={'/perfil'}>
+                        <li class="hover:bg-violet-800 rounded-none text-white">
+                            <a><BiWrench size={20}/>Mi perfil</a>
+                        </li>
+                    </Link>
+
                     <li class="hover:bg-violet-800 rounded-none text-white"><a><BiLogOut size={20}/><LogOut/></a></li>
                 </ul>
             </div>
