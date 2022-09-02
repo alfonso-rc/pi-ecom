@@ -115,10 +115,14 @@ function CheckoutForm() {
       setLoading(false);
     }
     localStorage.setItem("cart", JSON.stringify([]));
+    cart.clear()
     toastSucces() 
+    refreshPage()
     history.push("/home", { replace: true });
-    
   };
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
   function activateButton() {
     console.log(precioTotal);
@@ -135,7 +139,8 @@ function CheckoutForm() {
       <div>
         <NavBarDetail />
       </div>
-      <div className="font-Work  text-black p-6 min-h-screen">
+
+      <div className="font-Work  text-black p-10">
         <h3 className="text-xl pb-10 ">Cantidad de articulos: {cart.length}</h3>
         <div className="flex flex-col md:grid" style={{gridTemplateColumns:"65% 35%"}}>
           <div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
@@ -172,7 +177,9 @@ function CheckoutForm() {
           </div>
         </div>
       </div>
-      <Footer />
+      <div className="absolute bottom-0 w-full">
+        <Footer />
+      </div>
     </div>
   );
 }
