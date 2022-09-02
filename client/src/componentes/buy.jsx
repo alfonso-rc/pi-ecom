@@ -106,7 +106,15 @@ function CheckoutForm() {
           id,
           amount: precioTotal * 100,
         });
-        console.log(data);
+        console.log(data);        
+
+        for (const shop of cart) {
+          const shopping = {
+            idUser: sessionStorage.id,
+            infoArticle: shop
+          };
+          await axios.post("http://localhost:3001/myShoppings/add", shopping);
+        }        
 
         elements.getElement(CardElement).clear();
       } catch (error) {
