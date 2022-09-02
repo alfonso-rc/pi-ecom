@@ -1,5 +1,6 @@
 import { ASCENDENTE, DESCENDENTE, MAYOR, MENOR, TOOGLE_CART, MEJOR, PEOR } from "../../Constants";
 import { toast } from "react-toastify"
+import { DECREMENT, INCREMENT } from '../actions/index';
 
 function toastError() {
   return toast.error("Ya esta en el carrito", {
@@ -66,6 +67,7 @@ const initialState = {
   cart: cartStorage,
   rating: [],
   brand: [],
+  count: 1,
   // wishlist: wishlistStorage,
 };
 
@@ -133,17 +135,7 @@ export default function reducer(state = initialState, action) {
     } */
       break
 
-    case 'ORDER_BY_BRAND2'://///
-      const articleBrand = state.brand
-      const filterTemp = action.payload === 'All'
-        ? articleBrand
-        : articleBrand.filter(e => e.marca.includes(action.payload))
-      console.log(filterTemp)
-      return {
-        ...state,
-        articles: action.payload === 'All' ? state.brand : filterTemp,
-      };
-
+    
     case "ORDER_BY_RATING":
       let sortedRating =
         [...state.articles]
@@ -238,6 +230,30 @@ export default function reducer(state = initialState, action) {
         ...state,
         users: action.payload,
       };
+      case 'ORDER_BY_BRAND2'://///
+      const articleBrand = state.brand
+      const filterTemp = action.payload === 'All'
+        ? articleBrand
+        : articleBrand.filter(e => e.marca.includes(action.payload))
+      console.log(filterTemp)
+      return {
+        ...state,
+        articles: action.payload === 'All' ? state.brand : filterTemp,
+      };
+  ////////////////////
+    case INCREMENT:
+      return{
+        ...state,
+        count: state.count + action.payload,
+      };
+
+    case DECREMENT:
+    return{
+      ...state,
+      count: state.count - action.payload,
+    }  
+
+
 
     case "REMOVE_TO_CART":
       let filter = state.cart.filter((e) => e.id !== action.payload);
