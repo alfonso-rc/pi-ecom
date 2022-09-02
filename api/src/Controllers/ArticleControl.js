@@ -127,24 +127,7 @@ const detailArticle = async (req, res, next) => {
       }
     });
 
-    const ratingArticle = await Rating.findAll({
-      where: {
-        articleId: id,
-      }
-    })
-
-    if (!ratingArticle) {
-      articleFound.dataValues.rating = 0;
-    } else {
-      let sum = 0
-      ratingArticle.forEach(rating => {
-        sum = sum + rating.score
-      })
-      const ratingQuantity = ratingArticle.length
-      // console.log("Cantidad de calificaciones", ratingQuantity)
-      // console.log(sum)
-      articleFound.dataValues.rating = (sum / ratingQuantity).toFixed(1);
-    }
+    articleFound.dataValues.rating = await getRaitingArticleById(id)
 
     //Visualiza los disable = false
     // console.log(articleFound);
