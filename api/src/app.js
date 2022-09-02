@@ -9,37 +9,13 @@ const routeGoogle = require("./routes/GoogleUser.js");
 const routes = require('./routes/index.js');
 
 require('./db.js');
+
 const server = express();
+
 server.name = 'API';
 
-//////////////////
-const multer = require('multer');//claudinary
-const exphbs= require('express-handlebars');//claudinary
-const path = require('path');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
-const Handlebars = require('handlebars');
-
-server.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  layoutsDir: path.join(server.get('views'), 'layouts'),
-  partialsDir: path.join(server.get('views'), 'partials'),
-  handlebars: allowInsecurePrototypeAccess(Handlebars),
-  extname: '.hbs'
-}));
-server.set('view engine', '.hbs');//para arrancar el motor
-
-const storage= multer.diskStorage({
-  destination:path.join(__dirname, 'public/uploads'),
-  filename:(req,file,cb)=>{
-      cb(null, new Date().getTime()+ path.extname(file.originalname));// nombre basado en el tiempo
-  }
-});
-server.use(multer(storage).single('image'));//multer sirve para procesar e interpretar la imagen  y colocarla en elservidor
-//////////////////////
-
-
-server.use(express.urlencoded({ extended: true, limit: '50mb' }));
-server.use(express.json({ limit: '50mb' }));
+server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
