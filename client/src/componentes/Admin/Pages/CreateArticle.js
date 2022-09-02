@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postArticle, getCategory, getArticles } from "../../../store/actions/index";
+import { ToastContainer, toast } from 'react-toastify';
+import { IoAdd, IoRemove } from "react-icons/io5";
+import NavBarAdmin from "../../NavBarAdmin";
+import Footer from "../../Footer";
 
 function validate(e) {
   const pattern = new RegExp("^[A-Z]+$", "i");
@@ -157,129 +161,155 @@ export default function CreateArticle() {
     history.push("/admin/articulos");
   }
 
+  const box = {
+    background:"linear-gradient(50deg,rgba(255, 255, 255, 0.4) 12%,rgba(255, 255, 255, 0.1) 77%)",
+    boxShadow: "0px 4px 24px 1px rgba(0, 0, 0, 0.28)",
+    backdropFilter: "blur(5px)",
+    webkitBackdropFilter:"blur(5px)"
+  }
   return (
-    <div className=" text-black">
-      <div className="">
+    <div>
+      <NavBarAdmin/>
+      <div className="text-black">
         <form onSubmit={(e) => handleSubmit(e)} className="">
-          <h1 className="text-xl ">Create Article</h1>
-          <div className="bg-teal-200 w-1/3">
-            <label className="gap-1">Categorias: </label>
-            <div>
-              <label className="m-2">
-                Smartphone
-                <input
-                  type="radio"
-                  name="category"
-                  value="smartphones"
-                  onChange={(e) => handleCheck(e)}
-                />
-              </label>
-              <label className="m-2">
-                Notebooks
-                <input
-                  type="radio"
-                  name="category"
-                  value="notebooks"
-                  onChange={(e) => handleCheck(e)}
-                />
-              </label>
-              <label className="m-2">
-                Tablets
-                <input
-                  type="radio"
-                  name="category"
-                  value="tablets"
-                  onChange={(e) => handleCheck(e)}
-                />
-              </label>
-              <label className="m-2">
-                Accesories
-                <input
-                  type="radio"
-                  name="category"
-                  value="accesories"
-                  onChange={(e) => handleCheck(e)}
-                />
-              </label>
+          <h1 className="text-3xl m-5 border-b-2 border-b-zinc-300 rounded-lg border font-Work font-bold shadow-2xl">CREATE ARTICLE</h1>
+          <div className="flex flex-col lg:grid" style={{gridTemplateColumns:"30% 70%"}}>
+          <div className="">
+            <div className="w-1/3 font-Work">
+              <label className="gap-1 flex pl-2 font-bold">Categorias: </label>
+              <div className="flex flex-row">
+                <label className="m-2">
+                  Smartphone
+                  <input
+                    type="radio"
+                    name="category"
+                    value="smartphones"
+                    className="checkbox checkbox-accent"
+                    onChange={(e) => handleCheck(e)}
+                  />
+                </label>
+                <label className="m-2">
+                  Notebooks
+                  <input
+                    type="radio"
+                    name="category"
+                    value="notebooks"
+                    className="checkbox checkbox-accent"
+                    onChange={(e) => handleCheck(e)}
+                  />
+                </label>
+                <label className="m-2">
+                  Tablets
+                  <input
+                    type="radio"
+                    name="category"
+                    value="tablets"
+                    className="checkbox checkbox-accent"
+                    onChange={(e) => handleCheck(e)}
+                  />
+                </label>
+                <label className="m-2">
+                  Accesories
+                  <input
+                    type="radio"
+                    name="category"
+                    value="accesories"
+                    className="checkbox checkbox-accent"
+                    onChange={(e) => handleCheck(e)}
+                  />
+                </label>
+              </div>
             </div>
-          </div>
-          <div className=" flex flex-row justify-start">
-            <div className=" flex flex-col justify-start">
-              <div className="bg-teal-200 m-4">
+          <div className=" flex flex-row justify-start ml-4 font-Work">
+            <div className=" flex flex-col bg-accent rounded-lg">
+              <div className=" m-4 flex flex-col rounded-lg" style={box}>
                 {/* Datos Grales del Articulo */}
-                <div className="m-2">
-                  <label className="">Title: </label>
-                  <input
-                    className="input-accent w-xs"
-                    type="text"
-                    value={input.title}
-                    name="title"
-                    onChange={(e) => handleChange(e)}
-                  />
-                  {errors.title && <p className="">{errors.title}</p>}
+                <div className="m-2 flex flex-col ">
+                  <div className="flex flex-row justify-between"> 
+                    <label className="font-bold">Title: </label>
+                    <input
+                      className="input-accent w-xs rounded-md"
+                      type="text"
+                      value={input.title}
+                      name="title"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  {errors.title && <p className="flex text-red-700 font-bold">{errors.title}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Rating: </label>
-                  <input
-                    className="input-accent w-xs"
-                    type="number"
-                    value={input.rating}
-                    name="rating"
-                    min={0}
-                    max={5}
-                    onChange={(e) => handleChange(e)}
-                  />
-                  {errors.rating && <p className="">{errors.rating}</p>}
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between" >
+                    <label className="font-bold">Rating: </label>
+                    <input
+                      className="input-accent w-xs rounded-md"
+                      type="number"
+                      value={input.rating}
+                      name="rating"
+                      min={0}
+                      max={5}
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  {errors.rating && <p className="flex text-red-700 font-bold">{errors.rating}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Marca: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                    <label className="font-bold">Marca: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.marca}
                     name="marca"
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.modelo && <p className="">{errors.modelo}</p>}
+                  </div>
+                  {errors.modelo && <p className="flex text-red-700 font-bold">{errors.modelo}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Modelo: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                    <label className="font-bold">Modelo: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.modelo}
                     name="modelo"
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.modelo && <p className="">{errors.modelo}</p>}
+                  </div>
+                  {errors.modelo && <p className="flex text-red-700 font-bold">{errors.modelo}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Detail: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                    <label className="font-bold">Detail: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.detail}
                     name="detail"
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.detail && <p className="">{errors.detail}</p>}
+                  </div>
+                  {errors.detail && <p className="flex text-red-700 font-bold">{errors.detail}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Price: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                    <label className="font-bold">Price: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="number"
                     value={input.price}
                     name="price"
                     min={0}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.price && <p className="">{errors.price}</p>}
+                  </div>
+                  {errors.price && <p className="flex text-red-700 font-bold">{errors.price}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Stock: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                  <label className="font-bold">Stock: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="number"
                     value={input.stock}
                     name="stock"
@@ -287,126 +317,201 @@ export default function CreateArticle() {
                     max={200}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.stock && <p className="">{errors.stock}</p>}
+                  </div>
+                  {errors.stock && <p className="flex text-red-700 font-bold">{errors.stock}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Image: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                  <label className="font-bold">Image: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.image}
                     name="image"
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.image && <p className="">{errors.image}</p>}
+                  </div>
+                  {errors.image && <p className="flex text-red-700 font-bold">{errors.image}</p>}
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Color: </label>
+                <div className="m-2 flex justify-between">
+                  <label className="font-bold">Color: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.color}
                     name="color"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Conectivity: </label>
+                <div className="m-2 flex flex-col">
+                  <div className="flex flex-row justify-between">
+                  <label className="font-bold">Conectivity: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.conectividad}
                     name="conectividad"
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.conectividad && <p className="">{errors.conectividad}</p>}
+                  </div>
+                  {errors.conectividad && <p className="flex text-red-700 font-bold">{errors.conectividad}</p>}
                 </div>
               </div>
-              <div className="bg-teal-200 m-4">
+              <div className=" m-4 rounded-lg" style={box}>
                 {/* Datos Opcionales segun categoria */}
-                <div className="m-2 flex justify-end">
-                  <label className="">Sistema Operativo: </label>
+                <div className="m-2 flex justify-between">
+                  <label className="font-bold">SO: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.so}
                     name="so"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">RAM: </label>
+                <div className="m-2 flex justify-between">
+                  <label className="font-bold">RAM: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.ram}
                     name="ram"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">CPU: </label>
+                <div className="m-2 flex justify-between">
+                  <label className="font-bold">CPU: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.cpu}
                     name="cpu"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
-                <div className="m-2 flex justify-end">
-                  <label className="">Pantalla: </label>
+                <div className="m-2 flex justify-between">
+                  <label className="font-bold">Pantalla: </label>
                   <input
-                    className="input-accent w-xs"
+                    className="input-accent w-xs rounded-md"
                     type="text"
                     value={input.pantalla}
                     name="pantalla"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
+                </div>
               </div>
             </div>
-            <div className=" bg-gray-500 flex flex-row">
-              <div className="">
-                <h1 className="font-bold">Category: </h1>
-                <p>{input.category}</p>
-                <img src={input.image} alt="" />
+            </div>
+            <div className="bg-white mx-2 px-2">
+            <div className="md:max-h-[calc(100vh-150px)] overflow-auto">
+            <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
+              <div className="justify-center">
+                <img
+                  src={ input.image }
+                  alt="image"
+                  className="lg:m-auto h-96 w-auto"
+                />
               </div>
-              <div className="bg-indigo-700 w-full h-96 flex flex-col">
-                <h3 className="font-bold text-4xl">{input.title}</h3>
-                <div className="flex flex-row justify-center">
-                  <h1 className="font-bold">Rating: </h1>
-                  <h1 className="text-accent font-mono">{input.rating}</h1>
+              <div className="lg:m-auto xl:ml-20 pt-6">
+                <div>
+                  <h3 className="font-bold text-2xl md:text-4xl">{ input.title }</h3>
+                  <div className="flex flex-row justify-center pt-6">
+                    <h1 className="font-bold">Rating: </h1>
+                    <p>{ input.rating === "NaN" ? input.rating = 0 : input.rating }</p>
+                  </div>
                 </div>
-                <div className="flex flex-row justify-center">
-                  <h1>Precio: </h1>
-                  <p className="text-accent font-mono">${input.price}</p>
+                <div>
+                  <div className="flex flex-row justify-center py-3 font-bold pb-6">
+                    <h1>Precio: </h1>
+                    <p className="text-accent font-mono">${ input.price }</p>
+                  </div>
+                  <div className="flex justify-center">
+                    <p className="btn btn-outline btn-primary btn-sm btn-square">
+                      <IoRemove className="text-2xl" />
+                    </p>
+                    <p className="px-5">1</p>
+                    <p className="btn btn-primary btn-sm btn-square ">
+                      <IoAdd className="text-2xl" />
+                    </p>
+                  </div>
+                  <div className="flex flex-row justify-center pt-6">
+                    <h1 className="font-bold">Stock: </h1>
+                    <p>{ input.stock }</p>
+                  </div>
+                  <div className="flex flex-row justify-center pt-6">
+                    <h1 className="font-bold">Color: </h1>
+                    <p>{ input.color }</p>
+                  </div>
+                  <br />
+                  <br />
+                  <p
+                    className="btn btn-accent btn-wide my-2"
+                  >
+                    Agregar al carrito
+                  </p>
+                  <br />
                 </div>
-                <div className="flex flex-row justify-center">
-                  <h1>Stock: </h1>
-                  <p className=" font-mono">{input.stock}</p>
+                <div className="rating rating-lg rating-half">
+                  <input type="radio" name="rating-7" className="rating-hidden" />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 }  />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 2 }  />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 }  />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 }  />
+                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 }  />
                 </div>
-                <div className="flex flex-row justify-center">
-                  <h1>Color: </h1>
-                  <p className="text-accent font-mono">{input.color}</p>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <h1>Detail: </h1>
-                  <p className="text-accent font-mono">{input.detail}</p>
-                </div>
+                <ToastContainer />
               </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div className="mx-8 text-start lg:px-20">
+              <h1 className="mt-14 font-bold text-2xl md:text-4xl">Descripcion</h1>
+              <br />
+              <p>{ input.detail }</p>
+              <h1 className="mt-14 font-bold text-2xl md:text-4xl">Especificaciones</h1>
+              <br />
+              <div className="grid grid-cols-2">
+                <h1 className="font-bold mt-2">Marca:</h1>
+                <p className="mt-2">{ input.marca }</p>
+                <h1 className="font-bold mt-8">Modelo:</h1>{ " " }
+                <p className="mt-8">{ input.modelo } </p>
+                { input.so && <h1 className="font-bold mt-8">SO:</h1> }
+                { input.so && (
+                  <p className="mt-8">{ input.so }</p>
+                ) }
+                { input.cpu && <h1 className="font-bold mt-8">CPU:</h1> }
+                { input.cpu && (
+                  <p className="mt-8">{ input.cpu }</p>
+                ) }
+                { input.ram && <h1 className="font-bold mt-8">RAM:</h1> }
+                { input.ram && (
+                  <p className="mt-8">{ input.ram }</p>
+                ) }
+                { input.pantalla && (
+                  <h1 className="font-bold mt-8">Pantalla:</h1>
+                ) }
+                { input.pantalla && (
+                  <p className="mt-8">{ input.pantalla }</p>
+                ) }
+              </div>
+            </div>
+            </div>
             </div>
           </div>
-          <div className="">
+          <div className="py-4 my-4">
             <button type="submit" className="btn btn-accent m-4">
               Create
             </button>
             <Link to="/admin/articulos" className="">
-              <button className="btn btn-accent m-4">Back</button>
+              <button className="btn btn-warning m-4">Back</button>
             </Link>
           </div>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 }
