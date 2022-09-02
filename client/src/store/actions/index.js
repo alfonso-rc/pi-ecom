@@ -384,3 +384,23 @@ export const decrement =()=>{
     payload: 1,
   };
 } 
+const URL_GET_DETAIL_BY_ID =
+  process.env.NODE_ENV === "production"
+    ? BASE_URL + "/article/"
+    : `http://localhost:3001/myShoppings/get?id=${sessionStorage.id}`;
+
+    export function getShopping() {
+      return function (dispatch) {
+        return axios(URL_GET_DETAIL_BY_ID)
+          .then((articles) => {
+            dispatch({
+              type: "GET_SHOPPING",
+              payload: articles.data
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+    
+          })
+      }
+    };
