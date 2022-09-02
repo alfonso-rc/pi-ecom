@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
+
 import axios from "axios";
 import { Link, useHistory, useParams } from "react-router-dom";
 import "../App.css";
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addToCart, addComment, addRating, getUsers } from "../store/actions";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
 import loading from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { increment, decrement } from '../store/actions/index'
+
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
   process.env.NODE_ENV === "production"
@@ -41,12 +44,9 @@ export default function ArticleDetail() {
   }
 
 
-
-
-
-
   const [article, setArticle] = useState(null);
   const [stockCon, setStockCon] = useState();
+  const count = useSelector((state)=> state.count)
   let { id } = useParams();
 
   useEffect(() => {
@@ -112,7 +112,14 @@ export default function ArticleDetail() {
     setInput(e.target.value)
   }
 
-
+  function addIncrement(e){
+    //e.preventDefault();
+    dispatch(increment(e.target.value));
+  }
+  function subsDecrement(e){
+    //e.preventDefault();
+    dispatch(decrement(e.target.value));
+  }
 
 
   return (
@@ -147,14 +154,14 @@ export default function ArticleDetail() {
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
                     <h1>Precio: </h1>
-                    <p className="text-accent font-mono">${ article.price }</p>
-                  </div>
+                    <p className="text-accent font-mono"> ${ article.price*count }</p>
+                  </div> 
                   <div className="flex justify-center">
-                    <button className="btn btn-outline btn-primary btn-sm btn-square">
+                    <button onClick={(e) => subsDecrement(e)} className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
-                    <p className="px-5">1</p>
-                    <button className="btn btn-primary btn-sm btn-square ">
+                    <p className="px-5">{count}</p>
+                    <button onClick={(e) => addIncrement(e)}  className="btn btn-primary btn-sm btn-square ">
                       <IoAdd className="text-2xl" />
                     </button>
                   </div>
@@ -290,3 +297,9 @@ export default function ArticleDetail() {
     </div>
   );
 }
+/* const mapStateToProps = (state) => {
+  return {
+      count: state.count
+  };
+};
+export default connect(mapStateToProps, { increment, decrement })(ArticleDetail); */

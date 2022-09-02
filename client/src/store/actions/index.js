@@ -49,12 +49,7 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
-export function orderBrand(payload) {///////////////////////
-  return {
-    type: "ORDER_BY_BRAND",
-    payload,
-  };
-}
+
 export function orderBrand2(payload) {///////////////////////
   return {
     type: "ORDER_BY_BRAND2",
@@ -367,3 +362,25 @@ export function subscribeEmail(email) {
     email,
   }
 };
+export function orderBrand(payload) {///////////////////////
+  return {
+    type: "ORDER_BY_BRAND",
+    payload,
+  };
+}
+////////////////////
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+
+export const increment =()=>{
+  return {
+    type: INCREMENT,
+    payload: 1
+  };
+} 
+export const decrement =()=>{
+  return {
+    type: DECREMENT,
+    payload: 1,
+  };
+} 
