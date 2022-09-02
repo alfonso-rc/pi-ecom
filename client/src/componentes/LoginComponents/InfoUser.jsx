@@ -54,61 +54,82 @@ function InfoUser() {
 
     const history = useHistory();
     const [errors, setErrors] = useState({});
-    const [user, setUser] = useState({
-      name: "",
-      lastName: "",
-      mail: "",
-      userName: "",
-      address: "",
-      password: "",
-    });
+    const [user, setUser] = useState({});
   
     function handleInputChange(e) {
       setUser({
         ...user,
         [e.target.name]: e.target.value,
       });
-      setErrors(validate({
-        ...user,
-        [e.target.name]: e.target.value,
-      }))
+      // setErrors(validate({
+      //   ...user,
+      //   [e.target.name]: e.target.value,
+      // }))
     }
   
     async function submitData(e) {
       e.preventDefault();
-      if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.mail && user.userName && user.address && user.password) {
-        let response = (await axios.post("http://localhost:3001/user/create", user)).data;
-        if (response.error) {
-          alert(response.error);
-          setUser({
-            name: "",
-            lastName: "",
-            mail: "",
-            userName: "",
-            address: "",
-            password: "",
-          });
-        }
-        else {
-          setUser({
-            name: "",
-            lastName: "",
-            mail: "",
-            userName: "",
-            address: "",
-            password: "",
-          });
-  
-          sessionStorage.clear();
-          for (const item in response) {
-            sessionStorage.setItem(item, response[item]);
-          }
-  
-          alert('New user successfully created');
-          history.push('/home');
+
+      const firstInfo = sessionStorage
+      let updateSend = { id: firstInfo.id}
+      for (const info in firstInfo) {        
+        if (user[info] && user[info] !== firstInfo[info]) {
+          updateSend[info] = user[info];
         }
       }
-      else alert('Faltan datos para crear');    
+
+      console.log(updateSend);
+
+
+
+
+
+
+
+      // if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.mail && user.userName && user.address && user.password) {
+        
+      //   const firstInfo = sessionStorage
+      //   for (const info in firstInfo) {
+      //     console.log(info);
+      //   }
+        
+        
+            
+        
+        
+        
+      //   let response = (await axios.post("http://localhost:3001/user/create", user)).data;
+      //   if (response.error) {
+      //     alert(response.error);
+      //     setUser({
+      //       name: "",
+      //       lastName: "",
+      //       mail: "",
+      //       userName: "",
+      //       address: "",
+      //       password: "",
+      //     });
+      //   }
+      //   else {
+      //     setUser({
+      //       name: "",
+      //       lastName: "",
+      //       mail: "",
+      //       userName: "",
+      //       address: "",
+      //       password: "",
+      //     });
+  
+      //     sessionStorage.clear();
+      //     for (const item in response) {
+      //       sessionStorage.setItem(item, response[item]);
+      //     }
+  
+      //     alert('New user successfully created');
+      //     history.push('/home');
+      //   }
+      // }
+      // else alert('Faltan datos para crear');    
     };
   
     const descartar = () => {
@@ -158,12 +179,12 @@ function InfoUser() {
 
             <div className="rounded-md shadow-sm -space-y-px">
               <div className="flex justify-start items-center">
-                <label className="w-32 mr-4 text-gray-700" htmlFor="user-name">Nombre</label>
+                <label className="w-32 mr-4 text-gray-700" htmlFor="name">Nombre</label>
                 <input
-                  id="user-name"
+                  id="name"
                   name="name"
                   onChange={handleInputChange}
-                  value={user.name}
+                  value={user.name || ''}
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -182,7 +203,7 @@ function InfoUser() {
                   id="user-lastName"
                   name="lastName"
                   onChange={handleInputChange}
-                  value={user.lastName}
+                  value={user.lastName || ''}
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -201,7 +222,7 @@ function InfoUser() {
                   id="user-mail"
                   name="mail"
                   onChange={handleInputChange}
-                  value={user.mail}
+                  value={user.mail || ''}
                   type="email"
                   autoComplete="email"
                   required
@@ -221,7 +242,7 @@ function InfoUser() {
                   id="user-userName"
                   name="userName"
                   onChange={handleInputChange}
-                  value={user.userName}
+                  value={user.userName || ''}
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -240,7 +261,7 @@ function InfoUser() {
                   id="user-address"
                   name="address"
                   onChange={handleInputChange}
-                  value={user.address}
+                  value={user.address  || ''}
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -253,30 +274,14 @@ function InfoUser() {
                 )}
               </div>
 
-              <div className="flex justify-start items-center">
-                <label className="w-32 mr-4 text-gray-700" htmlFor="user-password">Residencia</label>
-                <input
-                  id="user-password"
-                  name="password"
-                  onChange={handleInputChange}
-                  value={user.password}
-                  type="password"
-                  required
-                  className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
-                />
-                {errors.password && (
-                  <p>
-                    <strong>{errors.password}</strong>
-                  </p>
-                )}
-              </div>
             </div>
 
             <div className="flex place-content-around">
               <button
+                
                 type="submit"
                 className="w-40 group relative justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10"
+                onClick={submitData}
               >
                 Guardar cambios
               </button>
