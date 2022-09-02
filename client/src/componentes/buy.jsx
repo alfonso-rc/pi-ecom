@@ -8,12 +8,13 @@ import {
 } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito";
 import NavBarDetail from "./NavBarDetail";
 import Footer from "./Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 
 function toastSucces() {
   return toast.success("Compra realizada!", {
@@ -93,7 +94,6 @@ function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -117,9 +117,12 @@ function CheckoutForm() {
     localStorage.setItem("cart", JSON.stringify([]));
     // cart.clear()
     toastSucces() 
-    refreshPage()
     history.push("/home", { replace: true });
+    refreshPage()
+    
   };
+
+  
   const refreshPage = ()=>{
     window.location.reload();
  }
@@ -129,7 +132,6 @@ function CheckoutForm() {
       toastError();
       return true;
     }
-    
     return false;
   }
 
@@ -157,7 +159,7 @@ function CheckoutForm() {
               })}
           </div>
           <div className="shadow-xl border-2 border-stone-200 rounded-md mt-10">
-            <p className="text-2xl font-normal pb-8 mb-8">Total: {precioTotal}.00</p>
+            <p className="text-2xl font-normal pb-8 mb-8">Total: $ {precioTotal}.00</p>
             <p className="flex pb-10 text-lg  px-4">Ingrese su tarjeta:</p>
             <form onSubmit={handleSubmit}>
               <div className="pb-8 mb-8  px-4">

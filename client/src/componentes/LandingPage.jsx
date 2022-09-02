@@ -11,6 +11,7 @@ import logo from "../imagenes/logo-ecom.png"
 
 export default function LandingPage() {
   return (
+      
     <div className="bg-white h-full">
       <NavBarAdmin />
       <div class="carousel w-full">
