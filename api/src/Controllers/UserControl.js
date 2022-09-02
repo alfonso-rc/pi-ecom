@@ -1,6 +1,7 @@
 const { User } = require("../db.js");
 const { bcrypt } = require("./auxUserLogin/bcrypt.js");
 const validateUser = require("./auxUserLogin/getUser.js");
+const generateToken = require("./auxUserLogin/generateToken.js");
 
 const createUser = async (req, res, next) => {
    const userToCreate = req.body
@@ -83,6 +84,27 @@ const getUsers = async(req,res,next)=>{
 
 }
 
+const updateUser = async (req, res, next) => {
+   try {
+      await User.update(req.body,{
+         where: {
+            id: req.body.id
+         }
+      });
+
+      let response = await User.findByPk(req.body.id);
+
+      const token = generateToken(req.body.id);
+
+      response.dataValues.token = token;
+      delete response.dataValues.password;
+
+      res.json(response);
+   } catch (err) {
+      return res.json({ error: err });
+   }
+};
 
 
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser,getUsers };
+
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser,getUsers, updateUser };
