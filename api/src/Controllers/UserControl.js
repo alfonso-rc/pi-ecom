@@ -1,7 +1,8 @@
-const { User } = require("../db.js");
+const { User, Subscribers } = require("../db.js");
 const { bcrypt } = require("./auxUserLogin/bcrypt.js");
 const validateUser = require("./auxUserLogin/getUser.js");
 const generateToken = require("./auxUserLogin/generateToken.js");
+
 
 const createUser = async (req, res, next) => {
    const userToCreate = req.body
@@ -74,7 +75,7 @@ const infoUser = (req, res, next) => {
    res.send('DATOS ENTREGADOS CORRECTAMENTE');
 };
 
-const getUsers = async(req,res,next)=>{
+const getUsers = async (req, res, next) => {
    try {
       const allUser = await User.findAll();
       res.status(200).send(allUser);
@@ -86,7 +87,7 @@ const getUsers = async(req,res,next)=>{
 
 const updateUser = async (req, res, next) => {
    try {
-      await User.update(req.body,{
+      await User.update(req.body, {
          where: {
             id: req.body.id
          }
@@ -105,6 +106,28 @@ const updateUser = async (req, res, next) => {
    }
 };
 
+// Función que suscribe un usuario al newsletter de ofertas
+const subscribeUserToNewsLetter = async (req, res, next) => {
+   try {
+      const { nombre, email } = req.body;
+      console.log("Usuario a suscribir", req.body);
+
+      // Verificamos si el email ya está registrado como usuario
+      const userFound = await User.findOne({ where: { mail: email } });
+      if (userFound) { res.status(400).send({ isUserAlreadyRegistered: true }); return };
+
+      // Verificarmos si el email ya está suscrito al newsletter
+      const subcriberFound = await Subscribers.findByPk(email)
+      if (subcriberFound) { res.status(400).send({ isUserAlreadySubscribed: true }); return };
+
+      // De lo contrario creamos el recurso en la tabla Subscribers
+      const newSubscriber = await Subscribers.create({ nombre, email });
+      res.status(201).send({ isUserAlreadyRegistered: false, userCreated: newSubscriber });
+
+   } catch (error) {
+      next(error)
+   }
+}
 
 
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser,getUsers, updateUser };
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter };
