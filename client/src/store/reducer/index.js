@@ -65,7 +65,8 @@ const initialState = {
   isLoading: true,
   cart: cartStorage,
   rating: [],
-  brand: [],
+  auxArt:[]
+
   // wishlist: wishlistStorage,
 };
 
@@ -82,6 +83,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: action.payload,
         brand: action.payload,
+        auxArt: action.payload,
         filteredArticle: action.payload,
         isLoading: false
       }

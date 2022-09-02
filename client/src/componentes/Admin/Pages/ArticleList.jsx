@@ -74,12 +74,12 @@ export default function ArticleList() {
                   <td>{art.stock}</td>
                   <td>{art.price}</td>
                   <td> 
+                  
                     <button className="btn btn-error btn-xs" onClick={()=>handleClickInhab(art.id)}>Desabilitar</button>                  
+                  
                   </td>
                   <td>
-                    <Link to="/admin/articulos/edit">
-                      <button className="btn btn-info btn-xs">Edit</button>
-                    </Link>
+                    <Link to={`/admin/articulos/edit/${art.id}`}><button className="btn btn-info btn-xs">Edit</button></Link>
                     
                   </td>
                   <td>

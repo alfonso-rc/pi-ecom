@@ -160,35 +160,47 @@ const createArticle = async (req, res, next) => {
 //Edit Article
 const editArticle = async (req, res, next) => {
   try {
-    const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
-    await Article.update(
-      {
-        id:id,
-        title:title,
-        rating: rating,
-        detail:{
-          detail: detail.detail,
-          marca: detail.marca,
-          modelo:detail.modelo,
-          so: detail.so,
-          cpu: detail.cpu,
-          ram: detail.ram,
-          color: detail.color,
-          pantalla: detail.pantalla,
-        },
-        image: image,
-        stock: stock,
-        disable: false,
-        price: price,
-        conectividad: conectividad,
-      },
-      {where:{id}
+    await Article.update(req.body,{
+      where: {
+        id: req.body.id
       }
-    )
-      res.send("Cambios actualizados")
+    });
+    let response = await Article-findByPk(req.body.id);
+    res.json(response);
   } catch (error) {
-    next(error)
-  }
+    console.log(error);
+  };
+//   try {
+//     const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
+//     await Article.update(
+//       {
+//         id:id,
+//         title:title,
+//         rating: rating,
+//         detail:{
+//           detail: detail.detail,
+//           marca: detail.marca,
+//           modelo:detail.modelo,
+//           so: detail.so,
+//           cpu: detail.cpu,
+//           ram: detail.ram,
+//           color: detail.color,
+//           pantalla: detail.pantalla,
+//         },
+//         image: image,
+//         stock: stock,
+//         disable: false,
+//         price: price,
+//         conectividad: conectividad,
+//       },
+//       {where:{id}
+//       }
+//     )
+//       res.send("Cambios actualizados")
+//   } catch (error) {
+//     next(error)
+//   }
+// }
 }
 
 // GET ARTICLE WITH STRING INCLUDED
