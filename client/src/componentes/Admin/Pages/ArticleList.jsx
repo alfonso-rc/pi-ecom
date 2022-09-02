@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getAllArticles,deleteArticle,deleteArticleLogic } from "../../../../src/store/actions/index.js";
+import { Link } from "react-router-dom";
+import { getAllArticles,deleteArticle,deleteArticleLogic,editArticle } from "../../../../src/store/actions/index.js";
 
 export default function ArticleList() {
 
@@ -16,9 +17,9 @@ export default function ArticleList() {
   function handleClickDelete(id){
     try {
       dispatch(deleteArticle(id));
-      
+      allArticle = allArticle.filter(a=>a.id!==id);
       console.log(id);
-      alert('Articulo Eliminado!')   
+      alert(`El Articulo con id: ${id} fue Eliminado!`)   
     } catch (error) {
       console.log(error);
     }
@@ -27,11 +28,21 @@ export default function ArticleList() {
   function handleClickInhab(id){
     try {
       dispatch(deleteArticleLogic(id));
-      alert('Articulo Inhabilitado para la venta!')   
+      alert(`El Articulo con id: ${id} no esta disponible!`)   
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  function handleClickEdit(id){
+    try {
+      dispatch(editArticle(id));
+      alert(`El Articulo con id: ${id} ha sido modificado!`)   
     } catch (error) {
       console.log(error);
     }
   }
+ 
 
   return (
     <div className="">
@@ -48,6 +59,7 @@ export default function ArticleList() {
               <th>Price</th>
               <th>Action</th>
               <th>Action</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -61,42 +73,26 @@ export default function ArticleList() {
                   <td>{art.disable}</td>
                   <td>{art.stock}</td>
                   <td>{art.price}</td>
-                  <td>
-                    <button className="btn btn-info btn-xs">Edit</button>
+                  <td> 
+                    <button className="btn btn-error btn-xs" onClick={()=>handleClickInhab(art.id)}>Desabilitar</button>                  
                   </td>
                   <td>
-                    {/* <button className="btn btn-error btn-xs">Delete</button> */}
+                    <Link to="/admin/articulos/edit">
+                      <button className="btn btn-info btn-xs">Edit</button>
+                    </Link>
                     
-                    <label for="my-modal-6" className="btn modal-button btn-error btn-xs">Delete</label>
-                        <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-                        <div className="modal modal-bottom sm:modal-middle">
-                          <div className="modal-box w-min">
-                            <h3 className="font-bold">Elija la accion que desea realizar:</h3>
-                            <br/>
-                            <div className="justify-center">
-                                <p class="">Inhabilitar: Inhabilita el Articulo para la venta</p>
-                                <p class="">Eliminar: Elimina el Articulo de manera permanente</p>
-                            </div>
-                            <br/>
-                            <button className="btn btn-warning btn-xs ml-20" onClick={(()=>handleClickInhab(art.id))}>Inhabilitar</button>
-                            {/* <button className="btn btn-error btn-xs ml-4">Eliminar</button> */}
-                            <label for="my-modal-5" class="btn modal-button btn-error btn-xs ml-4">Eliminar</label>
-                            <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-                            <div class="modal">
-                              <div class="modal-box w-11/12 max-w-5xl">
-                                <h3 class="">El Articulo quedara eliminado de manera permanente!</h3>
-                                <div class="modal-action">
-                                  <button className="btn btn-error btn-xs" onClick={(()=>handleClickDelete(art.id))}>Continuar</button>
-                                  <label for="my-modal-5" class="btn btn-xs">Cancelar</label>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="modal-action">
-                              <label for="my-modal-6" className="btn btn-xs">Cancelar</label>
-                            </div>
-                          </div>
+                  </td>
+                  <td>
+                    <a href="#my-modal-2" class="btn btn-error btn-xs">Delete</a>
+                    <div class="modal" id="my-modal-2">
+                      <div class="modal-box">
+                        <h3 class="font-bold">El Articulo se eliminara de manera permanente!</h3>
+                        <div class="modal-action">
+                        <button className="btn btn-error btn-xs" onClick={()=>handleClickDelete(art.id)}>Continuar</button>
+                        <a href="#" className="btn btn-xs">Cancelar</a>
                         </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               );
@@ -111,6 +107,7 @@ export default function ArticleList() {
               <th>Habilitado</th>
               <th>Stock</th>
               <th>Price</th>
+              <th>Action</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
