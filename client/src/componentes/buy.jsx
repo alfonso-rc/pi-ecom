@@ -115,7 +115,7 @@ function CheckoutForm() {
       setLoading(false);
     }
     localStorage.setItem("cart", JSON.stringify([]));
-    cart.clear()
+    // cart.clear()
     toastSucces() 
     history.push("/home", { replace: true });
     refreshPage()
@@ -128,7 +128,6 @@ function CheckoutForm() {
  }
 
   function activateButton() {
-    console.log(precioTotal);
     if (precioTotal === 0) {
       toastError();
       return true;
