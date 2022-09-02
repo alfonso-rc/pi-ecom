@@ -1,5 +1,5 @@
 // Funcion que recibe un id de un artículo y calcula su rating en base a todas
-// las calificaciones de los usuarios
+// las calificaciones de los usuarios. Retorna un número decimal ej: 1.3, 3.6
 const { Rating } = require('../db');
 
 async function getRaitingArticleById(idArticle) {
