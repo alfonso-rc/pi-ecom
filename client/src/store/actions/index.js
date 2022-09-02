@@ -49,12 +49,7 @@ export function orderByPrice(payload) {
     console.log(error);
   }
 }
-export function orderBrand(payload) {///////////////////////
-  return {
-    type: "ORDER_BY_BRAND",
-    payload,
-  };
-}
+
 export function orderBrand2(payload) {///////////////////////
   return {
     type: "ORDER_BY_BRAND2",
@@ -386,3 +381,45 @@ export function subscribeEmail(email) {
     email,
   }
 };
+export function orderBrand(payload) {///////////////////////
+  return {
+    type: "ORDER_BY_BRAND",
+    payload,
+  };
+}
+////////////////////
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+
+export const increment =()=>{
+  return {
+    type: INCREMENT,
+    payload: 1
+  };
+} 
+export const decrement =()=>{
+  return {
+    type: DECREMENT,
+    payload: 1,
+  };
+} 
+const URL_GET_DETAIL_BY_ID =
+  process.env.NODE_ENV === "production"
+    ? BASE_URL + "/article/"
+    : `http://localhost:3001/myShoppings/get?id=${sessionStorage.id}`;
+
+    export function getShopping() {
+      return function (dispatch) {
+        return axios(URL_GET_DETAIL_BY_ID)
+          .then((articles) => {
+            dispatch({
+              type: "GET_SHOPPING",
+              payload: articles.data
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+    
+          })
+      }
+    };

@@ -13,6 +13,7 @@ import Offer from "./componentes/Admin/Pages/Offer";
 import Create from './componentes/Admin/Pages/CreateArticle';
 import NotFound from'./componentes/NotFound';
 import InfoUser from "./componentes/LoginComponents/InfoUser";
+import MisCompras from "./componentes/MyShopping";
 import EditArticle from "./componentes/Admin/Pages/EditArticle";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/admin/articulos/edit/:id" component={EditArticle}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
           <Route exact path="/admin/ofertas"  component={Offer}/>
+          <Route exact path="/myShoppings" component={MisCompras}/>
           
           <Route exact path="/admin/articulos/create"  component={Create}/>
 
