@@ -12,6 +12,7 @@ const URL_GET_DETAIL_BY_ID =
   process.env.NODE_ENV === "production"
     ? BASE_URL + "/article/"
     : "http://localhost:3001/article/";
+const { API_URL, API_URL_ID, API_URL_NAME, API_URL_TIPO, IMG_DEFAULT } = process.env;
 
 function validate(e) {
   const pattern = new RegExp("^[A-Z]+$", "i");
@@ -78,7 +79,7 @@ export default function CreateArticle() {
 
   useEffect(() => {
     axios.get(URL_GET_DETAIL_BY_ID + id).then((response) => {
-      console.log(response.data)
+      console.log(article)
       setArtic(response.data);
     });
   }, []);
@@ -116,15 +117,14 @@ export default function CreateArticle() {
   );
 
   function handleChange(e) {
-    setArtic({
-      ...artic,
+    setInput({
+      ...input,
       [e.target.name]: e.target.value,
     })
     // setErrors(validate({
     //   ...input,
     //   [e.target.name]: e.target.value
     // }));
-    console.log(input)
   }
 
 
@@ -157,14 +157,14 @@ export default function CreateArticle() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
     let  updateArt= {id: artic.id}
-    for (const info in article){
-        if(artic[info] && artic[info]!== article[info]){
-            updateArt[info] = artic[info]
+    for (const info in artic){
+        if(input[info] && input[info]!== artic[info]){
+            updateArt[info] = input[info]
         }
     }
-    console.log(updateArt);
+    const response = await axios.post("http://localhost:3001/article/edit",updateArt);
+    history.push("/admin/articulos");
 }
 
 //     console.log(input);
@@ -263,7 +263,7 @@ export default function CreateArticle() {
                       placeholder={artic.title}
                       className="input-accent w-xs rounded-md"
                       type="text"
-                      value={artic.title}
+                      value={input.title}
                       name="title"
                       onChange={(e) => handleChange(e)}
                     />
@@ -276,7 +276,7 @@ export default function CreateArticle() {
                     <input
                       className="input-accent w-xs rounded-md"
                       type="number"
-                      value={artic.rating}
+                      value={input.rating}
                       name="rating"
                       min={0}
                       max={5}
@@ -291,7 +291,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.marca}
+                    value={input.marca}
                     name="marca"
                     onChange={(e) => handleChange(e)}
                   />
@@ -304,7 +304,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.modelo}
+                    value={input.modelo}
                     name="modelo"
                     onChange={(e) => handleChange(e)}
                   />
@@ -317,7 +317,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.detail}
+                    value={input.detail}
                     name="detail"
                     onChange={(e) => handleChange(e)}
                   />
@@ -330,7 +330,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="number"
-                    value={artic.price}
+                    value={input.price}
                     name="price"
                     min={0}
                     onChange={(e) => handleChange(e)}
@@ -344,7 +344,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="number"
-                    value={artic.stock}
+                    value={input.stock}
                     name="stock"
                     min={0}
                     max={200}
@@ -359,7 +359,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.image}
+                    value={input.image}
                     name="image"
                     onChange={(e) => handleChange(e)}
                   />
@@ -371,7 +371,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.color}
+                    value={input.color}
                     name="color"
                     onChange={(e) => handleChange(e)}
                   />
@@ -382,7 +382,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.conectividad}
+                    value={input.conectividad}
                     name="conectividad"
                     onChange={(e) => handleChange(e)}
                   />
@@ -397,7 +397,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.so}
+                    value={input.so}
                     name="so"
                     onChange={(e) => handleChange(e)}
                   />
@@ -407,7 +407,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.ram}
+                    value={input.ram}
                     name="ram"
                     onChange={(e) => handleChange(e)}
                   />
@@ -417,7 +417,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.cpu}
+                    value={input.cpu}
                     name="cpu"
                     onChange={(e) => handleChange(e)}
                   />
@@ -427,7 +427,7 @@ export default function CreateArticle() {
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
-                    value={artic.detail.pantalla}
+                    value={input.pantalla}
                     name="pantalla"
                     onChange={(e) => handleChange(e)}
                   />
@@ -441,23 +441,23 @@ export default function CreateArticle() {
             <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
               <div className="justify-center">
                 <img
-                  src={ artic.image }
+                  src={ input.image }
                   alt="image"
                   className="lg:m-auto h-96 w-auto"
                 />
               </div>
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
-                  <h3 className="font-bold text-2xl md:text-4xl">{ artic.title }</h3>
+                  <h3 className="font-bold text-2xl md:text-4xl">{ input.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold">Rating: </h1>
-                    <p>{ artic.rating === "NaN" ? artic.rating = 0 : artic.rating }</p>
+                    <p>{ input.rating === "NaN" ? input.rating = 0 : input.rating }</p>
                   </div>
                 </div>
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
                     <h1>Precio: </h1>
-                    <p className="text-accent font-mono">${ artic.price }</p>
+                    <p className="text-accent font-mono">${ input.price }</p>
                   </div>
                   <div className="flex justify-center">
                     <p className="btn btn-outline btn-primary btn-sm btn-square">
@@ -539,7 +539,7 @@ export default function CreateArticle() {
 
           <div className="py-4 my-4">
             <button type="submit" className="btn btn-accent m-4">
-              Guardar los Cambios
+              Edit Article
             </button>
             <Link to="/admin/articulos" className="">
               <button className="btn btn-warning m-4">Back</button>

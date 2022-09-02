@@ -165,7 +165,7 @@ const editArticle = async (req, res, next) => {
         id: req.body.id
       }
     });
-    let response = await Article-findByPk(req.body.id);
+    let response = await Article.findByPk(req.body.id);
     res.json(response);
   } catch (error) {
     console.log(error);
