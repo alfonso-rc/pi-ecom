@@ -60,6 +60,12 @@ const styleButtonTextCategory = {
 
 export default function Home() {
 
+  // Funcion que permite saber si un usuario ha iniciado sesión
+  // retorna "true" o "false"
+  function askIfUserIsLogged() {
+    const token = sessionStorage.getItem("token");
+    return token ? true : false
+  }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
 
@@ -154,7 +160,7 @@ export default function Home() {
 
   function RenderItems() {
     return (
-      <div>        
+      <div>
         <div className="flex justify-end pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
@@ -241,9 +247,15 @@ export default function Home() {
           paginado={ paginado }
         />
       </div>
-      <SubscibeMail />
+
+      {/* MOSTRAMOS EL COMPONENTE SubscibeMail SI NO HAY UNA SESIÓN INICIADA */ }
+      {
+        askIfUserIsLogged() ? null : <SubscibeMail />
+      }
+
+
       <div>
-          <Footer />
+        <Footer />
       </div>
     </div>
   );

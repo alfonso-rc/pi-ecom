@@ -2,6 +2,7 @@ const axios = require('axios');
 const { Op } = require("sequelize");
 const { Category, Comment, Article, Rating, User } = require('../db');
 const { API_URL, API_URL_ID, API_URL_NAME, API_URL_TIPO, IMG_DEFAULT } = process.env;
+const { getRaitingArticleById } = require('../helpers/getRaitingArticleById.js')
 
 //TEST DE FUNCIONAMIENTO
 const testFunction = (req, res, next) => {
@@ -21,10 +22,10 @@ const getAllToDB = (req, res, next) => {
   };
 };
 
-//GET Solo Visualiza TODOS LOS ARTICULOS ----> (disable: true && false)
+//GET Visualiza TODOS LOS ARTICULOS ----> (disable: true && false)
 const getAllArticle = async (req, res, next) => {
   try {
-    let apiDB = await Article.findAll({
+    let articlesFound = await Article.findAll({
       include: {
         model: Category,
         attributes: ["name"],
@@ -32,7 +33,9 @@ const getAllArticle = async (req, res, next) => {
       }
     });
 
-    const api2 = apiDB.map(el => {
+    const mappedArticles = articlesFound.map(async el => {
+      // const articleRating = 
+
       return {
         id: el.id,
         title: el.title,
@@ -53,7 +56,7 @@ const getAllArticle = async (req, res, next) => {
         category: el.categories.name,
       }
     })
-    res.status(200).send(api2);
+    res.status(200).send(mappedArticles);
   } catch (error) {
     next(error)
   }
@@ -62,37 +65,50 @@ const getAllArticle = async (req, res, next) => {
 
 //GET Solo Visualiza los que tenga disable=false
 const getArticle = async () => {
-  //  const apiDato = await axios.get('http://localhost:3002/article');
-  let apiDB = await Article.findAll({
+
+  let articlesFound = await Article.findAll({
     include: {
       model: Category,
       attributes: ["name"],
       through: { attributes: [] }
     }
   });
-  const apiFilter = apiDB.filter((el) => el.disable == false)
-  const api2 = apiFilter.map(el => {
-    return {
-      id: el.id,
-      title: el.title,
-      rating: el.rating,
-      detail: el.detail.detail,
-      marca: el.detail.marca,
-      modelo: el.detail.modelo,
-      so: el.detail.so,
-      cpu: el.detail.cpu,
-      ram: el.detail.ram,
-      color: el.detail.color,
-      pantalla: el.detail.pantalla,
-      image: el.image,
-      stock: el.stock,
-      disable: el.disable,
-      price: el.price,
-      conectividad: el.conectividad,
-      category: el.categories.name,
-    }
-  })
-  return (api2);
+  const articlesFiltered = articlesFound.filter((el) => el.disable == false);
+  let articlesWithRating = [];
+
+  for (let i = 0; i < articlesFiltered.length; i++) {
+    const article = articlesFiltered[i];
+    article.rating = await getRaitingArticleById(article.id);
+    articlesWithRating.push(article)
+
+  }
+
+  return [...articlesWithRating]
+  // Este código comentado no funciona como se espera, debido al "map"
+  //
+  // const articlesWithRating = articlesFiltered.map(async el => {
+  //   const idArticle = el.id;
+  //   return {
+  //     id: el.id,
+  //     title: el.title,
+  //     rating: await getRaitingArticleById(idArticle),
+  //     detail: el.detail.detail,
+  //     marca: el.detail.marca,
+  //     modelo: el.detail.modelo,
+  //     so: el.detail.so,
+  //     cpu: el.detail.cpu,
+  //     ram: el.detail.ram,
+  //     color: el.detail.color,
+  //     pantalla: el.detail.pantalla,
+  //     image: el.image,
+  //     stock: el.stock,
+  //     disable: el.disable,
+  //     price: el.price,
+  //     conectividad: el.conectividad,
+  //     category: el.categories.name,
+  //   }
+  // })
+  // return (articlesWithRating);
 };
 
 // GET DETAIL ARTICLE BY ID
@@ -110,24 +126,8 @@ const detailArticle = async (req, res, next) => {
         }
       }
     });
-    const ratingFound = await Rating.findAll({
-      where: {
-        articleId: id,
-      }
-    })
 
-    if (!ratingFound) {
-      articleFound.dataValues.rating = 0;
-    } else {
-      let sum = 0
-      ratingFound.forEach(rating => {
-        sum = sum + rating.score
-      })
-      const ratingQuantity = ratingFound.length
-      console.log("Cantidad de calificaciones", ratingQuantity)
-      console.log(sum)
-      articleFound.dataValues.rating = (sum / ratingQuantity).toFixed(1);
-    }
+    articleFound.dataValues.rating = await getRaitingArticleById(id)
 
     //Visualiza los disable = false
     // console.log(articleFound);
@@ -143,7 +143,7 @@ const detailArticle = async (req, res, next) => {
 const createArticle = async (req, res, next) => {
   try {
     const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
-    const newArticle = await Article.create({ title, rating, detail:{detail,marca,modelo,so,cpu,ram,color,pantalla}, image, stock, disable, price, conectividad });
+    const newArticle = await Article.create({ title, rating, detail: { detail, marca, modelo, so, cpu, ram, color, pantalla }, image, stock, disable, price, conectividad });
 
     const categoryAll = await Category.findAll({
       where: {
@@ -225,12 +225,12 @@ const getAticleByName = async (req, res, next) => {
 
 // CREATE ARTICLE USER RATING
 const createArticleUserRating = async (req, res, next) => {
-  const {idUser, idArticle, score } = req.body;
-  console.log(req.body)
+  const { idUser, idArticle, score } = req.body;
+  // console.log(req.body)
   try {
     // Verificar si el idUser existe
-     const userFound = await User.findByPk(idUser)
-     if (!userFound) { res.status(404).send("El usuario no existe en la base de datos"); return }
+    const userFound = await User.findByPk(idUser)
+    if (!userFound) { res.status(404).send("El usuario no existe en la base de datos"); return }
 
     // Verificar si el artículo existe
     const articleFound = await Article.findByPk(idArticle)
@@ -239,18 +239,25 @@ const createArticleUserRating = async (req, res, next) => {
     // Verificar que el usuario no haya hecho ya un comentario a ese producto
     const ratingFound = await Rating.findOne({
       where: {
-         userId: idUser,
+        userId: idUser,
         articleId: idArticle
       }
     })
-    if (ratingFound) { res.status(400).send("El usuario ya ha hecho un comentario a este artículo"); return }
+
+    // Si hay un rating de ese usuario a ese atículo significa que quiere atualizarlo
+    if (ratingFound) {
+      // console.log(ratingFound.score)
+
+      res.status(400).send("El usuario ya calificó a este artículo");
+      return
+    }
 
     // Verificar que el score se encuentre en el rango 1-5 y creamos el rating
     if (score >= 1 && score <= 5) {
       // Creamos el rating
       const createdRating = await Rating.create({
         score: score,
-         userId: idUser,
+        userId: idUser,
         articleId: idArticle
       })
 

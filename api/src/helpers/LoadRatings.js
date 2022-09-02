@@ -7,6 +7,7 @@ const {
 const URL_POST_CREATE_RATINGS = process.env.NODE_ENV === "production" ?
    "https://api-ecom-07.herokuapp.com" + "/article/rating" : "http://localhost:3001/article/rating"
 
+// Esta funcion me crea ratings aleatorios (1-5) de 3 artículos por parte de los 3 usuarios creados previamente
 async function loadRatings() {
    function getRandomRating() {
       return Math.ceil(Math.random() * 5)

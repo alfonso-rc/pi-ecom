@@ -30,13 +30,13 @@ const usersToCreate = [
       "userType": "1"
    },
    {
-      "name": "Admin",
-      "lastName": "Admin",
+      "name": "admin",
+      "lastName": "admin",
       "address": "Calle 44F 38-27",
       "mail": "admin@gmail.com",
       "userName": "admin",
       "password": "admin",
-      "userType": "3"
+      "userType": "2"
    }
 ]
 
@@ -51,7 +51,7 @@ async function createDefaulUsers() {
       user.password = bcrypt(user.password);
       await User.create(user)
          .then(e => console.log("Usuario", user.userName, "agregado"))
-         .catch(e => console.log("Rating ya agregado"))
+         .catch(e => console.log("Usuario", user.userName, "AGREGADO PREVIAMENTE"))
    })
 }
 
