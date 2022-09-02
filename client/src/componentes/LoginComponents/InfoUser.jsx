@@ -72,6 +72,7 @@ function InfoUser() {
 
       const firstInfo = sessionStorage
       let updateSend = { id: firstInfo.id}
+      
       for (const info in firstInfo) {        
         if (user[info] && user[info] !== firstInfo[info]) {
           updateSend[info] = user[info];

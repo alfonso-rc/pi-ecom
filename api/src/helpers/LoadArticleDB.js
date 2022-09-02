@@ -15,8 +15,8 @@ const allArt = [
       "color": "Green",
       "pantalla": "6.1"
     },
-    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406158/ecom/71PnneF5LRL._AC_SX522__xx72jv.jpg",
-    "stock": 3,
+    "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406199/ecom/D_NQ_NP_686082-MLA49387650727_032022-O_kccnj2.webp",
+    "stock": 5,
     "disable": false,
     "price": 1593,
     "conectividad": "USB Type-C, USB 3.2 Gen 1",
@@ -58,7 +58,7 @@ const allArt = [
       "pantalla": "6.2"
     },
     "image": "https://res.cloudinary.com/dsalyp6sj/image/upload/v1661406332/ecom/D_NQ_NP_730981-MLA48800008115_012022-O_esaofd.webp",
-    "stock": 1,
+    "stock": 4,
     "disable": false,
     "price": 1291,
     "conectividad": "USB Type-C, USB 3.2 Gen 1",
