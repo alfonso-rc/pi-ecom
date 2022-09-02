@@ -14,6 +14,7 @@ import Create from './componentes/Admin/Pages/CreateArticle';
 import NotFound from'./componentes/NotFound';
 import InfoUser from "./componentes/LoginComponents/InfoUser";
 import MisCompras from "./componentes/MyShopping";
+import EditArticle from "./componentes/Admin/Pages/EditArticle";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/perfil" component={InfoUser} />
           <Route exact path="/admin" component={AdminHome} />
           <Route exact path="/admin/articulos" component={ArticleList}/>
+          <Route exact path="/admin/articulos/edit/:id" component={EditArticle}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
           <Route exact path="/admin/ofertas"  component={Offer}/>
           <Route exact path="/myShoppings" component={MisCompras}/>

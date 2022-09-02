@@ -74,8 +74,10 @@ const initialState = {
   isLoading: true,
   cart: cartStorage,
   rating: [],
+  auxArt:[],
   brand: [],
   count: 1,
+  auxArt:[],
   // wishlist: wishlistStorage,
   shoppings: [],
 };
@@ -93,6 +95,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         articles: action.payload,
         brand: action.payload,
+        auxArt: action.payload,
         filteredArticle: action.payload,
         isLoading: false,
       };
@@ -200,6 +203,10 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       };
+    case "EDIT_ARTICLE":
+        return {
+          ...state,
+        };
     case "GET_CATEGORY":
       return {
         ...state,
