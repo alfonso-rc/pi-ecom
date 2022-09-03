@@ -114,15 +114,15 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
 
       // Verificamos si el email ya está registrado como usuario
       const userFound = await User.findOne({ where: { mail: email } });
-      if (userFound) { res.status(400).send({ isUserAlreadyRegistered: true }); return };
+      if (userFound) { res.status(400).json({ isUserAlreadyRegistered: true }); return };
 
       // Verificarmos si el email ya está suscrito al newsletter
       const subcriberFound = await Subscribers.findByPk(email)
-      if (subcriberFound) { res.status(400).send({ isUserAlreadySubscribed: true }); return };
+      if (subcriberFound) { res.status(400).json({ isUserAlreadySubscribed: true }); return };
 
       // De lo contrario creamos el recurso en la tabla Subscribers
       const newSubscriber = await Subscribers.create({ nombre, email });
-      res.status(201).send({ isUserAlreadyRegistered: false, userCreated: newSubscriber });
+      res.status(201).json({ isUserAlreadyRegistered: false, userCreated: newSubscriber });
 
    } catch (error) {
       next(error)
