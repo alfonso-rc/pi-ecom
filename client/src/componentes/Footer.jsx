@@ -1,6 +1,6 @@
 import React from 'react';
 import Log2 from "../imagenes/logo-ecom.png";
-
+import { Link } from 'react-router-dom';
 export default function Footer() {
     return (
         <div >
@@ -16,7 +16,9 @@ export default function Footer() {
                     <span className="footer-title link link-hover">Terminos y condiciones</span>
                 </div>
                 <div>
+                <Link to="/AboutUs">
                     <span className="footer-title link link-hover">Acerca de nosotros</span>
+                </Link>
                 </div>
             </footer>
         </div>
