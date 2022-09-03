@@ -104,6 +104,4 @@ const updateUser = async (req, res, next) => {
    }
 };
 
-
-
 module.exports = { createUser, addFavoriteToUser, loginUser, infoUser,getUsers, updateUser };

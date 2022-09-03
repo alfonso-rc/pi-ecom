@@ -30,13 +30,13 @@ const usersToCreate = [
       "userType": "1"
    },
    {
-      "name": "Admin",
-      "lastName": "Admin",
+      "name": "Administrador",
+      "lastName": "Lopez",
       "address": "Calle 44F 38-27",
       "mail": "admin@gmail.com",
-      "userName": "admin",
+      "userName": "El Administrador",
       "password": "admin",
-      "userType": "3"
+      "userType": "2"
    }
 ]
 
