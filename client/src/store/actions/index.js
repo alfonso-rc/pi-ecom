@@ -177,6 +177,25 @@ export function postArticle(payload) {
     });
   }
 };
+
+//Edit Article
+const URL_EDIT_ART = process.env.NODE_ENV === "production" ?
+BASE_URL + "/article/edit/" : `http://localhost:3001/article/edit/`
+
+export function editArticle(id) {
+  return async function (dispatch) {
+    try {
+      var respuesta = await axios.put(URL_EDIT_ART + id);
+      return dispatch({
+        type: 'EDIT_ARTICLE',
+        payload: respuesta.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+};
+
 //Borrado Fisico
 const URL_DELETE_ART = process.env.NODE_ENV === "production" ?
   BASE_URL + "/delete/" : `http://localhost:3001/delete/`
@@ -384,3 +403,23 @@ export const decrement =()=>{
     payload: 1,
   };
 } 
+const URL_GET_DETAIL_BY_ID =
+  process.env.NODE_ENV === "production"
+    ? BASE_URL + "/article/"
+    : `http://localhost:3001/myShoppings/get?id=${sessionStorage.id}`;
+
+    export function getShopping() {
+      return function (dispatch) {
+        return axios(URL_GET_DETAIL_BY_ID)
+          .then((articles) => {
+            dispatch({
+              type: "GET_SHOPPING",
+              payload: articles.data
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+    
+          })
+      }
+    };

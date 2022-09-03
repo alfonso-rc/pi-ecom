@@ -1,6 +1,5 @@
 import React from "react";
 import SideBar from "../SideBar";
-import Logo from "../../../ECOM-10_2.png";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
 
