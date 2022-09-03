@@ -153,8 +153,8 @@ export default function ArticleDetail() {
                 </div>
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
-                    <h1>Precio: </h1> 
-                    <p className="text-accent font-mono"> ${ article.price}</p>
+                    <h1>Precio: </h1>
+                    <p className="text-accent font-mono"> ${ article.price*count }</p>
                   </div> 
                   <div className="flex justify-center">
                     <button onClick={(e) => subsDecrement(e)} className="btn btn-outline btn-primary btn-sm btn-square" >
