@@ -46,11 +46,11 @@ export default function Footer() {
       return status === "OK" ?
          toast.success('Te has suscrito exitósamente!', {
             position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
+            autoClose: 4000,
+            hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
-            draggable: true,
+            draggable: false,
             progress: undefined,
          })
          :
@@ -82,14 +82,14 @@ export default function Footer() {
             <h1 className='text-3xl'>Suscríbete a nuestras ofertas</h1>
          </div>
 
-         <ToastContainer></ToastContainer>
          <input onChange={ handleChangeInput } value={ input.name } name="name" type="text" placeholder="Nombre" class="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
          <input onChange={ handleChangeInput } value={ input.email } name="email" type="email" placeholder="Email" class="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
-
 
          {
             <SwitchButtonSubmit />
          }
+
+         <ToastContainer></ToastContainer>
       </div>
    )
 }
