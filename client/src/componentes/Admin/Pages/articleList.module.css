@@ -24,4 +24,11 @@ thead {
 	background-color: rgb(53, 52, 52);
 	border-bottom: solid 3px #282727;
 	color: rgb(179, 172, 172);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+.table tr:hover td {
+	background-color: #3c108884;
+	color: rgb(216, 211, 211);
 }
