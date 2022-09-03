@@ -9,7 +9,6 @@ const PaymentRouter = require("./RouteCheckout.js");
 const defaultRouter = require("./RouteDefault")
 const BrandRouter = require("./RouteBrand.js")
 const ShoppingRoutes = require("./shopping.js");
-const claudRoute = require("./ClaudinaryRoute.js")
 
 const router = Router();
 
@@ -22,8 +21,5 @@ router.use("/delete", deleteRouter);
 router.use("/checkout", PaymentRouter);
 router.use("/brand", BrandRouter);
 router.use("/myShoppings", ShoppingRoutes);
-router.use("/claud", claudRoute)
-
-
 
 module.exports = router;
