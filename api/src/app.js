@@ -1,77 +1,60 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const { loginRouter } = require("./routes/login");
 const passport = require("passport");
 require("./middlewares/google.js");
 const routeGoogle = require("./routes/GoogleUser.js");
-const routes = require('./routes/index.js');
+const routes = require("./routes/index.js");
 
-require('./db.js');
+require("./db.js");
+
 const server = express();
-server.name = 'API';
 
-//////////////////
-const multer = require('multer');//claudinary
-const exphbs= require('express-handlebars');//claudinary
-const path = require('path');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
-const Handlebars = require('handlebars');
+server.name = "API";
 
-server.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  layoutsDir: path.join(server.get('views'), 'layouts'),
-  partialsDir: path.join(server.get('views'), 'partials'),
-  handlebars: allowInsecurePrototypeAccess(Handlebars),
-  extname: '.hbs'
-}));
-server.set('view engine', '.hbs');//para arrancar el motor
-
-const storage= multer.diskStorage({
-  destination:path.join(__dirname, 'public/uploads'),
-  filename:(req,file,cb)=>{
-      cb(null, new Date().getTime()+ path.extname(file.originalname));// nombre basado en el tiempo
-  }
-});
-server.use(multer(storage).single('image'));//multer sirve para procesar e interpretar la imagen  y colocarla en elservidor
-//////////////////////
-
-
-server.use(express.urlencoded({ extended: true, limit: '50mb' }));
-server.use(express.json({ limit: '50mb' }));
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
-server.use(morgan('dev'));
+server.use(morgan("dev"));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, OPTIONS, PUT, DELETE"
+    );
+    next();
 });
 
 server.use(
-  "/auth",
-  passport.authenticate("auth-google", {
-    scope: [
-      "https://www.googleapis.com/auth/userinfo.profile",
-      "https://www.googleapis.com/auth/userinfo.email",
-    ],
-    session: false,
-    //successRedirect: "http://localhost:3000/home",    
-  }),
-  loginRouter
+    "/auth",
+    passport.authenticate("auth-google", {
+        scope: [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email",
+        ],
+        session: false,
+        //successRedirect: "http://localhost:3000/home",
+    }),
+    loginRouter
 );
 
-server.use('/', routes);
+server.use("/", routes);
 server.use("/", routeGoogle);
 
 // Error catching endware.
-server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  const status = err.status || 500;
-  const message = err.message || err;
-  console.error(err);
-  res.status(status).send(message);
+server.use((err, req, res, next) => {
+    // eslint-disable-line no-unused-vars
+    const status = err.status || 500;
+    const message = err.message || err;
+    console.error(err);
+    res.status(status).send(message);
 });
 
 module.exports = server;
