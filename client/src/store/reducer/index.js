@@ -47,6 +47,20 @@ if (!cartStorage) {
   cartStorage = [];
 }
 
+let shoppingStorage;
+try {
+  let local = localStorage.getItem("shopping") || [];
+  if (local !== "undefined") {
+    shoppingStorage = JSON.parse(local);
+  }
+} catch (error) {
+  // console.log({error});
+}
+
+if (!shoppingStorage) {
+  shoppingStorage = [];
+}
+
 // let wishlistStorage;
 // try {
 //   let local2 = localStorage.getItem("wishlist") || [];
@@ -79,7 +93,7 @@ const initialState = {
   count: 1,
   auxArt:[],
   // wishlist: wishlistStorage,
-  shoppings: [],
+  shoppings: shoppingStorage,
 };
 
 export default function reducer(state = initialState, action) {
