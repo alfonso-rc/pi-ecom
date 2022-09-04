@@ -6,7 +6,7 @@ import "../App.css";
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarDetail from "./NavBarDetail";
 import Carrito from "./Carrito";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addComment, addRating, getUsers } from "../store/actions";
 import Footer from "./Footer";
 import NotFound from "./NotFound";
@@ -26,8 +26,6 @@ export default function ArticleDetail() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
-
   function addCart(item) {
     dispatch(addToCart(item));
   }
@@ -45,18 +43,19 @@ export default function ArticleDetail() {
 
 
   const [article, setArticle] = useState(null);
-  const [stockCon, setStockCon] = useState();
-  const count = useSelector((state)=> state.count)
+  // const [stockCon, setStockCon] = useState(); // El stock se enncuentra en article
+  const [count, setCount] = useState(1)
   let { id } = useParams();
 
   useEffect(() => {
     axios.get(URL_GET_DETAIL_BY_ID + id).then((response) => {
       console.log(response.data)
       setArticle(response.data);
-      setStockCon(response.data.stock);
+      // setStockCon(response.data.stock);
     });
   }, []);
 
+  // Texto de comentario
   const [input, setInput] = useState("");
 
 
@@ -74,21 +73,7 @@ export default function ArticleDetail() {
       toastErrors();
     }
   };
-  // function HandleClickComment(e) {
-  //   e.preventDefault();
-  //   const token = sessionStorage.getItem("token");
-  //   if (token) {
-  //       dispatch(addComment(input))
-  //     setInput({
-  //       ...input,
-  //         idUser: sessionStorage.getItem("id"),
-  //         articleId: article.id,
-  //       [e.target.texto]: e.target.value,});
-  //       alert('Comentario Agregado!')
-  //     } else {
-  //       toastErrors();
-  //     }
-  //   }
+
 
   const HandleClickComment = (e) => {
     e.preventDefault();
@@ -107,17 +92,22 @@ export default function ArticleDetail() {
     }
   };
 
+  // Comentario
   const handleTextInputComment = (e) => {
     console.log(e.target.value)
     setInput(e.target.value)
   }
 
-  function addIncrement(e){
+
+  // Aumentar la cantidad de productos
+  function addIncrement(e) {
     //e.preventDefault();
+    if (count < article.stock) setCount(count + 1)
     dispatch(increment(e.target.value));
   }
-  function subsDecrement(e){
+  function subsDecrement(e) {
     //e.preventDefault();
+    if (count >= 2) setCount(count - 1)
     dispatch(decrement(e.target.value));
   }
 
@@ -138,7 +128,7 @@ export default function ArticleDetail() {
               <div className="justify-center">
                 <img
                   src={ article.image }
-                  alt="image"
+                  alt="..."
                   className="lg:m-auto h-96 w-auto"
                 />
               </div>
@@ -146,22 +136,25 @@ export default function ArticleDetail() {
                 <div>
                   <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
-                    <h1 className="font-bold">Rating: </h1>
+                    <h1 className="font-bold mx-3">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
-                    <p>{ article.rating === "NaN" ? article.rating = 0 : article.rating }</p>
+                    <p>{ article.rating === "NaN" ? article.rating = " sin calificaciones" : article.rating }</p>
                   </div>
                 </div>
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
-                    <h1>Precio: </h1>
-                    <p className="text-accent font-mono"> ${ article.price*count }</p>
-                  </div> 
+                    <h1 className="font-bold mx-3" >Precio: </h1>
+                    <p className="text-accent font-mono"> ${ article.price * count }</p>
+                  </div>
+
+                  {/* BOTONES PARA AÑADIR UNIDADES DEL STOCK */ }
+
                   <div className="flex justify-center">
-                    <button onClick={(e) => subsDecrement(e)} className="btn btn-outline btn-primary btn-sm btn-square" >
+                    <button onClick={ (e) => subsDecrement(e) } className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
-                    <p className="px-5">{count}</p>
-                    <button onClick={(e) => addIncrement(e)}  className="btn btn-primary btn-sm btn-square ">
+                    <p className="px-5">{ count }</p>
+                    <button onClick={ (e) => addIncrement(e) } className="btn btn-primary btn-sm btn-square ">
                       <IoAdd className="text-2xl" />
                     </button>
                   </div>
@@ -176,6 +169,7 @@ export default function ArticleDetail() {
                   <br />
                   <br />
                   <button
+
                     className="btn btn-accent btn-wide my-2"
                     onClick={ () => addCart(article) }
                   >
@@ -294,7 +288,7 @@ export default function ArticleDetail() {
       <div>
         <Footer />
       </div>
-    </div>
+    </div >
   );
 }
 /* const mapStateToProps = (state) => {
