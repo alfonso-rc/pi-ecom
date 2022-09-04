@@ -1,0 +1,34 @@
+.table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+.table th,
+td {
+	width: 25%;
+	text-align: left;
+	vertical-align: top;
+	padding: 0.3em;
+	caption-side: bottom;
+}
+.table th {
+	background: rgb(36, 41, 51);
+}
+.table tr:nth-child(even) {
+	background: rgb(36, 41, 51);
+}
+.table tr:nth-child(odd) {
+	background: rgb(51, 56, 67);
+}
+thead {
+	background-color: rgb(53, 52, 52);
+	border-bottom: solid 3px #282727;
+	color: rgb(179, 172, 172);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+.table tr:hover td {
+	background-color: #3c108884;
+	color: rgb(216, 211, 211);
+}
