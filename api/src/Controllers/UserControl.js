@@ -106,10 +106,10 @@ const updateUser = async (req, res, next) => {
    }
 };
 
-// Función que suscribe un usuario al newsletter de ofertas
+// Función que suscribe un usuario al newsletter de ofertas NO TOCAR SIN AVISAR A ALEJO
 const subscribeUserToNewsLetter = async (req, res, next) => {
    try {
-      const { nombre, email } = req.body;
+      const { name, email } = req.body;
       console.log("Usuario a suscribir", req.body);
 
       // Verificamos si el email ya está registrado como usuario
@@ -121,7 +121,7 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
       if (subcriberFound) { res.status(400).json({ isUserAlreadySubscribed: true }); return };
 
       // De lo contrario creamos el recurso en la tabla Subscribers
-      const newSubscriber = await Subscribers.create({ nombre, email });
+      const newSubscriber = await Subscribers.create(req.body);
       res.status(201).json({ isUserAlreadyRegistered: false, userCreated: newSubscriber });
 
    } catch (error) {
