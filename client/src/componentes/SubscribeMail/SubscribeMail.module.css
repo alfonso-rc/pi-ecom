@@ -18,12 +18,33 @@
    margin-bottom: 2rem;
 }
 
+.inputContainer{
+   width: 50%;
+   /* border: 1px solid white; */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 10px 0;
+}
+
+.subContainer{
+   border: 1px solid white;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+}
+
 @media (max-width:800px) {
    .container{
       /* background-color: red; */
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
+   }
+
+   .inputContainer > input{
+      width: 300px;
    }
    
 }
