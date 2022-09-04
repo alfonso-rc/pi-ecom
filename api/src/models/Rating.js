@@ -5,6 +5,9 @@ module.exports = (sequelize) => {
         score: {
             type: DataTypes.FLOAT,
             allowNull: false
+        },
+        comment: {
+            type: DataTypes.TEXT,
         }
     }, {
         timestamps: true
