@@ -24,6 +24,7 @@ export default function MisCompras() {
 
   return (
     <div>
+      
       {/* {loading ? "cargando" : 
     articulosShopping.length && articulosShopping.map((art) => {
         return <CardShopping key={art.id} title={art.title} image={art.image} />;
