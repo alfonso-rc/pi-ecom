@@ -29,11 +29,11 @@ export function getArticles() {
 	};
 }
 
-export function orderByAZ(payload) {
+export function orderByAZ(order) {
 	try {
 		return {
 			type: "ORDER_BY_ARTICLES",
-			payload,
+			payload: order
 		};
 	} catch (error) {
 		console.log(error);
@@ -110,11 +110,11 @@ export function getbrands() {
 		});
 	};
 }
-export function orderBrand2(payload) {
+export function orderBrand2(brand) {
 	////////////////////////
 	return {
 		type: "ORDER_BY_BRAND2",
-		payload,
+		payload: brand,
 	};
 }
 const URL_GET_SMARTPHONE =
@@ -468,17 +468,34 @@ const URL_GET_DETAIL_BY_ID =
 		? BASE_URL + "/article/"
 		: `http://localhost:3001/myShoppings/get?id=${sessionStorage.id}`;
 
+// export function getShopping() {
+// 	return async function (dispatch) {
+// 		return axios(URL_GET_DETAIL_BY_ID)
+// 			.then((articles) => {
+// 				dispatch({
+// 					type: "GET_SHOPPING",
+// 					payload: articles.data,
+// 				});
+// 			})
+// 			.catch((error) => {
+// 				console.log(error);
+// 			});
+// 	};
+// }
 export function getShopping() {
-	return function (dispatch) {
-		return axios(URL_GET_DETAIL_BY_ID)
-			.then((articles) => {
-				dispatch({
-					type: "GET_SHOPPING",
-					payload: articles.data,
+	return async function (dispatch) {
+		var json = await axios(URL_GET_DETAIL_BY_ID)
+			 return dispatch({
+					type: "GET_SHOPPING",	
+					payload: json.data,
 				});
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+	};
+}
+
+export function resetArticles() {
+	return (dispatch) => {
+		dispatch({
+			type: "RESET_ARTICLES",
+		});
 	};
 }

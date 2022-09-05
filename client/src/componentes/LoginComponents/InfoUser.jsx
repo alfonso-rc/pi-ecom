@@ -72,18 +72,25 @@ function InfoUser() {
 
       const firstInfo = sessionStorage
       let updateSend = { id: firstInfo.id}
-      
+
       for (const info in firstInfo) {        
         if (user[info] && user[info] !== firstInfo[info]) {
           updateSend[info] = user[info];
         }
       }
 
-      console.log(updateSend);
-
-
-
-
+      try {
+        const newsData = (await axios.post("http://localhost:3001/user/update", updateSend)).data;
+        sessionStorage.clear();
+        for (const dat in newsData) {
+          sessionStorage.setItem(dat, newsData[dat]);
+        }
+        setUser({});
+        alert('Los datos se han actualizado con éxito');
+        history.push('/home');
+      } catch (err) {
+        
+      }
 
 
 
@@ -281,7 +288,10 @@ function InfoUser() {
               <button
                 
                 type="submit"
-                className="w-40 group relative justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10"
+                className={
+                  Object.getOwnPropertyNames(user).length ? "w-40 group relative justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10" :
+                  "w-40 group relative justify-center py-2 px-4 font-medium rounded-md text-black bg-slate-300 mt-10"
+                }
                 onClick={submitData}
               >
                 Guardar cambios

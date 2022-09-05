@@ -31,7 +31,7 @@ function Profile() {
 
                 <ul tabindex="0" class="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
                     {
-                        sessionStorage.userType === '3' && <li class="hover:bg-violet-800 rounded-none text-white">
+                        sessionStorage.userType === '2' && <li class="hover:bg-violet-800 rounded-none text-white">
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>
                         </li>
                     }
