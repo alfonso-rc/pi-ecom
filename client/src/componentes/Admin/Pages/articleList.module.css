@@ -1,18 +1,18 @@
 .table {
 	width: 100%;
 	border-collapse: separate;
-	border-spacing: 5px;
+	vertical-align: top;
 }
 .table th,
 td {
 	width: 25%;
 	text-align: left;
-	vertical-align: top;
-	padding: 0.3em;
+	padding: 0.2em;
 	caption-side: bottom;
 }
 .table th {
 	background: rgb(36, 41, 51);
+	width: 25%;
 }
 .table tr:nth-child(even) {
 	background: rgb(36, 41, 51);
@@ -25,7 +25,7 @@ thead {
 	border-bottom: solid 3px #282727;
 	color: rgb(179, 172, 172);
 	position: sticky;
-	top: 0;
+	top: 1;
 	z-index: 10;
 }
 .table tr:hover td {
