@@ -81,8 +81,10 @@ Comment.belongsTo(User);
 
 // UN USUARIO TIENE MUCHAS CALIFICACIONES
 // UN ARTÍCULO TIENE MUCHAS CALIFICACIONES
+// UN RATING PERTENECE A UN USUARIO
 User.hasMany(Rating);
 Article.hasMany(Rating);
+Rating.belongsTo(User);
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

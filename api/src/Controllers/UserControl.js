@@ -41,6 +41,37 @@ const createUser = async (req, res, next) => {
    }
 }
 
+// Function que verifica si el id artículo es favorito del id usuario
+const askFavorite = async (req, res, next) => {
+   const { idUser, idArticle } = req.body
+   console.log(req.body)
+
+   try {
+      // Preguntar si existe el usuario
+      const userFound = await User.findByPk(idUser)
+      if (!userFound) {
+         res.status(404).send("El usuario no existe")
+         return
+      }
+
+      // Preguntar si existe el artículo
+      const articleFound = await Article.findByPk(idArticle)
+      if (!articleFound) {
+         res.status(404).send("El artículo no existe")
+         return
+      }
+
+      // Preguntamos si el usuario tiene ese artículo en favoritos
+      const isFavorite = await userFound.hasArticle(idArticle)
+      isFavorite ?
+         res.status(200).json({ isFavorite }) :
+         res.status(400).send({ isFavorite: false })
+   } catch (error) {
+      next(error)
+   }
+}
+
+
 // Añade un artículo favorito al usuario, si ya lo tiene, lo elimina de favoritos
 // es como un switch
 const addFavoriteToUser = async (req, res, next) => {
@@ -64,12 +95,12 @@ const addFavoriteToUser = async (req, res, next) => {
       // Traemos todos los favoritos del usuario
       const favoritesFound = await userFound.getArticles()
       const listIdFavorites = favoritesFound.map(art => art.dataValues.id)
-      console.log(listIdFavorites)
+      // console.log(listIdFavorites)
 
       // Si el usuario ya tiene ese favorito, lo eliminamos
       if (listIdFavorites.includes(idArticle)) {
          const articleRemoved = await userFound.removeArticle(idArticle)
-         console.log(articleRemoved)
+         // console.log(articleRemoved)
          res.status(200).json({ isFavoriteNow: false, articleRemoved })
       } else { // de lo contrario lo agregamos como su favorito
          await userFound.addArticle(idArticle)
@@ -151,4 +182,4 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
 }
 
 
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter };
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, askFavorite };

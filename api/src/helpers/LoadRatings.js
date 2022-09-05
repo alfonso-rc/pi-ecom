@@ -19,13 +19,16 @@ async function loadRatings() {
    let arrayUsersId = userList.map(user => user.id) // Un array con los ids de los usuarios
    let arrayArticlesId = rows.map(article => article.id)
 
+   let con = 0
    // Por cara usuario del array vamos a calificar los 3 artículos de nuestro array
    arrayUsersId.forEach(async userId => {
       arrayArticlesId.forEach(async articleId => {
+         con++
          await axios.post(URL_POST_CREATE_RATINGS, {
             "idArticle": articleId,
             "idUser": userId,
-            "score": getRandomRating() // Genera un número alatorio de 1-5
+            "score": getRandomRating(), // Genera un número alatorio de 1-5
+            "comment": "muy bueno bro, cómpralo x" + con
          }).then()
             .catch(e => null)
       })
