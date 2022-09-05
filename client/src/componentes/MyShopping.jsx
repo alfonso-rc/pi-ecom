@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardShopping from "./CardShopping";
 import { getShopping } from "../store/actions";
+import NavBarDetail from "./NavBarDetail";
+import Footer from "./Footer";
 
 export default function MisCompras() {
   const articulosShopping = useSelector((state) => state.shoppings);
@@ -24,20 +26,17 @@ export default function MisCompras() {
 
   return (
     <div>
-      {/* {loading ? "cargando" : 
-    articulosShopping.length && articulosShopping.map((art) => {
+      <div>
+        <NavBarDetail/>
+      </div>
+      <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
+      {articulosShopping.map((art) => {
         return <CardShopping key={art.id} title={art.title} image={art.image} />;
-      })} */}
-      {loading?(
-      articulosShopping.length?(
-        articulosShopping.map((art)=>{
-        return( <CardShopping key={art.id} title={art.title} image={art.image} />)
-        })) :(
-          <img className='loading' src='http://userscontent2.emaze.com/images/29869c73-86e2-43ed-b2ab-c34d4ef42746/41b81fc0-6f20-471f-a049-75e70a5f7c58.gif'/>
-        )):
-        <img className='loading' src='http://userscontent2.emaze.com/images/29869c73-86e2-43ed-b2ab-c34d4ef42746/41b81fc0-6f20-471f-a049-75e70a5f7c58.gif'/>
-
-      }
+      })}
+      </div>
+      <div>
+        <Footer/>
+      </div>
     </div>
   );
 }
