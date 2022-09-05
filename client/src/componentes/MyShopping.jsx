@@ -8,29 +8,30 @@ import NavBarDetail from "./NavBarDetail";
 import Footer from "./Footer";
 
 export default function MisCompras() {
-  const articulosShopping = useSelector((state) => state.shoppings);
   const [loading, setLoading] = useState(false)
-  console.log(articulosShopping)
   const dispatch = useDispatch();
+  const [articles, setArticles] = useState([]);
+ 
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  const URL_GET_ARTICLES_BOUGHT =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/article/"
+		: `http://localhost:3001/myShoppings/get?id=`;
 
   useEffect(() => {
-    const miscompras = sessionStorage.getItem("id")
-    console.log("mi id", miscompras)
-    dispatch(getShopping());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setLoading(true)
-  }, [articulosShopping]);
-
-
+    // Pedimos el detalle del artículo
+    axios.get(URL_GET_ARTICLES_BOUGHT + sessionStorage.getItem("id"))
+      .then((response) => {
+        setArticles(response.data);
+      })
+  }, []);
   return (
     <div>
       <div>
         <NavBarDetail/>
       </div>
       <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
-      {articulosShopping.map((art) => {
+      {articles.map((art) => {
         return <CardShopping key={art.id} title={art.title} image={art.image} />;
       })}
       </div>
