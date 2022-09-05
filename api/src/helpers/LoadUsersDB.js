@@ -11,15 +11,16 @@ const URL_POST_CREATE_USERS = process.env.NODE_ENV === "production" ?
    "https://api-ecom-07.herokuapp.com" + "/user/create" : "http://localhost:3001/user/create"
 
 const usersToCreate = [
-   // {
-   //    "name": "alejandro",
-   //    "lastName": "silva",
-   //    "address": "calle falsa 123",
-   //    "mail": "alejoyodax@gmail.com",
-   //    "userName": "alejoyodax",
-   //    "password": "12345678",
-   //    "userType": "1"
-   // },
+   {
+      "name": "Carlos",
+      "lastName": "Cruz",
+      "address": "Tocancipa - Colombia",
+      "mail": "carturo99@gmail.com",
+      "userName": "CCruz",
+      "password": "12345678",
+      "userType": "2",
+      "image": "https://lh3.googleusercontent.com/a-/AFdZucpnp6h9LsNdfG5GWBisUIJmTi51MMtbte10YUKZIQ=s96-c"
+   },
    {
       "name": "cosme",
       "lastName": "fulanito",
@@ -34,7 +35,7 @@ const usersToCreate = [
       "lastName": "admin",
       "address": "Calle 44F 38-27",
       "mail": "admin@gmail.com",
-      "userName": "admin",
+      "userName": "El Administrador",
       "password": "admin",
       "userType": "2"
    }

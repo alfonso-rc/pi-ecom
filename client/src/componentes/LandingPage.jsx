@@ -72,14 +72,14 @@ export default function LandingPage() {
             <img class="object-cover object-center rounded" alt="hero" src={ logo } />
           </div>
           <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Encontrá en Ecom
-              <br class="hidden lg:inline-block" />el producto que estás buscando.
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Encuentra en Ecom
+              <br class="hidden lg:inline-block"/>el producto que estás buscando.
             </h1>
-            <p class="mb-8 leading-relaxed">Tenemos variedad de productos, un sistema de "coins" en el cual se te devolvera un porcentage en cada compra para que puedas ir acumulando y conseguir el producto que buscas a un precio increible!!</p>
+            <p class="mb-8 leading-relaxed">Contamos con una gran variedad de productos al alcance de tus manos, disfruta de las nuevas tecnologías y las mejores marcas del mercado a precios increibles y con un excelente servicio de entregas en la puerta de tu casa.</p>
             <div class="flex justify-center">
               <Link to="/home">
                 <button className="btn btn-accent btn-lg">
-                  Empezá tu busqueda
+                  Empieza tu busqueda
                 </button>
               </Link>
             </div>
