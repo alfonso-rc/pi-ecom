@@ -1,21 +1,45 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUsers } from "../../../../src/store/actions/index.js";
+import {
+  getUsers,
+  deleteUser,
+  banUser,
+} from "../../../../src/store/actions/index.js";
+import s from "../Pages/articleList.module.css";
 
-export default function ArticleList({id,name,lastName,address,mail,userName,password,coins,userType}) {
+export default function UserList() {
   const allUsers = useSelector((state) => state.users);
   let dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsers());
-    console.log(allUsers);
-  }, [dispatch]);
+  }, []);
+
+  function handleClickDelete(id) {
+    try {
+      dispatch(deleteUser(id));
+      allUsers = allUsers.filter((a) => a.id !== id);
+      alert(`El Usuario con id: ${id} fue Eliminado!`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleClickBaned(id) {
+    try {
+      dispatch(banUser(id));
+      alert("Hecho!");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="">
-      <div class="">
-        <table class="table table-compact w-full">
+      <div className="">
+       <table className={s.table}>  {/* table-compact w-full */}
           <thead>
             <tr>
               <th>Id</th>
@@ -26,12 +50,14 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
               <th>Password</th>
               <th>Coins</th>
               <th>User Type</th>
+              <th>Ban</th>
+              <th>Action</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            { allUsers?.map((usr) => {
+            {allUsers?.map((usr) => {
               return (
                 <tr>
                   <td>{usr.id}</td>
@@ -42,12 +68,74 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
                   <td>{usr.password}</td>
                   <td>{usr.coins}</td>
                   <td>{usr.userType}</td>
+                  <td>{usr.ban}</td>
                   <th>
-                    <button className="btn btn-info btn-xs">Edit</button>
+                    {usr.disable ? (
+                      <div>
+                        <label className="swap">
+                          <input type="checkbox" />
+                          <div
+                            className="swap-on btn btn-success btn-xs"
+                            onClick={() => handleClickBaned(usr.id)}
+                          >
+                            NoBan
+                          </div>
+                          <div
+                            className="swap-off btn btn-error btn-xs btn-active "
+                            onClick={() => handleClickBaned(usr.id)}
+                          >
+                            Ban
+                          </div>
+                        </label>
+                      </div>
+                    ) : (
+                      <div>
+                        <label className="swap">
+                          <input type="checkbox" />
+                          <div
+                            className="swap-off btn btn-error btn-xs btn-active"
+                            onClick={() => handleClickBaned(usr.id)}
+                          >
+                            Banned
+                          </div>
+                          <div
+                            className="swap-on btn btn-success btn-xs"
+                            onClick={() => handleClickBaned(usr.id)}
+                          >
+                            NoBanned
+                          </div>
+                        </label>
+                      </div>
+                    )}
                   </th>
                   <th>
-                    <button className="btn btn-error btn-xs">Delete</button>
+                    <Link to={`/admin/users/edit/${usr.id}`}>
+                      <button className="btn btn-info btn-xs">Edit</button>
+                    </Link>
                   </th>
+                  <td>
+                    <a href="#my-modal-2" class="btn btn-error btn-xs">
+                      Delete
+                    </a>
+                    <div class="modal" id="my-modal-2">
+                      <div class="modal-box">
+                        <h3 class="font-bold">
+                          El Usuario se eliminara de manera permanente!
+                        </h3>
+                        <div class="modal-action">
+                          <button
+                            className="btn btn-error btn-xs"
+                            onClick={() => handleClickDelete(usr.id)}
+                          >
+                            Continuar
+                          </button>
+                          <a href="#" className="btn btn-xs">
+                            Cancelar
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               );
             })}
@@ -62,6 +150,8 @@ export default function ArticleList({id,name,lastName,address,mail,userName,pass
               <th>Password</th>
               <th>Coins</th>
               <th>User Type</th>
+              <th>Ban</th>
+              <th>Action</th>
               <th>Action</th>
               <th>Action</th>
             </tr>

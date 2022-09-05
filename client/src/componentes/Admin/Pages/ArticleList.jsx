@@ -17,7 +17,7 @@ export default function ArticleList() {
 
 	useEffect(() => {
 		dispatch(getAllArticles());
-	}, [dispatch]);
+	}, []);
 
 	function handleClickDelete(id) {
 		try {
@@ -33,7 +33,7 @@ export default function ArticleList() {
 	function handleClickInhab(id) {
 		try {
 			dispatch(deleteArticleLogic(id));
-			alert(`El Articulo con id: ${id} no esta disponible!`);
+			alert('Hecho!')
 		} catch (error) {
 			console.log(error);
 		}
@@ -50,8 +50,8 @@ export default function ArticleList() {
 
 	return (
 		<div className="">
-			<div className={s.table}>
-				<table /*className="table table-compact w-full" */>
+			<div>
+				<table className={s.table}/*className="table table-compact w-full" */>
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -78,14 +78,22 @@ export default function ArticleList() {
 									<td>{art.stock}</td>
 									<td>{art.price}</td>
 									<td>
-										<button
-											className="btn btn-error btn-xs"
-											onClick={() =>
-												handleClickInhab(art.id)
-											}
-										>
-											Desabilitar
-										</button>
+							 {(art.disable)?
+							 	<div>
+									<label className="swap">
+										<input type="checkbox" />
+										<div className="swap-on btn btn-success btn-xs" onClick={() =>handleClickInhab(art.id)}>Habilitar</div>
+										<div className="swap-off btn btn-error btn-xs" onClick={() =>handleClickInhab(art.id)}>Deshabilitar</div>
+									</label>
+							 	</div>:
+								 <div>
+									<label className="swap">
+										<input type="checkbox" />
+										<div className="swap-off btn btn-error btn-xs" onClick={() =>handleClickInhab(art.id)}>Deshabilitar</div>
+										<div className="swap-on btn btn-success btn-xs" onClick={() =>handleClickInhab(art.id)}>Habilitar</div>
+									</label>
+							 	</div>
+							 }
 									</td>
 									<td>
 										<Link
@@ -135,18 +143,6 @@ export default function ArticleList() {
 						})}
 					</tbody>
 					<tfoot>
-						{/* <tr>
-							<th className="w-8">Name</th>
-							<th>id</th>
-							<th>Marca</th>
-							<th>Modelo</th>
-							<th>Habilitado</th>
-							<th>Stock</th>
-							<th>Price</th>
-							<th>Action</th>
-							<th>Action</th>
-							<th>Action</th>
-						</tr> */}
 					</tfoot>
 				</table>
 			</div>

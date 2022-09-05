@@ -1,35 +1,38 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import SideBar from "./SideBar";
 import UserList from "../Admin/Pages/UserList";
 import Logo from "../../../../client/src/ECOM-10_2.png";
+import { Link } from "react-router-dom";
 import NavBarAdmin from "../NavBarAdmin";
 import Footer from "../Footer";
 
-export default function Users({
+export default function User({
   id,
   name,
   lastName,
   address,
   mail,
-  userName,
-  password,
-  coins,
   userType,
+  image,
+  ban,
 }) {
   return (
     <div className="m-0 p-0">
-      <NavBarAdmin/>
-      <div className="min-h-screen">
-
-        <h1 className="font-sans">Users Admin</h1>
-        <div className="flex">
-          <SideBar />
-          <div className="overflow-scroll h-auto  w-4/5 m-8">
-            <UserList />
-          </div>
+      <NavBarAdmin />
+      <div className="flex">
+        <SideBar />
+        <div className="overflow-scroll h-96  w-4/5 m-8">
+          <UserList />
         </div>
       </div>
-      <Footer/>
+      <Link to="/admin/user/create">
+        <button class="btn btn-outline btn-accent">Add Article</button>
+      </Link>
+      <div className="pt-16">
+        <Footer />
+      </div>
     </div>
   );
 }
