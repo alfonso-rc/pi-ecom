@@ -24,10 +24,18 @@ const URL_GET_DETAIL_BY_ID =
     ? BASE_URL + "/article/"
     : "http://localhost:3001/article/";
 
-const URL_ADD_FAVORITE =
-  process.env.NODE_ENV === "production"
-    ? BASE_URL + "/user/add_favorite/"
-    : "http://localhost:3001/user/add_favorite/";
+const URL_ADD_FAVORITE = process.env.NODE_ENV === "production"
+  ? BASE_URL + "/user/add_favorite/"
+  : "http://localhost:3001/user/add_favorite/";
+
+const URL_ASK_FAVORITE = process.env.NODE_ENV === "production"
+  ? BASE_URL + "/user/ask_favorite/"
+  : "http://localhost:3001/user/ask_favorite/";
+
+const styleCommentsBox = {
+  zIndex: 0,
+  padding: "0 2rem"
+}
 
 export default function ArticleDetail() {
 
@@ -40,6 +48,7 @@ export default function ArticleDetail() {
   // const [stockCon, setStockCon] = useState(); // El stock se enncuentra en article
   const [count, setCount] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isBought, setIsBought] = useState(false);
 
   // id del artículo
   let { id } = useParams();
@@ -52,24 +61,34 @@ export default function ArticleDetail() {
 
   // ESTE USE EFFECT TIENE EL COMPORTAMIENTO DE UN DID-MOUNTED, SOLO SE EJECUTA AL MONTAR EL COMPONENTE POR PRIMERA VEZ
   useEffect(() => {
+    // Pedimos el detalle del artículo
     axios.get(URL_GET_DETAIL_BY_ID + id)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setArticle(response.data);
       })
-      .then(() => {
-
-      })
+  }, [id]);
 
 
+  useEffect(() => {
+    const idUser = sessionStorage.getItem("id")
+    const bodyAskFavorite = {
+      idUser: idUser,
+      idArticle: id // id del artículo
+    }
 
+    console.log("id usuario:", idUser)
+    // Primero chequeamos que hay sesión iniciada
+    if (idUser) {
+      axios.post(URL_ASK_FAVORITE, bodyAskFavorite)
+        .then((res) => {
+          console.log("si es favorito");
+          setIsFavorite(true)
+        })
+        .catch(e => console.log(e))
+    }
 
-  }, []);
-
-
-
-
-
+  }, [article])
 
   function addCart(item) {
     dispatch(addToCart(item));
@@ -125,15 +144,10 @@ export default function ArticleDetail() {
         } else if (res.status === 200) {
           setIsFavorite(res.data.isFavoriteNow)
         }
-
-
-
-        // console.log(res.data)
-
-
-
       })
-      .catach(res => console.log(res.data))
+      .catch(res => console.log(res.data))
+
+
 
     setIsFavorite(!isFavorite)
   }
@@ -183,13 +197,6 @@ export default function ArticleDetail() {
 
 
 
-  function ShowUserCommentAndRatingBlock() {
-    return (
-      <div>
-        USER COMMENT ANDF RATING BLOCK
-      </div>
-    )
-  }
 
 
   /*
@@ -197,10 +204,21 @@ export default function ArticleDetail() {
   FUNCIONES QUE FUNCIONAN COMO MINI COMPONENTES ---> nótese que retornan objetos de html
 
   */
+  function RatingToUser() {
+    return (
+      <div className="rating rating-lg rating-half">
+        <input type="radio" name="rating-7" className="rating-hidden" />
+        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
+        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 2 } onClick={ (e) => HandleClickRating(e, 2) } />
+        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
+        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
+        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
+      </div>
+    )
+  }
 
   function ShowFavoriteButton() {
     const styleFavoriteButton = isFavorite ? "btn gap-2 btn-error" : "btn btn-outline btn-info";
-
     return (
       <button
         onClick={ handleFavoriteCLick }
@@ -210,11 +228,60 @@ export default function ArticleDetail() {
     )
   }
 
-  function ShowComments() {
+  function ShowUserCommentAndRatingBlock() {
+    const articleCommentsAndRaitings = article.ratings
+
+    if (!articleCommentsAndRaitings.length) {
+      return (
+        <div class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
+          <div class="collapse-title text-xl">
+            Sin calificaciones
+          </div>
+        </div>
+      )
+    }
+
     return (
-      <h1>COMENTARIOS</h1>
+      <div style={ styleCommentsBox } class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
+        <div class="collapse-title text-xl">
+          Comentarios y calificaciones
+        </div>
+        <div className="overflow-x-auto">
+          <table className="table w-full px-4">
+            {/* <!-- head --> */ }
+            <thead>
+              <tr>
+                <th>Calificación</th>
+                <th>Comentario</th>
+                <th>Usuario</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {/* <!-- row 1 --> */ }
+              {
+                articleCommentsAndRaitings.map(c => {
+                  return (
+                    <tr >
+                      <td><div style={ { position: "relative", left: "1.8rem" } }>{ <RatingStars rating={ c.score } /> }</div></td>
+                      <td>{ c.comment }</td>
+                      <td>{ `${c.user.name} ${c.user.lastName}` }</td>
+
+                    </tr>
+                  )
+                })
+              }
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
     )
+
   }
+
 
   return (
     <div>
@@ -225,7 +292,7 @@ export default function ArticleDetail() {
       <div>
         <button className="btn btn-circle btn-outline"></button>
       </div>
-      <div className="font-Work text-lg md:text-xl bg-white text-black pt-40">
+      <div className="font-Work text-lg md:text-xl bg-white text-black pt-10">
         { article ? (
           <div>
             <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
@@ -238,7 +305,6 @@ export default function ArticleDetail() {
               </div>
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
-
                   <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold mx-3">Rating: </h1>
@@ -248,7 +314,6 @@ export default function ArticleDetail() {
                   <div>
                     <RatingStars rating={ article.rating } />
                   </div>
-
                 </div>
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
@@ -291,22 +356,11 @@ export default function ArticleDetail() {
                   {/* <button className="btn btn-primary btn-wide">Comprar</button>                */ }
                 </div>
 
-                <div className="rating rating-lg rating-half">
-                  <input type="radio" name="rating-7" className="rating-hidden" />
-                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
-                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 2 } onClick={ (e) => HandleClickRating(e, 2) } />
-                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
-                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
-                  <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
-                </div>
                 <ToastContainer />
               </div>
 
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
+
             <div className="mx-8 text-start lg:px-20">
               <h1 className="mt-14 font-bold text-2xl md:text-4xl">Descripcion</h1>
               <br />
@@ -344,37 +398,11 @@ export default function ArticleDetail() {
             <br />
             <br />
 
-            <div class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
-              <div class="collapse-title text-xl font-medium">
-                I have collapse-open class
-              </div>
-              <div class="collapse-content">
-                <p>tabindex="0" attribute is necessary to make the div focusable</p>
-              </div>
-            </div>
-
-            {/* {
-
-                  article.comments.length > 0 ? (
-                    article.comments.map((comm) => {
-                      return (
-                        <div key={ comm } className="flex flex-row justify-between">
-                          <p className="mt-8 border-b-4">{ comm.texto }</p>
-                          <p className="mt-8 border-b-4">{ comm.user.userName }</p>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <p className="mt-10">
-                      No hay comentarios sobre este producto
-                    </p>
-                  )
-
-                } */}
-
-
-
+            <ShowUserCommentAndRatingBlock />
+            {/* <RatingToUser /> */ }
             <br />
+            <br />
+
             <div className="flex flex-row">
               <textarea
                 onChange={ (e) => handleTextInputComment(e) }
@@ -384,6 +412,7 @@ export default function ArticleDetail() {
               ></textarea>
               <button className="btn btn-outline btn-accent" type="submit" onClick={ (e) => HandleClickComment(e) }>Post</button>
             </div>
+
           </div>
         ) : (
           <div className="flex  place-content-center">
@@ -404,9 +433,3 @@ export default function ArticleDetail() {
     </div >
   );
 }
-/* const mapStateToProps = (state) => {
-  return {
-      count: state.count
-  };
-};
-export default connect(mapStateToProps, { increment, decrement })(ArticleDetail); */
