@@ -158,6 +158,38 @@ const updateUser = async (req, res, next) => {
    }
 };
 
+//Borrado Fisico
+async function deleteUsers(req, res,next){
+   try {
+     const {id} = req.params;
+     let destro = await User.destroy(
+       {where:{id:id}})
+       destro===1
+       ?res.status(200).send("Eliminado con exito")
+       :res.status(404).send("No existe")
+   } catch (error) {
+     next(error);
+   }
+ };
+
+ //Borrado logico
+const putDeleteUser = async (req, res, next) => {
+   try {
+     const { id } = req.params;
+     let response = await User.findByPk(id);
+     if(!response.ban){
+       await User.update(
+         {ban:true},{where:{id}})
+     }else{
+       await User.update(
+         {ban:false},{where:{id}})
+     }
+     res.json(response);
+   } catch (error) {
+     next(error)
+   }
+ };
+
 // Función que suscribe un usuario al newsletter de ofertas NO TOCAR SIN AVISAR A ALEJO
 const subscribeUserToNewsLetter = async (req, res, next) => {
    try {
@@ -179,7 +211,6 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
    } catch (error) {
       next(error)
    }
-}
+};
 
-
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, askFavorite };
+module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser, askFavorite };

@@ -1,15 +1,20 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('comment', {
+  sequelize.define('offer', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    texto: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    porcent: {
+      type: DataTypes.FLOAT,
+    },
+    validity: {
+        type: DataTypes.DATE,
+      },
+    coins: {
+        type: DataTypes.INTEGER,
     },
   }, {
     timestamps: true

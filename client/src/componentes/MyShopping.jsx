@@ -9,12 +9,20 @@ import Footer from "./Footer";
 
 export default function MisCompras() {
   const articulosShopping = useSelector((state) => state.shoppings);
+  const [loading, setLoading] = useState(false)
   console.log(articulosShopping)
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const miscompras = sessionStorage.getItem("id")
+    console.log("mi id", miscompras)
     dispatch(getShopping());
   }, [dispatch]);
+
+  useEffect(() => {
+    setLoading(true)
+  }, [articulosShopping]);
+
 
   return (
     <div>
