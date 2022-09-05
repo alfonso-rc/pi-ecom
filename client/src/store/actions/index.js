@@ -468,17 +468,35 @@ const URL_GET_DETAIL_BY_ID =
 		? BASE_URL + "/article/"
 		: `http://localhost:3001/myShoppings/get?id=${sessionStorage.id}`;
 
+// export function getShopping() {
+// 	return async function (dispatch) {
+// 		return axios(URL_GET_DETAIL_BY_ID)
+// 			.then((articles) => {
+// 				dispatch({
+// 					type: "GET_SHOPPING",
+// 					payload: articles.data,
+// 				});
+// 			})
+// 			.catch((error) => {
+// 				console.log(error);
+// 			});
+// 	};
+// }
+// export function getTablets() {
+// 	return async function (dispatch) {
+// 		var json = await axios(URL_GET_TABLETS);
+// 		return dispatch({
+// 			type: "GET_TABLETS",
+// 			payload: json.data,
+// 		});
+// 	};
+// }
 export function getShopping() {
-	return function (dispatch) {
-		return axios(URL_GET_DETAIL_BY_ID)
-			.then((articles) => {
-				dispatch({
-					type: "GET_SHOPPING",
-					payload: articles.data,
+	return async function (dispatch) {
+		var json = await axios(URL_GET_DETAIL_BY_ID)
+			 return dispatch({
+					type: "GET_SHOPPING",	
+					payload: json.data,
 				});
-			})
-			.catch((error) => {
-				console.log(error);
-			});
 	};
 }
