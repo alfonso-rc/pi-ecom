@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Orderings from "./Orderings";
 
-const SideBar = () =>{
+const SideBar = ({ paginado }) =>{
     const [open, setOpen] = useState (false);
 
 
@@ -19,7 +19,7 @@ const SideBar = () =>{
                     </label>  
                 </div>
                 <div className="flex flex-row bg-violet-500 opacity-90 rounded-md shadow-xl">
-                    {open ? <Orderings/> : null}
+                    {open ? <Orderings paginado={paginado}/> : null}
                 </div>
             </div>  
         </div>

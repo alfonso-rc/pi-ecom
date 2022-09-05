@@ -220,7 +220,7 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-        <SideBar />
+        <SideBar paginado={paginado}/>
 
 
 

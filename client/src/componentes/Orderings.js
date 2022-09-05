@@ -18,7 +18,7 @@ import {ASCENDENTE, DESCENDENTE, MAYOR, MENOR, MEJOR, PEOR} from "../Constants";
 const stylesDropdown = {
 	backgroundColor: "white",
 };
-export default function Orderings() {
+export default function Orderings({ paginado }) {
 	let arrayFilter = useSelector((state) => state.filteredArticle)
 	const allArticle = useSelector((state) => state.articles);
 	let brands = useSelector((state) => state.brand);
@@ -35,18 +35,21 @@ export default function Orderings() {
 	function handleSortAZ(e) {
 		e.preventDefault();
 		dispatch(orderByAZ(e.target.value));
-		// setCurrentPage(1)
+		paginado(1);
+		//setCurrentPage(1)
 		setOrder(e.target.value);
 	}
 	function handleSortRating(e) {
 		e.preventDefault();
 		dispatch(orderByRating(e.target.value));
+		paginado(1);
 		// setCurrentPage(1)
 		setOrder(e.target.value);
 	}
 	function handleSortPrice(e) {
 		e.preventDefault();
 		dispatch(orderByPrice(e.target.value));
+		paginado(1);
 		//setCurrentPage(1);
 		setOrder(e.target.value);
 	}
