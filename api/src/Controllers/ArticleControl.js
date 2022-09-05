@@ -33,7 +33,7 @@ const getAllArticle = async (req, res, next) => {
       }
     });
 
-    const mappedArticles = articlesFound.map(async el => {
+    const mappedArticles = await articlesFound.map( el => {
       // const articleRating = 
 
       return {
@@ -118,11 +118,9 @@ const detailArticle = async (req, res, next) => {
   try {
     let articleFound = await Article.findByPk(id, {
       include: {
-        model: Comment,
-        attributes: ["texto", "userId"],
+        model: Rating,
         include: {
           model: User,
-          attributes: ["userName"],
         }
       }
     });
@@ -160,7 +158,7 @@ const createArticle = async (req, res, next) => {
 //Edit Article
 const editArticle = async (req, res, next) => {
   try {
-    await Article.update(req.body,{
+    await Article.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -170,40 +168,40 @@ const editArticle = async (req, res, next) => {
   } catch (error) {
     console.log(error);
   };
-//   try {
-//     const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
-//     await Article.update(
-//       {
-//         id:id,
-//         title:title,
-//         rating: rating,
-//         detail:{
-//           detail: detail.detail,
-//           marca: detail.marca,
-//           modelo:detail.modelo,
-//           so: detail.so,
-//           cpu: detail.cpu,
-//           ram: detail.ram,
-//           color: detail.color,
-//           pantalla: detail.pantalla,
-//         },
-//         image: image,
-//         stock: stock,
-//         disable: false,
-//         price: price,
-//         conectividad: conectividad,
-//       },
-//       {where:{id}
-//       }
-//     )
-//       res.send("Cambios actualizados")
-//   } catch (error) {
-//     next(error)
-//   }
-// }
+  //   try {
+  //     const { title, rating, detail, marca, modelo, so, cpu, ram, color, pantalla, image, stock, disable, price, conectividad, category } = req.body;
+  //     await Article.update(
+  //       {
+  //         id:id,
+  //         title:title,
+  //         rating: rating,
+  //         detail:{
+  //           detail: detail.detail,
+  //           marca: detail.marca,
+  //           modelo:detail.modelo,
+  //           so: detail.so,
+  //           cpu: detail.cpu,
+  //           ram: detail.ram,
+  //           color: detail.color,
+  //           pantalla: detail.pantalla,
+  //         },
+  //         image: image,
+  //         stock: stock,
+  //         disable: false,
+  //         price: price,
+  //         conectividad: conectividad,
+  //       },
+  //       {where:{id}
+  //       }
+  //     )
+  //       res.send("Cambios actualizados")
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }
 
-// GET ARTICLE WITH STRING INCLUDED
+// buscar artículo por cadena de texto
 const getAticleByName = async (req, res, next) => {
   const { title } = req.query;
   try {
@@ -223,9 +221,9 @@ const getAticleByName = async (req, res, next) => {
 };
 
 
-// CREATE ARTICLE USER RATING
+// Crear calificación de artículo y rating (en la misma tabla "ratings")
 const createArticleUserRating = async (req, res, next) => {
-  const { idUser, idArticle, score } = req.body;
+  const { idUser, idArticle, score, comment } = req.body;
   // console.log(req.body)
   try {
     // Verificar si el idUser existe
@@ -258,7 +256,8 @@ const createArticleUserRating = async (req, res, next) => {
       const createdRating = await Rating.create({
         score: score,
         userId: idUser,
-        articleId: idArticle
+        articleId: idArticle,
+        comment: comment
       })
 
       { res.status(200).send(createdRating.dataValues); return }
@@ -271,6 +270,22 @@ const createArticleUserRating = async (req, res, next) => {
   };
 };
 
+// Trae todos los comentarios con sus respectivos ratings de un artículo
+const getAllCommentsByIdArticle = async (req, res, next) => {
+  const { idArticle } = req.params;
+  console.log(req.params)
+  try {
+    console.log("d")
+
+    res.status(404).send("ERROR PERSONALIZADO")
+
+
+  } catch (error) {
+    next(error);
+  };
+};
+
+
 module.exports = {
   testFunction,
   createArticle,
@@ -279,5 +294,6 @@ module.exports = {
   detailArticle,
   getAticleByName,
   createArticleUserRating,
-  editArticle
+  editArticle,
+  getAllCommentsByIdArticle
 };

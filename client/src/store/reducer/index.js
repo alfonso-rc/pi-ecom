@@ -111,6 +111,15 @@ export default function reducer(state = initialState, action) {
 				auxArt: action.payload,
 				isLoading: false,
 			};
+		case "GET_ALL_ARTICLES":
+				return {
+					...state,
+					articles: action.payload,
+					brand: action.payload,
+					auxArt: action.payload,
+					filteredArticle: action.payload,
+					isLoading: false,
+				};
 		case "ORDER_BY_ARTICLES":
 			let sortedArr = [...state.filteredArticle];
 			sortedArr = sortedArr.sort((a, b) => {
@@ -236,6 +245,14 @@ export default function reducer(state = initialState, action) {
 				...state,
 				users: action.payload,
 			};
+			case "DELETE_USER":
+				return {
+					...state,
+				};
+			case "BAN_USER":
+					return {
+						...state,
+					};
 		case "ORDER_BY_BRAND2":
 			const marcBrand = state.brand.length ? [...state.brand] : [...state.filteredArticle];
 			const filtermarc =

@@ -66,17 +66,19 @@ const getAticleByName = async (req, res, next) => {
 const putDeleteArticle = async (req, res, next) => {
   try {
     const { id } = req.params;
-    //const {disable}=req.body
-    await Article.update(
-      {disable:true},
-      {where:{id}
-      }
-    )
-      res.send("cambio actualizado")
+    let response = await Article.findByPk(id);
+    if(!response.disable){
+      await Article.update(
+        {disable:true},{where:{id}})
+    }else{
+      await Article.update(
+        {disable:false},{where:{id}})
+    }
+    res.json(response);
   } catch (error) {
     next(error)
   }
-}
+};
 
 //Borrado Fisico
 async function deleteArticle(req, res,next){
