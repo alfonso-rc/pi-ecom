@@ -10,6 +10,7 @@ import {
   getNotebooks,
   getAccesories,
   getTablets,
+  getShopping
 } from "../store/actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -87,6 +88,7 @@ export default function Home() {
     getGoogleUser();
   }, []);
 
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,6 +113,11 @@ export default function Home() {
   useEffect(() => {
     dispatch(getArticles());
   }, []);
+  useEffect(() => {
+    const miscompras = sessionStorage.getItem("id")
+    console.log("mi id", miscompras)
+    dispatch(getShopping());
+  }, [dispatch]);
 
   // function handleSortAZ(e) {
   //   e.preventDefault();
