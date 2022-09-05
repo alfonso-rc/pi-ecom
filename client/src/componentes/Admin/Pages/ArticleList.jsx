@@ -17,7 +17,7 @@ export default function ArticleList() {
 	const [busqueda, setBusqueda] = useState("");
 	let dispatch = useDispatch(); //
 	let allArticle = useSelector((state) => state.articles);
-
+	let user = sessionStorage;
 	const peticionGet = async () => {
 		await axios
 			.get("http://localhost:3001/article")
@@ -88,6 +88,12 @@ export default function ArticleList() {
 
 	return (
 		<div>
+			<h2 className="text-black text-2xl">
+				Bienvenido{" "}
+				{`${user.name[0].toUpperCase() + user.name.substring(1)}`} al
+				administrador del sitio
+			</h2>
+			<br />
 			<div>
 				<input
 					value={busqueda}
