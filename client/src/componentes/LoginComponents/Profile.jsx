@@ -3,6 +3,7 @@ import {BiLogOut} from "react-icons/bi";
 import {BiPackage} from "react-icons/bi";
 import {BiWrench} from "react-icons/bi";
 import {BiRocket} from "react-icons/bi";
+import {BiLike} from "react-icons/bi";
 
 import { Link } from "react-router-dom";
 import imageDefault from '../../imagenes/userImage.png';
@@ -36,6 +37,12 @@ function Profile() {
                         </li>
                     }
                    <Link to={"/myShoppings"}> <li class="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li></Link>
+
+                   <Link to={'/favoritos'}>
+                        <li class="hover:bg-violet-800 rounded-none text-white">
+                            <a><BiLike size={20}/>Mis favoritos</a>
+                        </li>
+                    </Link>
 
                     <Link to={'/perfil'}>
                         <li class="hover:bg-violet-800 rounded-none text-white">
