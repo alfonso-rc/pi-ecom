@@ -1,4 +1,4 @@
-const { User, Subscribers } = require("../db.js");
+const { User, Subscribers, Article } = require("../db.js");
 const { bcrypt } = require("./auxUserLogin/bcrypt.js");
 const validateUser = require("./auxUserLogin/getUser.js");
 const generateToken = require("./auxUserLogin/generateToken.js");
@@ -41,7 +41,8 @@ const createUser = async (req, res, next) => {
    }
 }
 
-// Añade un artículo favorito al usuario, 
+// Añade un artículo favorito al usuario, si ya lo tiene, lo elimina de favoritos
+// es como un switch
 const addFavoriteToUser = async (req, res, next) => {
    const { idUser, idArticle } = req.body
 
@@ -53,8 +54,28 @@ const addFavoriteToUser = async (req, res, next) => {
          return
       }
 
-      await userFound.addArticle(idArticle)
-      res.status(200).send('Favorito añadido')
+      // Preguntar si existe el artículo
+      const articleFound = await Article.findByPk(idArticle)
+      if (!articleFound) {
+         res.status(404).send("El artículo no existe")
+         return
+      }
+
+      // Traemos todos los favoritos del usuario
+      const favoritesFound = await userFound.getArticles()
+      const listIdFavorites = favoritesFound.map(art => art.dataValues.id)
+      console.log(listIdFavorites)
+
+      // Si el usuario ya tiene ese favorito, lo eliminamos
+      if (listIdFavorites.includes(idArticle)) {
+         const articleRemoved = await userFound.removeArticle(idArticle)
+         console.log(articleRemoved)
+         res.status(200).json({ isFavoriteNow: false, articleRemoved })
+      } else { // de lo contrario lo agregamos como su favorito
+         await userFound.addArticle(idArticle)
+         res.status(201).json({ isFavoriteNow: true, idArticle })
+      }
+
    } catch (error) {
       next(error)
    }

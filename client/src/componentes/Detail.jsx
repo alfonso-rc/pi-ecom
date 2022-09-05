@@ -14,6 +14,9 @@ import loading from "../imagenes/loading2.gif"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { increment, decrement } from '../store/actions/index'
+import RatingStars from "./RatingStars/RatingStars";
+import verifyIsLogged from "./helpers/verifyIsLogged";
+import showToast from "./helpers/showToast";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
@@ -21,14 +24,57 @@ const URL_GET_DETAIL_BY_ID =
     ? BASE_URL + "/article/"
     : "http://localhost:3001/article/";
 
+const URL_ADD_FAVORITE =
+  process.env.NODE_ENV === "production"
+    ? BASE_URL + "/user/add_favorite/"
+    : "http://localhost:3001/user/add_favorite/";
+
 export default function ArticleDetail() {
 
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // Texto de comentario
+  const [input, setInput] = useState("");
+  const [article, setArticle] = useState(null);
+  // const [stockCon, setStockCon] = useState(); // El stock se enncuentra en article
+  const [count, setCount] = useState(1);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  // id del artículo
+  let { id } = useParams();
+
+  // NOTA IMPORTANTE
+  // Cuando se monta por primera vez, se pergunta si está loggeado y trae la información de:
+  // artículo a mostrar
+  // si es favorito del usuario
+  // si el usuario ya comentó
+
+  // ESTE USE EFFECT TIENE EL COMPORTAMIENTO DE UN DID-MOUNTED, SOLO SE EJECUTA AL MONTAR EL COMPONENTE POR PRIMERA VEZ
+  useEffect(() => {
+    axios.get(URL_GET_DETAIL_BY_ID + id)
+      .then((response) => {
+        console.log(response.data)
+        setArticle(response.data);
+      })
+      .then(() => {
+
+      })
+
+
+
+
+  }, []);
+
+
+
+
+
+
   function addCart(item) {
     dispatch(addToCart(item));
   }
+
   function toastErrors() {
     return toast.error("Necesitas logearte!", {
       position: "bottom-left",
@@ -42,21 +88,58 @@ export default function ArticleDetail() {
   }
 
 
-  const [article, setArticle] = useState(null);
-  // const [stockCon, setStockCon] = useState(); // El stock se enncuentra en article
-  const [count, setCount] = useState(1)
-  let { id } = useParams();
+  // Aumentar y diminuir la cantidad de unidades del artículo a comprar
+  function addIncrement(e) {
+    //e.preventDefault();
+    if (count < article.stock) setCount(count + 1)
+    // dispatch(increment(e.target.value));
+  }
+  function subsDecrement(e) {
+    //e.preventDefault();
+    if (count >= 2) setCount(count - 1)
+    // dispatch(decrement(e.target.value));
+  }
 
-  useEffect(() => {
-    axios.get(URL_GET_DETAIL_BY_ID + id).then((response) => {
-      console.log(response.data)
-      setArticle(response.data);
-      // setStockCon(response.data.stock);
-    });
-  }, []);
+  // En esta funcion le decimos a la api que queremos agregar a favoritos el artículo actual
+  function handleFavoriteCLick() {
+    // Primero chequeamos que hay sesión iniciada  
+    const id = sessionStorage.getItem("id");
 
-  // Texto de comentario
-  const [input, setInput] = useState("");
+    // Si no ha iniciado sesión salta mensaje y no hace nada más
+    if (!id) { showToast("info", "Debes iniciar sesión para añadir a favoritos"); return }
+
+    // El body que recibe la api
+    const bodyAddFavorite = {
+      "idUser": id,
+      "idArticle": article.id
+    }
+
+    axios.post(URL_ADD_FAVORITE, bodyAddFavorite)
+      .then(res => {
+        // Si el código de estado es 201 --> añadido a favoritos
+        // Si es 200 ---> eliminado de favoritos  
+        if (res.status === 201) {
+          setIsFavorite(res.data.isFavoriteNow)
+          showToast("success", "Añadido a favoritos")
+          return
+        } else if (res.status === 200) {
+          setIsFavorite(res.data.isFavoriteNow)
+        }
+
+
+
+        // console.log(res.data)
+
+
+
+      })
+      .catach(res => console.log(res.data))
+
+    setIsFavorite(!isFavorite)
+  }
+
+
+
 
 
   const HandleClickRating = (e, score) => {
@@ -73,7 +156,6 @@ export default function ArticleDetail() {
       toastErrors();
     }
   };
-
 
   const HandleClickComment = (e) => {
     e.preventDefault();
@@ -99,18 +181,40 @@ export default function ArticleDetail() {
   }
 
 
-  // Aumentar la cantidad de productos
-  function addIncrement(e) {
-    //e.preventDefault();
-    if (count < article.stock) setCount(count + 1)
-    dispatch(increment(e.target.value));
-  }
-  function subsDecrement(e) {
-    //e.preventDefault();
-    if (count >= 2) setCount(count - 1)
-    dispatch(decrement(e.target.value));
+
+
+  function ShowUserCommentAndRatingBlock() {
+    return (
+      <div>
+        USER COMMENT ANDF RATING BLOCK
+      </div>
+    )
   }
 
+
+  /*
+
+  FUNCIONES QUE FUNCIONAN COMO MINI COMPONENTES ---> nótese que retornan objetos de html
+
+  */
+
+  function ShowFavoriteButton() {
+    const styleFavoriteButton = isFavorite ? "btn gap-2 btn-error" : "btn btn-outline btn-info";
+
+    return (
+      <button
+        onClick={ handleFavoriteCLick }
+        class={ styleFavoriteButton }>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+      </button>
+    )
+  }
+
+  function ShowComments() {
+    return (
+      <h1>COMENTARIOS</h1>
+    )
+  }
 
   return (
     <div>
@@ -134,12 +238,17 @@ export default function ArticleDetail() {
               </div>
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
+
                   <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
                     <h1 className="font-bold mx-3">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
                     <p>{ article.rating === "NaN" ? article.rating = " sin calificaciones" : article.rating }</p>
                   </div>
+                  <div>
+                    <RatingStars rating={ article.rating } />
+                  </div>
+
                 </div>
                 <div>
                   <div className="flex flex-row justify-center py-3 font-bold pb-6">
@@ -167,9 +276,12 @@ export default function ArticleDetail() {
                     <p>{ article.detail.color }</p>
                   </div>
                   <br />
-                  <br />
-                  <button
 
+                  <ShowFavoriteButton />
+
+                  <br />
+
+                  <button
                     className="btn btn-accent btn-wide my-2"
                     onClick={ () => addCart(article) }
                   >
@@ -178,6 +290,7 @@ export default function ArticleDetail() {
                   <br />
                   {/* <button className="btn btn-primary btn-wide">Comprar</button>                */ }
                 </div>
+
                 <div className="rating rating-lg rating-half">
                   <input type="radio" name="rating-7" className="rating-hidden" />
                   <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
@@ -188,6 +301,7 @@ export default function ArticleDetail() {
                 </div>
                 <ToastContainer />
               </div>
+
             </div>
             <br />
             <br />
@@ -229,36 +343,35 @@ export default function ArticleDetail() {
             </div>
             <br />
             <br />
-            <div
-              tabIndex="0"
-              className="collapse collapse-plus bg-accent rounded-box "
-            >
-              <div className="">
-                <div className="collapse-title text-white text-xl font-medium">
-                  <h1>Comentarios</h1>
-                </div>
-                <div className="collapse-content bg-white border-4">
-                  {
 
-                    article.comments.length > 0 ? (
-                      article.comments.map((comm) => {
-                        return (
-                          <div key={ comm } className="flex flex-row justify-between">
-                            <p className="mt-8 border-b-4">{ comm.texto }</p>
-                            <p className="mt-8 border-b-4">{ comm.user.userName }</p>
-                          </div>
-                        );
-                      })
-                    ) : (
-                      <p className="mt-10">
-                        No hay comentarios sobre este producto
-                      </p>
-                    )
-
-                  }
-                </div>
+            <div class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
+              <div class="collapse-title text-xl font-medium">
+                I have collapse-open class
+              </div>
+              <div class="collapse-content">
+                <p>tabindex="0" attribute is necessary to make the div focusable</p>
               </div>
             </div>
+
+            {/* {
+
+                  article.comments.length > 0 ? (
+                    article.comments.map((comm) => {
+                      return (
+                        <div key={ comm } className="flex flex-row justify-between">
+                          <p className="mt-8 border-b-4">{ comm.texto }</p>
+                          <p className="mt-8 border-b-4">{ comm.user.userName }</p>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="mt-10">
+                      No hay comentarios sobre este producto
+                    </p>
+                  )
+
+                } */}
+
 
 
             <br />
