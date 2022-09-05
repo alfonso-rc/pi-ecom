@@ -11,6 +11,7 @@ import {
 	getTablets,
 	orderBrand2,
 	getbrands,
+	resetArticles,
 } from "../store/actions/index";
 import {ASCENDENTE, DESCENDENTE, MAYOR, MENOR, MEJOR, PEOR} from "../Constants";
 //import NavBar from "./NavBar";
@@ -18,6 +19,7 @@ const stylesDropdown = {
 	backgroundColor: "white",
 };
 export default function Orderings() {
+	let arrayFilter = useSelector((state) => state.filteredArticle)
 	const allArticle = useSelector((state) => state.articles);
 	let brands = useSelector((state) => state.brand);
 	//const allSmartPhones = useSelector((state) => state.smartphones);
@@ -50,24 +52,25 @@ export default function Orderings() {
 	}
 	function resetCharacters(e) {
 		e.preventDefault();
-		dispatch(getArticles());
+		dispatch(resetArticles());		
 	}
 	function handleBrand2(e) {
 		e.preventDefault();
 		dispatch(orderBrand2(e.target.value));
 	}
 
-	let BrandMap = brands.map((el) => {
+
+	let BrandMap = [...brands]
+	BrandMap = BrandMap.map((el) => {
 		return [el.detail.marca, el];
 	});
 	let BrandMapArr = new Map(BrandMap);
 	let unicos = [...BrandMapArr.values()];
-	console.log("unicos", unicos);
 	return (
 		<div className="">
 			<div className="flex flex-col">
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-600">
-					<span className="text-violet-600 font-bold text-xs">MARCA</span>
+				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+					<span className="text-violet-700 font-bold text-xs">MARCA</span>
 				</div>
 				<div className="border-0">
 					<select
@@ -82,8 +85,8 @@ export default function Orderings() {
 						))}
 					</select>
 				</div>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-600">
-					<span className="text-violet-600 font-bold text-xs">ORDEN ALFABÉTICO</span>
+				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+					<span className="text-violet-700 font-bold text-xs">ORDEN ALFABÉTICO</span>
 				</div>
 				<button
 					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
@@ -99,8 +102,8 @@ export default function Orderings() {
 				>
 					Z-A
 				</button>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-600">
-					<span className="text-violet-600 font-bold text-xs">ORDEN POR PRECIO</span>
+				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+					<span className="text-violet-700 font-bold text-xs">ORDEN POR PRECIO</span>
 				</div>
 				<button
 					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
@@ -116,8 +119,8 @@ export default function Orderings() {
 				>
 					Mayor costo
 				</button>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-600">
-					<span className="text-violet-600 font-bold text-xs">ORDEN POR RANQUIN</span>
+				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+					<span className="text-violet-700 font-bold text-xs">ORDEN POR POPULARIDAD</span>
 				</div>
 				<button
 					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"

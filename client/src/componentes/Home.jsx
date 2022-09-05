@@ -90,9 +90,13 @@ export default function Home() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  const arrayFilter = useSelector((state) => state.filteredArticle);
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
   const allSmartPhones = useSelector((state) => state.smartphones);
+  let allArticle1 = arrayFilter.length ? arrayFilter : allArticle
+
+
   let dispatch = useDispatch();
   // const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState("");
@@ -100,7 +104,7 @@ export default function Home() {
   const [articlePerPage, setArticlePerPage] = useState(12);
   const indexOfLastArticle = currentPage * articlePerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlePerPage;
-  const currentArticle = allArticle.slice(
+  const currentArticle = allArticle1.slice(
     indexOfFirstArticle,
     indexOfLastArticle
   );
@@ -127,6 +131,7 @@ export default function Home() {
   function handleSmartPhone(e) {
     // e.preventDefault()
     dispatch(getSmartphones(e.target.value));
+    console.log(e.target.value);
     // console.log(getSmartphones)
     setCurrentPage(1);
     // setOrder(e.target.value)
@@ -243,7 +248,7 @@ export default function Home() {
       <div className="pt-5 pb-5 bg-white">
         <Paginado
           articlePerPage={ articlePerPage }
-          allArticle={ allArticle.length }
+          allArticle={ allArticle1.length }
           paginado={ paginado }
         />
       </div>

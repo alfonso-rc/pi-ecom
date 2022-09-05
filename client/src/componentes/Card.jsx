@@ -21,6 +21,15 @@ const stylesText = {
   borderRadius: "4px",
 };
 
+const stylesPrice = {
+  backgroundColor: "white",
+  color: "gray",
+  borderRadius: "4px",
+  fontSize: "18px",
+  fontWeight: "700",
+  fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+};
+
 const stylesImg = {
   objectFit: "contain",
 };
@@ -74,7 +83,7 @@ export default function Card({ id, title, image, price, category }) {
           <h2 style={stylesText} className="card-title ">
             {title}
           </h2>
-          <h5 style={stylesText}> $ {price}</h5>
+          <h5 style={stylesPrice}> $ {price}</h5>
           <div className="card-actions ">
             <button
             // onClick={toastSucces}

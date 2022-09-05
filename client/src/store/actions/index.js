@@ -29,11 +29,11 @@ export function getArticles() {
 	};
 }
 
-export function orderByAZ(payload) {
+export function orderByAZ(order) {
 	try {
 		return {
 			type: "ORDER_BY_ARTICLES",
-			payload,
+			payload: order
 		};
 	} catch (error) {
 		console.log(error);
@@ -110,11 +110,11 @@ export function getbrands() {
 		});
 	};
 }
-export function orderBrand2(payload) {
+export function orderBrand2(brand) {
 	////////////////////////
 	return {
 		type: "ORDER_BY_BRAND2",
-		payload,
+		payload: brand,
 	};
 }
 const URL_GET_SMARTPHONE =
@@ -440,5 +440,13 @@ export function getShopping() {
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+}
+
+export function resetArticles() {
+	return (dispatch) => {
+		dispatch({
+			type: "RESET_ARTICLES",
+		});
 	};
 }

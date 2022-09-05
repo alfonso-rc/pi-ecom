@@ -106,13 +106,13 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				articles: action.payload,
+				filteredArticle: action.payload,
 				brand: action.payload,
 				auxArt: action.payload,
-				filteredArticle: action.payload,
 				isLoading: false,
 			};
 		case "ORDER_BY_ARTICLES":
-			let sortedArr = [...state.articles];
+			let sortedArr = [...state.filteredArticle];
 			sortedArr = sortedArr.sort((a, b) => {
 				if (a.title < b.title) {
 					return action.payload === ASCENDENTE ? -1 : 1;
@@ -123,11 +123,11 @@ export default function reducer(state = initialState, action) {
 			});
 			return {
 				...state,
-				articles: sortedArr,
+				filteredArticle: sortedArr,
 			};
 
 		case "ORDER_BY_PRICE":
-			let sortedPriceArr = [...state.articles];
+			let sortedPriceArr = [...state.filteredArticle];
 			sortedPriceArr = sortedPriceArr.sort((a, b) => {
 				if (a.price < b.price) {
 					return action.payload === MAYOR ? -1 : 1;
@@ -138,10 +138,10 @@ export default function reducer(state = initialState, action) {
 			});
 			return {
 				...state,
-				articles: sortedPriceArr,
+				filteredArticle: sortedPriceArr,
 			};
 		case "ORDER_BY_RATING":
-			let sortedRating = [...state.articles];
+			let sortedRating = [...state.filteredArticle];
 			sortedRating = sortedRating.sort((a, b) => {
 				if (a.rating < b.rating) {
 					return action.payload === MEJOR ? -1 : 1;
@@ -152,7 +152,7 @@ export default function reducer(state = initialState, action) {
 			});
 			return {
 				...state,
-				articles: sortedRating,
+				filteredArticle: sortedRating,
 			};
 
 		case "GET_NAME":
@@ -161,25 +161,28 @@ export default function reducer(state = initialState, action) {
 				articles: action.payload,
 			};
 		case "GET_SMARTPHONES":
-			console.log(action.payload);
 			return {
 				...state,
-				articles: action.payload,
+				filteredArticle: action.payload,
+				brand: action.payload,
 			};
 		case "GET_TABLETS":
 			return {
 				...state,
-				articles: action.payload,
+				filteredArticle: action.payload,
+				brand: action.payload,
 			};
 		case "GET_NOTEBOOKS":
 			return {
 				...state,
-				articles: action.payload,
+				filteredArticle: action.payload,
+				brand: action.payload,
 			};
 		case "GET_ACCESORIES":
 			return {
 				...state,
-				articles: action.payload,
+				filteredArticle: action.payload,
+				brand: action.payload,
 			};
 		case "POST_ARTICLE":
 			return {
@@ -233,17 +236,17 @@ export default function reducer(state = initialState, action) {
 				users: action.payload,
 			};
 		case "ORDER_BY_BRAND2":
-			const marcBrand = state.brand;
+			const marcBrand = state.brand.length ? [...state.brand] : [...state.filteredArticle];
 			const filtermarc =
 				action.payload === "All"
 					? marcBrand
 					: marcBrand.filter((e) =>
 							e.detail.marca.includes(action.payload)
 					  );
-			console.log(filtermarc);
+			
 			return {
 				...state,
-				articles: action.payload === "All" ? state.brand : filtermarc,
+				filteredArticle: filtermarc,
 			};
 
 		case "GET_BRAND":
@@ -251,6 +254,12 @@ export default function reducer(state = initialState, action) {
 				...state,
 				brand: action.payload,
 			};
+		case "RESET_ARTICLES":
+			return {
+				...state,
+				filteredArticle: [...state.articles],
+				brand: [...state.articles]
+			}
 
 		case INCREMENT:
 			return {
