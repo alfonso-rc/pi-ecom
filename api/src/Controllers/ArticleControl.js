@@ -33,7 +33,7 @@ const getAllArticle = async (req, res, next) => {
       }
     });
 
-    const mappedArticles = articlesFound.map(async el => {
+    const mappedArticles = await articlesFound.map( el => {
       // const articleRating = 
 
       return {

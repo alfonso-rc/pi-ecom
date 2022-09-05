@@ -38,8 +38,13 @@ module.exports = (sequelize) => {
       defaultValue: '1'
     },
     image: {
-      type: DataTypes.TEXT
-    }
+      type: DataTypes.TEXT,
+      defaultValue: "https://c0.klipartz.com/pngpicture/81/570/gratis-png-perfil-logo-iconos-de-computadora-usuario-usuario.png",
+    },
+    ban: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   }, {
     timestamps: false
   });

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getArticles, orderByRating } from "../../store/actions/index";
+import { getArticles, orderByRating } from "../../../../store/actions/index";
   import {Bar} from 'react-chartjs-2';
 import { withRouter } from "react-router";
 import Chart from 'chart.js/auto';
@@ -17,8 +17,8 @@ export default function StatisArticle() {
 
  
 
-  const titulo1 = allArticle.map((e)=> e.title)
-  const rating1 = allArticle.map((e)=> e.rating)
+  const titulo1 = allArticle.map((e)=> e.title).slice(0,10);
+  const rating1 = allArticle.map((e)=> e.rating).slice(0,10);
  
 
  
@@ -27,7 +27,7 @@ export default function StatisArticle() {
 
   useEffect(() => {
     dispatch(getArticles());
-  }, []);
+  }, [dispatch]);
 
 
   const data={
