@@ -158,7 +158,8 @@ export default function reducer(state = initialState, action) {
 		case "GET_NAME":
 			return {
 				...state,
-				articles: action.payload,
+				filteredArticle: action.payload,
+				brand: action.payload
 			};
 		case "GET_SMARTPHONES":
 			return {
