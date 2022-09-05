@@ -60,6 +60,7 @@ const {
     Rating,
     Session,
     Shopping,
+    Offer,
 } = sequelize.models;
 
 // RELACIONES DE MODELOS
@@ -83,6 +84,12 @@ Comment.belongsTo(User);
 // UN ARTÍCULO TIENE MUCHAS CALIFICACIONES
 User.hasMany(Rating);
 Article.hasMany(Rating);
+
+// UN ARTÍCULO TIENE MUCHAS OFERTAS
+// UN OFERTA PERTENECE A UN ARTICULO
+Article.belongsTo(Offer);
+Offer.hasMany(Article);
+
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

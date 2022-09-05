@@ -1,22 +1,52 @@
 import React from "react";
-import SideBar from "../SideBar";
-import StArticle from "../StArticle";
-import Logo from "../../../../../client/src/ECOM-10_2.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import SideBar from "./SideBar";
+import StArticle from '../Admin/Pages/StGraphics/StArticle';
+import StArtPrecio from '../Admin/Pages/StGraphics/StArtPrecio';
+import StArtStock from '../Admin/Pages/StGraphics/StStock';
+import { Link } from "react-router-dom";
+import NavBarAdmin from "../NavBarAdmin";
+import Footer from "../Footer";
 
 export default function St() {
   return (
     <div className="m-0 p-0">
-      <img
-        className="mx-auto h-32 justify-center w-auto"
-        src={Logo}
-        alt="Workflow"
-      />
-      <h1 className="font-sans">Users Admin</h1>
+      <NavBarAdmin />
       <div className="flex">
         <SideBar />
-        <div className="overflow-scroll h-auto  w-4/5 m-8">
-          <StArticle />
+        <div className="collapse  w-96 h-96 bg-red">
+          <input type="checkbox" /> 
+          <div className="collapse-title text-xl font-medium">
+            Medicion por Precio
+          </div>
+          <div className="collapse-content"> 
+            <StArtPrecio/>
+          </div>
         </div>
+        <div className="collapse  w-96 h-96 bg-red">
+          <input type="checkbox" /> 
+          <div className="collapse-title text-xl font-medium">
+            Medicion por Rating 
+          </div>
+          <div className="collapse-content"> 
+          <StArticle />
+          </div>
+        </div>
+        <div className="collapse  w-96 h-96 bg-red">
+          <input type="checkbox" /> 
+          <div className="collapse-title text-xl font-medium">
+            Medicion por Disponibilidad 
+          </div>
+          <div className="collapse-content"> 
+          <StArtStock />
+          </div>
+        </div>
+
+
+      </div>
+      <div className="pt-16">
+        <Footer />
       </div>
     </div>
   );

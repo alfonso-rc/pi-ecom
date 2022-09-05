@@ -63,15 +63,15 @@ export function orderByRating(payload) {
 
 const URL_GET_ALL_ARTICLES_DB =
 	process.env.NODE_ENV === "production"
-		? BASE_URL + "/article"
-		: "http://localhost:3001/article";
+		? BASE_URL + "/article/all"
+		: "http://localhost:3001/article/all";
 
 export function getAllArticles() {
 	return function (dispatch) {
 		return axios(URL_GET_ALL_ARTICLES_DB)
 			.then((articles) => {
 				dispatch({
-					type: "GET_ARTICLES",
+					type: "GET_ALL_ARTICLES",
 					payload: articles.data,
 				});
 			})
@@ -304,7 +304,47 @@ export function getUsers() {
 				console.log(error);
 			});
 	};
-}
+};
+
+//Borrado Fisico de Usuario
+const URL_DELETE_USER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/user/delete/"
+		: `http://localhost:3001/user/delete/`;
+
+export function deleteUser(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.delete(URL_DELETE_USER + id);
+			return dispatch({
+				type: "DELETE_USER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+//Baneado de un Usuario
+const URL_BAN_USER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/user/ban/"
+		: `http://localhost:3001/user/ban/`;
+
+export function banUser(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.put(URL_BAN_USER + id);
+			return dispatch({
+				type: "BAN_USER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
 
 export function removeCart(id) {
 	return (dispatch) =>
