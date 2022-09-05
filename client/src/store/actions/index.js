@@ -482,15 +482,6 @@ const URL_GET_DETAIL_BY_ID =
 // 			});
 // 	};
 // }
-// export function getTablets() {
-// 	return async function (dispatch) {
-// 		var json = await axios(URL_GET_TABLETS);
-// 		return dispatch({
-// 			type: "GET_TABLETS",
-// 			payload: json.data,
-// 		});
-// 	};
-// }
 export function getShopping() {
 	return async function (dispatch) {
 		var json = await axios(URL_GET_DETAIL_BY_ID)
