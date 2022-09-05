@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, history,useHistory} from "react-router-dom";
 import s from "../Pages/articleList.module.css";
 import {
 	getAllArticles,
@@ -13,7 +13,11 @@ import {
 export default function ArticleList() {
 	let allArticle = useSelector((state) => state.articles);
 	let dispatch = useDispatch();
+	const history = useHistory();
 	const [article, setArticle] = useState(null);
+	const refreshPage = ()=>{
+		window.location.reload();
+	 }
 
 	useEffect(() => {
 		dispatch(getAllArticles());
@@ -33,7 +37,9 @@ export default function ArticleList() {
 	function handleClickInhab(id) {
 		try {
 			dispatch(deleteArticleLogic(id));
-			alert('Hecho!')
+			alert('Hecho!');
+			// history.push('/admin/articulos/');
+			refreshPage();
 		} catch (error) {
 			console.log(error);
 		}
@@ -78,20 +84,12 @@ export default function ArticleList() {
 									<td>{art.stock}</td>
 									<td>{art.price}</td>
 									<td>
-							 {(art.disable)?
+							 {(!art.disable)?
 							 	<div>
-									<label className="swap">
-										<input type="checkbox" />
-										<div className="swap-on btn btn-success btn-xs" onClick={() =>handleClickInhab(art.id)}>Habilitar</div>
-										<div className="swap-off btn btn-error btn-xs" onClick={() =>handleClickInhab(art.id)}>Deshabilitar</div>
-									</label>
+								<button className="btn btn-success btn-xs" onClick={() =>handleClickInhab(art.id)}>Habilitar</button>
 							 	</div>:
 								 <div>
-									<label className="swap">
-										<input type="checkbox" />
-										<div className="swap-off btn btn-error btn-xs" onClick={() =>handleClickInhab(art.id)}>Deshabilitar</div>
-										<div className="swap-on btn btn-success btn-xs" onClick={() =>handleClickInhab(art.id)}>Habilitar</div>
-									</label>
+								 	<button className="btn btn-error btn-xs" onClick={() =>handleClickInhab(art.id)}>Deshabilitar</button>
 							 	</div>
 							 }
 									</td>
