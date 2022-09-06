@@ -21,5 +21,6 @@ router.use("/delete", deleteRouter);
 router.use("/checkout", PaymentRouter);
 router.use("/brand", BrandRouter);
 router.use("/myShoppings", ShoppingRoutes);
+router.use("/offer", OfferRouter);
 
 module.exports = router;

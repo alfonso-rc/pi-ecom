@@ -11,6 +11,9 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
     },
     validity: {
+        type: DataTypes.BOOLEAN,
+      },
+    expiration: {
         type: DataTypes.DATE,
       },
   }, {
