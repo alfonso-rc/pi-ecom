@@ -17,6 +17,7 @@ import MisCompras from "./componentes/MyShopping";
 import EditArticle from "./componentes/Admin/Pages/EditArticle";
 import AboutUs from "./componentes/AboutUs";
 import St from "./componentes/Admin/St";
+import Favoritos from "./componentes/Favoritos";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/newUser" component={NewUser}/>
           <Route exact path="/home" component={Home} />
           <Route exact path="/AboutUs" component={AboutUs} />
+          <Route exact path="/favoritos" component={Favoritos} />
           <Route exact path="/login" component={Example} />
           <Route exact path="/perfil" component={InfoUser} />
           <Route exact path="/admin" component={AdminHome} />

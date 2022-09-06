@@ -759,7 +759,7 @@ const allArt = [
 	},
 	{
 		id: 37,
-		title: " Xiaomi Redmi 5 Plus Dual SIM 32 GB  dorado 3 GB ram",
+		title: "Xiaomi Redmi 5 Plus Dual SIM 32 GB  dorado 3 GB ram",
 		rating: 3.2,
 		detail: {
 			detail: "Momentos únicos, capturas reales. Capturá tus mejores momentos y revivilos cuando quieras con la cámara trasera de 12 Mpx. Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su pantalla IPS de 5.99 pulgadas, disfrutá de colores intensos y mayor nitidez en todos tus contenidos. Su memoria ram de 3 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar",
@@ -1179,7 +1179,7 @@ const allArt = [
 	},
 	{
 		id: 57,
-		title: "Laptop Inspiron 3501",
+		title: "Laptop Inspiron 3501 V-1",
 		rating: 4.2,
 		detail: {
 			detail: "Cuenta con una pantalla de borde estrecho no táctil antirreflejo con retroiluminación LED, con disco solido de alta velocidad que combinada con su procesador y memoria ram, la hacen la opcion perfecta de compra",
@@ -1200,7 +1200,7 @@ const allArt = [
 	},
 	{
 		id: 58,
-		title: "Laptop Inspiron 3501 ",
+		title: "Laptop Inspiron 3501 V-2",
 		rating: 4.5,
 		detail: {
 			detail: "Acelera tus ideas, trabaja con extraordinaria eficiencia y disfruta de tus contenidos preferidos con el rendimiento de la Inspiron 15 3501",

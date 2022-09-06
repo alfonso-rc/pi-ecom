@@ -5,7 +5,7 @@ function LogOut() {
 
     const closeSession = async () => {
         sessionStorage.clear();
-        history.push("/home");
+        history.push("/");
     };
 
     return (
