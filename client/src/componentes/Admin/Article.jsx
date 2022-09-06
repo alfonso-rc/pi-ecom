@@ -26,7 +26,7 @@ export default function Article({
 			<NavBarAdmin />
 			<div className="flex">
 				<SideBar />
-				<div className="overflow-scroll w-4/5 m-8">
+				<div className="overflow-scroll h-96 w-4/5 m-8">
 					<ArticleList />
 				</div>
 			</div>
