@@ -212,11 +212,11 @@ export default function ArticleDetail() {
 
     return (
       <div className="rating rating-lg mx-1 my-1">
-        <input checked={ userRating === 1 } onClick={ () => handleCheckedStar(1) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
-        <input checked={ userRating === 2 } onClick={ () => handleCheckedStar(2) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
-        <input checked={ userRating === 3 } onClick={ () => handleCheckedStar(3) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
-        <input checked={ userRating === 4 } onClick={ () => handleCheckedStar(4) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
-        <input checked={ userRating === 5 } onClick={ () => handleCheckedStar(5) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input defaultChecked={ userRating === 1 } onClick={ () => handleCheckedStar(1) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input defaultChecked={ userRating === 2 } onClick={ () => handleCheckedStar(2) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input defaultChecked={ userRating === 3 } onClick={ () => handleCheckedStar(3) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input defaultChecked={ userRating === 4 } onClick={ () => handleCheckedStar(4) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input defaultChecked={ userRating === 5 } onClick={ () => handleCheckedStar(5) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
       </div>
     )
   }
@@ -226,8 +226,8 @@ export default function ArticleDetail() {
     return (
       <button
         onClick={ handleFavoriteCLick }
-        class={ styleFavoriteButton }>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+        className={ styleFavoriteButton }>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
       </button>
     )
   }
@@ -237,8 +237,8 @@ export default function ArticleDetail() {
 
     if (!articleCommentsAndRaitings.length) {
       return (
-        <div class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
-          <div class="collapse-title text-xl">
+        <div className="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
+          <div className="collapse-title text-xl">
             Sin calificaciones
           </div>
         </div>
@@ -246,8 +246,8 @@ export default function ArticleDetail() {
     }
 
     return (
-      <div style={ styleCommentsBox } class="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
-        <div class="collapse-title text-xl">
+      <div style={ styleCommentsBox } className="collapse collapse-open border border-base-300 bg-base-100 bg-base-300">
+        <div className="collapse-title text-xl">
           Comentarios y calificaciones
         </div>
         <div className="overflow-x-auto">
