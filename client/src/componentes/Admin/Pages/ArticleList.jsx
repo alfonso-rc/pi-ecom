@@ -15,12 +15,13 @@ export default function ArticleList() {
 	const [articulo, setArticulo] = useState([]);
 	const [tablaArticulo, setTablaArticulo] = useState([]);
 	const [busqueda, setBusqueda] = useState("");
+	const [habilitado, setHabilitado] = useState("");
 	let dispatch = useDispatch(); //
 	let allArticle = useSelector((state) => state.articles);
 	let user = sessionStorage;
 	const peticionGet = async () => {
 		await axios
-			.get("http://localhost:3001/article")
+			.get("http://localhost:3001/delete")
 			.then((response) => {
 				setArticulo(response.data);
 				setTablaArticulo(response.data);
@@ -71,6 +72,7 @@ export default function ArticleList() {
 	function handleClickInhab(id) {
 		try {
 			dispatch(deleteArticleLogic(id));
+
 			alert("Hecho!");
 		} catch (error) {
 			console.log(error);
@@ -88,11 +90,11 @@ export default function ArticleList() {
 
 	return (
 		<div>
-			<h2 className="text-black text-2xl">
-				Bienvenido{" "}
-				{`${user.name[0].toUpperCase() + user.name.substring(1)}`} al
-				administrador del sitio
-			</h2>
+			{
+				<h2 className="decoration-black	 text-2xl">
+					Administrador de Artículos
+				</h2>
+			}
 			<br />
 			<div>
 				<input
@@ -129,7 +131,11 @@ export default function ArticleList() {
 											<td>{art.id}</td>
 											<td>{art.detail.marca}</td>
 											<td>{art.detail.modelo}</td>
-											<td>{art.disable}</td>
+											<td>
+												{art.disable == false
+													? "En Venta"
+													: "Pendiente"}
+											</td>
 											<td>{art.stock}</td>
 											<td>{art.price}</td>
 											<td>
@@ -167,6 +173,7 @@ export default function ArticleList() {
 																className="swap-off btn btn-error btn-xs"
 																onClick={() =>
 																	handleClickInhab(
+																		//false o 0 en venta, entonces deshabilitar
 																		art.id
 																	)
 																}
@@ -174,7 +181,7 @@ export default function ArticleList() {
 																Deshabilitar
 															</div>
 															<div
-																className="swap-on btn btn-success btn-xs"
+																className="swap-on btn btn-success btn-xs" //true o 1 pendiente, entonces habilitar
 																onClick={() =>
 																	handleClickInhab(
 																		art.id
