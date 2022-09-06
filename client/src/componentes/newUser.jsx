@@ -3,6 +3,7 @@ import logoGoogle from "../imagenes/google.png";
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function validate(user) {
   let errors = {};
@@ -74,14 +75,20 @@ export default function Example() {
     if (!Object.getOwnPropertyNames(errors).length && user.name && user.lastName && user.mail && user.userName && user.address && user.password) {
       let response = (await axios.post("http://localhost:3001/user/create", user)).data;
       if (response.error) {
-        alert(response.error);
-        setUser({
-          name: "",
-          lastName: "",
-          mail: "",
-          userName: "",
-          address: "",
-          password: "",
+        Swal.fire({
+          text: `${response.error}`,
+          icon: "error",
+        }).then(response => {
+          if (response) {
+            setUser({
+              name: "",
+              lastName: "",
+              mail: "",
+              userName: "",
+              address: "",
+              password: "",
+            });
+          }
         });
       }
       else {
@@ -99,8 +106,12 @@ export default function Example() {
           sessionStorage.setItem(item, response[item]);
         }
 
-        alert('New user successfully created');
-        history.push('/home');
+        Swal.fire({
+          text: "Nuevo usuario creado correctamente",
+          icon: "success",
+        }).then(response => {
+          if (response) history.push('/home');
+        });
       }
     }
     else alert('Faltan datos para crear');    

@@ -3,6 +3,7 @@ import logoGoogle from "../imagenes/google.png";
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function validate(user) {
   let errors = {};
@@ -40,10 +41,16 @@ export default function Example() {
       let response = (await axios.post("http://localhost:3001/user/login", user)).data
      
       if (response.error) {
-        alert(response.error);
-        setUser({
-          mail: '',
-          password: ''
+        Swal.fire({
+          text: `${response.error}`,
+          icon: "error",
+        }).then(response => {
+          if (response) {
+            setUser({
+              mail: '',
+              password: ''
+            });
+          }
         });
       }
       else {
@@ -57,8 +64,12 @@ export default function Example() {
           sessionStorage.setItem(item, response[item]);
         }
 
-        alert('Sesión iniciada');
-        history.push('/home');
+        Swal.fire({
+          text: "Sesión iniciada",
+          icon: "success",
+        }).then(response => {
+          if (response) history.push('/home');
+        })
       }
     } else {
       alert('Faltan datos para ingresar')
