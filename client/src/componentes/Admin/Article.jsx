@@ -26,12 +26,12 @@ export default function Article({
 			<NavBarAdmin />
 			<div className="flex">
 				<SideBarAdmin />
-				<div className="overflow-scroll h-96 w-4/5 m-8">
+				<div className="overflow-scroll h-96 w-4/5 m-8 font-Work">
 					<ArticleList />
 				</div>
 			</div>
 			<Link to="/admin/articulos/create">
-				<button class="btn btn-outline btn-accent">Add Article</button>
+				<button class="btn btn-accent btn-lg">Add Article</button>
 			</Link>
 			<div className="pt-16">
 				<Footer />

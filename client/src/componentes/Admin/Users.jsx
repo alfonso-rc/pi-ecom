@@ -23,10 +23,10 @@ export default function User({
 		<div className="m-0 p-0">
 			<NavBarAdmin />
 			<div className="flex">
-				<SideBar />
-				<div className="overflow-scroll h-96  w-4/5 m-8">
+				<SideBarAdmin/>
+				<div className="overflow-scroll h-96  w-4/5 m-8 font-Work">
 					<div>
-						<h2 className="decoration-gray-500 text-2xl">
+						<h2 className="text-black text-2xl pb-6 ">
 							Administrador de Usuarios
 						</h2>
 					</div>
