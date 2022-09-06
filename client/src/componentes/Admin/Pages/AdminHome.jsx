@@ -14,27 +14,16 @@ export default function Admin() {
 			<div className="flex min-h-screen">
 				<SideBarAdmin />
 				<div className="flex flex-wrap mx-auto mt-6 justify-center">
-					{
-						user.name ? (
-							<h2 className="text-black text-4xl font-Work pt-6">
-								¡Hola!{" "}
-								{user.name[0].toUpperCase() +
-									user.name.substring(1)}{" "}
-								Bienvenido al Administrador del sitio
-							</h2>
-						) : (
-							<h2></h2>
-						)
-
-						/*<h2 className="text-black text-4xl font-Work pt-6">
-								¡Hola! $
-								{user.name[0].toUpperCase() +
-									user.name.substring(1)}{" "}
-								bienvenido al administrador del sitio
-							</h2>
-						
-						else{<h2>Usuario no registrado</h2>} */
-					}
+					{user.name ? (
+						<h2 className="text-black text-4xl font-Work pt-6">
+							¡Hola!{" "}
+							{user.name[0].toUpperCase() +
+								user.name.substring(1)}{" "}
+							Bienvenido al Administrador del sitio
+						</h2>
+					) : (
+						<h2></h2>
+					)}
 					<section class="text-gray-800 body-font font-Work ">
 						<div class="container px-5 mx-auto">
 							<div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
