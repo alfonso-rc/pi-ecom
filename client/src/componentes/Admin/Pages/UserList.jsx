@@ -42,19 +42,17 @@ export default function UserList() {
 	}
 
 	return (
-		<div className="">
-			<div className="">
+		<div>
+			<div>
 				<table className={s.table}>
-					{" "}
-					{/* table-compact w-full */}
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>Last Name</th>
+							<th>Name</th>
 							<th>Address</th>
 							<th>Mail</th>
 							<th>UserName</th>
-							<th>Password</th>
+							{/* <th>Password</th> */}
 							<th>Coins</th>
 							<th>User Type</th>
 							<th>Ban</th>
@@ -69,12 +67,16 @@ export default function UserList() {
 								<tr>
 									<td>{usr.id}</td>
 									<td>{usr.name}</td>
-									<td>{usr.lastName}</td>
 									<td>{usr.address}</td>
 									<td>{usr.mail}</td>
-									<td>{usr.password}</td>
+									<td>{usr.userName}</td>
+									{/* <td>{usr.password}</td> */}
 									<td>{usr.coins}</td>
-									<td>{usr.userType}</td>
+									<td>
+										{usr.userType == 1
+											? "Ordinario"
+											: "Admin"}
+									</td>
 									<td>{usr.ban}</td>
 									<th>
 										{!usr.ban ? (
@@ -155,7 +157,7 @@ export default function UserList() {
 							<th>Address</th>
 							<th>Mail</th>
 							<th>UserName</th>
-							<th>Password</th>
+							{/* <th>Password</th> */}
 							<th>Coins</th>
 							<th>User Type</th>
 							<th>Ban</th>
