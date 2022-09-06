@@ -291,8 +291,7 @@ export default function ArticleDetail() {
   return (
     <div>
       <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
-        <NavBarDetail />
-        <Carrito />
+        <NavBarDetail />        
       </div>
       <div>
         <button className="btn btn-circle btn-outline"></button>
