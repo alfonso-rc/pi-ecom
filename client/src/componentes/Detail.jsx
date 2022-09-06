@@ -310,12 +310,12 @@ export default function ArticleDetail() {
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
                   <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center   pt-6">
                     <h1 className="font-bold mx-3">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
                     <p>{ article.rating === "NaN" ? article.rating = " sin calificaciones" : article.rating }</p>
                   </div>
-                  <div>
+                  <div className="flex justify-center  ">
                     <RatingStars rating={ article.rating } />
                   </div>
                 </div>
@@ -327,7 +327,7 @@ export default function ArticleDetail() {
 
                   {/* BOTONES PARA AÑADIR UNIDADES DEL STOCK */ }
 
-                  <div className="flex justify-center">
+                  <div className="flex justify-center  ">
                     <button onClick={ (e) => subsDecrement(e) } className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
@@ -336,11 +336,11 @@ export default function ArticleDetail() {
                       <IoAdd className="text-2xl" />
                     </button>
                   </div>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center   pt-6">
                     <h1 className="font-bold">Stock: </h1>
                     <p>{ article.stock }</p>
                   </div>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center  pt-6">
                     <h1 className="font-bold">Color: </h1>
                     <p>{ article.detail.color }</p>
                   </div>

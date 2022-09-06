@@ -17,7 +17,9 @@ const getAllShopping = async (req, res, next) => {
             return {
                 id: shop.infoArticle.id,
                 title: shop.infoArticle.title,
-                image: shop.infoArticle.image
+                image: shop.infoArticle.image,
+                price: shop.infoArticle.price,
+                date: shop.createdAt
             };
         });
 

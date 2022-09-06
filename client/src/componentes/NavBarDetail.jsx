@@ -20,11 +20,11 @@ export default function NavBarDetail() {
   let dispatch = useDispatch();
   const [open, setOpen] = useState(false)
   return (
-    <div style={ styleNavBar } className="bg-primary flex place-content-between mr-3 ">
-      <Link to="/home" className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-36 h-12" /></Link>
-      <div className='flex place-content-end '>
-        {
-          sessionStorage.name ? <div className=''><Profile /></div> : <LoginAuth0 />
+    <div style={ styleNavBar } className="bg-primary flex place-content-around md:place-content-between pl-3">
+        <Link to="/home" className='flex transition delay-100 hover:scale-110'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="w-24 h-9 sm:block sm:w-36 sm:h-12" /></Link>
+        <div className='flex place-content-end '>
+        {        
+        sessionStorage.name ? <div className='w-auto'><Profile/></div> : <LoginAuth0/>
         }
 
 
