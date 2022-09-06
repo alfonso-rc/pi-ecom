@@ -22,9 +22,16 @@ export default function ArticleList() {
 	let dispatch = useDispatch(); //
 	let allArticle = useSelector((state) => state.articles);
 	let user = sessionStorage;
+
+	const BASE_URL = process.env.REACT_APP_API_URL;
+	const URL_DELETE_ART =
+		process.env.NODE_ENV === "production"
+			? BASE_URL + "/delete/"
+			: `http://localhost:3001/delete/`;
+
 	const peticionGet = async () => {
 		await axios
-			.get("http://localhost:3001/delete")
+			.get(URL_DELETE_ART)
 			.then((response) => {
 				setArticulo(response.data);
 				setTablaArticulo(response.data);
@@ -177,21 +184,21 @@ export default function ArticleList() {
 											<td>
 												<a
 													href="#my-modal-2"
-													class="btn btn-error btn-xs"
+													className="btn btn-error btn-xs"
 												>
 													Delete
 												</a>
 												<div
-													class="modal"
+													className="modal"
 													id="my-modal-2"
 												>
-													<div class="modal-box">
-														<h3 class="font-bold">
+													<div className="modal-box">
+														<h3 className="font-bold">
 															El Articulo se
 															eliminara de manera
 															permanente!
 														</h3>
-														<div class="modal-action">
+														<div className="modal-action">
 															<button
 																className="btn btn-error btn-xs"
 																onClick={() =>

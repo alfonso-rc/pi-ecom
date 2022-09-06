@@ -93,6 +93,7 @@ const initialState = {
 	offers: [],
 	// wishlist: wishlistStorage,
 	shoppings: [],
+	precio:[],
 };
 
 export default function reducer(state = initialState, action) {

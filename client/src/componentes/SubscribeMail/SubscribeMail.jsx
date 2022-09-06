@@ -89,10 +89,10 @@ export default function SubscribeMail() {
 
    // Retorna uno de los 3 estados del botón submit: DESABILITADO, HABILITADO O CARGANDO
    function SwitchButtonSubmit() {
-      if (loading) return <button class="btn mx-3 my-3 w-6/12 loading"></button>
+      if (loading) return <button className="btn mx-3 my-3 w-6/12 loading"></button>
       return input.name.length === 0 || input.email.length === 0 ?
-         <button disabled for="my-modal-3" class="btn mx-3 my-3 w-6/12 modal-button">Suscribirme</button> :
-         <button onClick={ sendEmail } for="my-modal-3" class="btn mx-3 my-3 w-6/12 modal-button">Suscribirme</button>;
+         <button disabled for="my-modal-3" className="btn mx-3 my-3 w-6/12 modal-button">Suscribirme</button> :
+         <button onClick={ sendEmail } for="my-modal-3" className="btn mx-3 my-3 w-6/12 modal-button">Suscribirme</button>;
    }
 
    return (
@@ -101,8 +101,8 @@ export default function SubscribeMail() {
             <h1 className='text-3xl'>Suscríbete a nuestras ofertas</h1>
          </div>
 
-         <input onChange={ handleChangeInput } value={ input.name } name="name" type="text" placeholder="Nombre" class="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
-         <input type="email" onChange={ handleChangeInput } value={ input.email } name="email" placeholder="Email" class="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
+         <input onChange={ handleChangeInput } value={ input.name } name="name" type="text" placeholder="Nombre" className="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
+         <input type="email" onChange={ handleChangeInput } value={ input.email } name="email" placeholder="Email" className="input text-1.5xl mx-3 my-3 w-6/12 max-w-xs" />
 
          {
             <SwitchButtonSubmit />
