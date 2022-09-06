@@ -9,6 +9,7 @@ const PaymentRouter = require("./RouteCheckout.js");
 const defaultRouter = require("./RouteDefault")
 const BrandRouter = require("./RouteBrand.js")
 const ShoppingRoutes = require("./shopping.js");
+const OfferRouter = require("./RouteOffer.js");
 
 const router = Router();
 

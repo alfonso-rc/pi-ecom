@@ -19,7 +19,7 @@ const getOffers = async (req, res, next) => {
     let getAllOffers = await Offer.findAll({
       include: {
         model: Article,
-        attributes: ["title"],
+        attributes: ["title","price","stock","detail","image"],
         through: { attributes: [] },
       },
     });
@@ -31,24 +31,20 @@ const getOffers = async (req, res, next) => {
 
 //POST  OFFERS
 const createOffers = async (req, res, next) => {
-  const { articleId, porcent, validity } = req.body;
   try {
-    const articleOffer = await Offer.findAll({
-      where: { articleId: articleId },
+    const { porcent, validity, expiration, articleId } = req.body;
+    const newOffer = await Offer.create({ porcent, validity, expiration });
+
+    const articleAll = await Article.findAll({
+      where: {
+        id: articleId
+      }
     });
-    if (articleOffer.length > 0) {
-      res.status(404).send("El articulo ya esta de oferta!");
-    } else {
-      const newOffer = await Offer.create({
-        porcent: porcent,
-        articleId: articleId,
-        validity: validity,
-      });
-      res.status(200).send(newOffer);
-    }
+    newOffer.addArticle(articleAll);
+    res.status(200).send(newOffer);
   } catch (error) {
     next(error);
-  }
+  };
 };
 
 //DELETE Offer
@@ -63,7 +59,37 @@ const deleteOffer = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-
 };
 
-module.exports = { testFunction, getOffers, createOffers, deleteOffer };
+//Edit Offer
+const editOffer = async (req, res, next) => {
+  try {
+    await Article.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    });
+    let response = await Article.findByPk(req.body.id);
+    res.json(response);
+  } catch (error) {
+    console.log(error);
+  };
+};
+
+//Borrado logico
+const validityOffer = async (req, res, next) => {
+	try {
+		const {id} = req.params;
+		let response = await Offer.findByPk(id);
+		if (!response.validity) {
+			await Offer.update({validity: true}, {where: {id}});
+		} else {
+			await Offer.update({validity: false}, {where: {id}});
+		}
+		res.json(response);
+	} catch (error) {
+		next(error);
+	}
+};
+
+module.exports = { testFunction, getOffers, createOffers, deleteOffer,editOffer, validityOffer }

@@ -8,13 +8,13 @@ module.exports = (sequelize) => {
       primaryKey: true
     },
     porcent: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
     },
     validity: {
         type: DataTypes.BOOLEAN,
       },
     expiration: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
       },
   }, {
     timestamps: true
