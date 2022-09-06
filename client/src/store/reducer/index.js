@@ -92,6 +92,7 @@ const initialState = {
 	auxArt: [],
 	// wishlist: wishlistStorage,
 	shoppings: [],
+	precio:[],
 };
 
 export default function reducer(state = initialState, action) {
