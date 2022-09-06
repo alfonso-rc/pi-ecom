@@ -13,9 +13,6 @@ module.exports = (sequelize) => {
     validity: {
         type: DataTypes.DATE,
       },
-    coins: {
-        type: DataTypes.INTEGER,
-    },
   }, {
     timestamps: true
   });
