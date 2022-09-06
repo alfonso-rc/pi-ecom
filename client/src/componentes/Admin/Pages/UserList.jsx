@@ -12,6 +12,9 @@ import s from "../Pages/articleList2.module.css";
 export default function UserList() {
 	const allUsers = useSelector((state) => state.users);
 	let dispatch = useDispatch();
+	const refreshPage = () => {
+		window.location.reload();
+	};
 
 	useEffect(() => {
 		dispatch(getUsers());
@@ -22,6 +25,7 @@ export default function UserList() {
 			dispatch(deleteUser(id));
 			allUsers = allUsers.filter((a) => a.id !== id);
 			alert(`El Usuario con id: ${id} fue Eliminado!`);
+			refreshPage();
 		} catch (error) {
 			console.log(error);
 		}
@@ -31,6 +35,7 @@ export default function UserList() {
 		try {
 			dispatch(banUser(id));
 			alert("Hecho!");
+			refreshPage();
 		} catch (error) {
 			console.log(error);
 		}
@@ -38,9 +43,10 @@ export default function UserList() {
 
 	return (
 		<div className="">
-			<br />
 			<div className="">
 				<table className={s.table}>
+					{" "}
+					{/* table-compact w-full */}
 					<thead>
 						<tr>
 							<th>Id</th>
@@ -68,64 +74,30 @@ export default function UserList() {
 									<td>{usr.mail}</td>
 									<td>{usr.password}</td>
 									<td>{usr.coins}</td>
-									<td>
-										{usr.userType == 1
-											? "ordinario"
-											: "Admin"}
-									</td>
+									<td>{usr.userType}</td>
 									<td>{usr.ban}</td>
 									<th>
-										{usr.disable ? (
+										{!usr.ban ? (
 											<div>
-												<label className="swap">
-													<input type="checkbox" />
-													<div
-														className="swap-on btn btn-success btn-xs"
-														onClick={() =>
-															handleClickBaned(
-																usr.id
-															)
-														}
-													>
-														NoBan
-													</div>
-													<div
-														className="swap-off btn btn-error btn-xs btn-active "
-														onClick={() =>
-															handleClickBaned(
-																usr.id
-															)
-														}
-													>
-														Ban
-													</div>
-												</label>
+												<button
+													className="btn btn-success btn-xs"
+													onClick={() =>
+														handleClickBaned(usr.id)
+													}
+												>
+													NoBanned
+												</button>
 											</div>
 										) : (
 											<div>
-												<label className="swap">
-													<input type="checkbox" />
-													<div
-														className="swap-off btn btn-error btn-xs btn-active"
-														onClick={() =>
-															handleClickBaned(
-																usr.id
-															)
-														}
-													>
-														Banned
-													</div>
-													<div
-														className="swap-on btn btn-success btn-xs"
-														onClick={() =>
-															handleClickBaned(
-																usr.id
-															)
-														}
-													>
-														NoBanned
-													</div>
-												</label>
+												<button
+													className="btn btn-error btn-xs"
+													onClick={() =>
+														handleClickBaned(usr.id)
+													}
+												>
+													Banned
+												</button>
 											</div>
 										)}
 									</th>

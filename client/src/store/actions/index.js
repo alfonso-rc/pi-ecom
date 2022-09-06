@@ -29,11 +29,11 @@ export function getArticles() {
 	};
 }
 
-export function orderByAZ(payload) {
+export function orderByAZ(order) {
 	try {
 		return {
 			type: "ORDER_BY_ARTICLES",
-			payload,
+			payload: order
 		};
 	} catch (error) {
 		console.log(error);
@@ -110,11 +110,11 @@ export function getbrands() {
 		});
 	};
 }
-export function orderBrand2(payload) {
+export function orderBrand2(brand) {
 	////////////////////////
 	return {
 		type: "ORDER_BY_BRAND2",
-		payload,
+		payload: brand,
 	};
 }
 const URL_GET_SMARTPHONE =
@@ -482,15 +482,6 @@ const URL_GET_DETAIL_BY_ID =
 // 			});
 // 	};
 // }
-// export function getTablets() {
-// 	return async function (dispatch) {
-// 		var json = await axios(URL_GET_TABLETS);
-// 		return dispatch({
-// 			type: "GET_TABLETS",
-// 			payload: json.data,
-// 		});
-// 	};
-// }
 export function getShopping() {
 	return async function (dispatch) {
 		var json = await axios(URL_GET_DETAIL_BY_ID)
@@ -498,5 +489,13 @@ export function getShopping() {
 					type: "GET_SHOPPING",	
 					payload: json.data,
 				});
+	};
+}
+
+export function resetArticles() {
+	return (dispatch) => {
+		dispatch({
+			type: "RESET_ARTICLES",
+		});
 	};
 }

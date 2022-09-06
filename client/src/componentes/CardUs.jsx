@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../store/actions";
 import {BsLinkedin} from "react-icons/bs"
 import React from "react";
-
+import fotoNico from "../imagenes/userPhotos/fotoNico.jpeg"
 
 
 export default function CardUs({ }) {
@@ -37,7 +37,7 @@ export default function CardUs({ }) {
     <h2 className="card-title">Nicolas Lautaro Zacarias</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src="https://placeimg.com/192/192/people" alt="img not found"/>
+    <img src={fotoNico} alt="img not found"/>
   </div>
   </div>
     <div className="card-actions justify-end">

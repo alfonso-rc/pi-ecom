@@ -3,6 +3,7 @@ import {BiLogOut} from "react-icons/bi";
 import {BiPackage} from "react-icons/bi";
 import {BiWrench} from "react-icons/bi";
 import {BiRocket} from "react-icons/bi";
+import {BiLike} from "react-icons/bi";
 
 import { Link } from "react-router-dom";
 import imageDefault from '../../imagenes/userImage.png';
@@ -31,11 +32,17 @@ function Profile() {
 
                 <ul tabindex="0" class="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
                     {
-                        sessionStorage.userType === '3' && <li class="hover:bg-violet-800 rounded-none text-white">
+                        sessionStorage.userType === '2' && <li class="hover:bg-violet-800 rounded-none text-white">
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>
                         </li>
                     }
                    <Link to={"/myShoppings"}> <li class="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li></Link>
+
+                   <Link to={'/favoritos'}>
+                        <li class="hover:bg-violet-800 rounded-none text-white">
+                            <a><BiLike size={20}/>Mis favoritos</a>
+                        </li>
+                    </Link>
 
                     <Link to={'/perfil'}>
                         <li class="hover:bg-violet-800 rounded-none text-white">
