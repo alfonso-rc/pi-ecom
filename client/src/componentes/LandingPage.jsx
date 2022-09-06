@@ -14,69 +14,69 @@ export default function LandingPage() {
 
     <div className="bg-white h-full">
       <NavBarAdmin />
-      <div class="carousel w-full">
-        <div id="slide1" class="carousel-item relative w-full">
+      <div className="carousel w-full">
+        <div id="slide1" className="carousel-item relative w-full">
           <img src={ oferta1 } className="w-full" alt="oferta1" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" class="btn btn-circle">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" className="btn btn-circle">
               ❮
             </a>
-            <a href="#slide2" class="btn btn-circle">
+            <a href="#slide2" className="btn btn-circle">
               ❯
             </a>
           </div>
         </div>
-        <div id="slide2" class="carousel-item relative w-full">
+        <div id="slide2" className="carousel-item relative w-full">
           <img src={ oferta2 } className="w-full" alt="oferta2" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" class="btn btn-circle">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" className="btn btn-circle">
               ❮
             </a>
-            <a href="#slide3" class="btn btn-circle">
+            <a href="#slide3" className="btn btn-circle">
               ❯
             </a>
           </div>
         </div>
-        <div id="slide3" class="carousel-item relative w-full">
+        <div id="slide3" className="carousel-item relative w-full">
           <img alt="..."
             src="https://tienda.claro.com.ar/wcsstore/Claro/Attachment/huawei-band-watch-joy-tienda-claro-desktop.jpg"
-            class="w-full"
+            className="w-full"
           />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" class="btn btn-circle">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" className="btn btn-circle">
               ❮
             </a>
-            <a href="#slide4" class="btn btn-circle">
+            <a href="#slide4" className="btn btn-circle">
               ❯
             </a>
           </div>
         </div>
-        <div id="slide4" class="carousel-item relative w-full">
+        <div id="slide4" className="carousel-item relative w-full">
           <img alt="..."
             src="https://tienda.claro.com.ar/wcsstore/Claro/Attachment/motorola-familia-g-tienda-claro-desktop.jpg"
-            class="w-full"
+            className="w-full"
           />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" class="btn btn-circle">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" className="btn btn-circle">
               ❮
             </a>
-            <a href="#slide1" class="btn btn-circle">
+            <a href="#slide1" className="btn btn-circle">
               ❯
             </a>
           </div>
         </div>
       </div>
-      <section class="text-gray-600 body-font font-Work py-10">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-            <img class="object-cover object-center rounded" alt="hero" src={ logo } />
+      <section className="text-gray-600 body-font font-Work py-10">
+        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            <img className="object-cover object-center rounded" alt="hero" src={ logo } />
           </div>
-          <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Encuentra en Ecom
-              <br class="hidden lg:inline-block"/>el producto que estás buscando.
+          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Encuentra en Ecom
+              <br className="hidden lg:inline-block"/>el producto que estás buscando.
             </h1>
-            <p class="mb-8 leading-relaxed">Contamos con una gran variedad de productos al alcance de tus manos, disfruta de las nuevas tecnologías y las mejores marcas del mercado a precios increibles y con un excelente servicio de entregas en la puerta de tu casa.</p>
-            <div class="flex justify-center">
+            <p className="mb-8 leading-relaxed">Contamos con una gran variedad de productos al alcance de tus manos, disfruta de las nuevas tecnologías y las mejores marcas del mercado a precios increibles y con un excelente servicio de entregas en la puerta de tu casa.</p>
+            <div className="flex justify-center">
               <Link to="/home">
                 <button className="btn btn-accent btn-lg">
                   Empieza tu busqueda

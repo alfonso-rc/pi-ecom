@@ -16,8 +16,8 @@ function Profile() {
     return (
         <div className="m-5">
 
-            <div class="dropdown dropdown-hover dropdown-end">
-                <label tabindex="0" class="btn btn-outline text-white w-auto">
+            <div className="dropdown dropdown-hover dropdown-end">
+                <label tabIndex="0" className="btn btn-outline text-white w-auto">
                     <div>
                         <img
                             className="rounded-full mr-3 w-9"
@@ -30,27 +30,27 @@ function Profile() {
                     <BiCaretDown size={16}/>
                 </label>
 
-                <ul tabindex="0" class="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
+                <ul tabIndex="0" className="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
                     {
-                        sessionStorage.userType === '2' && <li class="hover:bg-violet-800 rounded-none text-white">
+                        sessionStorage.userType === '2' && <li className="hover:bg-violet-800 rounded-none text-white">
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>
                         </li>
                     }
-                   <Link to={"/myShoppings"}> <li class="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li></Link>
+                   <Link to={"/myShoppings"}> <li className="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li></Link>
 
                    <Link to={'/favoritos'}>
-                        <li class="hover:bg-violet-800 rounded-none text-white">
+                        <li className="hover:bg-violet-800 rounded-none text-white">
                             <a><BiLike size={20}/>Mis favoritos</a>
                         </li>
                     </Link>
 
                     <Link to={'/perfil'}>
-                        <li class="hover:bg-violet-800 rounded-none text-white">
+                        <li className="hover:bg-violet-800 rounded-none text-white">
                             <a><BiWrench size={20}/>Mi perfil</a>
                         </li>
                     </Link>
 
-                    <li class="hover:bg-violet-800 rounded-none text-white"><a><BiLogOut size={20}/><LogOut/></a></li>
+                    <li className="hover:bg-violet-800 rounded-none text-white"><a><BiLogOut size={20}/><LogOut/></a></li>
                 </ul>
             </div>
 
