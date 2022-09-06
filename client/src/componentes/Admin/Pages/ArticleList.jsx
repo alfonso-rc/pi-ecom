@@ -22,9 +22,16 @@ export default function ArticleList() {
 	let dispatch = useDispatch(); //
 	let allArticle = useSelector((state) => state.articles);
 	let user = sessionStorage;
+
+	const BASE_URL = process.env.REACT_APP_API_URL;
+	const URL_DELETE_ART =
+		process.env.NODE_ENV === "production"
+			? BASE_URL + "/delete/"
+			: `http://localhost:3001/delete/`;
+
 	const peticionGet = async () => {
 		await axios
-			.get("http://localhost:3001/delete")
+			.get(URL_DELETE_ART)
 			.then((response) => {
 				setArticulo(response.data);
 				setTablaArticulo(response.data);

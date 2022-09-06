@@ -18,7 +18,7 @@ export default function Carrito(props) {
   const [totalPrecio, settotalPrecio] = useState(0);
   const [totalItems, settotalItems] = useState([]);
   const { cart } = useSelector((state) => state);
-
+  
   useEffect(() => {
     if (cart) {
       cart &&
