@@ -89,8 +89,8 @@ Rating.belongsTo(User);
 
 // UN ARTÍCULO TIENE MUCHAS OFERTAS
 // UN OFERTA PERTENECE A UN ARTICULO
-Article.belongsTo(Offer);
-Offer.hasMany(Article);
+Offer.belongsToMany(Article, { through: "offer_article" });
+Article.belongsToMany(Offer, { through: "offer_article" });
 
 
 module.exports = {
