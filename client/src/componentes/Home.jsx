@@ -201,7 +201,6 @@ export default function Home() {
 
       <div className="fixed top-0 left-0 right-0 z-20 w-screen">
         <NavBar />
-        <Carrito />
       </div>
 
       {/* COMPONENTE PARA FILTRAR POR CATEGORÍAS */ }
@@ -227,7 +226,7 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-        <SideBar paginado={paginado}/>
+        <SideBar paginado={ paginado } />
 
 
 

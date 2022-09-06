@@ -12,16 +12,16 @@ export default function CardUs({ }) {
 
 
     return (
-     <div> 
+     <div  className="flex flex-row flex-wrap justify-center  gap-10 font-Work"> 
  {/* <div class="avatar">
   <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
   </div>
   <p>Juan Ignacion Biondi </p>
 </div> */}
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Juan Ignacion Biondi</h2>
+    <h2 className="card-title text-lg">Juan Ignacion Biondi</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
@@ -32,9 +32,9 @@ export default function CardUs({ }) {
     </div>
   </div>
 </div>
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Nicolas Lautaro Zacarias</h2>
+    <h2 className="card-title text-lg">Nicolas Lautaro Zacarias</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src={fotoNico} alt="img not found"/>
@@ -45,9 +45,9 @@ export default function CardUs({ }) {
     </div>
   </div>
 </div>
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Alejandro Jaramillo Silva</h2>
+    <h2 className="card-title text-lg">Alejandro Jaramillo Silva</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
@@ -59,9 +59,9 @@ export default function CardUs({ }) {
   </div>
 </div>
 
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Mariana Mercado</h2>
+    <h2 className="card-title text-lg">Mariana Mercado</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
@@ -73,9 +73,9 @@ export default function CardUs({ }) {
   </div>
 </div>
 
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Carlos Cruz</h2>
+    <h2 className="card-title text-lg">Carlos Cruz</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
@@ -87,9 +87,9 @@ export default function CardUs({ }) {
   </div>
 </div>
 
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Lautaro Rematozo</h2>
+    <h2 className="card-title text-lg">Lautaro Retamozo</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>
@@ -101,9 +101,9 @@ export default function CardUs({ }) {
   </div>
 </div>
 
-<div className="card w-60 bg-base-100 shadow-xl">
+<div className="card w-60 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20">
   <div className="card-body">
-    <h2 className="card-title">Alfonso Rosas</h2>
+    <h2 className="card-title text-lg">Alfonso Rosas</h2>
     <div class="avatar">
     <div class="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
     <img src="https://placeimg.com/192/192/people" alt="img not found"/>

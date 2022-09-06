@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { increment, decrement } from '../store/actions/index'
 import RatingStars from "./RatingStars/RatingStars";
 import verifyIsLogged from "./helpers/verifyIsLogged";
-import showToast from "./helpers/showToast";
+import showToast from "./helpers/showToast.js";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
@@ -31,6 +31,15 @@ const URL_ADD_FAVORITE = process.env.NODE_ENV === "production"
 const URL_ASK_FAVORITE = process.env.NODE_ENV === "production"
   ? BASE_URL + "/user/ask_favorite/"
   : "http://localhost:3001/user/ask_favorite/";
+
+const URL_ASK_BOUGHT = process.env.NODE_ENV === "production"
+  ? BASE_URL + "/myShoppings/get"
+  : "http://localhost:3001/myShoppings/get";
+
+const URL_USER_RATING_ARTICLE = process.env.NODE_ENV === "production"
+  ? BASE_URL + "/article/rating"
+  : "http://localhost:3001/article/rating";
+
 
 const styleCommentsBox = {
   zIndex: 0,
@@ -49,6 +58,7 @@ export default function ArticleDetail() {
   const [count, setCount] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBought, setIsBought] = useState(false);
+  const [userRating, setUserRaiting] = useState(4);
 
   // id del artículo
   let { id } = useParams();
@@ -70,6 +80,7 @@ export default function ArticleDetail() {
   }, [id]);
 
 
+  // Este useEffect se ejecuta cuando la información del artículo llega
   useEffect(() => {
     const idUser = sessionStorage.getItem("id")
     const bodyAskFavorite = {
@@ -86,24 +97,22 @@ export default function ArticleDetail() {
           setIsFavorite(true)
         })
         .catch(e => console.log(e))
-    }
 
+      axios.get(URL_ASK_BOUGHT, {
+        params: {
+          idUser,
+          idArticle: id
+        }
+      }).then(res => {
+        console.log(res.data)
+        setIsBought(res.data.isBougth)
+      })
+
+    }
   }, [article])
 
   function addCart(item) {
     dispatch(addToCart(item));
-  }
-
-  function toastErrors() {
-    return toast.error("Necesitas logearte!", {
-      position: "bottom-left",
-      autoClose: 8000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   }
 
 
@@ -153,44 +162,35 @@ export default function ArticleDetail() {
   }
 
 
-
-
-
-  const HandleClickRating = (e, score) => {
+  const HandleClickCommentButton = (e) => {
     e.preventDefault();
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      dispatch(addRating({
-        idArticle: article.id,
-        idUser: sessionStorage.getItem("id"),
-        score: score
-      }))
-      alert('Rating Agregado!')
-    } else {
-      toastErrors();
-    }
-  };
 
-  const HandleClickComment = (e) => {
-    e.preventDefault();
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      dispatch(addComment({
-        texto: input,
-        idUser: sessionStorage.getItem("id"),
-        articleId: article.id
-      }))
-      // Solo podemos decir que el comentario fue agregado si la respuesta es 200 (OK) por parte de la api
-      // 
-      // alert('Comentario Agregado!') 
-    } else {
-      toastErrors();
-    }
+    axios.post(URL_USER_RATING_ARTICLE,
+      {
+        "idArticle": id,
+        "idUser": sessionStorage.getItem("id"),
+        "score": userRating,
+        "comment": input
+      }).then(() => {
+        showToast("success", "Comentario agregado")
+        axios.get(URL_GET_DETAIL_BY_ID + id)
+          .then((response) => {
+            // console.log(response.data)
+            setArticle(response.data);
+          })
+      }).catch(() => showToast("error", "Ya comentaste este producto compa"))
+
+
+    // axios.get(URL_GET_DETAIL_BY_ID + id)
+    //   .then((response) => {
+    //     // console.log(response.data)
+    //     setArticle(response.data);
+    //   })
   };
 
   // Comentario
   const handleTextInputComment = (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setInput(e.target.value)
   }
 
@@ -205,14 +205,18 @@ export default function ArticleDetail() {
 
   */
   function RatingToUser() {
+
+    function handleCheckedStar(num) {
+      setUserRaiting(num)
+    }
+
     return (
-      <div className="rating rating-lg rating-half">
-        <input type="radio" name="rating-7" className="rating-hidden" />
-        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 1 } onClick={ (e) => HandleClickRating(e, 1) } />
-        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 2 } onClick={ (e) => HandleClickRating(e, 2) } />
-        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 3 } onClick={ (e) => HandleClickRating(e, 3) } />
-        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 4 } onClick={ (e) => HandleClickRating(e, 4) } />
-        <input type="radio" name="rating-7" className="mask mask-star-2 bg-orange-400" value={ 5 } onClick={ (e) => HandleClickRating(e, 5) } />
+      <div className="rating rating-lg mx-1 my-1">
+        <input checked={ userRating === 1 } onClick={ () => handleCheckedStar(1) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input checked={ userRating === 2 } onClick={ () => handleCheckedStar(2) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input checked={ userRating === 3 } onClick={ () => handleCheckedStar(3) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input checked={ userRating === 4 } onClick={ () => handleCheckedStar(4) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
+        <input checked={ userRating === 5 } onClick={ () => handleCheckedStar(5) } type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" />
       </div>
     )
   }
@@ -283,11 +287,11 @@ export default function ArticleDetail() {
   }
 
 
+
   return (
     <div>
       <div className="fix fixed top-0 left-0 right-0 z-10 w-screen">
-        <NavBarDetail />
-        <Carrito />
+        <NavBarDetail />        
       </div>
       <div>
         <button className="btn btn-circle btn-outline"></button>
@@ -306,12 +310,12 @@ export default function ArticleDetail() {
               <div className="lg:m-auto xl:ml-20 pt-6">
                 <div>
                   <h3 className="font-bold text-2xl md:text-4xl">{ article.title }</h3>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center   pt-6">
                     <h1 className="font-bold mx-3">Rating: </h1>
                     {/* esta es la forma provicional del Rating */ }
                     <p>{ article.rating === "NaN" ? article.rating = " sin calificaciones" : article.rating }</p>
                   </div>
-                  <div>
+                  <div className="flex justify-center  ">
                     <RatingStars rating={ article.rating } />
                   </div>
                 </div>
@@ -323,7 +327,7 @@ export default function ArticleDetail() {
 
                   {/* BOTONES PARA AÑADIR UNIDADES DEL STOCK */ }
 
-                  <div className="flex justify-center">
+                  <div className="flex justify-center  ">
                     <button onClick={ (e) => subsDecrement(e) } className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
@@ -332,11 +336,11 @@ export default function ArticleDetail() {
                       <IoAdd className="text-2xl" />
                     </button>
                   </div>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center   pt-6">
                     <h1 className="font-bold">Stock: </h1>
                     <p>{ article.stock }</p>
                   </div>
-                  <div className="flex flex-row justify-center pt-6">
+                  <div className="flex flex-row justify-center  pt-6">
                     <h1 className="font-bold">Color: </h1>
                     <p>{ article.detail.color }</p>
                   </div>
@@ -402,18 +406,28 @@ export default function ArticleDetail() {
             {/* <RatingToUser /> */ }
             <br />
             <br />
+            {
+              isBought ? (
+                <div>
+                  <RatingToUser />
+                  <div className="flex flex-row justify-evenly items-center flex-wrap	">
+                    <textarea
+                      onChange={ (e) => handleTextInputComment(e) }
+                      className="textarea textarea-accent bg-white  w-2/3 h-10 mx-1 my-1"
+                      placeholder="que te pareció el producto"
+                      name="texto"
+                      value={ input }
+                    ></textarea>
+                    <button disabled={ input.length > 5 ? false : true } className="btn btn-outline btn-accent h-15 mx-1 my-1" type="submit" onClick={ (e) => HandleClickCommentButton(e) }>Comentar</button>
+                  </div>
+                </div>
+              ) : <h3>No puedes comentar porque no has comprado este producto</h3>
+            }
 
-            <div className="flex flex-row">
-              <textarea
-                onChange={ (e) => handleTextInputComment(e) }
-                className="textarea textarea-accent bg-white  w-5/6 ml-10"
-                placeholder="Add new comment"
-                name="texto"
-              ></textarea>
-              <button className="btn btn-outline btn-accent" type="submit" onClick={ (e) => HandleClickComment(e) }>Post</button>
-            </div>
+
 
           </div>
+          /* SI NO HAY INFO DEL ARTÍCULO, SE MUESTRA UN GIF DE CARGANDO */
         ) : (
           <div className="flex  place-content-center">
             { <img src={ loading } alt="img not found" /> }

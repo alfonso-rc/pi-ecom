@@ -1,12 +1,11 @@
 .table {
 	width: 100%;
-	height: 550px;
+	height: 250px;
 	border-collapse: separate;
 	vertical-align: top;
 }
 .table th,
 td {
-	width: 25%;
 	text-align: left;
 	padding: 0.2em;
 	caption-side: bottom;
@@ -21,7 +20,7 @@ td {
 .table tr:nth-child(odd) {
 	background: rgb(51, 56, 67);
 }
-thead {
+table thead {
 	background-color: rgb(53, 52, 52);
 	border-bottom: solid 3px #282727;
 	color: rgb(179, 172, 172);

@@ -8,10 +8,11 @@ import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
-export default function Example() {
+export default function Carrito(props) {
+  console.log("ABIERTO", props)
   const showCart = useSelector((state) => state.showCart);
-  const [open, setOpen] = useState(true);
   const history = useHistory();
   const dispatch = useDispatch();
   const [totalPrecio, settotalPrecio] = useState(0);
@@ -47,15 +48,24 @@ export default function Example() {
       history.push("/checkout");
       console.log("COMPRADISIMO BRO");
     } else {
-      history.push("/login");
-      toastErrors();
+      Swal.fire({
+        text: "¿Desea iniciar sesión para continuar con la compra?",
+        icon: "question",
+        showDenyButton: true,
+        denyButtonText: "Cancelar",
+        confirmButtonText: "Iniciar sesión",
+      }).then(response => {
+        if (response.isConfirmed) {
+          history.push("/login");
+          toastErrors();
+        } else {
+          props.close()
+        }
+      });
     }
   };
-  useEffect(() => {
-    setOpen(() => {
-      return !open;
-    });
-  }, [showCart]);
+
+
 
   var totalPrice = 0;
 
@@ -72,10 +82,10 @@ export default function Example() {
   }
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-20" onClose={setOpen}>
+    <Transition.Root show={ props.open } as={ Fragment }>
+      <Dialog as="div" className="relative z-20" onClose={ () => props.close() }>
         <Transition.Child
-          as={Fragment}
+          as={ Fragment }
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -90,7 +100,7 @@ export default function Example() {
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
-                as={Fragment}
+                as={ Fragment }
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"
                 enterTo="translate-x-0"
@@ -103,17 +113,17 @@ export default function Example() {
                     <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
-                          {" "}
-                          Shopping cart{" "}
+                          { " " }
+                          Shopping cart{ " " }
                         </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(true)}
+                            onClick={ () => props.close() }
                           >
                             <span className="sr-only">Close panel</span>
-                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */}
+                            {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */ }
                           </button>
                         </div>
                       </div>
@@ -125,18 +135,18 @@ export default function Example() {
                             className="-my-6 divide-y divide-gray-200"
                           >
                             <div className="containerCarrito flex flex-col gap-10">
-                              {cart &&
+                              { cart &&
                                 cart.map((e) => {
                                   return (
                                     <CardCarrito
-                                      key={e.id}
-                                      id={e.id}
-                                      title={e.title}
-                                      image={e.image}
-                                      price={e.price}
+                                      key={ e.id }
+                                      id={ e.id }
+                                      title={ e.title }
+                                      image={ e.image }
+                                      price={ e.price }
                                     />
                                   );
-                                })}
+                                }) }
                             </div>
                           </ul>
                         </div>
@@ -146,7 +156,7 @@ export default function Example() {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$ {totalPrice}</p>
+                        <p>$ { totalPrice }</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.
@@ -154,20 +164,20 @@ export default function Example() {
                       <div className="mt-6">
                         <button
                           href="#"
-                          disabled={buttonDisabled()}
+                          disabled={ buttonDisabled() }
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={() => HandleClickComprar()}
+                          onClick={ () => HandleClickComprar() }
                         >
                           Checkout
                         </button>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{" "}
+                          or{ " " }
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={ () => props.close() }
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>

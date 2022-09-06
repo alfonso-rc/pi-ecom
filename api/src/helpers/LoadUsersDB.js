@@ -22,13 +22,29 @@ const usersToCreate = [
       "image": "https://lh3.googleusercontent.com/a-/AFdZucpnp6h9LsNdfG5GWBisUIJmTi51MMtbte10YUKZIQ=s96-c"
    },
    {
-      "name": "cosme",
-      "lastName": "fulanito",
+      "name": "Mari",
+      "lastName": "Mercado",
       "address": "calle falsa 123",
       "mail": "fulanito99@gmail.com",
       "userName": "cosmelanito",
       "password": "12345678",
       "userType": "1"
+   }, {
+      "name": "Juan",
+      "lastName": "Perez",
+      "address": "Calle 44F 38-27",
+      "mail": "admin@gmail.com",
+      "userName": "El Administrador",
+      "password": "admin",
+      "userType": "2"
+   }, {
+      "name": "Fernando",
+      "lastName": "Ávila",
+      "address": "Calle 44F 38-27",
+      "mail": "admin@gmail.com",
+      "userName": "El Administrador",
+      "password": "admin",
+      "userType": "2"
    },
    {
       "name": "admin",

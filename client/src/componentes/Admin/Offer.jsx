@@ -1,6 +1,7 @@
 import React from "react";
-import SideBar from "../Admin/SideBar";
-import NavBarAdmin from "../Admin/SideBar";
+import SideBarAdmin from "./SideBarAdmin";
+
+import NavBarAdmin from "../../componentes/NavBarAdmin";
 import Footer from "../Footer";
 
 export default function Offer() {
@@ -9,7 +10,7 @@ export default function Offer() {
       <NavBarAdmin/>
       <div className="min-h-screen">
         <div className="flex">
-          <SideBar />
+          <SideBarAdmin />
           <div className="content">
             <p>ACA ESTAN LAS OFERTAS</p>
           </div>

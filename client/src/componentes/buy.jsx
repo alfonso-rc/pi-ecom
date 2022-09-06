@@ -14,6 +14,7 @@ import NavBarDetail from "./NavBarDetail";
 import Footer from "./Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 
 function toastSucces() {
@@ -121,12 +122,23 @@ function CheckoutForm() {
         console.log(error);
       }
       setLoading(false);
+      Swal.fire({
+        text: "Compra realizada con éxito",
+        icon: "success",
+      }).then(response => {
+        if (response) {
+          localStorage.setItem("cart", JSON.stringify([]));
+          toastSucces() 
+          history.push("/home", { replace: true });
+          refreshPage()
+        }
+      });
+    } else {
+      Swal.fire({
+        text: "Targeta no valida",
+        icon: "warning"
+      })
     }
-    localStorage.setItem("cart", JSON.stringify([]));
-    // cart.clear()
-    toastSucces() 
-    history.push("/home", { replace: true });
-    refreshPage()
     
   };
 
@@ -149,7 +161,7 @@ function CheckoutForm() {
         <NavBarDetail />
       </div>
 
-      <div className="font-Work  text-black p-10">
+      <div className="font-Work  text-black p-6 min-h-screen">
         <h3 className="text-xl pb-10 ">Cantidad de articulos: {cart.length}</h3>
         <div className="flex flex-col md:grid" style={{gridTemplateColumns:"65% 35%"}}>
           <div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
@@ -186,9 +198,7 @@ function CheckoutForm() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full">
-        <Footer />
-      </div>
+      <Footer/>
     </div>
   );
 }
