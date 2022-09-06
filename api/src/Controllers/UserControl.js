@@ -72,6 +72,36 @@ const askFavorite = async (req, res, next) => {
 }
 
 
+// Function que trae todos los favoritos del usuario
+const getAllUserFavorites = async (req, res, next) => {
+   const { id } = req.params
+   console.log("PARAMS", req.params)
+
+   try {
+      // Preguntar si existe el usuario
+      const userFound = await User.findByPk(id)
+      if (!userFound) {
+         res.status(404).send("El usuario no existe")
+         return
+      }
+
+
+      const favoritesFound = await User.findOne({
+         where: { id: id },
+         include: {
+            model: Article
+         }
+      })
+
+
+      res.status(200).json(favoritesFound)
+   } catch (error) {
+      console.log(error)
+      next(error)
+   }
+}
+
+
 // Añade un artículo favorito al usuario, si ya lo tiene, lo elimina de favoritos
 // es como un switch
 const addFavoriteToUser = async (req, res, next) => {
@@ -159,36 +189,36 @@ const updateUser = async (req, res, next) => {
 };
 
 //Borrado Fisico
-async function deleteUsers(req, res,next){
+async function deleteUsers(req, res, next) {
    try {
-     const {id} = req.params;
-     let destro = await User.destroy(
-       {where:{id:id}})
-       destro===1
-       ?res.status(200).send("Eliminado con exito")
-       :res.status(404).send("No existe")
+      const { id } = req.params;
+      let destro = await User.destroy(
+         { where: { id: id } })
+      destro === 1
+         ? res.status(200).send("Eliminado con exito")
+         : res.status(404).send("No existe")
    } catch (error) {
-     next(error);
+      next(error);
    }
- };
+};
 
- //Borrado logico
+//Borrado logico
 const putDeleteUser = async (req, res, next) => {
    try {
-     const { id } = req.params;
-     let response = await User.findByPk(id);
-     if(!response.ban){
-       await User.update(
-         {ban:true},{where:{id}})
-     }else{
-       await User.update(
-         {ban:false},{where:{id}})
-     }
-     res.json(response);
+      const { id } = req.params;
+      let response = await User.findByPk(id);
+      if (!response.ban) {
+         await User.update(
+            { ban: true }, { where: { id } })
+      } else {
+         await User.update(
+            { ban: false }, { where: { id } })
+      }
+      res.json(response);
    } catch (error) {
-     next(error)
+      next(error)
    }
- };
+};
 
 // Función que suscribe un usuario al newsletter de ofertas NO TOCAR SIN AVISAR A ALEJO
 const subscribeUserToNewsLetter = async (req, res, next) => {
@@ -213,4 +243,4 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
    }
 };
 
-module.exports = { createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser, askFavorite };
+module.exports = { getAllUserFavorites, createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser, askFavorite };
