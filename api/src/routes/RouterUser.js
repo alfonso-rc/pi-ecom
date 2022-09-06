@@ -1,10 +1,11 @@
 const { Router } = require('express');
 const verification = require('../Controllers/auxUserLogin/validateToken.js');
-const { askFavorite, createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser } = require("../Controllers/UserControl.js")
+const { getAllUserFavorites, askFavorite, createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser } = require("../Controllers/UserControl.js")
 const userRouter = Router();
 
 // CREAR USUARIO
 userRouter.post('/create', createUser);
+userRouter.get('/favorites/:id', getAllUserFavorites);
 userRouter.post('/ask_favorite', askFavorite);
 userRouter.post('/add_favorite', addFavoriteToUser);
 userRouter.post('/subscribe', subscribeUserToNewsLetter);
