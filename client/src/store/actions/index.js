@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_ALL_ARTICLES =
@@ -95,7 +96,10 @@ export function getName(title) {
 				payload: json.data,
 			});
 		} catch (error) {
-			alert("Este producto no existe...");
+			Swal.fire({
+				text: `No se ha encontrado el producto ${title}`,
+				icon: "info"
+			});
 		}
 	};
 }
