@@ -1,7 +1,7 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import SideBar from "./SideBar";
+import { useDispatch,useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import SideBarAdmin from "./SideBarAdmin";
 import ArticleList from "../Admin/Pages/ArticleList";
 import Logo from "../../../../client/src/ECOM-10_2.png";
 import {Link} from "react-router-dom";
@@ -25,7 +25,7 @@ export default function Article({
 		<div className="m-0 p-0">
 			<NavBarAdmin />
 			<div className="flex">
-				<SideBar />
+				<SideBarAdmin />
 				<div className="overflow-scroll h-96 w-4/5 m-8">
 					<ArticleList />
 				</div>

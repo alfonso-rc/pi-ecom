@@ -22,8 +22,8 @@ export default function NavBar() {
   let dispatch = useDispatch();
 
   return (
-    <div style={ styleNavBar } className="bg-primary flex flex-row justify-around sm:ustify-between mr-3">
-      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="hidden w-24 h-9 sm:block sm:w-36 sm:h-12 " />
+    <div style={ styleNavBar } className="bg-primary flex flex-row justify-around sm:justify-between mr-3">
+      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="hidden w-24 h-9 sm:block sm:w-36 sm:h-12" />
       <SearchBar />
       <div className="flex flex-row justify-end">
 

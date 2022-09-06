@@ -1,7 +1,8 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import SideBar from "./SideBar";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import SideBarAdmin from "./SideBarAdmin";
 import UserList from "../Admin/Pages/UserList";
 //import Logo from "../../../../client/src/ECOM-10_2.png";
 import {Link} from "react-router-dom";

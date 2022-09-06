@@ -1,5 +1,6 @@
 import React from "react";
-import SideBar from "../SideBar";
+import SideBarAdmin from "../SideBarAdmin";
+import Logo from "../../../ECOM-10_2.png";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
 let user = sessionStorage;
@@ -9,7 +10,7 @@ export default function Admin() {
 		<div>
 			<NavBarAdmin />
 			<div className="flex min-h-screen">
-				<SideBar />
+				<SideBarAdmin />
 				<div className="flex mx-auto my-2.5">
 					<h2 className="decoration-black	 text-2xl ">
 						¡Hola!
