@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import CardCarrito from "./CardCarrito.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 export default function Example() {
   const showCart = useSelector((state) => state.showCart);
@@ -47,8 +48,20 @@ export default function Example() {
       history.push("/checkout");
       console.log("COMPRADISIMO BRO");
     } else {
-      history.push("/login");
-      toastErrors();
+      Swal.fire({
+        text: "¿Desea iniciar sesión para continuar con la compra?",
+        icon: "question",
+        showDenyButton: true,
+        denyButtonText: "Cancelar",
+        confirmButtonText: "Iniciar sesión",
+      }).then(response => {
+        if (response.isConfirmed) {
+          history.push("/login");
+          toastErrors();
+        } else {
+          setOpen(false);
+        }
+      });      
     }
   };
   useEffect(() => {

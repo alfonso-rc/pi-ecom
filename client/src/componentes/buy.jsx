@@ -14,6 +14,7 @@ import NavBarDetail from "./NavBarDetail";
 import Footer from "./Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 
 function toastSucces() {
@@ -121,12 +122,23 @@ function CheckoutForm() {
         console.log(error);
       }
       setLoading(false);
+      Swal.fire({
+        text: "Compra realizada con éxito",
+        icon: "success",
+      }).then(response => {
+        if (response) {
+          localStorage.setItem("cart", JSON.stringify([]));
+          toastSucces() 
+          history.push("/home", { replace: true });
+          refreshPage()
+        }
+      });
+    } else {
+      Swal.fire({
+        text: "Targeta no valida",
+        icon: "warning"
+      })
     }
-    localStorage.setItem("cart", JSON.stringify([]));
-    // cart.clear()
-    toastSucces() 
-    history.push("/home", { replace: true });
-    refreshPage()
     
   };
 
