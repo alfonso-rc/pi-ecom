@@ -220,6 +220,24 @@ const putDeleteUser = async (req, res, next) => {
    }
 };
 
+//Cambio Type de User: De admin a Ordinario o al reves
+const putTypeUser = async (req, res, next) => {
+   try {
+      const { id } = req.params;
+      let response = await User.findByPk(id);
+      if (response.userType == 1) {
+         await User.update(
+            { userType : 2 }, { where: { id } })
+      } else {
+         await User.update(
+            { userType : 1 }, { where: { id } })
+      }
+      res.json(response);
+   } catch (error) {
+      next(error)
+   }
+};
+
 // Función que suscribe un usuario al newsletter de ofertas NO TOCAR SIN AVISAR A ALEJO
 const subscribeUserToNewsLetter = async (req, res, next) => {
    try {
@@ -243,4 +261,4 @@ const subscribeUserToNewsLetter = async (req, res, next) => {
    }
 };
 
-module.exports = { getAllUserFavorites, createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser, askFavorite };
+module.exports = { getAllUserFavorites, createUser, addFavoriteToUser, loginUser, infoUser, getUsers, updateUser, subscribeUserToNewsLetter, deleteUsers, putDeleteUser, askFavorite, putTypeUser };
