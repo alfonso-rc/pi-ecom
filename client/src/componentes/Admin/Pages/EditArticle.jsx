@@ -507,7 +507,9 @@ export default function CreateArticle() {
                     <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
                       <div className="justify-center">
                         <img
-                          src={input.image}
+                          src={input.image===""
+                          ?artic.image
+                          :input.image}
                           alt="image"
                           className="lg:m-auto h-96 w-auto"
                         />
@@ -515,14 +517,16 @@ export default function CreateArticle() {
                       <div className="lg:m-auto xl:ml-20 pt-6">
                         <div>
                           <h3 className="font-bold text-2xl md:text-4xl">
-                            {input.title}
+                            {input.title===""
+                              ? artic.title
+                              :input.title}
                           </h3>
                           <div className="flex flex-row justify-center pt-6">
                             <h1 className="font-bold">Rating: </h1>
                             <p>
-                              {input.rating === "NaN"
+                              {(input.rating === "NaN"
                                 ? (input.rating = 0)
-                                : input.rating}
+                                : input.rating)}
                             </p>
                           </div>
                         </div>
@@ -530,7 +534,9 @@ export default function CreateArticle() {
                           <div className="flex flex-row justify-center py-3 font-bold pb-6">
                             <h1>Precio: </h1>
                             <p className="text-accent font-mono">
-                              ${input.price}
+                              ${input.price===""
+                              ? artic.price
+                              :input.price}
                             </p>
                           </div>
                           <div className="flex justify-center">
@@ -544,11 +550,15 @@ export default function CreateArticle() {
                           </div>
                           <div className="flex flex-row justify-center pt-6">
                             <h1 className="font-bold">Stock: </h1>
-                            <p>{artic.stock}</p>
+                            <p>{input.stock===""
+                              ? artic.stock
+                              :input.stock}</p>
                           </div>
                           <div className="flex flex-row justify-center pt-6">
                             <h1 className="font-bold">Color: </h1>
-                            <p>{artic.color}</p>
+                            <p>{input.color===""
+                              ? artic.detail.color
+                              :input.color}</p>
                           </div>
                           <br />
                           <br />
@@ -606,27 +616,61 @@ export default function CreateArticle() {
                         Descripcion
                       </h1>
                       <br />
-                      <p>{input.detail}</p>
+                      <p>{
+                            input.detail===""
+                              ? artic.detail.detail
+                              :input.detail
+                          }
+                      </p>
                       <h1 className="mt-14 font-bold text-2xl md:text-4xl">
                         Especificaciones
                       </h1>
                       <br />
                       <div className="grid grid-cols-2">
                         <h1 className="font-bold mt-2">Marca:</h1>
-                        <p className="mt-2">{input.marca}</p>
+                        <p className="mt-2">
+                        {
+                          input.marca===""
+                              ? artic.detail.marca
+                              :input.marca
+                          }
+                        </p>
                         <h1 className="font-bold mt-8">Modelo:</h1>{" "}
-                        <p className="mt-8">{input.modelo} </p>
+                        <p className="mt-8">
+                          {
+                            input.modelo===""
+                              ? artic.detail.modelo
+                              :input.modelo
+                          } 
+                        </p>
                         {input.so && <h1 className="font-bold mt-8">SO:</h1>}
-                        {input.so && <p className="mt-8">{input.so}</p>}
+                        {input.so && <p className="mt-8">
+                        {  input.so===""
+                              ? artic.detail.so
+                              :input.so}
+                        </p>}
                         {input.cpu && <h1 className="font-bold mt-8">CPU:</h1>}
-                        {input.cpu && <p className="mt-8">{input.cpu}</p>}
+                        {input.cpu && <p className="mt-8">
+                          { input.cpu===""
+                              ? artic.detail.cpu
+                              :input.cpu}
+                        </p>}
                         {input.ram && <h1 className="font-bold mt-8">RAM:</h1>}
-                        {input.ram && <p className="mt-8">{input.ram}</p>}
+                        {
+                          input.ram && <p className="mt-8">
+                          {input.ram===""
+                              ? artic.detail.ram
+                              :input.ram}
+                          </p>
+                          }
                         {input.pantalla && (
                           <h1 className="font-bold mt-8">Pantalla:</h1>
                         )}
                         {input.pantalla && (
-                          <p className="mt-8">{input.pantalla}</p>
+                          <p className="mt-8">
+                          {input.pantalla===""
+                              ? artic.detail.pantalla
+                              :input.pantalla}</p>
                         )}
                       </div>
                     </div>
