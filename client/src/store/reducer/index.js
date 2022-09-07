@@ -90,6 +90,7 @@ const initialState = {
 	rating: [],
 	count: 1,
 	auxArt: [],
+	offers: [],
 	// wishlist: wishlistStorage,
 	shoppings: [],
 	precio:[],
@@ -343,7 +344,27 @@ export default function reducer(state = initialState, action) {
 				...state,
 				shoppings: action.payload,
 			};
-
+		case "POST_OFFER":
+			return {
+				...state,
+			};
+		case "GET_OFFERS":
+				return {
+					...state,
+					offers: action.payload,
+				};
+		case "DELETE_OFFER":
+				return {
+					...state,
+				};
+		case "VALIDITY_OFFER":
+				return {
+					...state,
+				};
+		case "EDIT_OFFER":
+				return {
+					...state,
+				};
 		default:
 			return {
 				...state,

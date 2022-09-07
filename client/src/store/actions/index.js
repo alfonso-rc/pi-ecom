@@ -502,4 +502,102 @@ export function resetArticles() {
 			type: "RESET_ARTICLES",
 		});
 	};
+};
+
+//Post Offer
+const URL_POST_OFFER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/offer/create/"
+		: `http://localhost:3001/offer/create/`;
+
+export function postOffer(payload) {
+	return async function (dispatch) {
+		const json = await axios.post(URL_POST_OFFER, payload);
+		console.log(json.data);
+		return dispatch({
+			type: "POST_OFFER",
+			json,
+		});
+	};
+}
+
+//Get de ofertas
+const URL_GET_OFER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/offer"
+		: `http://localhost:3001/offer`;
+
+export function getOffers() {
+	return function (dispatch) {
+		return axios(URL_GET_OFER)
+			.then((offers) => {
+				dispatch({
+					type: "GET_OFFERS",
+					payload: offers.data,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+};
+
+//Borrado Fisico de una oferta
+const URL_DELETE_OFFER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/offer/delete/"
+		: `http://localhost:3001/user/delete/`;
+
+export function deleteOffer(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.delete(URL_DELETE_OFFER + id);
+			return dispatch({
+				type: "DELETE_OFFER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+//Validar un Oferta
+const URL_VALIDITY_OFFER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/offer/validate/"
+		: `http://localhost:3001/offer/validate/`;
+
+export function validityOffer(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.put(URL_VALIDITY_OFFER + id);
+			return dispatch({
+				type: "VALIDITY_OFFER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+//Edit Offer
+const URL_EDIT_OFFER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/offer/edit/"
+		: `http://localhost:3001/offer/edit/`;
+
+export function editOffer(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.put(URL_EDIT_OFFER + id);
+			return dispatch({
+				type: "EDIT_OFFER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
 }

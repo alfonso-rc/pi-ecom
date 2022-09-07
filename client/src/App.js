@@ -9,7 +9,8 @@ import CheckoutForm from "./componentes/buy";
 import AdminHome from "./componentes/Admin/Pages/AdminHome";
 import ArticleList from "./componentes/Admin/Article"
 import UserList from "./componentes/Admin/Users"
-import Offer from "./componentes/Admin/Offer";
+import OfferList from "./componentes/Admin/Offer";
+import CreateOffer from "./componentes/Admin/Pages/CreateOffer";
 import Create from './componentes/Admin/Pages/CreateArticle';
 import NotFound from'./componentes/NotFound';
 import InfoUser from "./componentes/LoginComponents/InfoUser";
@@ -36,7 +37,8 @@ function App() {
           <Route exact path="/admin/articulos" component={ArticleList}/>
           <Route exact path="/admin/articulos/edit/:id" component={EditArticle}/>
           <Route exact path="/admin/usuarios" component={UserList}/>
-          <Route exact path="/admin/ofertas"  component={Offer}/>
+          <Route exact path="/admin/ofertas"  component={OfferList}/>
+          <Route exact path="/admin/ofertas/create"  component={CreateOffer}/>
           <Route exact path="/admin/st"  component={St}/>
           <Route exact path="/myShoppings" component={MisCompras}/>
           
