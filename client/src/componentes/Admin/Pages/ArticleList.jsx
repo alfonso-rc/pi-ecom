@@ -110,7 +110,7 @@ export default function ArticleList() {
 					onChange={handleChange}
 				/>
 			</div>
-			<div className="h-auto">
+			<div>
 				<div className={s.table}>
 					<br />
 					<table>

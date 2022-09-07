@@ -16,12 +16,6 @@ export default function CardUs({}) {
 
 	return (
 		<div className="flex flex-row flex-wrap justify-center  gap-10 font-Work">
-			{/* <div class="avatar">
-  <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src="https://placeimg.com/192/192/people" alt="img not found"/>
-  </div>
-  <p>Juan Ignacion Biondi </p>
-</div> */}
 			<div className="card w-64 bg-white shadow-xl text-black border-2 border-stone-500 border-opacity-20 ">
 				<div className="card-body">
 					<h2 className="card-title text-lg">Juan I. Biondi</h2>
@@ -103,7 +97,7 @@ export default function CardUs({}) {
 							target="_blank"
 							rel="noreferrer"
 							className="btn btn-primary"
-							href="#"
+							href="https://www.linkedin.com/in/alejandro-silva-jaramillo-774a3b189"
 						>
 							<BsLinkedin />
 						</a>
@@ -132,7 +126,7 @@ export default function CardUs({}) {
 							target="_blank"
 							rel="noreferrer"
 							className="btn btn-primary"
-							href="#"
+							href="https://github.com/MarMerc"
 						>
 							<BsLinkedin />
 						</a>

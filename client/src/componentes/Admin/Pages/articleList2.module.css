@@ -1,8 +1,9 @@
 .table {
 	width: 100%;
 	height: 250px;
-	border-collapse: separate;
+	border-collapse: collapse;
 	vertical-align: top;
+	color: rgb(245, 228, 228);
 }
 .table th,
 td {
