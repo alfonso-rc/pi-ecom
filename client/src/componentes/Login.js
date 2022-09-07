@@ -23,6 +23,8 @@ export default function Example() {
     mail: '',
     password: ''
   });
+  const BASE_URL = process.env.REACT_APP_API_URL;
+
 
   function handleInputChange(e) {
     setUser({
@@ -38,7 +40,8 @@ export default function Example() {
   async function submitData(e) {
     e.preventDefault();
     if (!Object.getOwnPropertyNames(errors).length && user.password && user.mail) {
-      let response = (await axios.post("http://localhost:3001/user/login", user)).data
+      const USER_LOGIN = process.env.NODE_ENV === "production" ? BASE_URL + "/user/login" : "http://localhost:3001/user/login";
+      let response = (await axios.post(USER_LOGIN, user)).data
      
       if (response.error) {
         Swal.fire({
@@ -77,7 +80,8 @@ export default function Example() {
   };
 
   const googleAuth = () => {
-		window.open("http://localhost:3001/auth/google/callback", "_self" );
+    const USER_LOGIN_GOOGLE = process.env.NODE_ENV === "production" ? BASE_URL + "/auth/google/callback" : "http://localhost:3001/auth/google/callback";
+		window.open(USER_LOGIN_GOOGLE, "_self" );
 	};
 
   return (

@@ -51,6 +51,7 @@ function InfoUser() {
     let useri = sessionStorage;
     let imagen = useri.image === "null" ? imageDefault : useri.image;
     let resid = useri.address === "null" ? "Aún no ingresas tu dirección de residencia" : useri.address;
+    const BASE_URL = process.env.REACT_APP_API_URL;
 
     const history = useHistory();
     const [errors, setErrors] = useState({});
@@ -80,7 +81,8 @@ function InfoUser() {
       }
 
       try {
-        const newsData = (await axios.post("http://localhost:3001/user/update", updateSend)).data;
+        const USER_UPDATE = process.env.NODE_ENV === "production" ? BASE_URL + "/user/update" : "http://localhost:3001/user/update";
+        const newsData = (await axios.post(USER_UPDATE, updateSend)).data;
 
         Swal.fire({
           text: "¿Desea realizar los cambios en su perfil?",
