@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
 import SideBarAdmin from "./SideBarAdmin";
 import UserList from "../Admin/Pages/UserList";
 //import Logo from "../../../../client/src/ECOM-10_2.png";
@@ -20,11 +20,11 @@ export default function User({
 	ban,
 }) {
 	return (
-		<div className="m-0 p-0 font-Work">
+		<div /* className="m-0 p-0 font-Work" */>
 			<NavBarAdmin />
 			<div className="flex">
-				<SideBarAdmin/>
-				<div className="overflow-scroll h-96  w-4/5 m-8 font-Work">
+				<SideBarAdmin />
+				<div /* 	 */>
 					<div>
 						<h2 className="text-black text-2xl pb-6 ">
 							Administrador de Usuarios

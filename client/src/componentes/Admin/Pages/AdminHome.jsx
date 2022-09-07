@@ -12,9 +12,8 @@ export default function Admin() {
 		<div>
 			<NavBarAdmin />
 			<div className="flex ">
-
 				<SideBarAdmin />
-				<div className="flex flex-wrap mx-auto mt-6 justify-center">
+				<div className="flex flex-wrap mt-6 justify-center">
 					{user.name ? (
 						<h2 className="text-black text-4xl font-Work pt-6">
 							¡Hola!{" "}
@@ -26,7 +25,7 @@ export default function Admin() {
 						<h2></h2>
 					)}
 					<section className="text-gray-800 body-font font-Work ">
-						<div className="container px-5 mx-auto h-96">
+						<div className="container px-5 ">
 							<div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
 								<p className="lg:w-1/2 w-full leading-relaxed text-gray-800">
 									En el panel de la izquierda podrá acceder a
@@ -104,7 +103,7 @@ export default function Admin() {
 									</div>
 								</div>
 								<div className="xl:w-1/3 md:w-1/2 p-4">
-									<div className="border border-gray-200 p-6 rounded-lg">
+									<div className="border border-gray-200 p-6 rounded-lg ">
 										<div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-300 text-primary mb-4">
 											<svg
 												fill="none"
@@ -121,11 +120,11 @@ export default function Admin() {
 										<h2 className="text-lg text-gray-900 title-font mb-2 font-bold">
 											Ofertas
 										</h2>
-										<p className="leading-relaxed text-base">
-											En el apartado de Ofertas podra
+										<p className="leading-relaxed text-base h10">
+											En el apartado Ofertas puedes
 											manejar las notificaciones por
-											correo que se le envia a los
-											usuarios cuando se suscriben.
+											correo que se envian al usuarios
+											cuando se suscriben.
 										</p>
 									</div>
 								</div>
