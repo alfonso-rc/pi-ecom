@@ -11,7 +11,7 @@ export default function Admin() {
 	return (
 		<div>
 			<NavBarAdmin />
-			<div className="flex min-h-screen">
+			<div className="flex min-h-screen font-Work">
 				<SideBarAdmin />
 				<div className="flex flex-wrap mx-auto mt-6 justify-center">
 					{user.name ? (

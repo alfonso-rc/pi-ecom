@@ -105,7 +105,7 @@ export default function UserList() {
                     )}
                   </th>
                   <th>
-                    {(usr.userType === 1) ? (
+                    {(usr.userType === "1") ? (
                       <div>
                         <button
                           className="btn btn-success btn-xs"
