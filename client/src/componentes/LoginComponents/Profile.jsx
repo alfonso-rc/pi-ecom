@@ -36,7 +36,7 @@ function Profile() {
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>
                         </li>
                     }
-                   <Link to={"/myShoppings"}> <li className="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis pedidos</a></li></Link>
+                   <Link to={"/myShoppings"}> <li className="hover:bg-violet-800 rounded-none text-white"><a><BiPackage size={20}/>Mis compras</a></li></Link>
 
                    <Link to={'/favoritos'}>
                         <li className="hover:bg-violet-800 rounded-none text-white">
