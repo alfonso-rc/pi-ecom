@@ -10,7 +10,8 @@ import {
   getNotebooks,
   getAccesories,
   getTablets,
-  getShopping
+  getShopping,
+  getOffers
 } from "../store/actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -85,6 +86,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    dispatch(getOffers());
+  }, []);
+
+  useEffect(() => {
     getGoogleUser();
   }, []);
 
@@ -95,6 +100,7 @@ export default function Home() {
   const arrayFilter = useSelector((state) => state.filteredArticle);
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
+  const offer = useSelector((state) => state.offers);
   const allSmartPhones = useSelector((state) => state.smartphones);
   let allArticle1 = arrayFilter.length ? arrayFilter : allArticle
 
@@ -170,12 +176,18 @@ export default function Home() {
   //   dispatch(getArticles());
   // }
 
+  let idArt="";
+  let priceFinal=0;
+
   function RenderItems() {
     return (
       <div>
         <div className="flex justify-end pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
+              idArt=( art.id === offer.includes(art.id)) ;
+              console.log(idArt)
+              priceFinal= Math.ceil(art.price - (art.price*offer.porcent)/100);
               return (
                 <div key={ art.id } className={ card }>
                   <Card
@@ -183,7 +195,8 @@ export default function Home() {
                     id={ art.id }
                     image={ art.image }
                     title={ art.title }
-                    price={ art.price }
+                    price={idArt? (-priceFinal) : art.price }
+
                   />
                 </div>
               );
