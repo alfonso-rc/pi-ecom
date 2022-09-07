@@ -42,7 +42,7 @@ function addIncrement(e) {
 
 
 return (
-    <div className="min-w-[130px] text-center flex flex-col justify-center items-center">
+    <div className="rounded-lg shadow-2xl min-w-[130px] text-center flex flex-col justify-center items-center">
         <div>
             <img className="max-w-[120px]" src={image} alt="img not found" height={180} width={120}/>
         </div>
