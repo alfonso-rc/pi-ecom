@@ -1,9 +1,9 @@
 import Logo from "../../imagenes/logo-ecom.png";
-import coin from '../../imagenes/dollar.png';
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import imageDefault from '../../imagenes/userImage.png';
+import Swal from "sweetalert2";
 
 function validate(user) {
   let errors = {};
@@ -51,6 +51,7 @@ function InfoUser() {
     let useri = sessionStorage;
     let imagen = useri.image === "null" ? imageDefault : useri.image;
     let resid = useri.address === "null" ? "Aún no ingresas tu dirección de residencia" : useri.address;
+    const BASE_URL = process.env.REACT_APP_API_URL;
 
     const history = useHistory();
     const [errors, setErrors] = useState({});
@@ -80,16 +81,38 @@ function InfoUser() {
       }
 
       try {
-        const newsData = (await axios.post("http://localhost:3001/user/update", updateSend)).data;
-        sessionStorage.clear();
-        for (const dat in newsData) {
-          sessionStorage.setItem(dat, newsData[dat]);
-        }
-        setUser({});
-        alert('Los datos se han actualizado con éxito');
-        history.push('/home');
+        const USER_UPDATE = process.env.NODE_ENV === "production" ? BASE_URL + "/user/update" : "http://localhost:3001/user/update";
+        const newsData = (await axios.post(USER_UPDATE, updateSend)).data;
+
+        Swal.fire({
+          text: "¿Desea realizar los cambios en su perfil?",
+          icon: "question",
+          showDenyButton: true,
+          denyButtonText: "Cancelar",
+          denyButtonColor: "red",
+          confirmButtonText: "Aceptar",
+        }).then(response => {
+          if (response.isConfirmed) {
+            Swal.fire({
+              text: "Los datos se han actualizado con éxito",
+              icon: "success"
+            }).then(response => {
+              if (response) {                
+                sessionStorage.clear();
+                for (const dat in newsData) {
+                  sessionStorage.setItem(dat, newsData[dat]);
+                }
+                setUser({});
+                history.push('/home');
+              }
+            });
+          }
+          else {
+            history.push('/perfil');
+          }
+        })
       } catch (err) {
-        
+        console.log(err);
       }
 
 
@@ -146,7 +169,7 @@ function InfoUser() {
 
   return (
     <>
-      <div className="flex min-h-full px-20 py-24 w-full">
+      <div className="flex min-h-full px-48 py-24 w-full">
         <div className="bg-white max-w-full w-full space-y-8 pt-10 pb-16 px-14 rounded-md border border-indigo-400">
           <div className="mb-10 flex justify-start items-center text-center">
 
@@ -162,18 +185,6 @@ function InfoUser() {
             <div className="ml-6">
                 <img className="rounded-full w-14" src={imagen} alt="profile" />
             </div>
-
-            <span className="text-2xl tracking-tight font-bold text-gray-700 ml-12">
-              Coins
-            </span>
-
-            <div className="ml-4">
-                <img className="rounded-full w-8" src={coin} alt="coins" />
-            </div>
-
-            <span className="text-2xl tracking-tight font-bold text-gray-700 ml-4">
-              {useri.coins}
-            </span>
 
           </div>
 
