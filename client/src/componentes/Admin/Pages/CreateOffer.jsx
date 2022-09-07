@@ -14,56 +14,30 @@ import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
 
-// function validate(e) {
-//   const pattern = new RegExp("^[A-Z]+$", "i");
-//   const soloNum = new RegExp("/^[0-9]+$/");
+function validate(e) {
+  const pattern = new RegExp("^[A-Z]+$", "i");
+  const soloNum = new RegExp("/^[0-9]+$/");
 
-//   const urlImg = (url) => {
-//     return /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
-//   };
-//   let errors = {};
-//   //--------Title ----------------
-//   if (!e.title) {
-//     errors.title = "Se requiere un nombre";
-//   }
-//   //--------------Numbers Rating----------------
-//   if (e.rating < 0 || e.rating > 5) {
-//     errors.rating = "El rango debe ser entre 0 y 200";
-//   }
-//   //--------------Detail----------------
-//   if (!e.detail) {
-//     errors.detail = "Ingrese un detalle del articulo";
-//   }
-//   //--------------Marca----------------
-//   if (!e.marca) {
-//     errors.marca = "Ingrese la marca del articulo";
-//   }
-//   //--------------Modelo----------------
-//   if (!e.modelo) {
-//     errors.modelo = "Ingrese un modelo del articulo";
-//   }
-//   //--------------Image----------------
-//   if (!e.image) {
-//     errors.image = "Ingrese un image del articulo";
-//   }
-//   //------------Stock---------------------
-//   if (!e.stock) {
-//     errors.stock = "Ingrese el stock del articulo";
-//   } else if (e.stock < 0 || e.stock > 100) {
-//     errors.stock = "El stock debe ser entre 0 y 200";
-//   }
-//   //--------------Price----------------
-//   if (!e.price) {
-//     errors.price = "Ingrese el precio del articulo";
-//   } else if (e.stock < 0) {
-//     errors.price = "El Articulo debe tener un precio mayor a $0";
-//   }
-//   //--------------Conectivity---------------
-//   if (!e.conectividad) {
-//     errors.conectividad = "Ingrese un conectividad del articulo";
-//   }
-//   return errors;
-// }
+  const urlImg = (url) => {
+    return /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
+  };
+  let errors = {};
+  //--------------Porcent----------------
+  if (!e.porcent) {
+    errors.porcent = "Ingrese porcentaje de descuento";
+  }else if (e.porcent < 0 || e.porcent > 5) {
+    errors.porcent = "El rango debe ser entre 0 y 100";
+  }
+  //--------------Expiration----------------
+  if (!e.expiration) {
+    errors.expiration = "Ingrese la fecha de vigencia";
+  }
+  //--------------Articulo---------------
+  if (!e.articleId) {
+    errors.articleId = "Seleccione el articulo a agregar";
+  }
+  return errors;
+}
 
 export default function CreateOffer() {
   const dispatch = useDispatch();
@@ -76,7 +50,8 @@ export default function CreateOffer() {
     porcent: "",
     validity: true,
     expiration: "",
-    article: [],
+    articleId: [],
+    price:200,
   });
 
   useEffect(() => {
@@ -99,11 +74,11 @@ export default function CreateOffer() {
 
 
   function handleArticleId(e) {
-    let exists = input.article.find((c) => c === e.target.value);
+    let exists = input.articleId.find((c) => c === e.target.value);
     if (!exists) {
       setInput({
         ...input,
-        [e.target.name]: [...input.article, e.target.value],
+        [e.target.name]: [...input.articleId, e.target.value],
       });
     }
   }
@@ -113,12 +88,14 @@ export default function CreateOffer() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    // setErrors(validate({
-    //   ...input,
-    //   [e.target.name]: e.target.value
-    // }));
+    setErrors(validate({
+      ...input,
+      [e.target.name]: e.target.value
+    }));
     console.log(input);
-  }
+  };
+
+  
 
   function handleCheck(e) {
     console.log("target", e.target.value);
@@ -127,23 +104,23 @@ export default function CreateOffer() {
         ...input,
         [e.target.name]: e.target.value,
       });
-      //   setErrors(
-      //     validate({
-      //       ...input,
-      //       type: [input.type, e.target.value],
-      //     })
-      //   );
+        setErrors(
+          validate({
+            ...input,
+            type: [input.type, e.target.value],
+          })
+        );
     } else {
       setInput({
         ...input,
         type: input.type.filter((t) => t !== e.target.value),
       });
-      //   setErrors(
-      //     validate({
-      //       ...input,
-      //       type: input.type.filter((t) => t !== e.target.value),
-      //     })
-      //   )
+        setErrors(
+          validate({
+            ...input,
+            type: input.type.filter((t) => t !== e.target.value),
+          })
+        )
     }
   }
 
@@ -157,7 +134,8 @@ export default function CreateOffer() {
       porcent: "",
       validity: true,
       expiration: "",
-      articleId: "",
+      articleId: [],
+      price:200,
     });
     history.push("/admin/ofertas/create");
   }
@@ -190,19 +168,20 @@ export default function CreateOffer() {
                     <div className="m-2 flex flex-col ">
                       <select
                         className="select select-accent w-full max-w-xs"
-                        name="article"
-                        value={input.article[input.article.length - 1] ?? ""}
+                        name="articleId"
+                        value={input.articleId?? ""}
                         onChange={handleArticleId}
                       >
                         <option value="">Todos los Productos</option>
                         {allArticle.map((art) => (
-                          <option key={art.id} value={art.title}>
+                          <option key={art.id} value={art.id}>
                             {art.title}
                           </option>
                         ))}
                       </select>
 
-                      {/* {errors.title && <p className="flex text-red-700 font-bold">{errors.title}</p>} */}
+
+                      {errors.title && <p className="flex text-red-700 font-bold">{errors.title}</p>}
                     </div>
                     <div className="m-2 flex flex-col">
                       <div className="flex flex-row justify-between">
@@ -217,7 +196,7 @@ export default function CreateOffer() {
                           onChange={(e) => handleChange(e)}
                         />
                       </div>
-                      {/* {errors.rating && <p className="flex text-red-700 font-bold">{errors.rating}</p>} */}
+                      {errors.rating && <p className="flex text-red-700 font-bold">{errors.rating}</p>}
                     </div>
                     <div className="m-2 flex flex-col">
                       <div className="flex flex-row justify-between">
@@ -246,7 +225,7 @@ export default function CreateOffer() {
                   <div className="lg:m-auto xl:ml-20 pt-6">
                     <div>
                       <h3 className="font-bold text-2xl md:text-4xl">
-                        {input.article}
+                        {input.articleId}
                       </h3>
                       <div className="flex flex-row justify-center pt-6">
                         <h1 className="font-bold">Porcentaje: </h1>
@@ -255,7 +234,12 @@ export default function CreateOffer() {
                         </p>
                       </div>
                     </div>
+                    
                     {/* <div>
+                      <div className="flex flex-row justify-center py-3 font-bold pb-6">
+                        <h1>Precio: </h1>
+                        <p className="text-accent font-mono">${input.price}</p>
+                      </div>
                       <div className="flex justify-center">
                         <p className="btn btn-outline btn-primary btn-sm btn-square">
                           <IoRemove className="text-2xl" />

@@ -2,6 +2,7 @@ import React from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
+import axios from "axios";
 import {
 	getOffers,
 	deleteOffer,
@@ -11,17 +12,22 @@ import {
 import s from "../Pages/articleList2.module.css";
 
 export default function OfferList() {
-
-	const allOffers = useSelector((state) => state.offers);
+    const allArticle = useSelector((state) => state.articles);
+	// const allOffers = useSelector((state) => state.offers);
+    const [allOffers, setAllOffers] = useState([]);
     const [totalPrecio, settotalPrecio] = useState(0);
 	let dispatch = useDispatch();
 	const refreshPage = () => {
 		window.location.reload();
 	};
 
-	useEffect(() => {
-		dispatch(getOffers());
+	useEffect(async() => {
+		const ofertas = (await axios.get('http://localhost:3001/offer')).data;
+        setAllOffers(ofertas);
+        console.log(ofertas)
 	}, []);
+
+    
 
 	function handleClickDelete(id) {
 		try {
@@ -65,15 +71,17 @@ export default function OfferList() {
 					</thead>
 					<tbody>
 						{allOffers?.map((ofr) => {
-                             priceFinal= (ofr.articles[0]?.price - ((ofr.articles[0]?.price * ofr.porcent)/100))
+                             priceFinal= Math.ceil(ofr.price - ((ofr.price * ofr.porcent)/100))
 							return (
 								<tr>
 									<td>{ofr.id}</td>
-									<td>{ofr.articles[0]?.title}</td>
-									<td>$ {ofr.articles[0]?.price}</td>
+                                    
+									<td>{ofr.title}</td>
+									<td>$ {ofr.price}</td>
 									<td>{ofr.porcent} %</td>                
 									<td>$ {priceFinal}</td>
-									<td>{ofr.articles[0]?.stock} </td>
+									<td>{ofr.stock} </td>
+                                    
 									<td>{ofr.expiration}</td>
 									<th>
 										{!ofr.validity ? (

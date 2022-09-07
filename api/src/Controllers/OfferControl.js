@@ -23,7 +23,23 @@ const getOffers = async (req, res, next) => {
         through: { attributes: [] },
       },
     });
-    res.status(200).send(getAllOffers);
+    let response = []
+    for (const offer of getAllOffers) {
+        let n = offer.articles.length;
+      
+        for (let i = 0; i < n; i++) {
+            let artic = {
+                id: offer.id,
+                title: offer.articles[i].title,
+                price: offer.articles[i].price,
+                porcent: offer.porcent,
+                stock: offer.articles[i].stock,
+                expiration: offer.expiration,
+            }
+            response.push(artic)
+        }
+    }
+    res.status(200).send(response);
   } catch (error) {
     next(error);
   }
