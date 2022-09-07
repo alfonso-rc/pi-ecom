@@ -110,7 +110,7 @@ export default function ArticleList() {
 					onChange={handleChange}
 				/>
 			</div>
-			<div>
+			<div className="h-auto">
 				<div className={s.table}>
 					<br />
 					<table>
@@ -132,7 +132,7 @@ export default function ArticleList() {
 							{articulo &&
 								articulo.map((art) => {
 									return (
-										<tr>
+										<tr key={art.id}>
 											<td>{art.title}</td>
 											<td>{art.id}</td>
 											<td>{art.marca}</td>
