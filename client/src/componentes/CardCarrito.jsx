@@ -49,7 +49,7 @@ return (
         <div>
             <p>{title}</p>
         </div>
-        <div className="flex justify-center  ">
+        {/* <div className="flex justify-center  ">
                     <button onClick={ (e) => subsDecrement(e) } className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
@@ -57,7 +57,7 @@ return (
                     <button onClick={ (e) => addIncrement(e) } className="btn btn-primary btn-sm btn-square ">
                       <IoAdd className="text-2xl" />
                     </button>
-                  </div>
+                  </div> */}
             <div>
                 <p>$ {price * count}</p>
             </div>

@@ -43,7 +43,7 @@ export default function Favoritos() {
             articles.map((art) => {
               return( <CardFavorite key={art.id} id={art.id} title={art.title} image={art.image} price={art.price} />
           )}) 
-          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Todavia no se realizó ninguna compra</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
+          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Todavia no tienes favoritos</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
         }
          </div>
       </div>
@@ -53,3 +53,4 @@ export default function Favoritos() {
     </div>
   );
 }
+//
