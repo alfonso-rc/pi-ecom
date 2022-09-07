@@ -1,9 +1,6 @@
 import React from "react";
-import { useDispatch,useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import SideBarAdmin from "./SideBarAdmin";
 import ArticleList from "../Admin/Pages/ArticleList";
-import Logo from "../../../../client/src/ECOM-10_2.png";
 import {Link} from "react-router-dom";
 import NavBarAdmin from "../NavBarAdmin";
 import Footer from "../Footer";
