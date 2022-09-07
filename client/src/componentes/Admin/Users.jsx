@@ -33,9 +33,6 @@ export default function User({
 					<UserList />
 				</div>
 			</div>
-			<Link to="/admin/user/create">
-				<button className="btn btn-outline btn-accent">Add Article</button>
-			</Link>
 			<div className="pt-16">
 				<Footer />
 			</div>

@@ -350,6 +350,26 @@ export function banUser(id) {
 	};
 };
 
+//Baneado de un Usuario
+const URL_TYPE_USER =
+	process.env.NODE_ENV === "production"
+		? BASE_URL + "/user/type/"
+		: `http://localhost:3001/user/type/`;
+
+export function typeUser(id) {
+	return async function (dispatch) {
+		try {
+			var respuesta = await axios.put(URL_TYPE_USER + id);
+			return dispatch({
+				type: "TYPE_USER",
+				payload: respuesta.data,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
 export function removeCart(id) {
 	return (dispatch) =>
 		dispatch({
