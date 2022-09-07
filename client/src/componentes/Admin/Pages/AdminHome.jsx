@@ -12,6 +12,7 @@ export default function Admin() {
 		<div>
 			<NavBarAdmin />
 			<div className="flex ">
+
 				<SideBarAdmin />
 				<div className="flex flex-wrap mx-auto mt-6 justify-center">
 					{user.name ? (

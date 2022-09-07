@@ -10,7 +10,8 @@ import {
   getNotebooks,
   getAccesories,
   getTablets,
-  getShopping
+  getShopping,
+  getOffers
 } from "../store/actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -37,7 +38,6 @@ import tabletIcon from '../imagenes/Filter/tablet.png'
 import accesoriesIcon from '../imagenes/Filter/acce.png'
 
 const stylesCategoriesContainer = {
-  height: "100px",
   backgroundColor: "#f2f2f2",
   display: "flex",
   flexDirection: "row",
@@ -85,6 +85,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    dispatch(getOffers());
+  }, []);
+
+  useEffect(() => {
     getGoogleUser();
   }, []);
 
@@ -95,6 +99,7 @@ export default function Home() {
   const arrayFilter = useSelector((state) => state.filteredArticle);
   let isLoading = useSelector((state) => state.isLoading);
   const allArticle = useSelector((state) => state.articles);
+  const offer = useSelector((state) => state.offers);
   const allSmartPhones = useSelector((state) => state.smartphones);
   let allArticle1 = arrayFilter.length ? arrayFilter : allArticle
 
@@ -170,12 +175,18 @@ export default function Home() {
   //   dispatch(getArticles());
   // }
 
+  let idArt="";
+  let priceFinal=0;
+
   function RenderItems() {
     return (
       <div>
-        <div className="flex justify-end pb-20 pt-8">
+        <div className="flex justify-center pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
+              idArt=( art.id === offer.includes(art.id)) ;
+              console.log(idArt)
+              priceFinal= Math.ceil(art.price - (art.price*offer.porcent)/100);
               return (
                 <div key={ art.id } className={ card }>
                   <Card
@@ -183,7 +194,8 @@ export default function Home() {
                     id={ art.id }
                     image={ art.image }
                     title={ art.title }
-                    price={ art.price }
+                    price={idArt? (-priceFinal) : art.price }
+
                   />
                 </div>
               );
@@ -206,7 +218,7 @@ export default function Home() {
       {/* COMPONENTE PARA FILTRAR POR CATEGORÍAS */ }
       <div
         style={ stylesCategoriesContainer }
-        className="mt-20"
+        className="mt-20 flex-wrap"
       >
         <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
           <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
@@ -226,7 +238,10 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-        <SideBar paginado={ paginado } />
+
+        <div className='static sm:absolute z-10'>
+          <SideBar paginado={ paginado } />
+        </div>
 
 
 

@@ -70,81 +70,91 @@ export default function Orderings({ paginado }) {
 	let BrandMapArr = new Map(BrandMap);
 	let unicos = [...BrandMapArr.values()];
 	return (
-		<div className="">
-			<div className="flex flex-col">
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
-					<span className="text-violet-700 font-bold text-xs">MARCA</span>
+		<div>
+			<div className="flex flex-row flex-wrap sm:flex-col justify-around">
+				<div>
+					<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+						<span className="text-violet-700 font-bold text-xs">MARCA</span>
+					</div>
+					<div className="border-0">
+						<select
+							className="btn btn-primary btn-sm no-animation bg-violet-500 border-0 p-0 mx-3"
+							onChange={(e) => handleBrand2(e)}
+						>
+							<option className="border-0" value="All">Todas las Marcas</option>
+							{unicos.map((brand) => (
+								<option className="border-0" key={brand.id} value={brand.detail.marca}>
+									{brand.detail.marca}
+								</option>
+							))}
+						</select>
+					</div>
 				</div>
-				<div className="border-0">
-					<select
-						className="btn btn-primary btn-sm no-animation bg-violet-500 border-0 p-0 mx-3"
-						onChange={(e) => handleBrand2(e)}
-					>
-						<option className="border-0" value="All">Todas las Marcas</option>
-						{unicos.map((brand) => (
-							<option className="border-0" key={brand.id} value={brand.detail.marca}>
-								{brand.detail.marca}
-							</option>
-						))}
-					</select>
-				</div>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+				<div>
+					<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
 					<span className="text-violet-700 font-bold text-xs">ORDEN ALFABÉTICO</span>
+					</div>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortAZ(e)}
+						value={ASCENDENTE}
+					>
+						A-Z
+					</button>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortAZ(e)}
+						value={DESCENDENTE}
+					>
+						Z-A
+					</button>
 				</div>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortAZ(e)}
-					value={ASCENDENTE}
-				>
-					A-Z
-				</button>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortAZ(e)}
-					value={DESCENDENTE}
-				>
-					Z-A
-				</button>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+				<div className="flex flex-col">
+					<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
 					<span className="text-violet-700 font-bold text-xs">ORDEN POR PRECIO</span>
+					</div>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortPrice(e)}
+						value={MAYOR}
+					>
+						Menor costo
+					</button>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortPrice(e)}
+						value={MENOR}
+					>
+						Mayor costo
+					</button>
 				</div>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortPrice(e)}
-					value={MAYOR}
-				>
-					Menor costo
-				</button>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortPrice(e)}
-					value={MENOR}
-				>
-					Mayor costo
-				</button>
-				<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
+				<div className="flex flex-col">
+					<div className="mt-4 mb-2 border-b-2 mx-3 border-violet-700">
 					<span className="text-violet-700 font-bold text-xs">ORDEN POR POPULARIDAD</span>
+					</div>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortRating(e)}
+						value={MEJOR}
+					>
+						Menos gustados
+					</button>
+					<button
+						className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
+						onClick={(e) => handleSortRating(e)}
+						value={PEOR}
+					>
+						Mayor gustados
+					</button>
 				</div>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortRating(e)}
-					value={MEJOR}
-				>
-					Menos gustados
-				</button>
-				<button
-					className="btn btn-sm btn-primary m-1 bg-violet-500 border-0"
-					onClick={(e) => handleSortRating(e)}
-					value={PEOR}
-				>
-					Mayor gustados
-				</button>
-				<button
+				<div className="flex justify-items-center align-middle place-items-center ">
+					<button
 					onClick={(e) => resetCharacters(e)}
 					className="btn btn-sm md:btn-md btn-primary mx-3 mb-5 mt-5 bg-violet-600 border-0"
-				>
-					Quitar filtros
-				</button>
+					>
+						Quitar filtros
+					</button>
+				</div>
 			</div>
 		</div>
 	);

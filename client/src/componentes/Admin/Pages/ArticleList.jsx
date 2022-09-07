@@ -74,6 +74,7 @@ export default function ArticleList() {
 			allArticle = allArticle.filter((a) => a.id !== id);
 			console.log(id);
 			alert(`El Articulo con id: ${id} fue Eliminado!`);
+			refreshPage();
 		} catch (error) {
 			console.log(error);
 		}
