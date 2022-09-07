@@ -327,7 +327,7 @@ export default function ArticleDetail() {
 
                   {/* BOTONES PARA AÑADIR UNIDADES DEL STOCK */ }
 
-                  <div className="flex justify-center  ">
+                  {/* <div className="flex justify-center  ">
                     <button onClick={ (e) => subsDecrement(e) } className="btn btn-outline btn-primary btn-sm btn-square" >
                       <IoRemove className="text-2xl" />
                     </button>
@@ -335,7 +335,7 @@ export default function ArticleDetail() {
                     <button onClick={ (e) => addIncrement(e) } className="btn btn-primary btn-sm btn-square ">
                       <IoAdd className="text-2xl" />
                     </button>
-                  </div>
+                  </div> */}
                   <div className="flex flex-row justify-center   pt-6">
                     <h1 className="font-bold">Stock: </h1>
                     <p>{ article.stock }</p>
