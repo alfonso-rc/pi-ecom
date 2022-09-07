@@ -40,14 +40,14 @@ export default function MisCompras() {
         <NavBarDetail />
       </div>
       <div className="bg-slate-100 min-h-screen">
-        <h1 className="text-4xl text-black font-Work p-10">Mis Pedidos</h1>
+        <h1 className="text-4xl text-black font-Work p-10">Mis compras</h1>
         <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto py-4">
         {
           articles.length ? (
             articles.map((art) => {
               return( <CardShopping key={art.id} id={art.id} title={art.title} image={art.image} price={art.price} date={art.date.slice(0,10)}/>
           )}) 
-          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Todavia no se realizó ninguna compra</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
+          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Todavía no ha realizó ninguna compra</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
         }
          </div>
       </div>
