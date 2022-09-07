@@ -11,7 +11,7 @@ export default function Admin() {
 	return (
 		<div>
 			<NavBarAdmin />
-			<div className="flex min-h-screen">
+			<div className="flex ">
 				<SideBarAdmin />
 				<div className="flex flex-wrap mx-auto mt-6 justify-center">
 					{user.name ? (
@@ -25,7 +25,7 @@ export default function Admin() {
 						<h2></h2>
 					)}
 					<section className="text-gray-800 body-font font-Work ">
-						<div className="container px-5 mx-auto">
+						<div className="container px-5 mx-auto h-96">
 							<div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
 								<p className="lg:w-1/2 w-full leading-relaxed text-gray-800">
 									En el panel de la izquierda podrá acceder a
