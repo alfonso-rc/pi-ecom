@@ -38,7 +38,6 @@ import tabletIcon from '../imagenes/Filter/tablet.png'
 import accesoriesIcon from '../imagenes/Filter/acce.png'
 
 const stylesCategoriesContainer = {
-  height: "100px",
   backgroundColor: "#f2f2f2",
   display: "flex",
   flexDirection: "row",
@@ -182,7 +181,7 @@ export default function Home() {
   function RenderItems() {
     return (
       <div>
-        <div className="flex justify-end pb-20 pt-8">
+        <div className="flex justify-center pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
               idArt=( art.id === offer.includes(art.id)) ;
@@ -219,7 +218,7 @@ export default function Home() {
       {/* COMPONENTE PARA FILTRAR POR CATEGORÍAS */ }
       <div
         style={ stylesCategoriesContainer }
-        className="mt-20"
+        className="mt-20 flex-wrap"
       >
         <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
           <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
@@ -239,7 +238,10 @@ export default function Home() {
         </button>
       </div>
       <div className="bg-white">
-        <SideBar paginado={ paginado } />
+
+        <div className='static sm:absolute z-10'>
+          <SideBar paginado={ paginado } />
+        </div>
 
 
 
