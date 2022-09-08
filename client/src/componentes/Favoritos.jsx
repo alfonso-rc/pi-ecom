@@ -16,7 +16,7 @@ export default function Favoritos() {
   const BASE_URL = process.env.REACT_APP_API_URL;
   const URL_GET_ARTICLES_FAVORITES =
     process.env.NODE_ENV === "production"
-      ? BASE_URL + `/article/${sessionStorage.getItem("id")}`
+      ? BASE_URL + `/user/favorites/${sessionStorage.getItem("id")}`
       : `http://localhost:3001/user/favorites/${sessionStorage.getItem("id")}`;
 
 
