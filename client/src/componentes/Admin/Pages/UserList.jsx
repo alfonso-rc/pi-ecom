@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {
 	getUsers,
@@ -9,13 +9,16 @@ import {
 	typeUser,
 } from "../../../../src/store/actions/index.js";
 import s from "../Pages/articleList2.module.css";
+import Swal from "sweetalert2";
 
 export default function UserList() {
 	const allUsers = useSelector((state) => state.users);
 	let dispatch = useDispatch();
+	
 	const refreshPage = () => {
 		window.location.reload();
 	};
+	const history = useHistory();
 
 	useEffect(() => {
 		dispatch(getUsers());
@@ -23,9 +26,29 @@ export default function UserList() {
 
 	function handleClickDelete(id) {
 		try {
-			dispatch(deleteUser(id));
-			allUsers = allUsers.filter((a) => a.id !== id);
-			refreshPage();
+			Swal.fire({
+				text: "El usuario se eliminará permanentemente. ¿Desea continuar?",
+				icon: "warning",
+				showDenyButton: true,
+				denyButtonText: "Cancelar",
+				denyButtonColor: "red",
+				confirmButtonText: "Aceptar"
+			}).then(response => {
+				if (response.isDenied) history.push("/admin/usuarios");
+				else if (response.isConfirmed) {
+					Swal.fire({
+						text: "Usuario eliminado",
+						icon: "success"
+					}).then(response => {
+						if (response) {
+							dispatch(deleteUser(id));
+							allUsers = allUsers.filter((a) => a.id !== id);
+							refreshPage();
+						}
+					});
+				}
+			})
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -33,8 +56,16 @@ export default function UserList() {
 
 	function handleClickTypeUser(id) {
 		try {
-			dispatch(typeUser(id));
-			refreshPage();
+			Swal.fire({
+				text: "Tipo de usuario modificado",
+				icon: "success"
+			}).then(response => {
+				if (response) {
+					dispatch(typeUser(id));
+					refreshPage();
+				}
+			});
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -42,9 +73,16 @@ export default function UserList() {
 
 	function handleClickBaned(id) {
 		try {
-			dispatch(banUser(id));
-			alert("Hecho!");
-			refreshPage();
+			Swal.fire({
+				text: "Cambios realizados",
+				icon: "success"
+			}).then(response => {
+				if (response ){
+					dispatch(banUser(id));
+					refreshPage();
+				}
+			});
+
 		} catch (error) {
 			console.log(error);
 		}
@@ -57,16 +95,15 @@ export default function UserList() {
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>Name</th>
-							<th>Address</th>
-							<th>Mail</th>
-							<th>UserName</th>
-							<th>Coins</th>
-							<th>User Type</th>
-							<th>Ban</th>
-							<th>Action</th>
-							<th>Action</th>
-							<th>Action</th>
+							<th>Nombre</th>
+							<th>Dirección</th>
+							<th>Correo</th>
+							<th>Usuario</th>
+							<th>Tipo</th>
+							<th>Bloqueo</th>
+							<th></th>
+							<th></th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -78,7 +115,6 @@ export default function UserList() {
 									<td>{usr.address}</td>
 									<td>{usr.mail}</td>
 									<td>{usr.userName}</td>
-									<td>{usr.coins}</td>
 									<td>
 										{usr.userType == 1
 											? "Ordinario"
@@ -94,7 +130,7 @@ export default function UserList() {
 														handleClickBaned(usr.id)
 													}
 												>
-													NoBanned
+													No baneado
 												</button>
 											</div>
 										) : (
@@ -105,7 +141,7 @@ export default function UserList() {
 														handleClickBaned(usr.id)
 													}
 												>
-													Banned
+													Baneado
 												</button>
 											</div>
 										)}
@@ -140,13 +176,14 @@ export default function UserList() {
 										)}
 									</td>
 									<td>
-										<a
+										<button
+											onClick={() => handleClickDelete( usr.id )}
 											href="#my-modal-2"
 											className="btn btn-error btn-xs"
 										>
-											Delete
-										</a>
-										<div className="modal" id="my-modal-2">
+											Eliminar
+										</button>
+										{/* <div className="modal" id="my-modal-2">
 											<div className="modal-box">
 												<h3 className="font-bold">
 													El Usuario se eliminara de
@@ -155,11 +192,7 @@ export default function UserList() {
 												<div className="modal-action">
 													<button
 														className="btn btn-error btn-xs"
-														onClick={() =>
-															handleClickDelete(
-																usr.id
-															)
-														}
+														onClick={() => handleClickDelete( usr.id )}
 													>
 														Continuar
 													</button>
@@ -171,7 +204,7 @@ export default function UserList() {
 													</a>
 												</div>
 											</div>
-										</div>
+										</div> */}
 									</td>
 								</tr>
 							);
@@ -180,16 +213,15 @@ export default function UserList() {
 					<tfoot>
 						<tr>
 							<th>id</th>
-							<th>Last Name</th>
-							<th>Address</th>
-							<th>Mail</th>
-							<th>UserName</th>
-							<th>Coins</th>
-							<th>User Type</th>
-							<th>Ban</th>
-							<th>Action</th>
-							<th>Action</th>
-							<th>Action</th>
+							<th>Nombre</th>
+							<th>Dirección</th>
+							<th>Correo</th>
+							<th>Usuario</th>
+							<th>Tipo</th>
+							<th>Bloqueo</th>
+							<th></th>
+							<th></th>
+							<th></th>
 						</tr>
 					</tfoot>
 				</table>

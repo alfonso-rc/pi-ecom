@@ -226,19 +226,19 @@ export default function Home() {
       >
         <button style={ styleButtonCategory } className={ circleClasses } onClick={ (e) => handleSmartPhone(e) }>
           <img style={ { maxWidth: "232x" } } src={ smartphoneIcon } alt="..." />
-          <span style={ styleButtonTextCategory }>Smartphones</span>
+          <span style={ styleButtonTextCategory }>Celulares</span>
         </button>
         <button style={ styleButtonCategory } onClick={ (e) => handleNotebooks(e) } className={ circleClasses }>
           <img style={ { maxWidth: "45px" } } src={ laptopIcon } alt="..." />
-          <span style={ styleButtonTextCategory }>Laptops</span>
+          <span style={ styleButtonTextCategory }>Computadores</span>
         </button>
         <button style={ styleButtonCategory } onClick={ (e) => handleTablets(e) } className={ circleClasses }>
           <img style={ { maxWidth: "30px" } } src={ tabletIcon } alt="..." />
-          <span style={ styleButtonTextCategory }>Tablets</span>
+          <span style={ styleButtonTextCategory }>Tabletas</span>
         </button>
         <button style={ styleButtonCategory } onClick={ (e) => handleAccesories(e) } className={ circleClasses }>
           <img style={ { maxWidth: "40px" } } src={ accesoriesIcon } alt="..." />
-          <span style={ styleButtonTextCategory }>Accesories</span>
+          <span style={ styleButtonTextCategory }>Accesorios</span>
         </button>
       </div>
       <div className="bg-white">

@@ -212,7 +212,7 @@ export default function CreateArticle() {
       <div className="text-black">
         <form onSubmit={(e) => handleSubmit(e)} className="">
           <h1 className="text-3xl m-5 border-b-2 border-b-zinc-300 rounded-lg border font-Work font-bold shadow-2xl">
-            EDIT ARTICLE
+            EDITAR ARTICULO
           </h1>
           {artic ? (
             <div>
@@ -275,7 +275,7 @@ export default function CreateArticle() {
                         {/* Datos Grales del Articulo */}
                         <div className="m-2 flex flex-col ">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Title: </label>
+                            <label className="font-bold">Nombre: </label>
                             <input
                               placeholder={artic.title}
                               className="input-accent w-xs rounded-md"
@@ -293,7 +293,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Rating: </label>
+                            <label className="font-bold">Calificación: </label>
                             <input
                               placeholder={artic.rating}
                               className="input-accent w-xs rounded-md"
@@ -349,7 +349,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Detail: </label>
+                            <label className="font-bold">Descripción: </label>
                             <input
                               placeholder={artic.detail.detail}
                               className="input-accent w-xs rounded-md"
@@ -367,7 +367,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Price: </label>
+                            <label className="font-bold">Precio: </label>
                             <input
                               placeholder={artic.price}
                               className="input-accent w-xs rounded-md"
@@ -386,7 +386,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Stock: </label>
+                            <label className="font-bold">Existencias: </label>
                             <input
                               placeholder={artic.stock}
                               className="input-accent w-xs rounded-md"
@@ -406,7 +406,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Image: </label>
+                            <label className="font-bold">Imagen: </label>
                             <input
                               placeholder={artic.image}
                               className="input-accent w-xs rounded-md"
@@ -435,7 +435,7 @@ export default function CreateArticle() {
                         </div>
                         <div className="m-2 flex flex-col">
                           <div className="flex flex-row justify-between">
-                            <label className="font-bold">Conectivity: </label>
+                            <label className="font-bold">Conectividad: </label>
                             <input
                               placeholder={artic.conectividad}
                               className="input-accent w-xs rounded-md"
@@ -522,7 +522,7 @@ export default function CreateArticle() {
                               :input.title}
                           </h3>
                           <div className="flex flex-row justify-center pt-6">
-                            <h1 className="font-bold">Rating: </h1>
+                            <h1 className="font-bold">Calificación: </h1>
                             <p>
                               {(input.rating === "NaN"
                                 ? (input.rating = 0)
@@ -539,7 +539,7 @@ export default function CreateArticle() {
                               :input.price}
                             </p>
                           </div>
-                          <div className="flex justify-center">
+                          {/* <div className="flex justify-center">
                             <p className="btn btn-outline btn-primary btn-sm btn-square">
                               <IoRemove className="text-2xl" />
                             </p>
@@ -547,9 +547,9 @@ export default function CreateArticle() {
                             <p className="btn btn-primary btn-sm btn-square ">
                               <IoAdd className="text-2xl" />
                             </p>
-                          </div>
+                          </div> */}
                           <div className="flex flex-row justify-center pt-6">
-                            <h1 className="font-bold">Stock: </h1>
+                            <h1 className="font-bold">Existencias: </h1>
                             <p>{input.stock===""
                               ? artic.stock
                               :input.stock}</p>
@@ -679,15 +679,15 @@ export default function CreateArticle() {
               </div>
             </div>
           ) : (
-            <div>nada</div>
+            <div>El articulo está deshabilitado</div>
           )}
 
           <div className="py-4 my-4">
             <button type="submit" className="btn btn-accent m-4">
-              Edit Article
+              Guardar cambios
             </button>
             <Link to="/admin/articulos" className="">
-              <button className="btn btn-warning m-4">Back</button>
+              <button className="btn btn-warning m-4">Cancelar</button>
             </Link>
           </div>
         </form>

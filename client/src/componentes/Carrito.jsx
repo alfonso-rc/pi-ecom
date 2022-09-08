@@ -110,11 +110,11 @@ export default function Carrito(props) {
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                    <div className="flex-1 overflow-y-auto py-3 px-4 sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium text-gray-900">
+                        <Dialog.Title className="text-lg font-medium text-gray-900 mb-3">
                           { " " }
-                          Shopping cart{ " " }
+                          Carrito de compras{ " " }
                         </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
@@ -122,7 +122,7 @@ export default function Carrito(props) {
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                             onClick={ () => props.close() }
                           >
-                            <span className="sr-only">Close panel</span>
+                            <span className="sr-only">Cerrar panel</span>
                             {/* <XIcon className="h-6 w-6" aria-hidden="true" /> */ }
                           </button>
                         </div>
@@ -159,7 +159,7 @@ export default function Carrito(props) {
                         <p>$ { totalPrice }</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
-                        Shipping and taxes calculated at checkout.
+                        Los gastos de envío se calculan en el momento de la compra.
                       </p>
                       <div className="mt-6">
                         <button
@@ -168,18 +168,18 @@ export default function Carrito(props) {
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                           onClick={ () => HandleClickComprar() }
                         >
-                          Checkout
+                          Comprar
                         </button>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{ " " }
+                          o{ " " }
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={ () => props.close() }
                           >
-                            Continue Shopping
+                            Continuar la busqueda
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
