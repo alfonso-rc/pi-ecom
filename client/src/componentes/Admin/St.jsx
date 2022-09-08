@@ -21,29 +21,29 @@ export default function St() {
 				Da click en las opciones de Precio, Rating o Disponibilidad
 				<br />
 			</h2>
-			<div className="flex flex-row flex-wrap justify-center">
-				<div className="collapse  w-96 h-96 bg-red ">
-					<input type="checkbox" />
-					<div className="collapse-title text-xl font-medium">
-						Medicion por Precio
+			<div className="flex flex-row flex-wrap justify-center ">
+				<div className="collapse  w-96 h-96 bg-red transition delay-100 hover:scale-105">
+					<input type="checkbox"/>
+					<div className="collapse-title text-2xl ">
+						 <button className="border-b-2  border-primary ">Medicion por Precio</button>
 					</div>
 					<div className="collapse-content">
 						<StArtPrecio />
 					</div>
 				</div>
-				<div className="collapse  w-96 h-96 bg-red">
+				<div className="collapse  w-96 h-96 bg-red transition delay-100 hover:scale-105">
 					<input type="checkbox" />
-					<div className="collapse-title text-xl font-medium">
-						Medicion por Rating
+					<div className="collapse-title text-2xl ">
+						<button className="border-b-2  border-primary ">Medicion por Rating</button>
 					</div>
 					<div className="collapse-content">
 						<StArticle />
 					</div>
 				</div>
-				<div className="collapse  w-96 h-96 bg-red">
+				<div className="collapse  w-96 h-96 bg-red transition delay-100 hover:scale-105">
 					<input type="checkbox" />
-					<div className="collapse-title text-xl font-medium">
-						Medicion por Disponibilidad
+					<div className="collapse-title text-2xl ">
+						<button className="border-b-2  border-primary">Medicion por Disponibilidad</button>
 					</div>
 					<div className="collapse-content">
 						<StArtStock />
