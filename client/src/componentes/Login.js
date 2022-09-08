@@ -115,7 +115,7 @@ export default function Example() {
                   autoComplete="email"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Correco electrónico"
                 />
                 { errors.mail && (
                   <p><strong>{ errors.mail }</strong></p>
@@ -135,7 +135,7 @@ export default function Example() {
                   autoComplete="current-password"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                 />
                 { errors.password && (
                   <p><strong>{ errors.password }</strong></p>
@@ -157,14 +157,14 @@ export default function Example() {
                   Remember me
                 </label> */}
                 <span className="ml-1 font-medium text-gray-700">
-                  Not a registered user?
+                  ¿No eres usuario registrado?
                 </span>
               </div>
 
               <div className="inline">
                 <Link to='/newUser'>
                   <h3 className="ml-3 font-bold text-indigo-600 hover:text-indigo-500 cursor-pointer">
-                    Sign up
+                    Crea aquí tu cuenta
                   </h3>
                 </Link>
               </div>
@@ -180,7 +180,7 @@ export default function Example() {
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */ }
                 </span>
-                Sign in
+                Iniciar sesión
               </button>
 
               <button
@@ -188,8 +188,8 @@ export default function Example() {
                 type="submit"
                 onClick={ googleAuth }
               >
-                <img className="rounded w-7 mr-3" src={ logoGoogle } alt="google icon" />
-                Sign in with google
+                <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
+                Inicia sesión con google
               </button>
 
             </div>

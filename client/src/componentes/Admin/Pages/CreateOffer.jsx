@@ -42,6 +42,7 @@ function validate(e) {
 export default function CreateOffer() {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
+  const [selectArticle, setselectArticle] = useState([]);
   const history = useHistory();
   const allOffer = useSelector((state) => state.offers);
   const allArticle = useSelector((state) => state.articles);
@@ -51,7 +52,7 @@ export default function CreateOffer() {
     validity: true,
     expiration: "",
     articleId: [],
-    price:200,
+
   });
 
   useEffect(() => {
@@ -74,11 +75,23 @@ export default function CreateOffer() {
 
 
   function handleArticleId(e) {
+
+    const F=JSON.parse(e.target.value);
+    // input.articleId=[...input.articleId,F.id];
+    setselectArticle([
+      ...selectArticle,
+      {
+      title:F.title,
+      price:F.price,
+    }]) 
+    console.log(input.articleId)
+
+    
     let exists = input.articleId.find((c) => c === e.target.value);
     if (!exists) {
       setInput({
         ...input,
-        [e.target.name]: [...input.articleId, e.target.value],
+        [e.target.name]: [...input.articleId, F.id],
       });
     }
   }
@@ -130,12 +143,12 @@ export default function CreateOffer() {
     dispatch(postOffer(input));
     alert("Oferta Creada!");
     setInput({
-      title: "",
+
       porcent: "",
       validity: true,
       expiration: "",
       articleId: [],
-      price:200,
+
     });
     history.push("/admin/ofertas/create");
   }
@@ -169,13 +182,14 @@ export default function CreateOffer() {
                       <select
                         className="select select-accent w-full max-w-xs"
                         name="articleId"
-                        value={input.articleId?? ""}
+                        // value={input.articleId?? ""}
                         onChange={handleArticleId}
                       >
-                        <option value="">Todos los Productos</option>
+                        {/* <option value="">Todos los Productos</option> */}
                         {allArticle.map((art) => (
-                          <option key={art.id} value={art.id}>
+                          <option key={art.id} value={JSON.stringify(art)} >
                             {art.title}
+                            
                           </option>
                         ))}
                       </select>
@@ -225,7 +239,10 @@ export default function CreateOffer() {
                   <div className="lg:m-auto xl:ml-20 pt-6">
                     <div>
                       <h3 className="font-bold text-2xl md:text-4xl">
-                        {input.articleId}
+                        {(selectArticle.map(a=>
+                         <div className="border-2 border-emerald-400">
+                          <span>{a.title}</span><span className="text-accent">   ${a.price}</span>
+                         </div> ))}
                       </h3>
                       <div className="flex flex-row justify-center pt-6">
                         <h1 className="font-bold">Porcentaje: </h1>

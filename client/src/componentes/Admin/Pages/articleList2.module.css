@@ -1,13 +1,15 @@
 .table {
 	width: 100%;
-	height: 250px;
-	border-collapse: separate;
+	height: 300px;
+	border-collapse: collapse;
 	vertical-align: top;
+	color: rgb(245, 228, 228);
 }
 .table th,
 td {
+	width: 25%;
 	text-align: left;
-	padding: 0.2em;
+	padding: 0.1em;
 	caption-side: bottom;
 }
 .table th {
@@ -15,12 +17,12 @@ td {
 	width: 25%;
 }
 .table tr:nth-child(even) {
-	background: rgb(36, 41, 51);
+	background: rgb(46, 57, 68);
 }
 .table tr:nth-child(odd) {
-	background: rgb(51, 56, 67);
+	background: rgb(86, 88, 98);
 }
-table thead {
+thead {
 	background-color: rgb(53, 52, 52);
 	border-bottom: solid 3px #282727;
 	color: rgb(179, 172, 172);

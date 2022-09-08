@@ -19,11 +19,11 @@ export default function Article({
 	price,
 }) {
 	return (
-		<div className="m-0 p-0">
+		<div className="m-0 p-0 font-Work">
 			<NavBarAdmin />
 			<div className="flex">
 				<SideBarAdmin />
-				<div className="overflow-scroll h-96 w-4/5 m-8 font-Work">
+				<div className="overflow-scroll w-4/5 m-8 font-Work">
 					<ArticleList />
 				</div>
 			</div>

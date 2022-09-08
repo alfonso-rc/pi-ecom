@@ -16,7 +16,7 @@ function LoginAuth0() {
                 onClick={goLogin}
             >
                 <BiUserCircle size={30}/>
-                <span className="ml-2 hidden sm:block">LOG IN</span>
+                <span className="ml-2 hidden sm:block">INICIAR SESIÓN</span>
             </button>
         </div>
     );
