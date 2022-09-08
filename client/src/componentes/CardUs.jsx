@@ -126,7 +126,7 @@ export default function CardUs({}) {
 							target="_blank"
 							rel="noreferrer"
 							className="btn btn-primary"
-							href="https://github.com/MarMerc"
+							href="https://www.linkedin.com/in/marianafernandamercado/"
 						>
 							<BsLinkedin />
 						</a>
