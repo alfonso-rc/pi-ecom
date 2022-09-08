@@ -12,7 +12,7 @@ export default function CardFavorite({image, title, id, price, date}){
               <p className="flex justify-center pt-0 sm:pt-6 text-xs sm:text-base"><span className="font-bold">Precio:</span>${price}</p>
               <p></p>
               <div className="card-actions justify-center ">
-                <Link to={`/${id}`} className="btn btn-primary btn-xs sm:btn-md">Watch</Link>
+                <Link to={`/${id}`} className="btn btn-primary btn-xs sm:btn-md">Ver</Link>
               </div>
             </div>
           </div>

@@ -191,7 +191,7 @@ function CheckoutForm() {
                 className="btn btn-outline btn-accent m-2"
                 disabled={activateButton()}
               >
-                Buy
+                Realizar pago
               </button>
             </form>
             <ToastContainer />

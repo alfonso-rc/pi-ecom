@@ -47,7 +47,7 @@ export default function MisCompras() {
             articles.map((art) => {
               return( <CardShopping key={art.id} id={art.id} title={art.title} image={art.image} price={art.price} date={art.date.slice(0,10)}/>
           )}) 
-          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Todavía no ha realizó ninguna compra</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
+          ) : (<div><p className="py-20 font-Work text-2xl font-bold flex justify-center text-slate-700">Aun no has realizado ninguna compra</p><br/><Link to="/home" className="btn btn-wide">Volver</Link></div>)
         }
          </div>
       </div>
