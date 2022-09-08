@@ -133,7 +133,7 @@ export default function ArticleList() {
 			<div>
 				<input
 					value={busqueda}
-					className="input input-bordered  text-white h-9 w-28 sm:w-full sm:h-12"
+					className="input input-bordered  text-black h-9 w-28 sm:w-full sm:h-12"
 					placeholder="Búsqueda por nombre"
 					onChange={handleChange}
 				/>

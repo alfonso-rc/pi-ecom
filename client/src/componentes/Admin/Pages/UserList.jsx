@@ -42,7 +42,7 @@ export default function UserList() {
 					}).then(response => {
 						if (response) {
 							dispatch(deleteUser(id));
-							allUsers = allUsers.filter((a) => a.id !== id);
+							//allUsers = allUsers.filter((a) => a.id !== id);
 							refreshPage();
 						}
 					});

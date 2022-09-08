@@ -13,6 +13,7 @@ import {ToastContainer, toast} from "react-toastify";
 import {IoAdd, IoRemove} from "react-icons/io5";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
+import Swal from "sweetalert2";
 
 function validate(e) {
 	const pattern = new RegExp("^[A-Z]+$", "i");
@@ -134,18 +135,29 @@ export default function CreateOffer() {
 		}
 	}
 
+	const refreshPage = () => {
+		window.location.reload();
+	};
+
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log(input);
-		dispatch(postOffer(input));
-		alert("Oferta Creada!");
-		setInput({
-			porcent: "",
-			validity: true,
-			expiration: "",
-			articleId: [],
+		Swal.fire({
+			text: "Oferta creada correctamente",
+			icon: "success"
+		}).then(response => {
+			if (response) {
+				dispatch(postOffer(input));
+				setInput({
+					porcent: "",
+					validity: true,
+					expiration: "",
+					articleId: [],
+				});
+				history.push("/admin/ofertas");
+				refreshPage();
+			}
 		});
-		history.push("/admin/ofertas");
+		
 	}
 
 	const box = {
