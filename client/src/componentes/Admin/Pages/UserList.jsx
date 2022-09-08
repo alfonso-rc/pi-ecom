@@ -150,19 +150,6 @@ export default function UserList() {
 										{usr.userType === "1" ? (
 											<div>
 												<button
-													className="btn btn-success btn-xs"
-													onClick={() =>
-														handleClickTypeUser(
-															usr.id
-														)
-													}
-												>
-													Cambiar Tipo
-												</button>
-											</div>
-										) : (
-											<div>
-												<button
 													className="btn btn-error btn-xs"
 													onClick={() =>
 														handleClickTypeUser(
@@ -170,7 +157,20 @@ export default function UserList() {
 														)
 													}
 												>
-													Cambiar Tipo
+													Admin
+												</button>
+											</div>
+										) : (
+											<div>
+												<button
+													className="btn btn-success btn-xs"
+													onClick={() =>
+														handleClickTypeUser(
+															usr.id
+														)
+													}
+												>
+													Ordinario
 												</button>
 											</div>
 										)}

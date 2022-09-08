@@ -166,7 +166,7 @@ export default function CreateOffer() {
       <div className="text-black">
         <form onSubmit={(e) => handleSubmit(e)} className="">
           <h1 className="text-3xl m-5 border-b-2 border-b-zinc-300 rounded-lg border font-Work font-bold shadow-2xl">
-            CREATE OFFER
+            CREAR OFERTAS
           </h1>
           <div
             className="flex flex-col lg:grid"
@@ -296,7 +296,7 @@ export default function CreateOffer() {
               Create
             </button>
             <Link to="/admin/articulos" className="">
-              <button className="btn btn-warning m-4">Back</button>
+              <button className="btn btn-warning m-4">VOLVER</button>
             </Link>
           </div>
         </form>
