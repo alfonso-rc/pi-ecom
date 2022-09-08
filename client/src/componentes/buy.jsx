@@ -93,63 +93,71 @@ function CheckoutForm() {
 		setError(event.error ? event.error.message : "");
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const {error, paymentMethod} = await stripe.createPaymentMethod({
-			type: "card",
-			card: elements.getElement(CardElement),
-		});
-		setLoading(true);
-		if (!error) {
-			const {id} = paymentMethod;
-			try {
-				const {data} = await axios.post(
-					"http://localhost:3001/checkout",
-					{
-						id,
-						amount: precioTotal * 100,
-					}
-				);
-				console.log(data);
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  const URL_CHECKOUT =
+    process.env.NODE_ENV === "production"
+      ? BASE_URL + "/checkout"
+      : "http://localhost:3001/checkout";
 
-				for (const shop of cart) {
-					const shopping = {
-						idUser: sessionStorage.id,
-						infoArticle: shop,
-					};
-					await axios.post(
-						"http://localhost:3001/myShoppings/add",
-						shopping
-					);
-				}
 
-				elements.getElement(CardElement).clear();
-			} catch (error) {
-				console.log(error);
-			}
-			setLoading(false);
-			Swal.fire({
-				text: "Compra realizada con éxito",
-				icon: "success",
-			}).then((response) => {
-				if (response) {
-					localStorage.setItem("cart", JSON.stringify([]));
-					toastSucces();
-					history.push("/home", {replace: true});
-					refreshPage();
-				}
-			});
-		} else {
-			Swal.fire({
-				text: "Targeta no valida",
-				icon: "warning",
-			});
-		}
-	};
+  const URL_MY_SHOPPINGS = process.env.NODE_ENV === "production"
+    ? BASE_URL + "/myShoppings/add"
+    : "http://localhost:3001/myShoppings/add";
 
-	const refreshPage = () => {
-		window.location.reload();
-	};
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+    setLoading(true);
+    if (!error) {
+      const { id } = paymentMethod;
+      try {
+        const { data } = await axios.post(URL_CHECKOUT, {
+          id,
+          amount: precioTotal * 100,
+        });
+        console.log(data);
+
+        for (const shop of cart) {
+          const shopping = {
+            idUser: sessionStorage.id,
+            infoArticle: shop
+          };
+          await axios.post(URL_MY_SHOPPINGS, shopping);
+        }
+
+        elements.getElement(CardElement).clear();
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+      Swal.fire({
+        text: "Compra realizada con éxito",
+        icon: "success",
+      }).then(response => {
+        if (response) {
+          localStorage.setItem("cart", JSON.stringify([]));
+          toastSucces()
+          history.push("/home", { replace: true });
+          refreshPage()
+        }
+      });
+    } else {
+      Swal.fire({
+        text: "Targeta no valida",
+        icon: "warning"
+      })
+    }
+
+  };
+
+
+  const refreshPage = () => {
+    window.location.reload();
+  }
 
 	function activateButton() {
 		if (precioTotal === 0) {
@@ -165,65 +173,54 @@ function CheckoutForm() {
 				<NavBarDetail />
 			</div>
 
-			<div className="font-Work  text-black p-6 min-h-screen">
-				<h3 className="text-xl pb-10 ">
-					Cantidad de articulos: {cart.length}
-				</h3>
-				<div
-					className="flex flex-col md:grid"
-					style={{gridTemplateColumns: "65% 35%"}}
-				>
-					<div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
-						{cart &&
-							cart.map((e) => {
-								return (
-									<CardCarrito
-										key={e.id}
-										id={e.id}
-										title={e.title}
-										image={e.image}
-										price={e.price}
-									/>
-								);
-							})}
-					</div>
-					<div className="shadow-xl border-2 border-stone-200 rounded-md mt-10">
-						<p className="text-2xl font-normal pb-8 mb-8 pt-4">
-							Total: $ {precioTotal}
-						</p>
-						<p className="flex pb-10 text-lg  px-4">
-							Ingrese su tarjeta:
-						</p>
-						<form onSubmit={handleSubmit}>
-							<div className="pb-8 mb-8  px-4">
-								<CardElement
-									id="card-element"
-									onChange={handleChange}
-								/>
-							</div>
-							<button
-								className="btn btn-outline btn-accent m-2"
-								disabled={activateButton()}
-							>
-								Realizar pago
-							</button>
-							<img className="w-48 left-2.5" src={pagoStripe} />
-						</form>
-						<ToastContainer />
-					</div>
-				</div>
-			</div>
-			<Footer />
-		</div>
-	);
+      <div className="font-Work  text-black p-6 min-h-screen">
+        <h3 className="text-xl pb-10 ">Cantidad de articulos: { cart.length }</h3>
+        <div className="flex flex-col md:grid" style={ { gridTemplateColumns: "65% 35%" } }>
+          <div className="flex flex-row flex-wrap justify-center gap-24 text-start  md:max-h-[calc(100vh-232px)] md:overflow-auto font-bold">
+            { cart &&
+              cart.map((e) => {
+                return (
+                  <CardCarrito
+                    key={ e.id }
+                    id={ e.id }
+                    title={ e.title }
+                    image={ e.image }
+                    price={ e.price }
+                  />
+                );
+              }) }
+          </div>
+          <div className="shadow-xl border-2 border-stone-200 rounded-md mt-10">
+            <p className="text-2xl font-normal pb-8 mb-8">Total: $ { precioTotal }.00</p>
+            <p className="flex pb-10 text-lg  px-4">Ingrese su tarjeta:</p>
+            <form onSubmit={ handleSubmit }>
+              <div className="pb-8 mb-8  px-4">
+                <CardElement
+                  id="card-element"
+                  onChange={ handleChange } />
+              </div>
+              <button
+                className="btn btn-outline btn-accent m-2"
+                disabled={ activateButton() }
+              >
+                Buy
+              </button>
+            </form>
+            <ToastContainer />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default function buy() {
-	return (
-		<div>
-			<Elements stripe={stripePromise}>
-				<CheckoutForm id="checkId" />
-			</Elements>
-		</div>
-	);
+  return (
+    <div>
+      <Elements stripe={ stripePromise }>
+        <CheckoutForm id="checkId" />
+      </Elements>
+    </div>
+  );
 }
