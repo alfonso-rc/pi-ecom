@@ -566,7 +566,7 @@ export function getOffers() {
 const URL_DELETE_OFFER =
 	process.env.NODE_ENV === "production"
 		? BASE_URL + "/offer/delete/"
-		: `http://localhost:3001/user/delete/`;
+		: `http://localhost:3001/offer/delete/`;
 
 export function deleteOffer(id) {
 	return async function (dispatch) {

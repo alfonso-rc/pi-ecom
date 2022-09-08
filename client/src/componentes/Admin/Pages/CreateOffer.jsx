@@ -150,7 +150,7 @@ export default function CreateOffer() {
       articleId: [],
 
     });
-    history.push("/admin/ofertas/create");
+    history.push("/admin/ofertas");
   }
 
   const box = {

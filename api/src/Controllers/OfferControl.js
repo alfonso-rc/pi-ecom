@@ -30,6 +30,7 @@ const getOffers = async (req, res, next) => {
         for (let i = 0; i < n; i++) {
             let artic = {
                 id: offer.id,
+                validity: offer.validity,
                 title: offer.articles[i].title,
                 price: offer.articles[i].price,
                 porcent: offer.porcent,
@@ -69,7 +70,7 @@ const deleteOffer = async (req, res, next) => {
     const {id} = req.params;
     let destro = await Offer.destroy(
       {where:{id:id}})
-      destro===1
+      // destro===1
       ?res.status(200).send("Oferta eliminada con exito")
       :res.status(404).send("No existe")
   } catch (error) {
