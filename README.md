@@ -61,7 +61,7 @@
 <br></br>
 <img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606632/ecom/ecom5_dar9dz.png"/>
 <br></br>
-<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662607610/ecom/ecom_10_tnwzls.png"/>
+<img  width="700" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662607610/ecom/ecom_10_tnwzls.png"/>
 </p>
 <a href='https://github.com/CarlosArte91' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/carlos_wbtz3g.jpg"/></a>
 <a href='https://github.com/Juani50' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/juani_ovkwvl.jpg"/></a>
