@@ -1,7 +1,7 @@
 # PROYECTO FINAL ECOMMERCE.
 
 <p align="center">
-<img height="50" src="./client/src/imagenes/imgNosotros/logo-ecom.png" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606632/ecom/logo-ecom_ihhgbg.png" />
 
 # Feactures del Proyecto
 
@@ -34,18 +34,17 @@
 ## Tecnologias utilizadas
 
 <p align="center">
-<img height="50" src="./client/src/imagenes/imgtecnologias/html5.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/css3.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/react.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/redux.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/Tailwind.png" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/nodejs.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/heroku.svg" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/postgresql.png" />
-<img height="50" width="50px" src="./client/src/imagenes/imgTecnologias/stripe.png" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/sequelize.png" />
-<img height="50" src="./client/src/imagenes/imgTecnologias/claudinary.png" />
-
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/html5_sne9t0.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/css3_u6yxkg.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/react_kh99ah.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606356/ecom/redux_kyqvyh.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606335/ecom/Tailwind_ivgnyd.png" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/nodejs_hshryr.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606367/ecom/heroku_khgumz.svg" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/postgresql_lsxpzc.png" />
+<img height="50" width="50px" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606343/ecom/stripe_r0taet.png" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606343/ecom/sequelize_jgudym.png" />
+<img height="50" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606366/ecom/claudinary_bhutpg.png" />
 </p>
 
 <h2>🚀 Demo</h2>
@@ -54,24 +53,21 @@
 
 <h2>Screenshots</h2>
 <p align="center">
-<img  width="900" src="./client/src/imagenes/imgNosotros/ecom1.png"/>
+<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606632/ecom/ecom1_afoyrl.png"/>
 <br></br>
-<img  width="900" src="./client/src/imagenes/imgNosotros/ecom2.png"/>
+<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606633/ecom/ecom2_qkdadc.png"/>
 <br></br>
-<img  width="900" src="./client/src/imagenes/imgNosotros/ecom3.png"/>
+<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606632/ecom/ecom3_mkmqvu.png"/>
 <br></br>
-<img  width="900" src="./client/src/imagenes/imgNosotros/ecom5.png"/>
-
+<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606632/ecom/ecom5_dar9dz.png"/>
+<br></br>
+<img  width="900" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662607610/ecom/ecom_10_tnwzls.png"/>
 </p>
-
-<h3 align="center">Sobre Nosotros </h3>
-<p align="center"> 
-<a href='https://github.com/CarlosArte91' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/carlos.jpg"/></a>
-<a href='https://github.com/Juani50' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/juani.jpg"/></a>
-<a href='https://github.com/alejoyodax' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/ale.jpeg"/></a>
-<a href='https://github.com/alfonso-rc' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/alfonso.jpeg"/></a>
-<a href='https://github.com/nicolaszacarias' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/Nico.jpeg"/></a>
-<a href='https://github.com/MarMerc' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/mari.png"/></a>
-<a href='https://github.com/RetamozoL' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="./client/src/imagenes/imgNosotros/lauti.jpeg"/></a>
-
+<a href='https://github.com/CarlosArte91' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/carlos_wbtz3g.jpg"/></a>
+<a href='https://github.com/Juani50' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/juani_ovkwvl.jpg"/></a>
+<a href='https://github.com/alejoyodax' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/ale_cktrkp.jpg"/></a>
+<a href='https://github.com/alfonso-rc' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/alfonso_unrk9p.jpg"/></a>
+<a href='https://github.com/nicolaszacarias' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/Nico_k6fnp0.jpg"/></a>
+<a href='https://github.com/MarMerc' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606982/ecom/mari_nlhldo.png"/></a>
+<a href='https://github.com/RetamozoL' target="_blank" rel="noreferrer"><img alt="cris" width="137" height="137" src="https://res.cloudinary.com/dsalyp6sj/image/upload/v1662606983/ecom/lauti_yeby6a.jpg"/></a>
 </p>
