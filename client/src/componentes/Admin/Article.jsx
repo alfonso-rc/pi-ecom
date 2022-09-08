@@ -28,7 +28,7 @@ export default function Article({
 				</div>
 			</div>
 			<Link to="/admin/articulos/create">
-				<button className="btn btn-accent btn-lg">Add Article</button>
+				<button className="btn btn-accent btn-lg">Agregar nuevo articulo</button>
 			</Link>
 			<div className="pt-16">
 				<Footer />

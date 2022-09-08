@@ -137,7 +137,7 @@ export default function Example() {
               alt="Workflow"
             />
             <h3 className="mt-10 text-center text-3xl tracking-tight font-bold text-gray-700">
-              ¡create new user!
+              ¡Crea tu cuenta!
             </h3>
           </div>
 
@@ -154,7 +154,7 @@ export default function Example() {
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Name"
+                  placeholder="Nombre"
                 />
                 {errors.name && (
                   <p><strong>{errors.name}</strong></p>
@@ -169,7 +169,7 @@ export default function Example() {
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Last name"
+                  placeholder="Apellido"
                 />
                 {errors.lastName && (
                   <p><strong>{errors.lastName}</strong></p>
@@ -185,7 +185,7 @@ export default function Example() {
                   autoComplete="email"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Correo electrónico"
                 />
                 {errors.mail && (
                   <p><strong>{errors.mail}</strong></p>
@@ -200,7 +200,7 @@ export default function Example() {
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="User name"
+                  placeholder="Nombre de usuario"
                 />
                 {errors.userName && (
                   <p><strong>{errors.userName}</strong></p>
@@ -215,7 +215,7 @@ export default function Example() {
                   type="text"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Address"
+                  placeholder="Dirección de residencia"
                 />
                 {errors.address && (
                   <p><strong>{errors.address}</strong></p>
@@ -230,7 +230,7 @@ export default function Example() {
                   type="password"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                 />
                 {errors.password && (
                   <p><strong>{errors.password}</strong></p>
@@ -244,14 +244,14 @@ export default function Example() {
 
               <div className="inline">
                 <span className="ml-1 font-medium text-gray-700">
-                  You have an account?
+                  ¿Ya tienes cuenta?
                 </span>
               </div>
 
               <div className="inline">
                 <Link to='/login'>
                   <h3 className="ml-3 font-bold text-indigo-600 hover:text-indigo-500 cursor-pointer">
-                    Sign in
+                    Inicia sesión
                   </h3>
                 </Link>
               </div>
@@ -266,7 +266,7 @@ export default function Example() {
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
                 </span>
-                Sign up
+                Registrarse
               </button>
 
               <button
@@ -275,7 +275,7 @@ export default function Example() {
                 onClick={googleAuth}             
               >
                 <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
-                Sign up with google
+                Registrarse con google
               </button>
 
             </div>

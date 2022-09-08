@@ -155,7 +155,7 @@ export default function CardUs({}) {
 							target="_blank"
 							rel="noreferrer"
 							className="btn btn-primary"
-							href="#"
+							href="https://www.linkedin.com/in/carlos-arturo-cruz-gutierrez-870119204/#"
 						>
 							<BsLinkedin />
 						</a>

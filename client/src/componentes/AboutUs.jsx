@@ -41,7 +41,7 @@ export default function AboutUs() {
 								muchos.
 							</p>
 							<img
-								className="max-w-sm rounded-lg shadow-2xl place-self-center"
+								className="w-60 sm:w-full rounded-lg shadow-2xl place-self-center"
 								alt="hero"
 								src={logo}
 							/>

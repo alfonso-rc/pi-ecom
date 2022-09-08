@@ -20,9 +20,9 @@ export default function User({
 	ban,
 }) {
 	return (
-		<div /* className="m-0 p-0 font-Work" */>
+		<div /* className="m-0 p-0 " */>
 			<NavBarAdmin />
-			<div className="flex">
+			<div className="flex font-Work">
 				<SideBarAdmin />
 				<div /* 	 */>
 					<div>

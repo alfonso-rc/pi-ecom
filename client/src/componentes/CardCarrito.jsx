@@ -42,11 +42,12 @@ function addIncrement(e) {
 
 
 return (
-    <div className="rounded-lg shadow-2xl min-w-[130px] text-center flex flex-col justify-center items-center">
+    <div className="rounded-lg shadow-2xl min-w-[130px] text-center flex flex-col justify-center items-center w-[220px]">
         <div>
             <img className="max-w-[120px]" src={image} alt="img not found" height={180} width={120}/>
         </div>
         <div>
+          <div>
             <p>{title}</p>
         </div>
         {/* <div className="flex justify-center  ">
@@ -65,11 +66,13 @@ return (
                 <p>{stock}</p>
             </div>
        
-            <abbr>
-       <span  onClick={() => handleDelete(id)}>
-        <MdDeleteForever size={30} color="#dc2626" />
-        </span>
-        </abbr>
+            <abbr className=" flex justify-center">
+              <span  onClick={() => handleDelete(id)}>
+              <MdDeleteForever size={30} color="#dc2626" />
+              </span>
+            </abbr>
+        </div>
+        
     </div>
 
 )

@@ -66,7 +66,6 @@ export default function OfferList() {
 							<th>Vigencia</th>
 							<th>Action</th>
 							<th>Action</th>
-							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,21 +107,12 @@ export default function OfferList() {
 											</div>
 										)}
 									</th>
-									<th>
-										<Link
-											to={`/admin/offer/edit/${ofr.id}`}
-										>
-											<button className="btn btn-info btn-xs">
-												Edit
-											</button>
-										</Link>
-									</th>
 									<td>
 										<a
 											href="#my-modal-2"
 											class="btn btn-error btn-xs"
 										>
-											Delete
+											Borrar
 										</a>
 										<div class="modal" id="my-modal-2">
 											<div class="modal-box">
@@ -164,7 +154,6 @@ export default function OfferList() {
 							<th>PrecioFinal</th>
 							<th>Stock</th>
 							<th>Vigencia</th>
-							<th>Action</th>
 							<th>Action</th>
 							<th>Action</th>
 						</tr>

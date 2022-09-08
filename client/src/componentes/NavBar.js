@@ -17,12 +17,20 @@ const styleNavBar = {
   width: "100%",
 }
 
+const refreshPage = () => {
+  window.location.reload();
+};
+
+function handleClick(){
+  refreshPage()
+}
+
 export default function NavBar() {
   const [open, setOpen] = useState(false)
 
   return (
     <div style={ styleNavBar } className="bg-primary flex flex-row justify-around sm:justify-between mr-3">
-      <img style={ { alignSelf: "center", marginLeft: "1rem" } } src={ Log2 } alt="Logo" className="hidden w-24 h-9 sm:block sm:w-36 sm:h-12" />
+      <button onClick={() => handleClick()} className='flex transition delay-100 hover:scale-110 pl-2'><img style={ { alignSelf: "center", marginLeft: "5px" } } src={ Log2 } alt="Logo" className="hidden w-24 h-9 sm:block sm:w-36 sm:h-12" /></button>
       <SearchBar />
       <div className="flex flex-row justify-end">
         <div className="sm:hidden">
