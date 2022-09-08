@@ -128,7 +128,7 @@ export default function Carrito(props) {
                         </div>
                       </div>
 
-                      <div className="mt-8">
+                      <div className="mt-8 flex justify-center">
                         <div className="flow-root">
                           <ul
                             role="list"

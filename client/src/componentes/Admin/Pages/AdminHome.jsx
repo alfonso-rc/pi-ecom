@@ -11,11 +11,11 @@ export default function Admin() {
 	return (
 		<div>
 			<NavBarAdmin />
-			<div className="flex ">
+			<div className="flex font-Work">
 				<SideBarAdmin />
 				<div className="flex flex-wrap mt-6 justify-center">
 					{user.name ? (
-						<h2 className="text-black text-4xl font-Work pt-6">
+						<h2 className="text-black text-4xl pt-6">
 							¡Hola!{" "}
 							{user.name[0].toUpperCase() +
 								user.name.substring(1)}{" "}

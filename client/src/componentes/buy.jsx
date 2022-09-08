@@ -179,7 +179,7 @@ function CheckoutForm() {
               })}
           </div>
           <div className="shadow-xl border-2 border-stone-200 rounded-md mt-10">
-            <p className="text-2xl font-normal pb-8 mb-8">Total: $ {precioTotal}.00</p>
+            <p className="text-2xl font-normal pb-8 mb-8 pt-4">Total: $ {precioTotal}</p>
             <p className="flex pb-10 text-lg  px-4">Ingrese su tarjeta:</p>
             <form onSubmit={handleSubmit}>
               <div className="pb-8 mb-8  px-4">
