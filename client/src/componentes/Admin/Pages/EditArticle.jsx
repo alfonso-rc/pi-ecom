@@ -12,6 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
+import Swal from "sweetalert2";
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_DETAIL_BY_ID =
   process.env.NODE_ENV === "production"
@@ -172,7 +173,17 @@ export default function CreateArticle() {
       "http://localhost:3001/article/edit",
       updateArt
     );
-    history.push("/admin/articulos");
+    Swal.fire({
+      text: "Cambios guardados correctamente",
+      icon: "success"
+    }).then(response => {
+      if (response) {
+        
+        history.push("/admin/articulos");
+      }
+    });
+    //console.log(updateArt);
+    
   }
 
   //     console.log(input);

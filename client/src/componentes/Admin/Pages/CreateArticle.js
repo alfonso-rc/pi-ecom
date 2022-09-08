@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { IoAdd, IoRemove } from "react-icons/io5";
 import NavBarAdmin from "../../NavBarAdmin";
 import Footer from "../../Footer";
+import Swal from "sweetalert2";
 
 function validate(e) {
   const pattern = new RegExp("^[A-Z]+$", "i");
@@ -135,30 +136,41 @@ export default function CreateArticle() {
     }
   }
 
+  const refreshPage = () => {
+		window.location.reload();
+	};
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(input);
-    dispatch(postArticle(input));
-    alert("Articulo Creado!");
-    setInput({
-      title: "",
-      rating: "",
-      detail: "",
-      marca: "",
-      modelo: "",
-      so: "",
-      ram: "",
-      cpu: "",
-      color: "",
-      pantalla: "",
-      image: "",
-      stock: "",
-      price: "",
-      conectividad: "",
-      category: "",
-      disable: false,
+    Swal.fire({
+      title: "El nuevo producto se ha creado",
+      icon: "success"
+    }).then(response => {
+      if (response) {
+        dispatch(postArticle(input));
+        setInput({
+          title: "",
+          rating: "",
+          detail: "",
+          marca: "",
+          modelo: "",
+          so: "",
+          ram: "",
+          cpu: "",
+          color: "",
+          pantalla: "",
+          image: "",
+          stock: "",
+          price: "",
+          conectividad: "",
+          category: "",
+          disable: false,
+        });
+        history.push("/admin/articulos");
+        refreshPage();
+      }
     });
-    history.push("/admin/articulos");
+    
   }
 
   const box = {
