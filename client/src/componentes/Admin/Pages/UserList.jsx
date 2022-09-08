@@ -94,7 +94,6 @@ export default function UserList() {
 				<table className={s.table}>
 					<thead>
 						<tr>
-							<th>Id</th>
 							<th>Nombre</th>
 							<th>Dirección</th>
 							<th>Correo</th>
@@ -110,7 +109,6 @@ export default function UserList() {
 						{allUsers?.map((usr) => {
 							return (
 								<tr>
-									<td>{usr.id}</td>
 									<td>{usr.name}</td>
 									<td>{usr.address}</td>
 									<td>{usr.mail}</td>
@@ -212,7 +210,6 @@ export default function UserList() {
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>id</th>
 							<th>Nombre</th>
 							<th>Dirección</th>
 							<th>Correo</th>

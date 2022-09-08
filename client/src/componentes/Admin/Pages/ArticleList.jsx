@@ -142,7 +142,6 @@ export default function ArticleList() {
 						<thead>
 							<tr>
 								<th>Nombre</th>
-								<th>id</th>
 								<th>Marca</th>
 								<th>Modelo</th>
 								<th>Habilitado</th>
@@ -159,7 +158,6 @@ export default function ArticleList() {
 									return (
 										<tr key={art.id}>
 											<td>{art.title}</td>
-											<td>{art.id}</td>
 											<td>{art.marca}</td>
 											<td>{art.modelo}</td>
 											<td>
