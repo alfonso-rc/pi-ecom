@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 import {useSelector, useDispatch} from "react-redux";
 import {Link, history, useHistory} from "react-router-dom";
 import s from "../Pages/articleList.module.css";
@@ -15,6 +15,7 @@ export default function ArticleList() {
 	const [articulo, setArticulo] = useState([]);
 	const [tablaArticulo, setTablaArticulo] = useState([]);
 	const [busqueda, setBusqueda] = useState("");
+	const history = useHistory();
 
 	const refreshPage = () => {
 		window.location.reload();
@@ -70,20 +71,47 @@ export default function ArticleList() {
 
 	function handleClickDelete(id) {
 		try {
-			dispatch(deleteArticle(id));
-			allArticle = allArticle.filter((a) => a.id !== id);
-			console.log(id);
-			alert(`El Articulo con id: ${id} fue Eliminado!`);
-			refreshPage();
+			Swal.fire({
+				text: "¿Estas seguro que deseas eliminar el articulo?",
+				icon: "warning",
+				showDenyButton: true,
+				denyButtonText: "Cancelar",
+				denyButtonColor: "red",
+				confirmButtonText: "Aceptar"
+			}).then(response => {
+				if (response.isDenied) history.push("/admin/articulos")
+				else if (response.isConfirmed) {
+					Swal.fire({
+						text: "Articulo eliminado",
+						icon: "success"
+					}).then(response => {
+						if (response) {
+							dispatch(deleteArticle(id));
+							allArticle = allArticle.filter((a) => a.id !== id);
+							console.log(id);
+							refreshPage();
+						}
+					})
+
+				}
+			});
+			
 		} catch (error) {
 			console.log(error);
 		}
 	}
 	function handleClickInhab(id) {
 		try {
-			dispatch(deleteArticleLogic(id));
-			alert("Hecho!");
-			refreshPage();
+			Swal.fire({
+				text: "Articulo modificado",
+				icon: "success"
+			}).then(response => {
+				if (response) {
+					dispatch(deleteArticleLogic(id));
+					refreshPage();
+				}
+			});
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -116,16 +144,16 @@ export default function ArticleList() {
 					<table>
 						<thead>
 							<tr>
-								<th>Name</th>
+								<th>Nombre</th>
 								<th>id</th>
 								<th>Marca</th>
 								<th>Modelo</th>
 								<th>Habilitado</th>
-								<th>Stock</th>
-								<th>Price</th>
-								<th>Action</th>
-								<th>Action</th>
-								<th>Action</th>
+								<th>Existencias</th>
+								<th>Precio</th>
+								<th></th>
+								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -178,18 +206,19 @@ export default function ArticleList() {
 													to={`/admin/articulos/edit/${art.id}`}
 												>
 													<button className="btn btn-info btn-xs">
-														Edit
+														Editar
 													</button>
 												</Link>
 											</td>
 											<td>
-												<a
+												<button
+													onClick={() => handleClickDelete( art.id )}
 													href="#my-modal-2"
 													className="btn btn-error btn-xs"
 												>
-													Delete
-												</a>
-												<div
+													Eliminar
+												</button>
+												{/* <div
 													className="modal"
 													id="my-modal-2"
 												>
@@ -218,7 +247,7 @@ export default function ArticleList() {
 															</a>
 														</div>
 													</div>
-												</div>
+												</div> */}
 											</td>
 										</tr>
 									);

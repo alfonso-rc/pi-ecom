@@ -179,7 +179,7 @@ export default function CreateArticle() {
               <label className="gap-1 flex pl-2 font-bold">Categorias: </label>
               <div className="flex flex-row">
                 <label className="m-2">
-                  Smartphone
+                  Celular
                   <input
                     type="radio"
                     name="category"
@@ -189,7 +189,7 @@ export default function CreateArticle() {
                   />
                 </label>
                 <label className="m-2">
-                  Notebooks
+                  Computador
                   <input
                     type="radio"
                     name="category"
@@ -199,7 +199,7 @@ export default function CreateArticle() {
                   />
                 </label>
                 <label className="m-2">
-                  Tablets
+                  Tableta
                   <input
                     type="radio"
                     name="category"
@@ -209,7 +209,7 @@ export default function CreateArticle() {
                   />
                 </label>
                 <label className="m-2">
-                  Accesories
+                  Accesorio
                   <input
                     type="radio"
                     name="category"
@@ -226,7 +226,7 @@ export default function CreateArticle() {
                 {/* Datos Grales del Articulo */}
                 <div className="m-2 flex flex-col ">
                   <div className="flex flex-row justify-between"> 
-                    <label className="font-bold">Title: </label>
+                    <label className="font-bold">Nombre: </label>
                     <input
                       className="input-accent w-xs rounded-md"
                       type="text"
@@ -239,7 +239,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between" >
-                    <label className="font-bold">Rating: </label>
+                    <label className="font-bold">Calificación: </label>
                     <input
                       className="input-accent w-xs rounded-md"
                       type="number"
@@ -280,7 +280,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between">
-                    <label className="font-bold">Detail: </label>
+                    <label className="font-bold">Descripción: </label>
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
@@ -293,7 +293,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between">
-                    <label className="font-bold">Price: </label>
+                    <label className="font-bold">Precio: </label>
                   <input
                     className="input-accent w-xs rounded-md"
                     type="number"
@@ -307,7 +307,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between">
-                  <label className="font-bold">Stock: </label>
+                  <label className="font-bold">Existencias: </label>
                   <input
                     className="input-accent w-xs rounded-md"
                     type="number"
@@ -322,7 +322,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between">
-                  <label className="font-bold">Image: </label>
+                  <label className="font-bold">Imagen: </label>
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
@@ -345,7 +345,7 @@ export default function CreateArticle() {
                 </div>
                 <div className="m-2 flex flex-col">
                   <div className="flex flex-row justify-between">
-                  <label className="font-bold">Conectivity: </label>
+                  <label className="font-bold">Conectividad: </label>
                   <input
                     className="input-accent w-xs rounded-md"
                     type="text"
@@ -417,7 +417,7 @@ export default function CreateArticle() {
                 <div>
                   <h3 className="font-bold text-2xl md:text-4xl">{ input.title }</h3>
                   <div className="flex flex-row justify-center pt-6">
-                    <h1 className="font-bold">Rating: </h1>
+                    <h1 className="font-bold">Calificación: </h1>
                     <p>{ input.rating === "NaN" ? input.rating = 0 : input.rating }</p>
                   </div>
                 </div>
@@ -426,7 +426,7 @@ export default function CreateArticle() {
                     <h1>Precio: </h1>
                     <p className="text-accent font-mono">${ input.price }</p>
                   </div>
-                  <div className="flex justify-center">
+                  {/* <div className="flex justify-center">
                     <p className="btn btn-outline btn-primary btn-sm btn-square">
                       <IoRemove className="text-2xl" />
                     </p>
@@ -434,9 +434,9 @@ export default function CreateArticle() {
                     <p className="btn btn-primary btn-sm btn-square ">
                       <IoAdd className="text-2xl" />
                     </p>
-                  </div>
+                  </div> */}
                   <div className="flex flex-row justify-center pt-6">
-                    <h1 className="font-bold">Stock: </h1>
+                    <h1 className="font-bold">Existencias: </h1>
                     <p>{ input.stock }</p>
                   </div>
                   <div className="flex flex-row justify-center pt-6">
@@ -503,10 +503,10 @@ export default function CreateArticle() {
           </div>
           <div className="py-4 my-4">
             <button type="submit" className="btn btn-accent m-4">
-              Create
+              Crear
             </button>
             <Link to="/admin/articulos" className="">
-              <button className="btn btn-warning m-4">Back</button>
+              <button className="btn btn-warning m-4">Cancelar</button>
             </Link>
           </div>
         </form>
