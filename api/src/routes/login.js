@@ -4,7 +4,7 @@ const createGoogleUser = require("../Controllers/auxUserLogin/createGoogleUser.j
 const loginRouter = Router();
 
 const URL_TO_REDIRECT = process.env.NODE_ENV === "production" ?
-    "https://client-ecom-07-henry.netlify.app" : "http://localhost:3000/home"
+    "https://client-ecom-07-henry.netlify.app/home" : "http://localhost:3000/home"
 
 // loginRouter.get("/google/callback", (req, res) => res.send(req.user));
 
