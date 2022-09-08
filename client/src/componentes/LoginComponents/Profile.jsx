@@ -30,7 +30,7 @@ function Profile() {
                     <BiCaretDown size={16}/>
                 </label>
 
-                <ul tabIndex="0" className="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-60">
+                <ul tabIndex="0" className="dropdown-content menu py-4 shadow bg-violet-500 rounded-md w-48 sm:w-60">
                     {
                         sessionStorage.userType === '2' && <li className="hover:bg-violet-800 rounded-none text-white">
                             <Link to={'/admin'}><BiRocket size={20}/>Panel de administrador</Link>

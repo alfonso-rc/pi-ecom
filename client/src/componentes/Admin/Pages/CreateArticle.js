@@ -221,7 +221,7 @@ export default function CreateArticle() {
               </div>
             </div>
           <div className=" flex flex-row justify-start ml-4 font-Work">
-            <div className=" flex flex-col bg-accent rounded-lg">
+            <div className=" flex flex-col bg-slate-400 rounded-lg">
               <div className=" m-4 flex flex-col rounded-lg" style={box}>
                 {/* Datos Grales del Articulo */}
                 <div className="m-2 flex flex-col ">

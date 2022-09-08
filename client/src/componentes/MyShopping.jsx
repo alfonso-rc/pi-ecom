@@ -9,14 +9,14 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 export default function MisCompras() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const [articles, setArticles] = useState([]);
 
   const BASE_URL = process.env.REACT_APP_API_URL;
   const URL_GET_ARTICLES_BOUGHT =
     process.env.NODE_ENV === "production"
-      ? BASE_URL + "/article/"
+      ? BASE_URL + "/myShoppings/get/"
       : `http://localhost:3001/myShoppings/get`;
 
 

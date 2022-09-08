@@ -42,7 +42,7 @@ export default function Example() {
     if (!Object.getOwnPropertyNames(errors).length && user.password && user.mail) {
       const USER_LOGIN = process.env.NODE_ENV === "production" ? BASE_URL + "/user/login" : "http://localhost:3001/user/login";
       let response = (await axios.post(USER_LOGIN, user)).data
-     
+
       if (response.error) {
         Swal.fire({
           text: `${response.error}`,
@@ -71,7 +71,7 @@ export default function Example() {
           text: "Sesión iniciada",
           icon: "success",
         }).then(response => {
-          if (response) history.push('/home');
+          if (response) history.push('/homexxxx');
         })
       }
     } else {
@@ -81,8 +81,8 @@ export default function Example() {
 
   const googleAuth = () => {
     const USER_LOGIN_GOOGLE = process.env.NODE_ENV === "production" ? BASE_URL + "/auth/google/callback" : "http://localhost:3001/auth/google/callback";
-		window.open(USER_LOGIN_GOOGLE, "_self" );
-	};
+    window.open(USER_LOGIN_GOOGLE, "_self");
+  };
 
   return (
     <>
@@ -92,12 +92,12 @@ export default function Example() {
           <div className="mb-20">
             <img
               className="mx-auto justify-center w-52"
-              src={Logo}
+              src={ Logo }
               alt="Workflow"
             />
           </div>
 
-          <form onSubmit={submitData} className="mt-8 space-y-6 mb-20" action="#" method="POST">
+          <form onSubmit={ submitData } className="mt-8 space-y-6 mb-20" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
 
             <div className="rounded-md shadow-sm -space-y-px">
@@ -109,17 +109,17 @@ export default function Example() {
                 <input
                   id="email-address"
                   name="mail"
-                  onChange={handleInputChange}
-                  value={user.mail}
+                  onChange={ handleInputChange }
+                  value={ user.mail }
                   type="email"
                   autoComplete="email"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Correco electrónico"
                 />
-                {errors.mail && (
-                  <p><strong>{errors.mail}</strong></p>
-                )}
+                { errors.mail && (
+                  <p><strong>{ errors.mail }</strong></p>
+                ) }
               </div>
 
               <div>
@@ -129,17 +129,17 @@ export default function Example() {
                 <input
                   id="password"
                   name="password"
-                  onChange={handleInputChange}
-                  value={user.password}
+                  onChange={ handleInputChange }
+                  value={ user.password }
                   type="password"
                   autoComplete="current-password"
                   required
                   className="bg-slate-200 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Contraseña"
                 />
-                {errors.password && (
-                  <p><strong>{errors.password}</strong></p>
-                )}
+                { errors.password && (
+                  <p><strong>{ errors.password }</strong></p>
+                ) }
               </div>
 
             </div>
@@ -178,7 +178,7 @@ export default function Example() {
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-10"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
+                  {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */ }
                 </span>
                 Iniciar sesión
               </button>
@@ -186,7 +186,7 @@ export default function Example() {
               <button
                 className="group relative w-auto flex justify-center py-2 px-4 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8 mx-auto"
                 type="submit"
-                onClick={googleAuth}           
+                onClick={ googleAuth }
               >
                 <img className="rounded w-7 mr-3" src={logoGoogle} alt="google icon"/>
                 Inicia sesión con google

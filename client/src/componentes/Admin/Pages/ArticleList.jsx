@@ -132,7 +132,7 @@ export default function ArticleList() {
 							{articulo &&
 								articulo.map((art) => {
 									return (
-										<tr>
+										<tr key={art.id}>
 											<td>{art.title}</td>
 											<td>{art.id}</td>
 											<td>{art.marca}</td>
