@@ -70,7 +70,7 @@ const deleteOffer = async (req, res, next) => {
     const {id} = req.params;
     let destro = await Offer.destroy(
       {where:{id:id}})
-      // destro===1
+      destro===1
       ?res.status(200).send("Oferta eliminada con exito")
       :res.status(404).send("No existe")
   } catch (error) {
