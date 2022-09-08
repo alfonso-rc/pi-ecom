@@ -67,7 +67,7 @@ export default function CardUs({}) {
 							target="_blank"
 							rel="noreferrer"
 							className="btn btn-primary"
-							href="#"
+							href="http://linkedin.com/in/nicol%C3%A1s-lautaro-zacar%C3%ADas-438a98216"
 						>
 							<BsLinkedin />
 						</a>
