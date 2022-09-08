@@ -112,7 +112,7 @@ export default function OfferList() {
 											href="#my-modal-2"
 											class="btn btn-error btn-xs"
 										>
-											Delete
+											Borrar
 										</a>
 										<div class="modal" id="my-modal-2">
 											<div class="modal-box">

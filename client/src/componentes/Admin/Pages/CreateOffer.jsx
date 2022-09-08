@@ -163,24 +163,23 @@ export default function CreateOffer() {
   return (
     <div>
       <NavBarAdmin />
-      <div className="text-black">
+      <div className="text-black min-h-screen font-Work">
         <form onSubmit={(e) => handleSubmit(e)} className="">
           <h1 className="text-3xl m-5 border-b-2 border-b-zinc-300 rounded-lg border font-Work font-bold shadow-2xl">
-            CREATE OFFER
+            CREAR OFERTAS
           </h1>
           <div
             className="flex flex-col lg:grid"
             style={{ gridTemplateColumns: "30% 70%" }}
           >
-            <div className="">
-              <div className=" flex flex-row justify-start ml-4 font-Work">
-                <div className=" flex flex-col bg-accent rounded-lg">
+            <div className="mr-4">
+              <div className=" flex flex-col justify-start ml-4 font-Work ">
+                <div className=" flex flex-col bg-slate-400 rounded-lg rounded-b-none">
                   <div className=" m-4 flex flex-col rounded-lg" style={box}>
                     {/* Datos Grales del Articulo */}
-
                     <div className="m-2 flex flex-col ">
                       <select
-                        className="select select-accent w-full max-w-xs"
+                        className="select w-full max-w-xs bg-white"
                         name="articleId"
                         // value={input.articleId?? ""}
                         onChange={handleArticleId}
@@ -193,15 +192,13 @@ export default function CreateOffer() {
                           </option>
                         ))}
                       </select>
-
-
                       {errors.title && <p className="flex text-red-700 font-bold">{errors.title}</p>}
                     </div>
                     <div className="m-2 flex flex-col">
                       <div className="flex flex-row justify-between">
                         <label className="font-bold">Porcentaje: </label>
                         <input
-                          className="input-accent w-xs rounded-md"
+                          className="bg-white w-10 h-8 rounded-md"
                           type="number"
                           value={input.porcent}
                           name="porcent"
@@ -216,7 +213,7 @@ export default function CreateOffer() {
                       <div className="flex flex-row justify-between">
                         <label className="font-bold">Vigencia: </label>
                         <input
-                          className="input-accent w-xs rounded-md"
+                          className="bg-white w-32 h-8 w-xs rounded-md"
                           type="date"
                           value={input.expiration}
                           name="expiration"
@@ -231,56 +228,48 @@ export default function CreateOffer() {
                     </div>
                   </div>
                 </div>
+                
               </div>
+              <div className="flex flex-col bg-slate-400 rounded-lg rounded-t-none ml-4">
+                <div className="grid grid-cols-2 font-Work m-4 rounded-lg" style={box}>
+                  <div >
+                    <div className="flex flex-row justify-start pt-10 font-Work font-bold pl-2">
+                      <p>Porcentaje aplicado:</p>
+                    </div>
+                    <div className="flex flex-row justify-start pt-10 font-Work font-bold pl-2">
+                      <p>Fecha de expiración:</p>
+                    </div>
+                  </div>
+                  <div>  
+                    <div className="flex flex-row justify-end pt-10">
+                    <p className="mr-4 font-bold bg-white rounded-md p-1">
+                      {input.porcent}%
+                    </p>
+                  </div>
+                  <div className="flex flex-row justify-end pt-6 pr-2 pb-2">
+                    <p className=" font-bold bg-white rounded-md p-1 ">
+                      {input.expiration}
+                    </p>
+                    </div>
+                  </div>
+             
+              </div>
+              </div>
+              
             </div>
             <div className="bg-white mx-2 px-2">
-              <div className="md:max-h-[calc(100vh-150px)] overflow-auto">
-                <div className="flex flex-wrap items-center justify-center lg:grid grid-cols-2">
+              <div className="md:max-h-[calc(100vh-150px)] overflow-auto flex justify-center">
+                <div className="flex flex-col">
+                  <p className="font-bold p-2 m-2 text-2xl pl-16">Articulos que se van a incluir en la oferta:</p>
                   <div className="lg:m-auto xl:ml-20 pt-6">
-                    <div>
-                      <h3 className="font-bold text-2xl md:text-4xl">
+                    <div className="">
+                      <h3 className="font-bold">
                         {(selectArticle.map(a=>
-                         <div className="border-2 border-emerald-400">
-                          <span>{a.title}</span><span className="text-accent">   ${a.price}</span>
+                         <div className="border-y-2 border-x-4 border-opacity-50 border-gray-400 text-base flex flex-col py-4">
+                          <span className="p-2">{a.title}</span><br/><div className="flex flex-row justify-center"><p>Precio:</p><span className="text-accent"> ${a.price}</span></div>
                          </div> ))}
                       </h3>
-                      <div className="flex flex-row justify-center pt-6">
-                        <h1 className="font-bold">Porcentaje: </h1>
-                        <p>
-                          {input.porcent}%
-                        </p>
-                      </div>
                     </div>
-                    
-                    {/* <div>
-                      <div className="flex flex-row justify-center py-3 font-bold pb-6">
-                        <h1>Precio: </h1>
-                        <p className="text-accent font-mono">${input.price}</p>
-                      </div>
-                      <div className="flex justify-center">
-                        <p className="btn btn-outline btn-primary btn-sm btn-square">
-                          <IoRemove className="text-2xl" />
-                        </p>
-                        <p className="px-5">1</p>
-                        <p className="btn btn-primary btn-sm btn-square ">
-                          <IoAdd className="text-2xl" />
-                        </p>
-                      </div>
-                      <div className="flex flex-row justify-center pt-6">
-                        <h1 className="font-bold">Stock: </h1>
-                        <p>{input.stock}</p>
-                      </div>
-                      <div className="flex flex-row justify-center pt-6">
-                        <h1 className="font-bold">Color: </h1>
-                        <p>{input.color}</p>
-                      </div>
-                      <br />
-                      <br />
-                      <p className="btn btn-accent btn-wide my-2">
-                        Agregar al carrito
-                      </p>
-                      <br />
-                    </div> */}
                   </div>
                 </div>
                 <br />
@@ -296,7 +285,7 @@ export default function CreateOffer() {
               Create
             </button>
             <Link to="/admin/articulos" className="">
-              <button className="btn btn-warning m-4">Back</button>
+              <button className="btn btn-warning m-4">VOLVER</button>
             </Link>
           </div>
         </form>

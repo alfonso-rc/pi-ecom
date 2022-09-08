@@ -184,7 +184,7 @@ export default function CreateArticle() {
                     type="radio"
                     name="category"
                     value="smartphones"
-                    className="checkbox checkbox-accent"
+                    className="checkbox bg-slate-400"
                     onChange={(e) => handleCheck(e)}
                   />
                 </label>
@@ -194,7 +194,7 @@ export default function CreateArticle() {
                     type="radio"
                     name="category"
                     value="notebooks"
-                    className="checkbox checkbox-accent"
+                    className="checkbox bg-slate-400"
                     onChange={(e) => handleCheck(e)}
                   />
                 </label>
@@ -204,7 +204,7 @@ export default function CreateArticle() {
                     type="radio"
                     name="category"
                     value="tablets"
-                    className="checkbox checkbox-accent"
+                    className="checkbox bg-slate-400"
                     onChange={(e) => handleCheck(e)}
                   />
                 </label>
@@ -214,7 +214,7 @@ export default function CreateArticle() {
                     type="radio"
                     name="category"
                     value="accesories"
-                    className="checkbox checkbox-accent"
+                    className="checkbox bg-slate-400"
                     onChange={(e) => handleCheck(e)}
                   />
                 </label>
