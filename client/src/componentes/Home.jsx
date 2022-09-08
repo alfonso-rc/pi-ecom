@@ -70,9 +70,13 @@ export default function Home() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////// TRAER USUARIO DE GOOGLE ////////////////////////////////////////////
 
+  const URL_TO_REQUEST_API = process.env.NODE_ENV === "production" ?
+    process.env.REACT_APP_API_URL + "/google/User" : "http://localhost:3001/google/User"
+
+
   const getGoogleUser = async () => {
     try {
-      let response = (await axios.get("http://localhost:3001/google/User")).data;
+      let response = (await axios.get(URL_TO_REQUEST_API)).data;
       if (!response.error) {
         sessionStorage.clear();
         for (const item in response) {
@@ -175,8 +179,8 @@ export default function Home() {
   //   dispatch(getArticles());
   // }
 
-  let idArt="";
-  let priceFinal=0;
+  let idArt = "";
+  let priceFinal = 0;
 
   function RenderItems() {
     return (
@@ -184,9 +188,9 @@ export default function Home() {
         <div className="flex justify-center pb-20 pt-8">
           <div className="flex flex-row flex-wrap justify-evenly gap-y-11 gap-x-6 px-2 mx-auto sm:mx-56">
             { currentArticle.map((art) => {
-              idArt=( art.id === offer.includes(art.id)) ;
+              idArt = (art.id === offer.includes(art.id));
               console.log(idArt)
-              priceFinal= Math.ceil(art.price - (art.price*offer.porcent)/100);
+              priceFinal = Math.ceil(art.price - (art.price * offer.porcent) / 100);
               return (
                 <div key={ art.id } className={ card }>
                   <Card
@@ -194,7 +198,7 @@ export default function Home() {
                     id={ art.id }
                     image={ art.image }
                     title={ art.title }
-                    price={idArt? (-priceFinal) : art.price }
+                    price={ idArt ? (-priceFinal) : art.price }
 
                   />
                 </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const URL_GET_ALL_ARTICLES =
@@ -34,7 +34,7 @@ export function orderByAZ(order) {
 	try {
 		return {
 			type: "ORDER_BY_ARTICLES",
-			payload: order
+			payload: order,
 		};
 	} catch (error) {
 		console.log(error);
@@ -98,13 +98,13 @@ export function getName(title) {
 		} catch (error) {
 			Swal.fire({
 				text: `No se ha encontrado el producto ${title}`,
-				icon: "info"
+				icon: "info",
 			});
 		}
 	};
 }
 
-export function getbrands() {
+/* export function getbrands() {
 	////////////////////////
 	return async function (dispatch) {
 		var info = await axios.get("http://localhost:3001/brand");
@@ -113,7 +113,7 @@ export function getbrands() {
 			payload: info.data,
 		});
 	};
-}
+} */
 export function orderBrand2(brand) {
 	////////////////////////
 	return {
@@ -308,7 +308,7 @@ export function getUsers() {
 				console.log(error);
 			});
 	};
-};
+}
 
 //Borrado Fisico de Usuario
 const URL_DELETE_USER =
@@ -328,7 +328,7 @@ export function deleteUser(id) {
 			console.log(error);
 		}
 	};
-};
+}
 
 //Baneado de un Usuario
 const URL_BAN_USER =
@@ -348,7 +348,7 @@ export function banUser(id) {
 			console.log(error);
 		}
 	};
-};
+}
 
 //Baneado de un Usuario
 const URL_TYPE_USER =
@@ -368,7 +368,7 @@ export function typeUser(id) {
 			console.log(error);
 		}
 	};
-};
+}
 
 export function removeCart(id) {
 	return (dispatch) =>
@@ -508,11 +508,11 @@ const URL_GET_DETAIL_BY_ID =
 // }
 export function getShopping() {
 	return async function (dispatch) {
-		var json = await axios(URL_GET_DETAIL_BY_ID)
-			 return dispatch({
-					type: "GET_SHOPPING",	
-					payload: json.data,
-				});
+		var json = await axios(URL_GET_DETAIL_BY_ID);
+		return dispatch({
+			type: "GET_SHOPPING",
+			payload: json.data,
+		});
 	};
 }
 
@@ -522,7 +522,7 @@ export function resetArticles() {
 			type: "RESET_ARTICLES",
 		});
 	};
-};
+}
 
 //Post Offer
 const URL_POST_OFFER =
@@ -560,7 +560,7 @@ export function getOffers() {
 				console.log(error);
 			});
 	};
-};
+}
 
 //Borrado Fisico de una oferta
 const URL_DELETE_OFFER =
@@ -580,7 +580,7 @@ export function deleteOffer(id) {
 			console.log(error);
 		}
 	};
-};
+}
 
 //Validar un Oferta
 const URL_VALIDITY_OFFER =
@@ -600,7 +600,7 @@ export function validityOffer(id) {
 			console.log(error);
 		}
 	};
-};
+}
 
 //Edit Offer
 const URL_EDIT_OFFER =
