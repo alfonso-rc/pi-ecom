@@ -207,6 +207,7 @@ function CheckoutForm() {
 							>
 								Realizar pago
 							</button>
+							<img className="w-48 left-2.5" src={pagoStripe} />
 						</form>
 						<ToastContainer />
 					</div>
