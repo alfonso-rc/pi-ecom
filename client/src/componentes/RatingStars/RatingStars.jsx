@@ -4,15 +4,15 @@ import ChangeRating from "./ChangeRating";
 
 export default function RatingStars({ rating }) {
    // Rating
-   const [avgRating, setAvgRating] = useState(rating || 0);
+   // const [avgRating, setAvgRating] = useState(rating || 0);
 
-   const handleRating = (input) => {
-      setAvgRating(input);
-   };
+   // const handleRating = (input) => {
+   //    setAvgRating(input);
+   // };
 
    return (
       <div>
-         <StarRating stars={ avgRating } />
+         <StarRating stars={ rating } />
       </div>
    );
 }
