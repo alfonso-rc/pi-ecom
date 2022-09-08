@@ -77,25 +77,23 @@ export default function ArticleList() {
 				showDenyButton: true,
 				denyButtonText: "Cancelar",
 				denyButtonColor: "red",
-				confirmButtonText: "Aceptar"
-			}).then(response => {
-				if (response.isDenied) history.push("/admin/articulos")
+				confirmButtonText: "Aceptar",
+			}).then((response) => {
+				if (response.isDenied) history.push("/admin/articulos");
 				else if (response.isConfirmed) {
 					Swal.fire({
 						text: "Articulo eliminado",
-						icon: "success"
-					}).then(response => {
+						icon: "success",
+					}).then((response) => {
 						if (response) {
 							dispatch(deleteArticle(id));
 							allArticle = allArticle.filter((a) => a.id !== id);
 							console.log(id);
 							refreshPage();
 						}
-					})
-
+					});
 				}
 			});
-			
 		} catch (error) {
 			console.log(error);
 		}
@@ -104,14 +102,13 @@ export default function ArticleList() {
 		try {
 			Swal.fire({
 				text: "Articulo modificado",
-				icon: "success"
-			}).then(response => {
+				icon: "success",
+			}).then((response) => {
 				if (response) {
 					dispatch(deleteArticleLogic(id));
 					refreshPage();
 				}
 			});
-			
 		} catch (error) {
 			console.log(error);
 		}
@@ -133,7 +130,7 @@ export default function ArticleList() {
 			<div>
 				<input
 					value={busqueda}
-					className="input input-bordered  text-black h-9 w-28 sm:w-full sm:h-12"
+					className="input input-bordered bg-white text-black h-9 w-28 sm:w-full sm:h-12"
 					placeholder="Búsqueda por nombre"
 					onChange={handleChange}
 				/>
@@ -212,7 +209,11 @@ export default function ArticleList() {
 											</td>
 											<td>
 												<button
-													onClick={() => handleClickDelete( art.id )}
+													onClick={() =>
+														handleClickDelete(
+															art.id
+														)
+													}
 													href="#my-modal-2"
 													className="btn btn-error btn-xs"
 												>
