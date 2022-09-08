@@ -364,7 +364,7 @@ export default function ArticleDetail() {
 									</h3>
 									<div className="flex flex-row justify-center   pt-6">
 										<h1 className="font-bold mx-3">
-											Rating:{" "}
+											Calificación:{" "}
 										</h1>
 										{/* esta es la forma provicional del Rating */}
 										<p>
@@ -401,11 +401,11 @@ export default function ArticleDetail() {
                     </button>
                   </div> */}
 									<div className="flex flex-row justify-center   pt-6">
-										<h1 className="font-bold">Stock: </h1>
+										<h1 className="font-bold">Existencias:</h1>
 										<p>{article.stock}</p>
 									</div>
 									<div className="flex flex-row justify-center  pt-6">
-										<h1 className="font-bold">Color: </h1>
+										<h1 className="font-bold">Color:</h1>
 										<p>{article.detail.color}</p>
 									</div>
 									<br />

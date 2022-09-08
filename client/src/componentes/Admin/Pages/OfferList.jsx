@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {
@@ -10,6 +10,7 @@ import {
     editOffer,
 } from "../../../../src/store/actions/index.js";
 import s from "../Pages/articleList2.module.css";
+import Swal from "sweetalert2";
 
 export default function OfferList() {
     const allArticle = useSelector((state) => state.articles);
@@ -20,6 +21,7 @@ export default function OfferList() {
 	const refreshPage = () => {
 		window.location.reload();
 	};
+	const history = useHistory();
 
 	useEffect(async() => {
 		const ofertas = (await axios.get('http://localhost:3001/offer')).data;
@@ -31,10 +33,29 @@ export default function OfferList() {
 
 	function handleClickDelete(id) {
 		try {
-			dispatch(deleteOffer(id));
-			allOffers = allOffers.filter((offer) => offer.id !== id);
-			alert(`La oferta se Elimino!`);
-			refreshPage();
+			Swal.fire({
+				text: "La oferta se eliminará permanentemente. ¿Deseas continuar?",
+				icon: "warning",
+				showDenyButton: true,
+				denyButtonText: "Cancelar",
+				denyButtonColor: "red",
+				confirmButtonText: "Aceptar"
+			}).then(response => {
+				if (response.isDenied) history.push("/admin/ofertas")
+				else if (response.isConfirmed) {
+					Swal.fire({
+						text: "La oferta se ha eliminado",
+						icon: "success"
+					}).then(response => {
+						if (response) {
+							dispatch(deleteOffer(id));
+							let allOffers2 = allOffers.filter((offer) => offer.id !== id);
+							setAllOffers(allOffers2);
+						}
+					});
+				}
+			})
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -42,9 +63,16 @@ export default function OfferList() {
 
 	function handleClickValidity(id) {
 		try {
-			dispatch(validityOffer(id));
-			alert("Hecho!");
-			refreshPage();
+			Swal.fire({
+				text: "Oferta modificada",
+				icon: "info"
+			}).then(response => {
+				if (response) {
+					dispatch(validityOffer(id));
+					refreshPage();
+				}
+			});
+
 		} catch (error) {
 			console.log(error);
 		}
@@ -108,13 +136,14 @@ export default function OfferList() {
 										)}
 									</th>
 									<td>
-										<a
+										<button
+											onClick={() => handleClickDelete(ofr.id)}
 											href="#my-modal-2"
 											class="btn btn-error btn-xs"
 										>
 											Borrar
-										</a>
-										<div class="modal" id="my-modal-2">
+										</button>
+										{/* <div class="modal" id="my-modal-2">
 											<div class="modal-box">
 												<h3 class="font-bold">
 													La oferta se eliminara de
@@ -123,11 +152,7 @@ export default function OfferList() {
 												<div class="modal-action">
 													<button
 														className="btn btn-error btn-xs"
-														onClick={() =>
-															handleClickDelete(
-																ofr.id
-															)
-														}
+														onClick={() => handleClickDelete(ofr.id)}
 													>
 														Continuar
 													</button>
@@ -139,7 +164,7 @@ export default function OfferList() {
 													</a>
 												</div>
 											</div>
-										</div>
+										</div> */}
 									</td>
 								</tr>
 							);
