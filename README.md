@@ -49,7 +49,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://client-ecom-07-henry.netlify.app/](https://client-ecom-07-henry.netlify.app/)
+[Proyecto ECOM](https://client-ecom-07-henry.netlify.app/)
 
 <h2>Screenshots</h2>
 <p align="center">
